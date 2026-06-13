@@ -1,0 +1,55 @@
+name: iSpring Learn FinOps
+description: Financial operations considerations for managing and optimizing iSpring Learn API and LMS subscription costs.
+url: https://www.ispring.com/pricing
+
+billing_model:
+  type: per-active-user
+  description: iSpring Learn charges only for users who actively log in during each monthly billing cycle. Users who do not log in are not counted as active and are not billed.
+  billing_frequency: monthly
+  contract_term: annual
+  currency: USD
+
+cost_tiers:
+  - plan: Start
+    cost_per_active_user_month: 2.29
+    api_access: false
+    notes: No API access on this tier.
+
+  - plan: Business
+    cost_per_active_user_month: 3.14
+    api_access: true
+    notes: REST API, SOAP API, and Webhook access included. Required for any programmatic integration.
+
+  - plan: Enterprise
+    cost_per_active_user_month: custom
+    api_access: true
+    notes: Custom pricing for 100+ user organizations. Contact sales for quote.
+
+cost_optimization:
+  - recommendation: Leverage active-user billing model
+    detail: Since billing is based on active (logged-in) users per month, offboarding or temporarily deactivating inactive users reduces costs automatically.
+
+  - recommendation: Upgrade to Business only when API is needed
+    detail: The $0.85/user/month premium for Business over Start is justified only when REST API, SOAP API, or Webhook integrations are required.
+
+  - recommendation: Consolidate user management via API
+    detail: Use the REST API for bulk user provisioning and deprovisioning to keep active user counts accurate and minimize billing for stale accounts.
+
+  - recommendation: Monitor active user counts
+    detail: Use GET /report/active-users-by-period to pull usage reports and correlate billed users with actual system activity.
+
+  - recommendation: Regional hosting considerations
+    detail: EU and ANZ regional hosting options may have compliance implications but do not carry documented additional cost premiums as of June 2026.
+
+  - recommendation: Webhook over polling for cost efficiency
+    detail: Use webhooks for event-driven integrations instead of polling the REST API to reduce API call volume and avoid potential rate limit exposure.
+
+notes:
+  - No government, non-profit, or academic discounts are available.
+  - Annual billing is required; monthly billing terms are not publicly offered.
+  - Custom enterprise pricing for 100+ users may yield volume discounts; contact iSpring sales at +1 844 347 7764.
+
+contacts:
+  - name: iSpring Sales
+    phone: "+1 844 347 7764"
+    url: https://www.ispring.com/pricing

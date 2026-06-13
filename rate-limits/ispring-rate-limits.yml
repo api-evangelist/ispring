@@ -1,0 +1,28 @@
+name: iSpring Learn API Rate Limits
+description: Rate limiting details for the iSpring Learn REST API. iSpring does not publicly document specific numeric rate limits. Developers should contact iSpring support for current rate limit thresholds applicable to their subscription.
+url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+
+limits:
+  - name: REST API Rate Limits
+    description: Specific rate limit values are not publicly documented. Contact iSpring support for applicable limits under your Business subscription.
+    documented: false
+
+  - name: Webhook Retry Limit
+    description: Failed webhook deliveries are retried automatically within a 24-hour window. After 24 hours without a successful delivery, the callback status reverts to unconfirmed and accumulated events are lost.
+    retry_window: 24 hours
+    behavior_on_failure: Subscriber status reverts to unconfirmed; buffered events are discarded.
+
+  - name: Async Task Monitoring
+    description: Long-running API operations return a task ID. Use GET /task/{taskId}/status to poll for completion. No documented polling frequency limits.
+    endpoint: GET /task/{taskId}/status
+
+notes:
+  - iSpring Learn API rate limit specifics are not publicly published in their documentation as of June 2026.
+  - REST API is available exclusively on the Business subscription tier.
+  - EU accounts must use the EU API host at api-learn.ispringlearn.eu to avoid additional latency or geographic routing issues.
+  - Developers requiring specific rate limit details should contact iSpring support at https://www.ispringsolutions.com/support or call +1 800 640 0868.
+
+contacts:
+  - name: iSpring Support
+    url: https://www.ispringsolutions.com/support
+    phone: "+1 800 640 0868"

@@ -1,0 +1,57 @@
+name: iSpring Learn Plans and Pricing
+description: Pricing plans for iSpring Learn LMS, billed per active user per month on an annual basis.
+url: https://www.ispring.com/pricing
+plans:
+  - name: Start
+    description: Entry-level plan for organizations getting started with eLearning. API access is not included.
+    price_per_user_month: 2.29
+    billing: annual
+    currency: USD
+    features:
+      - User and group management
+      - Course content delivery
+      - Basic reporting and analytics
+      - Mobile app access
+      - 24/7 live support
+      - Unlimited storage
+    api_access: false
+
+  - name: Business
+    description: Full-featured plan with REST API access, advanced analytics, and enterprise integrations.
+    price_per_user_month: 3.14
+    billing: annual
+    currency: USD
+    features:
+      - All Start plan features
+      - REST API access
+      - SOAP API access
+      - Webhook support
+      - 360 degree feedback and performance reviews
+      - On-the-job training scheduling
+      - Custom branding and color schemes
+      - Development plans integration
+      - CPE compliance tracking
+      - SSO via JWT, SAML, ADFS, Azure AD
+      - AI course generator
+      - Knowledge base sync
+    api_access: true
+
+  - name: Enterprise
+    description: Custom pricing for organizations with 100 or more users, tailored solutions and dedicated support.
+    price_per_user_month: custom
+    billing: custom
+    currency: USD
+    features:
+      - All Business plan features
+      - Dedicated account manager
+      - Custom integrations
+      - Data sovereignty and regional hosting options
+      - SLA guarantees
+    api_access: true
+
+notes:
+  - Pricing model charges only for active users who log in during the billing month.
+  - Government, non-profit, and academic discounts are not available.
+  - API access (REST, SOAP, Webhooks) is exclusively available on the Business subscription tier and above.
+  - EU data hosting available on Business and Enterprise plans.
+  - Australia and New Zealand regional hosting available as of April 2026.

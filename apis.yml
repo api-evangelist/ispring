@@ -1,0 +1,105 @@
+aid: ispring
+name: iSpring Learn
+description: iSpring Learn is an eLearning platform and LMS that provides a REST API for managing courses, users, groups, departments, enrollments, learning paths, and accessing detailed learner progress reports. The API supports content management, assignment grading, 360-degree performance reviews, on-the-job training, and event-driven webhooks. API access requires a Business subscription.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/ispring/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - eLearning
+  - LMS
+  - Learning Management System
+  - Training
+  - Courses
+  - Enrollments
+  - Users
+  - Groups
+  - Reporting
+  - Webhooks
+  - SCORM
+  - Corporate Training
+apis:
+  - name: iSpring Learn REST API
+    description: REST API providing programmatic access to iSpring Learn LMS functions including user management, content management, enrollments, learning paths, assignments, performance reviews, on-the-job training, and analytics reporting.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+    baseURL: https://api-learn.ispringlearn.com
+    tags:
+      - eLearning
+      - LMS
+      - Users
+      - Courses
+      - Enrollments
+      - Reporting
+    properties:
+      - type: Documentation
+        url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+      - type: OpenAPI
+        url: https://api-learn.ispringlearn.com/docs/rest-api
+    contact:
+      - FN: iSpring Support
+        url: https://www.ispringsolutions.com/support
+        phone: '+1 800 640 0868'
+
+common:
+  - name: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/api-documentation-10685383.html
+    type: Documentation
+
+  - name: REST API Reference
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+    type: Reference
+
+  - name: OpenAPI Specification
+    url: https://api-learn.ispringlearn.com/docs/rest-api
+    type: OpenAPI
+
+  - name: Webhook Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/webhook-62863671.html
+    type: Webhooks
+
+  - name: Authentication
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+    type: Authentication
+
+  - name: Integration Guide
+    url: https://www.ispringsolutions.com/articles/integration-of-ispring-learn-with-your-system
+    type: GettingStarted
+
+  - name: Blog
+    url: https://www.ispringsolutions.com/blog/
+    type: Blog
+
+  - name: Changelog
+    url: https://www.ispring.com/whats-new
+    type: ChangeLog
+
+  - name: Support
+    url: https://www.ispringsolutions.com/support
+    type: Support
+
+  - name: Privacy Policy
+    url: https://www.ispringsolutions.com/company/policy/privacy
+    type: PrivacyPolicy
+
+  - name: Terms of Service
+    url: https://www.ispringsolutions.com/services-subscription-agreement
+    type: TermsOfService
+
+  - name: Plans
+    url: plans/ispring-plans-pricing.yml
+    type: Plans
+
+  - name: RateLimits
+    url: rate-limits/ispring-rate-limits.yml
+    type: RateLimits
+
+  - name: FinOps
+    url: finops/ispring-finops.yml
+    type: FinOps
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
