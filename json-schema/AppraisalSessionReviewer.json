@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionReviewer",
+  "required": [
+    "reviewerId",
+    "role"
+  ],
+  "properties": {
+    "reviewerId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "role": {
+      "$ref": "#/components/schemas/AppraisalSessionReviewerRole"
+    }
+  },
+  "type": "object"
+}

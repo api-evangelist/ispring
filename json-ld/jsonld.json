@@ -1,0 +1,47 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "ispring": "https://api-learn.ispring.com/vocab#",
+    "api": "https://api-learn.ispringlearn.com/",
+    "LearningResource": "schema:LearningResource",
+    "Course": "schema:Course",
+    "Person": "schema:Person",
+    "Organization": "schema:Organization",
+    "Event": "schema:Event",
+    "CreativeWork": "schema:CreativeWork",
+    "user": "ispring:user",
+    "enrollment": "ispring:enrollment",
+    "department": "ispring:department",
+    "group": "ispring:group",
+    "content": "ispring:content",
+    "assignment": "ispring:assignment",
+    "certificate": "ispring:certificate",
+    "gamification": "ispring:gamification",
+    "webhook": "ispring:webhook",
+    "learningTrack": "ispring:learningTrack",
+    "statistics": "ispring:statistics",
+    "report": "ispring:report",
+    "performanceManagement": "ispring:performanceManagement",
+    "jobTraining": "ispring:jobTraining",
+    "competency": "ispring:competency",
+    "appraisal": "ispring:appraisal",
+    "quiz": "ispring:quiz",
+    "module": "ispring:module",
+    "role": "ispring:role"
+  },
+  "@graph": [
+    {
+      "@id": "https://api-learn.ispringlearn.com/",
+      "@type": "schema:WebAPI",
+      "schema:name": "iSpring Learn REST API",
+      "schema:description": "iSpring Learn LMS REST API",
+      "schema:version": "3.0",
+      "schema:url": "https://api-learn.ispringlearn.com/docs/rest-api",
+      "schema:provider": {
+        "@type": "schema:Organization",
+        "schema:name": "iSpring Solutions",
+        "schema:url": "https://www.ispringsolutions.com"
+      }
+    }
+  ]
+}

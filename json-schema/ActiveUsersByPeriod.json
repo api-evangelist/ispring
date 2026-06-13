@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ActiveUsersByPeriod",
+  "required": [
+    "ids"
+  ],
+  "properties": {
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "xml": {
+        "name": "ids",
+        "wrapped": true
+      }
+    },
+    "activityStartDate": {
+      "type": "string",
+      "format": "date",
+      "xml": {
+        "name": "activityStartDate"
+      }
+    },
+    "activityEndDate": {
+      "type": "string",
+      "format": "date",
+      "xml": {
+        "name": "activityEndDate"
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "activeUsersByPeriod"
+  }
+}

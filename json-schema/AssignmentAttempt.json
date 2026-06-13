@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AssignmentAttempt",
+  "required": [
+    "attemptId",
+    "enrollmentId",
+    "userId",
+    "comment"
+  ],
+  "properties": {
+    "attemptId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "enrollmentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AssignmentAttemptAttachment"
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "attempt"
+  }
+}

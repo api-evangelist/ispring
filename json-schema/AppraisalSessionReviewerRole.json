@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionReviewerRole",
+  "type": "string",
+  "enum": [
+    "REVIEWER_ROLE_SELF_REVIEW",
+    "REVIEWER_ROLE_DIRECT_MANAGER",
+    "REVIEWER_ROLE_PEER",
+    "REVIEWER_ROLE_DIRECT_REPORT",
+    "REVIEWER_ROLE_CUSTOMER",
+    "REVIEWER_ROLE_EXPERT"
+  ]
+}

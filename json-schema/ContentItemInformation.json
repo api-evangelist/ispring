@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContentItemInformation",
+  "required": [
+    "contentItemId",
+    "title",
+    "subtitle",
+    "description",
+    "userId",
+    "addedDate",
+    "viewUrl",
+    "type",
+    "viewType"
+  ],
+  "properties": {
+    "contentItemId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "addedDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "viewUrl": {
+      "type": "string",
+      "format": "url"
+    },
+    "type": {
+      "type": "string",
+      "deprecated": true
+    },
+    "contentItemType": {
+      "$ref": "#/components/schemas/ContentType"
+    },
+    "courseFields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CourseFieldValue"
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "contentItem"
+  }
+}

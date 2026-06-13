@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChangeCompetencyData",
+  "required": [
+    "name",
+    "scaleId",
+    "reviewMethod",
+    "commentsRequirementLevel",
+    "emptyAnswersEnabled"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "scaleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "reviewMethod": {
+      "$ref": "#/components/schemas/CompetencyReviewMethod"
+    },
+    "commentsRequirementLevel": {
+      "$ref": "#/components/schemas/CompetencyCommentsRequirementLevel"
+    },
+    "emptyAnswersEnabled": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

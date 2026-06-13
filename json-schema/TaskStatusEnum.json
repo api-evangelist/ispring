@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TaskStatusEnum",
+  "type": "string",
+  "enum": [
+    "waiting",
+    "in_progress",
+    "complete",
+    "cancelled",
+    "error"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UpdateUser",
+  "properties": {
+    "departmentId": {
+      "type": "string"
+    },
+    "role": {
+      "$ref": "#/components/schemas/UserRoleEnum"
+    },
+    "roleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserRole"
+      }
+    },
+    "fields": {
+      "$ref": "#/components/schemas/UserProfileFields"
+    },
+    "groupIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "manageableDepartmentIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "request"
+  }
+}

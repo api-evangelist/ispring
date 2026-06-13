@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NewSmartGroup",
+  "required": [
+    "name",
+    "rules"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "rules": {
+      "$ref": "#/components/schemas/SmartGroupRuleNodes"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "request"
+  }
+}

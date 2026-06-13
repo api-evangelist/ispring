@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionReview",
+  "required": [
+    "reviewId",
+    "sessionId",
+    "employeeId",
+    "reviewerId",
+    "status",
+    "completionDate"
+  ],
+  "properties": {
+    "reviewId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sessionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "reviewerId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "$ref": "#/components/schemas/AppraisalSessionReviewStatus"
+    },
+    "completionDate": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "appraisalSessionReview"
+  }
+}

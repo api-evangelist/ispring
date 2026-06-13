@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AssignmentAttemptGrade",
+  "required": [
+    "attemptId",
+    "score"
+  ],
+  "properties": {
+    "attemptId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "score": {
+      "type": "number",
+      "maximum": 100,
+      "minimum": 0
+    },
+    "comment": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "attemptGrade"
+  }
+}

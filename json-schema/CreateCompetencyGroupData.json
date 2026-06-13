@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreateCompetencyGroupData",
+  "required": [
+    "name",
+    "parentId"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "parentId": {
+      "description": "You can use the root group ID from the list of groups or the ID of other groups",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "type": "object"
+}

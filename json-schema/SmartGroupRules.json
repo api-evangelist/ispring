@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SmartGroupRules",
+  "required": [
+    "groupId",
+    "rules"
+  ],
+  "properties": {
+    "groupId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "rules": {
+      "$ref": "#/components/schemas/SmartGroupRuleNodes"
+    }
+  },
+  "type": "object"
+}

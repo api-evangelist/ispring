@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CompetencyGroup",
+  "description": "The root group has an empty parentId",
+  "required": [
+    "groupId",
+    "name",
+    "parentId",
+    "competencyIds"
+  ],
+  "properties": {
+    "groupId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "competencyIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "xml": {
+        "wrapped": true
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "competencyGroup"
+  }
+}

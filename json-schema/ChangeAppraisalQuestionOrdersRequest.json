@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChangeAppraisalQuestionOrdersRequest",
+  "required": [
+    "questionIds"
+  ],
+  "properties": {
+    "questionIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    }
+  },
+  "type": "object"
+}

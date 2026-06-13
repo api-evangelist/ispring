@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionContentIndicatorData",
+  "required": [
+    "indicatorId",
+    "name"
+  ],
+  "properties": {
+    "indicatorId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "requiredLevel": {
+      "$ref": "#/components/schemas/AppraisalSessionContentRequiredLevelData"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "appraisalSessionContentIndicatorData"
+  }
+}

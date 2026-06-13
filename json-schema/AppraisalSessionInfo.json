@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionInfo",
+  "required": [
+    "sessionId",
+    "name",
+    "description",
+    "managerId",
+    "startDate",
+    "endDate",
+    "status",
+    "profileId",
+    "instruction",
+    "selfReviewInstruction",
+    "questions",
+    "employees",
+    "permittedUserIds"
+  ],
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "managerId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "status": {
+      "$ref": "#/components/schemas/AppraisalSessionStatus"
+    },
+    "profileId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "instruction": {
+      "type": "string"
+    },
+    "selfReviewInstruction": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppraisalQuestion"
+      }
+    },
+    "employees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppraisalSessionEmployeeDetailedCard"
+      }
+    },
+    "permittedUserIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "sessionNotificationSettings": {
+      "$ref": "#/components/schemas/AppraisalSessionNotificationSettings"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CoursesModulesPage",
+  "required": [
+    "modules"
+  ],
+  "properties": {
+    "modules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CoursesModule"
+      },
+      "xml": {
+        "wrapped": true
+      }
+    },
+    "nextPageToekn": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "response"
+  }
+}

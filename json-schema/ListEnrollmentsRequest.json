@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ListEnrollmentsRequest",
+  "properties": {
+    "pageSize": {
+      "type": "integer",
+      "xml": {
+        "name": "pageSize",
+        "wrapped": false
+      }
+    },
+    "pageToken": {
+      "type": "integer",
+      "xml": {
+        "name": "pageToken",
+        "wrapped": false
+      }
+    },
+    "courseIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "xml": {
+        "name": "courseIds",
+        "wrapped": false
+      }
+    },
+    "learnerIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "xml": {
+        "name": "learnerIds",
+        "wrapped": false
+      }
+    },
+    "enrollmentIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "xml": {
+        "name": "enrollmentIds",
+        "wrapped": false
+      }
+    }
+  },
+  "type": "object"
+}

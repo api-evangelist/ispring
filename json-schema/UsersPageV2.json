@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UsersPageV2",
+  "required": [
+    "userProfiles"
+  ],
+  "properties": {
+    "userProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserV2"
+      },
+      "xml": {
+        "wrapped": true
+      }
+    },
+    "nextPageToken": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "response"
+  }
+}

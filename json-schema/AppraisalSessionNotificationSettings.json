@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionNotificationSettings",
+  "required": [
+    "dailyReviewersNotificationDay",
+    "dailyReviewersNotificationTimeMilli"
+  ],
+  "properties": {
+    "dailyReviewersNotificationDay": {
+      "type": "integer"
+    },
+    "dailyReviewersNotificationTimeMilli": {
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

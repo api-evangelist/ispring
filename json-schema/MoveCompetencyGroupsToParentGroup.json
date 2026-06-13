@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MoveCompetencyGroupsToParentGroup",
+  "required": [
+    "parentGroupId",
+    "groupIds"
+  ],
+  "properties": {
+    "parentGroupId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "groupIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TokenResponse",
+  "required": [
+    "access_token",
+    "expires_in",
+    "token_type"
+  ],
+  "properties": {
+    "access_token": {
+      "type": "string"
+    },
+    "expires_in": {
+      "type": "integer"
+    },
+    "token_type": {
+      "type": "string",
+      "enum": [
+        "bearer"
+      ]
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "response"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WithdrawGamificationPoints",
+  "required": [
+    "userId",
+    "amount",
+    "reason"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "request"
+  }
+}

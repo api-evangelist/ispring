@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LearnerModuleResult",
+  "required": [
+    "userId",
+    "courseId",
+    "moduleId",
+    "moduleTitle",
+    "courseItemId",
+    "accessDate",
+    "completionStatus",
+    "isOverdue"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "courseId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "moduleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "moduleTitle": {
+      "type": "string"
+    },
+    "courseItemId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "enrollmentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "accessDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "completionDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "timeSpent": {
+      "description": "Time spent in seconds",
+      "type": "integer"
+    },
+    "completionStatus": {
+      "$ref": "#/components/schemas/CompletionStatus"
+    },
+    "awardedScore": {
+      "type": "number",
+      "format": "float"
+    },
+    "passingScore": {
+      "type": "number",
+      "format": "float"
+    },
+    "progress": {
+      "type": "number",
+      "format": "float"
+    },
+    "isOverdue": {
+      "type": "boolean"
+    },
+    "viewsCount": {
+      "type": "integer"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "result",
+    "wrapped": true
+  }
+}

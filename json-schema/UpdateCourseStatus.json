@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UpdateCourseStatus",
+  "required": [
+    "courseId",
+    "enrollmentIds",
+    "status"
+  ],
+  "properties": {
+    "courseId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "enrollmentIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "status": {
+      "$ref": "#/components/schemas/CourseCompletionStatus"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "awardedScore": {
+      "type": "number",
+      "maximum": 100,
+      "minimum": 0
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "request"
+  }
+}

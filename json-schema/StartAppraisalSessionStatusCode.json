@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StartAppraisalSessionStatusCode",
+  "type": "string",
+  "enum": [
+    "SUCCESS",
+    "EMPTY_PROFILE",
+    "NO_EMPLOYEES",
+    "NO_REVIEWERS",
+    "ALREADY_STARTED",
+    "NO_PROFILE"
+  ],
+  "xml": {
+    "name": "response"
+  }
+}

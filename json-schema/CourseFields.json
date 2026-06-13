@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CourseFields",
+  "required": [
+    "courseFields"
+  ],
+  "properties": {
+    "courseFields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CourseField"
+      },
+      "xml": {
+        "wrapped": true
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "response"
+  }
+}

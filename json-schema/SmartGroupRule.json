@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SmartGroupRule",
+  "required": [
+    "attributeType",
+    "operator",
+    "value"
+  ],
+  "properties": {
+    "attributeType": {
+      "description": "1 - Department, 2 - Group, 3 - Profile used",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "attributeId": {
+      "type": "string"
+    },
+    "operator": {
+      "description": "1 - Only, 2 - This and nested",
+      "type": "integer",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

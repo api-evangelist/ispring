@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CourseModule",
+  "required": [
+    "moduleId",
+    "itemId",
+    "courseId",
+    "title",
+    "description",
+    "authorId",
+    "addedDate",
+    "type",
+    "sequentialNumber"
+  ],
+  "properties": {
+    "moduleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "itemId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "courseId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "authorId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "addedDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "$ref": "#/components/schemas/ModuleItemType"
+    },
+    "trainingType": {
+      "$ref": "#/components/schemas/TrainingType"
+    },
+    "viewUrl": {
+      "type": "string",
+      "format": "url"
+    },
+    "sequentialNumber": {
+      "type": "integer"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "module"
+  }
+}

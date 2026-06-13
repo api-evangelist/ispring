@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UpdateWorkLeaveStatusesRequest",
+  "properties": {
+    "workLeaveStatuses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/WorkLeaveStatusData"
+      },
+      "xml": {
+        "name": "workLeaveStatuses",
+        "wrapped": false
+      }
+    }
+  },
+  "type": "object"
+}

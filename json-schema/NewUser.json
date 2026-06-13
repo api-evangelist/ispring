@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NewUser",
+  "required": [
+    "departmentId",
+    "fields"
+  ],
+  "properties": {
+    "departmentId": {
+      "type": "string"
+    },
+    "fields": {
+      "$ref": "#/components/schemas/UserProfileFields"
+    },
+    "password": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "roleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "manageableDepartmentIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "groupIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserRole"
+      }
+    },
+    "sendLoginEmail": {
+      "type": "boolean"
+    },
+    "invitationMessage": {
+      "type": "string"
+    },
+    "sendLoginSMS": {
+      "type": "boolean"
+    },
+    "invitationSMSMessage": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "response"
+  }
+}

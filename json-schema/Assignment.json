@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Assignment",
+  "required": [
+    "assignmentId",
+    "title"
+  ],
+  "properties": {
+    "assignmentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "instructorId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "courseFields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CourseFieldValue"
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "assignment"
+  }
+}

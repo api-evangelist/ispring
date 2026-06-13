@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Department",
+  "required": [
+    "departmentId",
+    "name",
+    "subordination",
+    "coSubordination"
+  ],
+  "properties": {
+    "departmentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parentDepartmentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "code": {
+      "type": "string"
+    },
+    "subordination": {
+      "$ref": "#/components/schemas/Subordination"
+    },
+    "coSubordination": {
+      "$ref": "#/components/schemas/Subordination"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "department"
+  }
+}

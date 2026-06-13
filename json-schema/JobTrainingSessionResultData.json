@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JobTrainingSessionResultData",
+  "required": [
+    "checklistId",
+    "checklistTitle",
+    "sessionId",
+    "sessionStatus",
+    "startDate",
+    "employeeId",
+    "observerId"
+  ],
+  "properties": {
+    "checklistId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "checklistTitle": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sessionStatus": {
+      "$ref": "#/components/schemas/SessionStatus"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "actualStartDate": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "completionDate": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "result": {
+      "type": "number",
+      "format": "float"
+    },
+    "totalPoints": {
+      "type": "number",
+      "format": "float"
+    },
+    "points": {
+      "type": "number",
+      "format": "float"
+    },
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "observerId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "jobTrainingSessionResult"
+  }
+}

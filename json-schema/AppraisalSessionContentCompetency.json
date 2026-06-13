@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionContentCompetency",
+  "required": [
+    "competencyId",
+    "name",
+    "scaleId",
+    "reviewMethod",
+    "indicators",
+    "commentsRequirementLevel",
+    "emptyAnswersEnabled"
+  ],
+  "properties": {
+    "competencyId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "scaleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "requiredLevel": {
+      "$ref": "#/components/schemas/AppraisalSessionContentRequiredLevelData"
+    },
+    "reviewMethod": {
+      "$ref": "#/components/schemas/AppraisalSessionContentCompetencyReviewMethod"
+    },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppraisalSessionContentIndicatorData"
+      },
+      "xml": {
+        "wrapped": true
+      }
+    },
+    "commentsRequirementLevel": {
+      "$ref": "#/components/schemas/AppraisalSessionContentCommentsRequirementLevel"
+    },
+    "emptyAnswersEnabled": {
+      "type": "boolean"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "appraisalSessionContentCompetency"
+  }
+}

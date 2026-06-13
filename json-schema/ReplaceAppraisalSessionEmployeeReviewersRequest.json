@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ReplaceAppraisalSessionEmployeeReviewersRequest",
+  "required": [
+    "cards"
+  ],
+  "properties": {
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppraisalSessionEmployeeDetailedCard"
+      }
+    }
+  },
+  "type": "object"
+}

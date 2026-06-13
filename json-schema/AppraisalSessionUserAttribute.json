@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionUserAttribute",
+  "required": [
+    "key",
+    "value",
+    "title"
+  ],
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "appraisalSessionUserAttribute"
+  }
+}

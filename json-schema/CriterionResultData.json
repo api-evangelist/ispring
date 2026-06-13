@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CriterionResultData",
+  "required": [
+    "criterionId",
+    "criterionTitle",
+    "checklistId",
+    "sessionId",
+    "groupId",
+    "skipped",
+    "employeeId",
+    "observerId"
+  ],
+  "properties": {
+    "criterionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "groupId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "checklistId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "criterionTitle": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "skipped": {
+      "type": "boolean"
+    },
+    "totalPoints": {
+      "type": "number",
+      "format": "float"
+    },
+    "points": {
+      "type": "number",
+      "format": "float"
+    },
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "observerId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "criterionResultData"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserV2",
+  "required": [
+    "userId",
+    "role",
+    "roleId",
+    "departmentId",
+    "status",
+    "fields",
+    "addedDate",
+    "lastLoginDate",
+    "userRoles",
+    "subordination",
+    "coSubordination"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "role": {
+      "$ref": "#/components/schemas/UserRoleEnum"
+    },
+    "roleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "departmentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "$ref": "#/components/schemas/UserStatus"
+    },
+    "fields": {
+      "$ref": "#/components/schemas/UserProfileFields"
+    },
+    "addedDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "lastLoginDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "manageableDepartmentIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "userRoles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserRole"
+      }
+    },
+    "groups": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "subordination": {
+      "$ref": "#/components/schemas/Subordination"
+    },
+    "coSubordination": {
+      "$ref": "#/components/schemas/Subordination"
+    },
+    "workLeaveStatus": {
+      "$ref": "#/components/schemas/WorkLeaveStatus"
+    },
+    "securityPolicyAcceptanceDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "privacyPolicyConsentAcceptanceDate": {
+      "type": "string",
+      "format": "datetime"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "userProfile",
+    "wrapped": true
+  }
+}

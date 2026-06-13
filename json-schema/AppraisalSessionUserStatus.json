@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionUserStatus",
+  "type": "string",
+  "enum": [
+    "ACTIVE",
+    "DEACTIVATED",
+    "DELETED",
+    "TERMINATED"
+  ]
+}

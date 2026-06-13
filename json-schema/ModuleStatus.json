@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ModuleStatus",
+  "required": [
+    "contentItemId",
+    "date",
+    "reason",
+    "status",
+    "awardedScore"
+  ],
+  "properties": {
+    "contentItemId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/CompletionStatus"
+    },
+    "awardedScore": {
+      "type": "number",
+      "maximum": 100,
+      "minimum": 0
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "moduleStatus"
+  }
+}

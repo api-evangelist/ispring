@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reenroll",
+  "required": [
+    "accessDate",
+    "dueDateType"
+  ],
+  "properties": {
+    "accessDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "dueDateType": {
+      "$ref": "#/components/schemas/DueDateType"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "duePeriod": {
+      "type": "integer"
+    },
+    "lockAfterDueDate": {
+      "type": "boolean"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "request"
+  }
+}

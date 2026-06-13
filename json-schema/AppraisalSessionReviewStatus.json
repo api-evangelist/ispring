@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionReviewStatus",
+  "type": "string",
+  "enum": [
+    "NOT_STARTED",
+    "IN_PROGRESS",
+    "SUBMITTED"
+  ]
+}

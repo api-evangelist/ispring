@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UpdateGroupMembers",
+  "required": [
+    "userIds"
+  ],
+  "properties": {
+    "userIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "request"
+  }
+}

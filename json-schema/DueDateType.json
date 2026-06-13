@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DueDateType",
+  "type": "string",
+  "enum": [
+    "unlimited",
+    "default",
+    "due_date",
+    "due_period"
+  ]
+}

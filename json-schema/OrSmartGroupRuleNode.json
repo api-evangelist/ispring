@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrSmartGroupRuleNode",
+  "required": [
+    "rule"
+  ],
+  "properties": {
+    "rule": {
+      "$ref": "#/components/schemas/SmartGroupRule"
+    }
+  },
+  "type": "object"
+}

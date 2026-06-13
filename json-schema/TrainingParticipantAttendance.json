@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TrainingParticipantAttendance",
+  "required": [
+    "participantId",
+    "isAttended"
+  ],
+  "properties": {
+    "participantId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "isAttended": {
+      "type": "boolean"
+    },
+    "duration": {
+      "description": "Duration in seconds",
+      "type": "integer"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "trainingParticipantAttendance"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSession",
+  "required": [
+    "sessionId",
+    "name",
+    "description",
+    "managerId",
+    "profileId",
+    "status",
+    "startDate"
+  ],
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "managerId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "profileId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "$ref": "#/components/schemas/AppraisalSessionStatus"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "appraisalSession"
+  }
+}

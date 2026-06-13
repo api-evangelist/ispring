@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CoursesModule",
+  "required": [
+    "moduleId",
+    "contentItemId",
+    "courseId",
+    "title",
+    "description",
+    "authorId",
+    "addedDate",
+    "viewUrl"
+  ],
+  "properties": {
+    "moduleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "contentItemId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "courseId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "authorId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "addedDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "viewUrl": {
+      "type": "string",
+      "format": "url"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "module"
+  }
+}

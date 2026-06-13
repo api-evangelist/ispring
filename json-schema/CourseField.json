@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CourseField",
+  "required": [
+    "fieldId",
+    "fieldCustomId",
+    "fieldLabel",
+    "fieldType"
+  ],
+  "properties": {
+    "fieldId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "fieldCustomId": {
+      "type": "string"
+    },
+    "fieldLabel": {
+      "type": "string"
+    },
+    "fieldType": {
+      "$ref": "#/components/schemas/CourseFieldType"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "courseField",
+    "wrapped": true
+  }
+}

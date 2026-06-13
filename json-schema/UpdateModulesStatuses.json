@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UpdateModulesStatuses",
+  "required": [
+    "enrollmentIds",
+    "courseId",
+    "moduleStatuses"
+  ],
+  "properties": {
+    "enrollmentIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "courseId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "moduleStatuses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ModuleStatus"
+      },
+      "xml": {
+        "wrapped": true
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "request"
+  }
+}

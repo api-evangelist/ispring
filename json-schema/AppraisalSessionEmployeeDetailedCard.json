@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppraisalSessionEmployeeDetailedCard",
+  "required": [
+    "employeeId",
+    "reviewers"
+  ],
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "reviewers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppraisalSessionReviewer"
+      }
+    }
+  },
+  "type": "object"
+}

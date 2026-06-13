@@ -1,0 +1,1077 @@
+{
+  "name": "iSpring Learn API Vocabulary",
+  "description": "Domain vocabulary extracted from the iSpring Learn REST API specification",
+  "source": "https://api-learn.ispringlearn.com/docs/rest-api",
+  "terms": [
+    {
+      "term": "token",
+      "type": "tag",
+      "description": "Authentication token management"
+    },
+    {
+      "term": "content",
+      "type": "tag",
+      "description": "Learning content items (courses, modules, quizzes)"
+    },
+    {
+      "term": "user",
+      "type": "tag",
+      "description": "User account management"
+    },
+    {
+      "term": "enrollment",
+      "type": "tag",
+      "description": "Course enrollment and assignment"
+    },
+    {
+      "term": "department",
+      "type": "tag",
+      "description": "Organizational department structure"
+    },
+    {
+      "term": "departments",
+      "type": "tag",
+      "description": "Bulk department operations"
+    },
+    {
+      "term": "group",
+      "type": "tag",
+      "description": "User group management"
+    },
+    {
+      "term": "gamification",
+      "type": "tag",
+      "description": "Points-based gamification rewards"
+    },
+    {
+      "term": "statistics",
+      "type": "tag",
+      "description": "Learner statistics and completion data"
+    },
+    {
+      "term": "report",
+      "type": "tag",
+      "description": "Analytics and reporting"
+    },
+    {
+      "term": "results",
+      "type": "tag",
+      "description": "Learner result data"
+    },
+    {
+      "term": "webhook",
+      "type": "tag",
+      "description": "Event-driven webhook subscriptions"
+    },
+    {
+      "term": "assignments",
+      "type": "tag",
+      "description": "Assignment submission and grading"
+    },
+    {
+      "term": "learning_track",
+      "type": "tag",
+      "description": "Learning path/track management"
+    },
+    {
+      "term": "quizzes",
+      "type": "tag",
+      "description": "Quiz and assessment management"
+    },
+    {
+      "term": "performance-management",
+      "type": "tag",
+      "description": "Competency and appraisal management"
+    },
+    {
+      "term": "jobtraining",
+      "type": "tag",
+      "description": "On-the-job training checklists and sessions"
+    },
+    {
+      "term": "certificate",
+      "type": "tag",
+      "description": "Issued certificate tracking"
+    },
+    {
+      "term": "task",
+      "type": "tag",
+      "description": "Asynchronous task status"
+    },
+    {
+      "term": "training",
+      "type": "tag",
+      "description": "Training session management"
+    },
+    {
+      "term": "UserProfileFields",
+      "type": "schema",
+      "description": "Schema for UserProfileFields"
+    },
+    {
+      "term": "UserRoleEnum",
+      "type": "schema",
+      "description": "Schema for UserRoleEnum"
+    },
+    {
+      "term": "ArrayOfIds",
+      "type": "schema",
+      "description": "Schema for ArrayOfIds"
+    },
+    {
+      "term": "UserStatus",
+      "type": "schema",
+      "description": "1 - active, 3 - inactive, 5 - terminated"
+    },
+    {
+      "term": "DueDateType",
+      "type": "schema",
+      "description": "Schema for DueDateType"
+    },
+    {
+      "term": "EnrollmentTypeGroup",
+      "type": "schema",
+      "description": "0 - Enrolled by admin 1 - Enrolled from catalog"
+    },
+    {
+      "term": "CourseCompletionStatus",
+      "type": "schema",
+      "description": "Schema for CourseCompletionStatus"
+    },
+    {
+      "term": "ClientCredentialsGrantTypeRequest",
+      "type": "schema",
+      "description": "Schema for ClientCredentialsGrantTypeRequest"
+    },
+    {
+      "term": "TokenResponse",
+      "type": "schema",
+      "description": "Schema for TokenResponse"
+    },
+    {
+      "term": "CreateCourseRequest",
+      "type": "schema",
+      "description": "Schema for CreateCourseRequest"
+    },
+    {
+      "term": "UpdateCourseStatus",
+      "type": "schema",
+      "description": "Schema for UpdateCourseStatus"
+    },
+    {
+      "term": "UpdateModulesStatuses",
+      "type": "schema",
+      "description": "Schema for UpdateModulesStatuses"
+    },
+    {
+      "term": "AssignmentAttemptGrades",
+      "type": "schema",
+      "description": "Schema for AssignmentAttemptGrades"
+    },
+    {
+      "term": "NewDepartment",
+      "type": "schema",
+      "description": "Schema for NewDepartment"
+    },
+    {
+      "term": "UpdateDepartment",
+      "type": "schema",
+      "description": "Schema for UpdateDepartment"
+    },
+    {
+      "term": "ChangeDepartmentSubordination",
+      "type": "schema",
+      "description": "Schema for ChangeDepartmentSubordination"
+    },
+    {
+      "term": "MoveUsersToDepartment",
+      "type": "schema",
+      "description": "Schema for MoveUsersToDepartment"
+    },
+    {
+      "term": "MoveDepartments",
+      "type": "schema",
+      "description": "Schema for MoveDepartments"
+    },
+    {
+      "term": "NewEnrollment",
+      "type": "schema",
+      "description": "Schema for NewEnrollment"
+    },
+    {
+      "term": "ListEnrollmentsRequest",
+      "type": "schema",
+      "description": "Schema for ListEnrollmentsRequest"
+    },
+    {
+      "term": "UpdateEnrollment",
+      "type": "schema",
+      "description": "Schema for UpdateEnrollment"
+    },
+    {
+      "term": "Reenroll",
+      "type": "schema",
+      "description": "Schema for Reenroll"
+    },
+    {
+      "term": "DeleteEnrollments",
+      "type": "schema",
+      "description": "Schema for DeleteEnrollments"
+    },
+    {
+      "term": "AwardGamificationPoints",
+      "type": "schema",
+      "description": "Schema for AwardGamificationPoints"
+    },
+    {
+      "term": "WithdrawGamificationPoints",
+      "type": "schema",
+      "description": "Schema for WithdrawGamificationPoints"
+    },
+    {
+      "term": "NewGroup",
+      "type": "schema",
+      "description": "Schema for NewGroup"
+    },
+    {
+      "term": "NewSmartGroup",
+      "type": "schema",
+      "description": "Schema for NewSmartGroup"
+    },
+    {
+      "term": "SmartGroupRuleNodes",
+      "type": "schema",
+      "description": "Schema for SmartGroupRuleNodes"
+    },
+    {
+      "term": "UpdateSmartGroup",
+      "type": "schema",
+      "description": "Schema for UpdateSmartGroup"
+    },
+    {
+      "term": "UpdateGroup",
+      "type": "schema",
+      "description": "Schema for UpdateGroup"
+    },
+    {
+      "term": "UpdateGroupMembers",
+      "type": "schema",
+      "description": "Schema for UpdateGroupMembers"
+    },
+    {
+      "term": "ListChecklistsSessionsRequest",
+      "type": "schema",
+      "description": "Schema for ListChecklistsSessionsRequest"
+    },
+    {
+      "term": "ListSessionsResultRequest",
+      "type": "schema",
+      "description": "Schema for ListSessionsResultRequest"
+    },
+    {
+      "term": "ListCriterionGroupsResultRequest",
+      "type": "schema",
+      "description": "Schema for ListCriterionGroupsResultRequest"
+    },
+    {
+      "term": "ListCriterionResultRequest",
+      "type": "schema",
+      "description": "Schema for ListCriterionResultRequest"
+    },
+    {
+      "term": "ChangeCompetencyScaleRequest",
+      "type": "schema",
+      "description": "Schema for ChangeCompetencyScaleRequest"
+    },
+    {
+      "term": "ListCompetenciesRequest",
+      "type": "schema",
+      "description": "Schema for ListCompetenciesRequest"
+    },
+    {
+      "term": "ChangeCompetencyData",
+      "type": "schema",
+      "description": "Schema for ChangeCompetencyData"
+    },
+    {
+      "term": "CompetencyIndicatorData",
+      "type": "schema",
+      "description": "Schema for CompetencyIndicatorData"
+    },
+    {
+      "term": "ListCompetencyProfilesRequest",
+      "type": "schema",
+      "description": "Schema for ListCompetencyProfilesRequest"
+    },
+    {
+      "term": "ListAppraisalSessionsRequest",
+      "type": "schema",
+      "description": "Schema for ListAppraisalSessionsRequest"
+    },
+    {
+      "term": "ListAppraisalSessionUserAttributesRequest",
+      "type": "schema",
+      "description": "Schema for ListAppraisalSessionUserAttributesRequest"
+    },
+    {
+      "term": "UpdateAppraisalSessionRequest",
+      "type": "schema",
+      "description": "Schema for UpdateAppraisalSessionRequest"
+    },
+    {
+      "term": "CreateAppraisalSessionRequest",
+      "type": "schema",
+      "description": "Schema for CreateAppraisalSessionRequest"
+    },
+    {
+      "term": "AddAppraisalSessionEmployeeCardsRequest",
+      "type": "schema",
+      "description": "Schema for AddAppraisalSessionEmployeeCardsRequest"
+    },
+    {
+      "term": "ReplaceAppraisalSessionEmployeeReviewersRequest",
+      "type": "schema",
+      "description": "Schema for ReplaceAppraisalSessionEmployeeReviewersRequest"
+    },
+    {
+      "term": "RemoveAppraisalSessionEmployeeCardsRequest",
+      "type": "schema",
+      "description": "Schema for RemoveAppraisalSessionEmployeeCardsRequest"
+    },
+    {
+      "term": "RemoveAppraisalSessionReviewersRequest",
+      "type": "schema",
+      "description": "Schema for RemoveAppraisalSessionReviewersRequest"
+    },
+    {
+      "term": "AddAppraisalQuestionRequest",
+      "type": "schema",
+      "description": "Schema for AddAppraisalQuestionRequest"
+    },
+    {
+      "term": "UpdateAppraisalQuestionRequest",
+      "type": "schema",
+      "description": "Schema for UpdateAppraisalQuestionRequest"
+    },
+    {
+      "term": "ChangeAppraisalQuestionOrdersRequest",
+      "type": "schema",
+      "description": "Schema for ChangeAppraisalQuestionOrdersRequest"
+    },
+    {
+      "term": "AddAppraisalSessionPermissionsRequest",
+      "type": "schema",
+      "description": "Schema for AddAppraisalSessionPermissionsRequest"
+    },
+    {
+      "term": "RemoveAppraisalSessionPermissionsRequest",
+      "type": "schema",
+      "description": "Schema for RemoveAppraisalSessionPermissionsRequest"
+    },
+    {
+      "term": "ChangeAppraisalSessionNotificationSettingsRequest",
+      "type": "schema",
+      "description": "Schema for ChangeAppraisalSessionNotificationSettingsRequest"
+    },
+    {
+      "term": "UpdateDay",
+      "type": "schema",
+      "description": "Schema for UpdateDay"
+    },
+    {
+      "term": "UpdateDayParticipantsAttendanceRequest",
+      "type": "schema",
+      "description": "Schema for UpdateDayParticipantsAttendanceRequest"
+    },
+    {
+      "term": "NewUser",
+      "type": "schema",
+      "description": "Schema for NewUser"
+    },
+    {
+      "term": "UpdateUser",
+      "type": "schema",
+      "description": "Schema for UpdateUser"
+    },
+    {
+      "term": "UpdateUserPassword",
+      "type": "schema",
+      "description": "Schema for UpdateUserPassword"
+    },
+    {
+      "term": "UpdateUserStatus",
+      "type": "schema",
+      "description": "Schema for UpdateUserStatus"
+    },
+    {
+      "term": "ChangeUserSubordination",
+      "type": "schema",
+      "description": "Schema for ChangeUserSubordination"
+    },
+    {
+      "term": "ScheduledUserDeactivation",
+      "type": "schema",
+      "description": "Schema for ScheduledUserDeactivation"
+    },
+    {
+      "term": "ScheduledUserTermination",
+      "type": "schema",
+      "description": "Schema for ScheduledUserTermination"
+    },
+    {
+      "term": "RemoveUserGroups",
+      "type": "schema",
+      "description": "Schema for RemoveUserGroups"
+    },
+    {
+      "term": "ProfileFieldsFilterItem",
+      "type": "schema",
+      "description": "Schema for ProfileFieldsFilterItem"
+    },
+    {
+      "term": "ProfileFieldsDateRangeItem",
+      "type": "schema",
+      "description": "Schema for ProfileFieldsDateRangeItem"
+    },
+    {
+      "term": "GetPagedUsersListRequest",
+      "type": "schema",
+      "description": "Schema for GetPagedUsersListRequest"
+    },
+    {
+      "term": "GetPagedUsersListResponse",
+      "type": "schema",
+      "description": "Schema for GetPagedUsersListResponse"
+    },
+    {
+      "term": "UpdateWorkLeaveStatusesRequest",
+      "type": "schema",
+      "description": "Schema for UpdateWorkLeaveStatusesRequest"
+    },
+    {
+      "term": "SubscriberRequest",
+      "type": "schema",
+      "description": "Schema for SubscriberRequest"
+    },
+    {
+      "term": "SubscriberNameRequest",
+      "type": "schema",
+      "description": "Schema for SubscriberNameRequest"
+    },
+    {
+      "term": "SubscribeRequest",
+      "type": "schema",
+      "description": "Schema for SubscribeRequest"
+    },
+    {
+      "term": "UnsubscribeRequest",
+      "type": "schema",
+      "description": "Schema for UnsubscribeRequest"
+    },
+    {
+      "term": "ConfirmRequest",
+      "type": "schema",
+      "description": "Schema for ConfirmRequest"
+    },
+    {
+      "term": "GetSubscriberInfoResponse",
+      "type": "schema",
+      "description": "Schema for GetSubscriberInfoResponse"
+    },
+    {
+      "term": "ErrorResponse",
+      "type": "schema",
+      "description": "Schema for ErrorResponse"
+    },
+    {
+      "term": "ActiveUsersByPeriod",
+      "type": "schema",
+      "description": "Schema for ActiveUsersByPeriod"
+    },
+    {
+      "term": "AnswerBreakdownResult",
+      "type": "schema",
+      "description": "Schema for AnswerBreakdownResult"
+    },
+    {
+      "term": "AnswerBreakdownResultsPage",
+      "type": "schema",
+      "description": "Schema for AnswerBreakdownResultsPage"
+    },
+    {
+      "term": "AppraisalQuestion",
+      "type": "schema",
+      "description": "Schema for AppraisalQuestion"
+    },
+    {
+      "term": "AppraisalSession",
+      "type": "schema",
+      "description": "Schema for AppraisalSession"
+    },
+    {
+      "term": "AppraisalSessionContentCommentsRequirementLevel",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentCommentsRequirementLevel"
+    },
+    {
+      "term": "AppraisalSessionContentCompetencies",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentCompetencies"
+    },
+    {
+      "term": "AppraisalSessionContentCompetency",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentCompetency"
+    },
+    {
+      "term": "AppraisalSessionContentCompetencyReviewMethod",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentCompetencyReviewMethod"
+    },
+    {
+      "term": "AppraisalSessionContentIndicatorData",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentIndicatorData"
+    },
+    {
+      "term": "AppraisalSessionContentRequiredLevelData",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentRequiredLevelData"
+    },
+    {
+      "term": "AppraisalSessionContentScale",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentScale"
+    },
+    {
+      "term": "AppraisalSessionContentScaleLevelData",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionContentScaleLevelData"
+    },
+    {
+      "term": "AppraisalSessionEmployeeCard",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionEmployeeCard"
+    },
+    {
+      "term": "AppraisalSessionEmployeeCompetencyResults",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionEmployeeCompetencyResults"
+    },
+    {
+      "term": "AppraisalSessionEmployeeDetailedCard",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionEmployeeDetailedCard"
+    },
+    {
+      "term": "AppraisalSessionEmployeeIndicatorResults",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionEmployeeIndicatorResults"
+    },
+    {
+      "term": "AppraisalSessionEmployeeResults",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionEmployeeResults"
+    },
+    {
+      "term": "AppraisalSessionInfo",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionInfo"
+    },
+    {
+      "term": "AppraisalSessionNotificationSettings",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionNotificationSettings"
+    },
+    {
+      "term": "AppraisalSessionReview",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionReview"
+    },
+    {
+      "term": "AppraisalSessionReviewStatus",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionReviewStatus"
+    },
+    {
+      "term": "AppraisalSessionReviewer",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionReviewer"
+    },
+    {
+      "term": "AppraisalSessionReviewerRole",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionReviewerRole"
+    },
+    {
+      "term": "AppraisalSessionStatus",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionStatus"
+    },
+    {
+      "term": "AppraisalSessionUserAttribute",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionUserAttribute"
+    },
+    {
+      "term": "AppraisalSessionUserAttributes",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionUserAttributes"
+    },
+    {
+      "term": "AppraisalSessionUserStatus",
+      "type": "schema",
+      "description": "Schema for AppraisalSessionUserStatus"
+    },
+    {
+      "term": "RestartAppraisalSessionStatusCode",
+      "type": "schema",
+      "description": "Schema for RestartAppraisalSessionStatusCode"
+    },
+    {
+      "term": "StartAppraisalSessionStatusCode",
+      "type": "schema",
+      "description": "Schema for StartAppraisalSessionStatusCode"
+    },
+    {
+      "term": "Assignment",
+      "type": "schema",
+      "description": "Schema for Assignment"
+    },
+    {
+      "term": "AssignmentAttempt",
+      "type": "schema",
+      "description": "Schema for AssignmentAttempt"
+    },
+    {
+      "term": "AssignmentAttemptAttachment",
+      "type": "schema",
+      "description": "Schema for AssignmentAttemptAttachment"
+    },
+    {
+      "term": "AssignmentAttemptGrade",
+      "type": "schema",
+      "description": "Schema for AssignmentAttemptGrade"
+    },
+    {
+      "term": "AssignmentsPage",
+      "type": "schema",
+      "description": "Schema for AssignmentsPage"
+    },
+    {
+      "term": "Competency",
+      "type": "schema",
+      "description": "Schema for Competency"
+    },
+    {
+      "term": "CompetencyCommentsRequirementLevel",
+      "type": "schema",
+      "description": "Schema for CompetencyCommentsRequirementLevel"
+    },
+    {
+      "term": "CompetencyGroup",
+      "type": "schema",
+      "description": "The root group has an empty parentId"
+    },
+    {
+      "term": "CompetencyIndicator",
+      "type": "schema",
+      "description": "Schema for CompetencyIndicator"
+    },
+    {
+      "term": "CompetencyIndicatorLevel",
+      "type": "schema",
+      "description": "Schema for CompetencyIndicatorLevel"
+    },
+    {
+      "term": "CompetencyProfile",
+      "type": "schema",
+      "description": "Schema for CompetencyProfile"
+    },
+    {
+      "term": "CompetencyReviewMethod",
+      "type": "schema",
+      "description": "Schema for CompetencyReviewMethod"
+    },
+    {
+      "term": "CompetencyScale",
+      "type": "schema",
+      "description": "Schema for CompetencyScale"
+    },
+    {
+      "term": "CompetencyScaleLevel",
+      "type": "schema",
+      "description": "Schema for CompetencyScaleLevel"
+    },
+    {
+      "term": "CreateCompetencyData",
+      "type": "schema",
+      "description": "Schema for CreateCompetencyData"
+    },
+    {
+      "term": "CreateCompetencyGroupData",
+      "type": "schema",
+      "description": "Schema for CreateCompetencyGroupData"
+    },
+    {
+      "term": "CreateCompetencyScaleData",
+      "type": "schema",
+      "description": "Schema for CreateCompetencyScaleData"
+    },
+    {
+      "term": "CreateCompetencyScaleLevelData",
+      "type": "schema",
+      "description": "Schema for CreateCompetencyScaleLevelData"
+    },
+    {
+      "term": "MoveCompetenciesToGroup",
+      "type": "schema",
+      "description": "Schema for MoveCompetenciesToGroup"
+    },
+    {
+      "term": "MoveCompetencyGroupsToParentGroup",
+      "type": "schema",
+      "description": "Schema for MoveCompetencyGroupsToParentGroup"
+    },
+    {
+      "term": "ProfileCompetencyData",
+      "type": "schema",
+      "description": "Schema for ProfileCompetencyData"
+    },
+    {
+      "term": "ProfileIndicatorData",
+      "type": "schema",
+      "description": "Schema for ProfileIndicatorData"
+    },
+    {
+      "term": "ContentItemInformation",
+      "type": "schema",
+      "description": "Schema for ContentItemInformation"
+    },
+    {
+      "term": "ContentItemFinalStatus",
+      "type": "schema",
+      "description": "Schema for ContentItemFinalStatus"
+    },
+    {
+      "term": "ContentItemsInformationPage",
+      "type": "schema",
+      "description": "Schema for ContentItemsInformationPage"
+    },
+    {
+      "term": "ContentType",
+      "type": "schema",
+      "description": "Schema for ContentType"
+    },
+    {
+      "term": "CourseField",
+      "type": "schema",
+      "description": "Schema for CourseField"
+    },
+    {
+      "term": "CourseFieldType",
+      "type": "schema",
+      "description": "Schema for CourseFieldType"
+    },
+    {
+      "term": "CourseFieldValue",
+      "type": "schema",
+      "description": "Schema for CourseFieldValue"
+    },
+    {
+      "term": "CourseFields",
+      "type": "schema",
+      "description": "Schema for CourseFields"
+    },
+    {
+      "term": "ModuleItemType",
+      "type": "schema",
+      "description": "Schema for ModuleItemType"
+    },
+    {
+      "term": "CourseModule",
+      "type": "schema",
+      "description": "Schema for CourseModule"
+    },
+    {
+      "term": "CourseModulesPage",
+      "type": "schema",
+      "description": "Schema for CourseModulesPage"
+    },
+    {
+      "term": "CourseTreeItem",
+      "type": "schema",
+      "description": "Schema for CourseTreeItem"
+    },
+    {
+      "term": "CoursesModule",
+      "type": "schema",
+      "description": "Schema for CoursesModule"
+    },
+    {
+      "term": "CoursesModulesPage",
+      "type": "schema",
+      "description": "Schema for CoursesModulesPage"
+    },
+    {
+      "term": "DateRange",
+      "type": "schema",
+      "description": "Schema for DateRange"
+    },
+    {
+      "term": "Day",
+      "type": "schema",
+      "description": "Schema for Day"
+    },
+    {
+      "term": "Department",
+      "type": "schema",
+      "description": "Schema for Department"
+    },
+    {
+      "term": "DepartmentsPage",
+      "type": "schema",
+      "description": "Schema for DepartmentsPage"
+    },
+    {
+      "term": "DetailedGroup",
+      "type": "schema",
+      "description": "Schema for DetailedGroup"
+    },
+    {
+      "term": "Enrollment",
+      "type": "schema",
+      "description": "Schema for Enrollment"
+    },
+    {
+      "term": "EnrollmentsPage",
+      "type": "schema",
+      "description": "Schema for EnrollmentsPage"
+    },
+    {
+      "term": "UserPointsInfo",
+      "type": "schema",
+      "description": "Schema for UserPointsInfo"
+    },
+    {
+      "term": "Group",
+      "type": "schema",
+      "description": "Schema for Group"
+    },
+    {
+      "term": "GroupsPage",
+      "type": "schema",
+      "description": "Schema for GroupsPage"
+    },
+    {
+      "term": "IssuedCertificate",
+      "type": "schema",
+      "description": "Schema for IssuedCertificate"
+    },
+    {
+      "term": "IssuedCertificateInformation",
+      "type": "schema",
+      "description": "Schema for IssuedCertificateInformation"
+    },
+    {
+      "term": "ChecklistSessionsData",
+      "type": "schema",
+      "description": "Schema for ChecklistSessionsData"
+    },
+    {
+      "term": "ChecklistStatus",
+      "type": "schema",
+      "description": "Schema for ChecklistStatus"
+    },
+    {
+      "term": "CriterionGroupResultData",
+      "type": "schema",
+      "description": "Schema for CriterionGroupResultData"
+    },
+    {
+      "term": "CriterionResultData",
+      "type": "schema",
+      "description": "Schema for CriterionResultData"
+    },
+    {
+      "term": "JobTrainingSessionResultData",
+      "type": "schema",
+      "description": "Schema for JobTrainingSessionResultData"
+    },
+    {
+      "term": "SessionStatus",
+      "type": "schema",
+      "description": "Schema for SessionStatus"
+    },
+    {
+      "term": "LearnerModuleResult",
+      "type": "schema",
+      "description": "Schema for LearnerModuleResult"
+    },
+    {
+      "term": "LearnersModulesResultsResponse",
+      "type": "schema",
+      "description": "Schema for LearnersModulesResultsResponse"
+    },
+    {
+      "term": "CompletionStatus",
+      "type": "schema",
+      "description": "Schema for CompletionStatus"
+    },
+    {
+      "term": "LearnerResult",
+      "type": "schema",
+      "description": "Schema for LearnerResult"
+    },
+    {
+      "term": "LearnersResultsResponse",
+      "type": "schema",
+      "description": "Schema for LearnersResultsResponse"
+    },
+    {
+      "term": "LearningTrackCourse",
+      "type": "schema",
+      "description": "Schema for LearningTrackCourse"
+    },
+    {
+      "term": "ModuleStatus",
+      "type": "schema",
+      "description": "Schema for ModuleStatus"
+    },
+    {
+      "term": "ParticipantsPage",
+      "type": "schema",
+      "description": "Schema for ParticipantsPage"
+    },
+    {
+      "term": "Quiz",
+      "type": "schema",
+      "description": "Schema for Quiz"
+    },
+    {
+      "term": "QuizzesPage",
+      "type": "schema",
+      "description": "Schema for QuizzesPage"
+    },
+    {
+      "term": "Role",
+      "type": "schema",
+      "description": "Schema for Role"
+    },
+    {
+      "term": "SmartGroupRule",
+      "type": "schema",
+      "description": "Schema for SmartGroupRule"
+    },
+    {
+      "term": "AndSmartGroupRuleNode",
+      "type": "schema",
+      "description": "Schema for AndSmartGroupRuleNode"
+    },
+    {
+      "term": "OrSmartGroupRuleNode",
+      "type": "schema",
+      "description": "Schema for OrSmartGroupRuleNode"
+    },
+    {
+      "term": "SmartGroupRules",
+      "type": "schema",
+      "description": "Schema for SmartGroupRules"
+    },
+    {
+      "term": "Subordination",
+      "type": "schema",
+      "description": "Schema for Subordination"
+    },
+    {
+      "term": "TaskStatusEnum",
+      "type": "schema",
+      "description": "Schema for TaskStatusEnum"
+    },
+    {
+      "term": "TaskStatus",
+      "type": "schema",
+      "description": "Schema for TaskStatus"
+    },
+    {
+      "term": "Training",
+      "type": "schema",
+      "description": "Schema for Training"
+    },
+    {
+      "term": "TrainingParticipantAttendance",
+      "type": "schema",
+      "description": "Schema for TrainingParticipantAttendance"
+    },
+    {
+      "term": "TrainingSession",
+      "type": "schema",
+      "description": "Schema for TrainingSession"
+    },
+    {
+      "term": "TrainingType",
+      "type": "schema",
+      "description": "Schema for TrainingType"
+    },
+    {
+      "term": "User",
+      "type": "schema",
+      "description": "Schema for User"
+    },
+    {
+      "term": "UserProfileField",
+      "type": "schema",
+      "description": "Schema for UserProfileField"
+    },
+    {
+      "term": "UserFieldInfo",
+      "type": "schema",
+      "description": "Schema for UserFieldInfo"
+    },
+    {
+      "term": "UserV2",
+      "type": "schema",
+      "description": "Schema for UserV2"
+    },
+    {
+      "term": "UsersPage",
+      "type": "schema",
+      "description": "Schema for UsersPage"
+    },
+    {
+      "term": "UsersPageV2",
+      "type": "schema",
+      "description": "Schema for UsersPageV2"
+    },
+    {
+      "term": "UserRole",
+      "type": "schema",
+      "description": "Schema for UserRole"
+    },
+    {
+      "term": "Subscription",
+      "type": "schema",
+      "description": "Schema for Subscription"
+    },
+    {
+      "term": "SubscriptionParameter",
+      "type": "schema",
+      "description": "Schema for SubscriptionParameter"
+    },
+    {
+      "term": "WorkLeaveReason",
+      "type": "schema",
+      "description": "Schema for WorkLeaveReason"
+    },
+    {
+      "term": "WorkLeaveStatus",
+      "type": "schema",
+      "description": "Schema for WorkLeaveStatus"
+    },
+    {
+      "term": "WorkLeaveStatusData",
+      "type": "schema",
+      "description": "Schema for WorkLeaveStatusData"
+    }
+  ]
+}

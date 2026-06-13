@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AnswerBreakdownResult",
+  "required": [
+    "userId",
+    "enrollmentId",
+    "quizVersion",
+    "attemptDate",
+    "isAttemptPassed",
+    "attemptScore",
+    "passingScore",
+    "questionNumber",
+    "questionTitle",
+    "questionType",
+    "questionScore",
+    "answerText",
+    "isAnswerCorrect",
+    "answerScore"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "enrollmentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "quizVersion": {
+      "type": "string"
+    },
+    "attemptDate": {
+      "type": "string",
+      "format": "datetime"
+    },
+    "isAttemptPassed": {
+      "type": "boolean"
+    },
+    "attemptScore": {
+      "type": "number",
+      "format": "float"
+    },
+    "passingScore": {
+      "type": "number",
+      "format": "float"
+    },
+    "questionNumber": {
+      "type": "integer"
+    },
+    "questionTitle": {
+      "type": "string"
+    },
+    "questionType": {
+      "type": "string"
+    },
+    "questionScore": {
+      "type": "number",
+      "format": "float"
+    },
+    "questionGroup": {
+      "type": "string"
+    },
+    "statementTitle": {
+      "type": "string"
+    },
+    "answerText": {
+      "type": "string"
+    },
+    "customAnswerText": {
+      "type": "string"
+    },
+    "isAnswerCorrect": {
+      "type": "boolean"
+    },
+    "answerScore": {
+      "type": "number",
+      "format": "float"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "result",
+    "wrapped": true
+  }
+}

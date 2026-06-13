@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChecklistSessionsData",
+  "required": [
+    "checklistId",
+    "checklistTitle",
+    "checklistStatus",
+    "sessionIds"
+  ],
+  "properties": {
+    "checklistId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "checklistTitle": {
+      "type": "string"
+    },
+    "checklistStatus": {
+      "$ref": "#/components/schemas/ChecklistStatus"
+    },
+    "sessionIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "checklistSessions"
+  }
+}

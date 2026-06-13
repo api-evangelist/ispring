@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CompetencyIndicator",
+  "required": [
+    "indicatorId",
+    "name",
+    "levels"
+  ],
+  "properties": {
+    "indicatorId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "levels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CompetencyIndicatorLevel"
+      },
+      "xml": {
+        "wrapped": true
+      }
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "competencyIndicator"
+  }
+}

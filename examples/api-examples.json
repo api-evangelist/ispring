@@ -1,0 +1,1067 @@
+[
+  {
+    "operationId": "AccessRequest",
+    "method": "POST",
+    "path": "/api/v3/token",
+    "tag": "token",
+    "summary": "Generates a new access token based on client_id and client_secret",
+    "requestBodySchema": "#/components/schemas/ClientCredentialsGrantTypeRequest"
+  },
+  {
+    "operationId": "GetContent",
+    "method": "GET",
+    "path": "/content",
+    "tag": "content",
+    "summary": "Get content list"
+  },
+  {
+    "operationId": "ListContent",
+    "method": "GET",
+    "path": "/contents",
+    "tag": "content",
+    "summary": "List content"
+  },
+  {
+    "operationId": "ListContentByPost",
+    "method": "POST",
+    "path": "/contents",
+    "tag": "content",
+    "summary": "List content"
+  },
+  {
+    "operationId": "GetContentItem",
+    "method": "GET",
+    "path": "/content/{contentId}",
+    "tag": "content",
+    "summary": "Get content item"
+  },
+  {
+    "operationId": "GetContentItemFinalStatuses",
+    "method": "GET",
+    "path": "/content/{contentId}/final_statuses",
+    "tag": "content",
+    "summary": "Get content item final statuses"
+  },
+  {
+    "operationId": "ListCoursesModules",
+    "method": "GET",
+    "path": "/courses/modules",
+    "tag": "content",
+    "summary": "List courses modules"
+  },
+  {
+    "operationId": "ListCourseFields",
+    "method": "GET",
+    "path": "/course_fields",
+    "tag": "content",
+    "summary": "List course fields"
+  },
+  {
+    "operationId": "CreateContent",
+    "method": "POST",
+    "path": "/content/create/{contentType}",
+    "tag": "content",
+    "summary": "Create content item",
+    "requestBodySchema": "{'oneOf': [{'$ref': '#/components/schemas/CreateCourseRequest'}]}"
+  },
+  {
+    "operationId": "ListCourseModules",
+    "method": "GET",
+    "path": "/course/{courseId}/modules",
+    "tag": "content",
+    "summary": "List modules by course id"
+  },
+  {
+    "operationId": "UpdateCourseStatus",
+    "method": "POST",
+    "path": "/statistics/course",
+    "tag": "statistics",
+    "summary": "Update course status",
+    "requestBodySchema": "#/components/schemas/UpdateCourseStatus"
+  },
+  {
+    "operationId": "UpdateModuleStatuses",
+    "method": "POST",
+    "path": "/statistics/module",
+    "tag": "statistics",
+    "summary": "Update modules statuses",
+    "requestBodySchema": "#/components/schemas/UpdateModulesStatuses"
+  },
+  {
+    "operationId": "ResetModuleStatistics",
+    "method": "DELETE",
+    "path": "/statistics/module",
+    "tag": "statistics",
+    "summary": "Reset modules statistics"
+  },
+  {
+    "operationId": "GetTaskStatus",
+    "method": "GET",
+    "path": "/task/{taskId}/status",
+    "tag": "task",
+    "summary": "Get async task status"
+  },
+  {
+    "operationId": "ListAssignments",
+    "method": "GET",
+    "path": "/assignments",
+    "tag": "assignments",
+    "summary": "List assignments"
+  },
+  {
+    "operationId": "ListAssignmentAttempts",
+    "method": "GET",
+    "path": "/assignment/{assignmentId}/attempts/ungraded",
+    "tag": "assignments",
+    "summary": "Retrieves a list of ungraded attempts for an assignment"
+  },
+  {
+    "operationId": "GradeAssignments",
+    "method": "POST",
+    "path": "/assignments/attempts/grade",
+    "tag": "assignments",
+    "summary": "Grade user assignment attempts",
+    "requestBodySchema": "#/components/schemas/AssignmentAttemptGrades"
+  },
+  {
+    "operationId": "ListLearningTracksCourses",
+    "method": "GET",
+    "path": "/learning_track/courses",
+    "tag": "learning_track",
+    "summary": "Retrieves a list of courses included in the trajectories"
+  },
+  {
+    "operationId": "GetCoursesTree",
+    "method": "GET",
+    "path": "/courses_tree",
+    "tag": "content",
+    "summary": "Get courses tree"
+  },
+  {
+    "operationId": "ListQuizzes",
+    "method": "GET",
+    "path": "/quizzes",
+    "tag": "quizzes",
+    "summary": "Retrieves a list of quizzes"
+  },
+  {
+    "operationId": "GetDepartments",
+    "method": "GET",
+    "path": "/department",
+    "tag": "department",
+    "summary": "Get department list"
+  },
+  {
+    "operationId": "AddDepartment",
+    "method": "POST",
+    "path": "/department",
+    "tag": "department",
+    "summary": "Add a new department",
+    "requestBodySchema": "#/components/schemas/NewDepartment"
+  },
+  {
+    "operationId": "GetDepartment",
+    "method": "GET",
+    "path": "/department/{departmentId}",
+    "tag": "department",
+    "summary": "Get department info"
+  },
+  {
+    "operationId": "UpdateDepartment",
+    "method": "POST",
+    "path": "/department/{departmentId}",
+    "tag": "department",
+    "summary": "Update department",
+    "requestBodySchema": "#/components/schemas/UpdateDepartment"
+  },
+  {
+    "operationId": "RemoveDepartment",
+    "method": "DELETE",
+    "path": "/department/{departmentId}",
+    "tag": "department",
+    "summary": "Delete department"
+  },
+  {
+    "operationId": "ListDepartments",
+    "method": "GET",
+    "path": "/departments",
+    "tag": "departments",
+    "summary": "List departments"
+  },
+  {
+    "operationId": "ChangeDepartmentSubordination",
+    "method": "POST",
+    "path": "/department/{departmentId}/subordination",
+    "tag": "department",
+    "summary": "Change department subordination",
+    "requestBodySchema": "#/components/schemas/ChangeDepartmentSubordination"
+  },
+  {
+    "operationId": "MoveUsersToDepartment",
+    "method": "POST",
+    "path": "/department/{departmentId}/user/move",
+    "tag": "department",
+    "summary": "Move users to department",
+    "requestBodySchema": "#/components/schemas/MoveUsersToDepartment"
+  },
+  {
+    "operationId": "MoveDepartments",
+    "method": "POST",
+    "path": "/department/{parentId}/department/move",
+    "tag": "department",
+    "summary": "Move departments to parent department",
+    "requestBodySchema": "#/components/schemas/MoveDepartments"
+  },
+  {
+    "operationId": "GetEnrollments",
+    "method": "GET",
+    "path": "/enrollment",
+    "tag": "enrollment",
+    "summary": "Get enrollment list"
+  },
+  {
+    "operationId": "EnrollLearnersInCourses",
+    "method": "POST",
+    "path": "/enrollment",
+    "tag": "enrollment",
+    "summary": "Create new enrollments",
+    "requestBodySchema": "#/components/schemas/NewEnrollment"
+  },
+  {
+    "operationId": "ListEnrollments",
+    "method": "GET",
+    "path": "/enrollments",
+    "tag": "enrollment",
+    "summary": "List enrollments"
+  },
+  {
+    "operationId": "ListEnrollmentsByPost",
+    "method": "POST",
+    "path": "/enrollments",
+    "tag": "enrollment",
+    "summary": "List enrollments",
+    "requestBodySchema": "#/components/schemas/ListEnrollmentsRequest"
+  },
+  {
+    "operationId": "GetEnrollment",
+    "method": "GET",
+    "path": "/enrollment/{enrollmentId}",
+    "tag": "enrollment",
+    "summary": "Get enrollment details"
+  },
+  {
+    "operationId": "ChangeEnrollment",
+    "method": "POST",
+    "path": "/enrollment/{enrollmentId}",
+    "tag": "enrollment",
+    "summary": "Update enrollment",
+    "requestBodySchema": "#/components/schemas/UpdateEnrollment"
+  },
+  {
+    "operationId": "Reenroll",
+    "method": "POST",
+    "path": "/enrollment/{enrollmentId}/reenroll",
+    "tag": "enrollment",
+    "summary": "Reenroll learner",
+    "requestBodySchema": "#/components/schemas/Reenroll"
+  },
+  {
+    "operationId": "Unenroll",
+    "method": "POST",
+    "path": "/enrollment/delete",
+    "tag": "enrollment",
+    "summary": "Delete enrollments",
+    "requestBodySchema": "#/components/schemas/DeleteEnrollments"
+  },
+  {
+    "operationId": "GetIssuedCertificate",
+    "method": "GET",
+    "path": "/certificate/{issuedCertificateId}",
+    "tag": "certificate",
+    "summary": "Retrieves issued certificate information"
+  },
+  {
+    "operationId": "GetGamificationPoints",
+    "method": "GET",
+    "path": "/gamification/points",
+    "tag": "gamification",
+    "summary": "Retrieves a list of users and their gamification points"
+  },
+  {
+    "operationId": "AwardGamificationPoints",
+    "method": "POST",
+    "path": "/gamification/points/award",
+    "tag": "gamification",
+    "summary": "Award points to user",
+    "requestBodySchema": "#/components/schemas/AwardGamificationPoints"
+  },
+  {
+    "operationId": "WithdrawGamificationPoints",
+    "method": "POST",
+    "path": "/gamification/points/withdraw",
+    "tag": "gamification",
+    "summary": "Withdraw points from user",
+    "requestBodySchema": "#/components/schemas/WithdrawGamificationPoints"
+  },
+  {
+    "operationId": "GetGroups",
+    "method": "GET",
+    "path": "/group",
+    "tag": "group",
+    "summary": "Get group list"
+  },
+  {
+    "operationId": "AddGroup",
+    "method": "POST",
+    "path": "/group",
+    "tag": "group",
+    "summary": "Add a new group",
+    "requestBodySchema": "#/components/schemas/NewGroup"
+  },
+  {
+    "operationId": "AddSmartGroup",
+    "method": "POST",
+    "path": "/group/smart",
+    "tag": "group",
+    "summary": "Add a new smart group",
+    "requestBodySchema": "#/components/schemas/NewSmartGroup"
+  },
+  {
+    "operationId": "EditSmartGroup",
+    "method": "POST",
+    "path": "/group/smart/{groupId}",
+    "tag": "group",
+    "summary": "Update smart group rules",
+    "requestBodySchema": "#/components/schemas/UpdateSmartGroup"
+  },
+  {
+    "operationId": "GetSmartGroupRules",
+    "method": "GET",
+    "path": "/group/smart/{groupId}/rules",
+    "tag": "group",
+    "summary": "Get smart group rules"
+  },
+  {
+    "operationId": "GetGroup",
+    "method": "GET",
+    "path": "/group/{groupId}",
+    "tag": "group",
+    "summary": "Get group details"
+  },
+  {
+    "operationId": "UpdateGroup",
+    "method": "POST",
+    "path": "/group/{groupId}",
+    "tag": "group",
+    "summary": "Update group",
+    "requestBodySchema": "#/components/schemas/UpdateGroup"
+  },
+  {
+    "operationId": "RemoveGroup",
+    "method": "DELETE",
+    "path": "/group/{groupId}",
+    "tag": "group",
+    "summary": "Delete group"
+  },
+  {
+    "operationId": "UpdateGroupMembers",
+    "method": "POST",
+    "path": "/group/{groupId}/members",
+    "tag": "group",
+    "summary": "Update group members",
+    "requestBodySchema": "#/components/schemas/UpdateGroupMembers"
+  },
+  {
+    "operationId": "ListGroups",
+    "method": "GET",
+    "path": "/groups",
+    "tag": "group",
+    "summary": "List groups"
+  },
+  {
+    "operationId": "listChecklistSessions",
+    "method": "POST",
+    "path": "/job-training/checklist/sessions/list",
+    "tag": "jobtraining",
+    "summary": "List \u0441hecklists with sessions",
+    "requestBodySchema": "#/components/schemas/ListChecklistsSessionsRequest"
+  },
+  {
+    "operationId": "listSessionsResult",
+    "method": "POST",
+    "path": "/job-training/sessions/result/list",
+    "tag": "jobtraining",
+    "summary": "List sessions result",
+    "requestBodySchema": "#/components/schemas/ListSessionsResultRequest"
+  },
+  {
+    "operationId": "listCriterionGroupsResult",
+    "method": "POST",
+    "path": "/job-training/completed-session/criterion-group/result/list",
+    "tag": "jobtraining",
+    "summary": "List criterion groups result",
+    "requestBodySchema": "#/components/schemas/ListCriterionGroupsResultRequest"
+  },
+  {
+    "operationId": "listCriterionResult",
+    "method": "POST",
+    "path": "/job-training/completed-session/criterion/result/list",
+    "tag": "jobtraining",
+    "summary": "List criterion result in completed sessions",
+    "requestBodySchema": "#/components/schemas/ListCriterionResultRequest"
+  },
+  {
+    "operationId": "ListCompetencyScales",
+    "method": "GET",
+    "path": "/performance-management/competencies/scale/list",
+    "tag": "performance-management",
+    "summary": "List competency scales"
+  },
+  {
+    "operationId": "CreateCompetencyScale",
+    "method": "POST",
+    "path": "/performance-management/competencies/scale/create",
+    "tag": "performance-management",
+    "summary": "Create competency scale",
+    "requestBodySchema": "#/components/schemas/CreateCompetencyScaleData"
+  },
+  {
+    "operationId": "ChangeCompetencyScale",
+    "method": "POST",
+    "path": "/performance-management/competencies/scale/{scaleId}/change",
+    "tag": "performance-management",
+    "summary": "Change competency scale",
+    "requestBodySchema": "#/components/schemas/ChangeCompetencyScaleRequest"
+  },
+  {
+    "operationId": "CreateCompetencyGroup",
+    "method": "POST",
+    "path": "/performance-management/competencies/group/create",
+    "tag": "performance-management",
+    "summary": "Create competency group",
+    "requestBodySchema": "#/components/schemas/CreateCompetencyGroupData"
+  },
+  {
+    "operationId": "ChangeCompetencyGroupName",
+    "method": "POST",
+    "path": "/performance-management/competencies/group/{groupId}/rename",
+    "tag": "performance-management",
+    "summary": "Change competency group name",
+    "requestBodySchema": "{'required': ['name'], 'properties': {'name': {'type': 'string'}}, 'type': 'object'}"
+  },
+  {
+    "operationId": "MoveCompetencyGroups",
+    "method": "POST",
+    "path": "/performance-management/competencies/group/batch-move",
+    "tag": "performance-management",
+    "summary": "Move competency groups to parent group",
+    "requestBodySchema": "#/components/schemas/MoveCompetencyGroupsToParentGroup"
+  },
+  {
+    "operationId": "MoveCompetenciesToGroup",
+    "method": "POST",
+    "path": "/performance-management/competencies/competency/batch-move",
+    "tag": "performance-management",
+    "summary": "Move competencies to group",
+    "requestBodySchema": "#/components/schemas/MoveCompetenciesToGroup"
+  },
+  {
+    "operationId": "ListCompetencyGroups",
+    "method": "GET",
+    "path": "/performance-management/competencies/group/list",
+    "tag": "performance-management",
+    "summary": "List competency groups"
+  },
+  {
+    "operationId": "ListCompetencies",
+    "method": "POST",
+    "path": "/performance-management/competencies/competency/list",
+    "tag": "performance-management",
+    "summary": "List competencies",
+    "requestBodySchema": "#/components/schemas/ListCompetenciesRequest"
+  },
+  {
+    "operationId": "CreateCompetency",
+    "method": "POST",
+    "path": "/performance-management/competencies/competency/create",
+    "tag": "performance-management",
+    "summary": "Create competency",
+    "requestBodySchema": "#/components/schemas/CreateCompetencyData"
+  },
+  {
+    "operationId": "ChangeCompetency",
+    "method": "POST",
+    "path": "/performance-management/competencies/competency/{competencyId}/change",
+    "tag": "performance-management",
+    "summary": "Change competency",
+    "requestBodySchema": "#/components/schemas/ChangeCompetencyData"
+  },
+  {
+    "operationId": "CreateCompetencyIndicator",
+    "method": "POST",
+    "path": "/performance-management/competencies/competency/{competencyId}/indicator/create",
+    "tag": "performance-management",
+    "summary": "Create competency indicator",
+    "requestBodySchema": "#/components/schemas/CompetencyIndicatorData"
+  },
+  {
+    "operationId": "ChangeCompetencyIndicator",
+    "method": "POST",
+    "path": "/performance-management/competencies/competency/{competencyId}/indicator/{indicatorId}/change",
+    "tag": "performance-management",
+    "summary": "Change competency indicator",
+    "requestBodySchema": "#/components/schemas/CompetencyIndicatorData"
+  },
+  {
+    "operationId": "ListCompetencyProfiles",
+    "method": "POST",
+    "path": "/performance-management/competencies/profile/list",
+    "tag": "performance-management",
+    "summary": "List competency profiles",
+    "requestBodySchema": "#/components/schemas/ListCompetencyProfilesRequest"
+  },
+  {
+    "operationId": "ListAppraisalSessions",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/list",
+    "tag": "performance-management",
+    "summary": "List appraisal sessions",
+    "requestBodySchema": "#/components/schemas/ListAppraisalSessionsRequest"
+  },
+  {
+    "operationId": "ListAppraisalSessionEmployeeCards",
+    "method": "GET",
+    "path": "/performance-management/appraisal/session/{sessionId}/employee-card/list",
+    "tag": "performance-management",
+    "summary": "List appraisal session employee cards"
+  },
+  {
+    "operationId": "ListAppraisalSessionReviews",
+    "method": "GET",
+    "path": "/performance-management/appraisal/session/{sessionId}/review/list",
+    "tag": "performance-management",
+    "summary": "List appraisal session reviews"
+  },
+  {
+    "operationId": "GetAppraisalSessionResults",
+    "method": "GET",
+    "path": "/performance-management/appraisal/session/{sessionId}/results",
+    "tag": "performance-management",
+    "summary": "Get appraisal session results"
+  },
+  {
+    "operationId": "GetAppraisalSessionContentCompetencies",
+    "method": "GET",
+    "path": "/performance-management/appraisal/session/{sessionId}/content/competencies",
+    "tag": "performance-management",
+    "summary": "Get appraisal session content competencies"
+  },
+  {
+    "operationId": "ListAppraisalSessionUserAttributes",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/user/attributes/list",
+    "tag": "performance-management",
+    "summary": "List appraisal session user attributes",
+    "requestBodySchema": "#/components/schemas/ListAppraisalSessionUserAttributesRequest"
+  },
+  {
+    "operationId": "StartAppraisalSession",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/start",
+    "tag": "performance-management",
+    "summary": "Start appraisal session"
+  },
+  {
+    "operationId": "RestartAppraisalSession",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/restart",
+    "tag": "performance-management",
+    "summary": "Restart appraisal session"
+  },
+  {
+    "operationId": "CompleteAppraisalSession",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/complete",
+    "tag": "performance-management",
+    "summary": "Complete appraisal session"
+  },
+  {
+    "operationId": "UpdateAppraisalSession",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/update",
+    "tag": "performance-management",
+    "summary": "Updating the appraisal session",
+    "requestBodySchema": "#/components/schemas/UpdateAppraisalSessionRequest"
+  },
+  {
+    "operationId": "CreateAppraisalSession",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/create",
+    "tag": "performance-management",
+    "summary": "Creating the appraisal session",
+    "requestBodySchema": "#/components/schemas/CreateAppraisalSessionRequest"
+  },
+  {
+    "operationId": "AddAppraisalSessionEmployeeCards",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/employee-card/add",
+    "tag": "performance-management",
+    "summary": "Add employee cards to the appraisal session",
+    "requestBodySchema": "#/components/schemas/AddAppraisalSessionEmployeeCardsRequest"
+  },
+  {
+    "operationId": "ReplaceAppraisalSessionEmployeeReviewers",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/employee-card/reviewer/replace",
+    "tag": "performance-management",
+    "summary": "Replaces employee card reviewers in an appraisal session",
+    "requestBodySchema": "#/components/schemas/ReplaceAppraisalSessionEmployeeReviewersRequest"
+  },
+  {
+    "operationId": "RemoveAppraisalSessionEmployeeCards",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/employee-card/remove",
+    "tag": "performance-management",
+    "summary": "Remove employee cards from the appraisal session",
+    "requestBodySchema": "#/components/schemas/RemoveAppraisalSessionEmployeeCardsRequest"
+  },
+  {
+    "operationId": "RemoveAppraisalSessionReviewers",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/employee-card/reviewer/remove",
+    "tag": "performance-management",
+    "summary": "Remove reviewers from the appraisal session",
+    "requestBodySchema": "#/components/schemas/RemoveAppraisalSessionReviewersRequest"
+  },
+  {
+    "operationId": "AddAppraisalQuestion",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/question/add",
+    "tag": "performance-management",
+    "summary": "Adding the appraisal session question",
+    "requestBodySchema": "#/components/schemas/AddAppraisalQuestionRequest"
+  },
+  {
+    "operationId": "UpdateAppraisalQuestion",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/question/{questionId}/update",
+    "tag": "performance-management",
+    "summary": "Updating the appraisal session question",
+    "requestBodySchema": "#/components/schemas/UpdateAppraisalQuestionRequest"
+  },
+  {
+    "operationId": "ChangeAppraisalQuestionOrders",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/question/change-order",
+    "tag": "performance-management",
+    "summary": "Changing the appraisal session question orders",
+    "requestBodySchema": "#/components/schemas/ChangeAppraisalQuestionOrdersRequest"
+  },
+  {
+    "operationId": "RemoveAppraisalQuestion",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/question/{questionId}/remove",
+    "tag": "performance-management",
+    "summary": "Removing the appraisal session question"
+  },
+  {
+    "operationId": "AddAppraisalSessionPermissions",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/permissions/add",
+    "tag": "performance-management",
+    "summary": "Adding the appraisal session permissions",
+    "requestBodySchema": "#/components/schemas/AddAppraisalSessionPermissionsRequest"
+  },
+  {
+    "operationId": "RemoveAppraisalSessionPermissions",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/permissions/remove",
+    "tag": "performance-management",
+    "summary": "Removing the appraisal session permissions",
+    "requestBodySchema": "#/components/schemas/RemoveAppraisalSessionPermissionsRequest"
+  },
+  {
+    "operationId": "GetAppraisalSessionInfo",
+    "method": "GET",
+    "path": "/performance-management/appraisal/session/{sessionId}/info",
+    "tag": "performance-management",
+    "summary": "Getting the appraisal session full info"
+  },
+  {
+    "operationId": "ChangeAppraisalSessionNotificationSettings",
+    "method": "POST",
+    "path": "/performance-management/appraisal/session/{sessionId}/notification/change",
+    "tag": "performance-management",
+    "summary": "Changing the appraisal session notification settings",
+    "requestBodySchema": "#/components/schemas/ChangeAppraisalSessionNotificationSettingsRequest"
+  },
+  {
+    "operationId": "GetUsersWithActivity",
+    "method": "GET",
+    "path": "/report/active-users-by-period",
+    "tag": "report",
+    "summary": "Get active users"
+  },
+  {
+    "operationId": "ListAnswerBreakdownResults",
+    "method": "GET",
+    "path": "/report/answer-breakdown",
+    "tag": "report",
+    "summary": "Retrieves a paginated list of answers results for answer breakdown report"
+  },
+  {
+    "operationId": "GetTrainingById",
+    "method": "GET",
+    "path": "/training/{trainingId}",
+    "tag": "training",
+    "summary": "Retrieves information about training"
+  },
+  {
+    "operationId": "GetTrainingSession",
+    "method": "GET",
+    "path": "/training/session/{trainingSessionId}",
+    "tag": "training",
+    "summary": "Retrieves training session information"
+  },
+  {
+    "operationId": "ListSessionsByTrainingId",
+    "method": "GET",
+    "path": "/training/{trainingId}/sessions",
+    "tag": "training",
+    "summary": "Retrieves information about sessions by training id"
+  },
+  {
+    "operationId": "GetDay",
+    "method": "GET",
+    "path": "/training/day/{dayId}",
+    "tag": "training",
+    "summary": "Retrieves session day information"
+  },
+  {
+    "operationId": "UpdateDay",
+    "method": "POST",
+    "path": "/training/day/{dayId}",
+    "tag": "training",
+    "summary": "Update day url",
+    "requestBodySchema": "#/components/schemas/UpdateDay"
+  },
+  {
+    "operationId": "ListSessionParticipants",
+    "method": "GET",
+    "path": "/training/session/participants/{sessionId}",
+    "tag": "training",
+    "summary": "Retrieves information about participants by session id"
+  },
+  {
+    "operationId": "UpdateDayParticipantsAttendance",
+    "method": "POST",
+    "path": "/training/day/{dayId}/participants/attendance/update",
+    "tag": "training",
+    "summary": "Updates participants attendance by day",
+    "requestBodySchema": "#/components/schemas/UpdateDayParticipantsAttendanceRequest"
+  },
+  {
+    "operationId": "GetUsers",
+    "method": "GET",
+    "path": "/user",
+    "tag": "user",
+    "summary": "Get user list"
+  },
+  {
+    "operationId": "AddUser",
+    "method": "POST",
+    "path": "/user",
+    "tag": "user",
+    "summary": "Add a new user",
+    "requestBodySchema": "#/components/schemas/NewUser"
+  },
+  {
+    "operationId": "GetUserProfile",
+    "method": "GET",
+    "path": "/user/{userId}",
+    "tag": "user",
+    "summary": "Get user profile"
+  },
+  {
+    "operationId": "UpdateUserProfile",
+    "method": "POST",
+    "path": "/user/{userId}",
+    "tag": "user",
+    "summary": "Update user profile",
+    "requestBodySchema": "#/components/schemas/UpdateUser"
+  },
+  {
+    "operationId": "RemoveUser",
+    "method": "DELETE",
+    "path": "/user/{userId}",
+    "tag": "user",
+    "summary": "Delete user"
+  },
+  {
+    "operationId": "FindExistingUsers",
+    "method": "POST",
+    "path": "/users/find_existing",
+    "tag": "user",
+    "summary": "Find existing users",
+    "requestBodySchema": "{'required': ['userIds'], 'properties': {'userIds': {'$ref': '#/components/schemas/ArrayOfIds'}}, 'type': 'object'}"
+  },
+  {
+    "operationId": "GetUserProfileV2",
+    "method": "GET",
+    "path": "/user/{userId}/v2",
+    "tag": "user",
+    "summary": "Get user profile"
+  },
+  {
+    "operationId": "GetUsersV2",
+    "method": "GET",
+    "path": "/user/v2",
+    "tag": "user",
+    "summary": "Get user list"
+  },
+  {
+    "operationId": "ListUsers",
+    "method": "GET",
+    "path": "/users",
+    "tag": "user",
+    "summary": "List users"
+  },
+  {
+    "operationId": "ListUsersV2",
+    "method": "GET",
+    "path": "/users/v2",
+    "tag": "user",
+    "summary": "List users"
+  },
+  {
+    "operationId": "ListUsersV2ByPost",
+    "method": "POST",
+    "path": "/users/v2",
+    "tag": "user",
+    "summary": "List users"
+  },
+  {
+    "operationId": "GetUserProfileFields",
+    "method": "GET",
+    "path": "/user/profile/fields",
+    "tag": "user",
+    "summary": "Get user profile fields"
+  },
+  {
+    "operationId": "UpdateUserPassword",
+    "method": "POST",
+    "path": "/user/{userId}/password",
+    "tag": "user",
+    "summary": "Update user password",
+    "requestBodySchema": "#/components/schemas/UpdateUserPassword"
+  },
+  {
+    "operationId": "ChangeUserStatus",
+    "method": "POST",
+    "path": "/user/{userId}/status",
+    "tag": "user",
+    "summary": "Activate/Deactivate user",
+    "requestBodySchema": "#/components/schemas/UpdateUserStatus"
+  },
+  {
+    "operationId": "ChangeUserSubordination",
+    "method": "POST",
+    "path": "/user/{userId}/subordination",
+    "tag": "user",
+    "summary": "Change user subordination",
+    "requestBodySchema": "#/components/schemas/ChangeUserSubordination"
+  },
+  {
+    "operationId": "ScheduleUserDeactivation",
+    "method": "POST",
+    "path": "/user/{userId}/scheduled_deactivation",
+    "tag": "user",
+    "summary": "Schedule user deactivation",
+    "requestBodySchema": "#/components/schemas/ScheduledUserDeactivation"
+  },
+  {
+    "operationId": "RemoveScheduledUserDeactivation",
+    "method": "DELETE",
+    "path": "/user/{userId}/scheduled_deactivation",
+    "tag": "user",
+    "summary": "Delete scheduled deactivation date"
+  },
+  {
+    "operationId": "ScheduleUserTermination",
+    "method": "POST",
+    "path": "/user/{userId}/scheduled_termination",
+    "tag": "user",
+    "summary": "Schedule user termination",
+    "requestBodySchema": "#/components/schemas/ScheduledUserTermination"
+  },
+  {
+    "operationId": "RemoveScheduledUserTermination",
+    "method": "DELETE",
+    "path": "/user/{userId}/scheduled_termination",
+    "tag": "user",
+    "summary": "Delete scheduled termination date"
+  },
+  {
+    "operationId": "RemoveUserFromGroups",
+    "method": "POST",
+    "path": "/user/{userId}/groups/remove",
+    "tag": "user",
+    "summary": "Remove user from groups",
+    "requestBodySchema": "#/components/schemas/RemoveUserGroups"
+  },
+  {
+    "operationId": "ListLearnerResults",
+    "method": "GET",
+    "path": "/learners/results",
+    "tag": "results",
+    "summary": "Retrieves a paginated list of results for specific learners in specific courses"
+  },
+  {
+    "operationId": "ListLearnerModulesResults",
+    "method": "GET",
+    "path": "/learners/modules/results",
+    "tag": "results",
+    "summary": "Retrieves a paginated list of results for specific learners in specific modules"
+  },
+  {
+    "operationId": "GetRoles",
+    "method": "GET",
+    "path": "/role",
+    "tag": "user",
+    "summary": "Get role list"
+  },
+  {
+    "operationId": "Activate users",
+    "method": "POST",
+    "path": "/users/activate",
+    "tag": "user",
+    "summary": "activate users",
+    "requestBodySchema": "{'required': ['userIds'], 'properties': {'userIds': {'$ref': '#/components/schemas/ArrayOfIds'}}, 'type': 'object'}"
+  },
+  {
+    "operationId": "Deactivate users",
+    "method": "POST",
+    "path": "/users/deactivate",
+    "tag": "user",
+    "summary": "deactivate users",
+    "requestBodySchema": "{'required': ['userIds'], 'properties': {'userIds': {'$ref': '#/components/schemas/ArrayOfIds'}}, 'type': 'object'}"
+  },
+  {
+    "operationId": "Terminate users",
+    "method": "POST",
+    "path": "/users/terminate",
+    "tag": "user",
+    "summary": "terminate users",
+    "requestBodySchema": "{'required': ['userIds'], 'properties': {'userIds': {'$ref': '#/components/schemas/ArrayOfIds'}}, 'type': 'object'}"
+  },
+  {
+    "operationId": "GetPagedUsersList",
+    "method": "POST",
+    "path": "/user/list",
+    "tag": "user",
+    "summary": "Get users list",
+    "requestBodySchema": "#/components/schemas/GetPagedUsersListRequest"
+  },
+  {
+    "operationId": "UpdateWorkLeaveStatuses",
+    "method": "POST",
+    "path": "/users/work-leave-status",
+    "tag": "user",
+    "summary": "Update work leave statuses",
+    "requestBodySchema": "#/components/schemas/UpdateWorkLeaveStatusesRequest"
+  },
+  {
+    "operationId": "RemoveWorkLeaveStatuses",
+    "method": "POST",
+    "path": "/users/work-leave-status/delete",
+    "tag": "user",
+    "summary": "Remove work leave statuses",
+    "requestBodySchema": "{'required': ['userIds'], 'properties': {'userIds': {'$ref': '#/components/schemas/ArrayOfIds'}}, 'type': 'object'}"
+  },
+  {
+    "operationId": "RegisterSubscriber",
+    "method": "POST",
+    "path": "/webhook/register",
+    "tag": "webhook",
+    "summary": "Register new subscriber",
+    "requestBodySchema": "#/components/schemas/SubscriberRequest"
+  },
+  {
+    "operationId": "DisabableSubscriber",
+    "method": "POST",
+    "path": "/webhook/disable",
+    "tag": "webhook",
+    "summary": "Disable subscriber",
+    "requestBodySchema": "#/components/schemas/SubscriberNameRequest"
+  },
+  {
+    "operationId": "ChangeSubscriberSettings",
+    "method": "POST",
+    "path": "/webhook/settings/change",
+    "tag": "webhook",
+    "summary": "Change subscriber settings",
+    "requestBodySchema": "#/components/schemas/SubscriberRequest"
+  },
+  {
+    "operationId": "RemoveSubscriber",
+    "method": "POST",
+    "path": "/webhook/remove",
+    "tag": "webhook",
+    "summary": "Remove subscriber",
+    "requestBodySchema": "#/components/schemas/SubscriberNameRequest"
+  },
+  {
+    "operationId": "Subscribe",
+    "method": "POST",
+    "path": "/webhook/subscribe",
+    "tag": "webhook",
+    "summary": "Add subscription",
+    "requestBodySchema": "#/components/schemas/SubscribeRequest"
+  },
+  {
+    "operationId": "unsubscribe",
+    "method": "POST",
+    "path": "/webhook/unsubscribe",
+    "tag": "webhook",
+    "summary": "Remove subscription",
+    "requestBodySchema": "#/components/schemas/UnsubscribeRequest"
+  },
+  {
+    "operationId": "ListSubscriptions",
+    "method": "GET",
+    "path": "/webhook/subscription/list",
+    "tag": "webhook",
+    "summary": "List subscriber subscriptions"
+  },
+  {
+    "operationId": "EnableSubscriber",
+    "method": "POST",
+    "path": "/webhook/enable",
+    "tag": "webhook",
+    "summary": "Enable subscriber",
+    "requestBodySchema": "#/components/schemas/SubscriberNameRequest"
+  },
+  {
+    "operationId": "SendConfirmationCode",
+    "method": "POST",
+    "path": "/webhook/code/send",
+    "tag": "webhook",
+    "summary": "Send a code to confirm the url",
+    "requestBodySchema": "#/components/schemas/SubscriberNameRequest"
+  },
+  {
+    "operationId": "Confirm",
+    "method": "POST",
+    "path": "/webhook/confirm",
+    "tag": "webhook",
+    "summary": "Confirm subscriber callback url",
+    "requestBodySchema": "#/components/schemas/ConfirmRequest"
+  },
+  {
+    "operationId": "GetSubscriberInfo",
+    "method": "GET",
+    "path": "/webhook/subscriber/info",
+    "tag": "webhook",
+    "summary": "Get information about subscriber"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SubscribeRequest",
+  "required": [
+    "subscriberName",
+    "subscription"
+  ],
+  "properties": {
+    "subscriberName": {
+      "type": "string"
+    },
+    "subscription": {
+      "$ref": "#/components/schemas/Subscription"
+    }
+  },
+  "type": "object"
+}

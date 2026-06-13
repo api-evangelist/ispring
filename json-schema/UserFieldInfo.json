@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserFieldInfo",
+  "required": [
+    "userFieldInfoId",
+    "name",
+    "label",
+    "type",
+    "isUnique",
+    "isRequired",
+    "orderPriority",
+    "values"
+  ],
+  "properties": {
+    "userFieldInfoId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "isUnique": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "isRequired": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "orderPriority": {
+      "type": "integer"
+    },
+    "values": {
+      "$ref": "#/components/schemas/UserProfileFields"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "userFieldInfo",
+    "wrapped": true
+  }
+}

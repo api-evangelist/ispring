@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DetailedGroup",
+  "required": [
+    "usersCount",
+    "groupId",
+    "userIds",
+    "name",
+    "isSmart"
+  ],
+  "properties": {
+    "usersCount": {
+      "type": "integer"
+    },
+    "groupId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "userIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "name": {
+      "type": "string"
+    },
+    "isSmart": {
+      "type": "boolean"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "group"
+  }
+}

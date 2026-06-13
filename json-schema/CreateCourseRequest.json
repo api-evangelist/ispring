@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreateCourseRequest",
+  "required": [
+    "folder_id",
+    "title"
+  ],
+  "properties": {
+    "folder_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

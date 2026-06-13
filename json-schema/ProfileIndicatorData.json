@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProfileIndicatorData",
+  "required": [
+    "indicatorId",
+    "requiredLevelId"
+  ],
+  "properties": {
+    "indicatorId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "requiredLevelId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "profileIndicatorData"
+  }
+}

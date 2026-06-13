@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserRole",
+  "required": [
+    "roleId"
+  ],
+  "properties": {
+    "roleId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "manageableDepartmentIds": {
+      "$ref": "#/components/schemas/ArrayOfIds"
+    },
+    "roleType": {
+      "$ref": "#/components/schemas/UserRoleEnum"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "userRole",
+    "wrapped": true
+  }
+}

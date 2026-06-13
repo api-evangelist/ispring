@@ -38,6 +38,8 @@ apis:
         url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
       - type: OpenAPI
         url: https://api-learn.ispringlearn.com/docs/rest-api
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/ispring/refs/heads/main/openapi/openapi.yaml
     contact:
       - FN: iSpring Support
         url: https://www.ispringsolutions.com/support

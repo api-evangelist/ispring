@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LearningTrackCourse",
+  "required": [
+    "learningTrackId",
+    "courseId"
+  ],
+  "properties": {
+    "learningTrackId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "courseId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "learningTracksCourse",
+    "wrapped": true
+  }
+}

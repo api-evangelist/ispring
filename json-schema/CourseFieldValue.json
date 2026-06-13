@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CourseFieldValue",
+  "required": [
+    "fieldId",
+    "fieldValue"
+  ],
+  "properties": {
+    "fieldId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "fieldValue": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "xml": {
+    "name": "courseField",
+    "wrapped": true
+  }
+}

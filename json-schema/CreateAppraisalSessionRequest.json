@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreateAppraisalSessionRequest",
+  "required": [
+    "name",
+    "managerId"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "managerId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "type": "object"
+}
