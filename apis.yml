@@ -46,6 +46,10 @@ apis:
         phone: '+1 800 640 0868'
 
 common:
+  - type: DomainSecurity
+    url: security/ispring-domain-security.yml
+  - type: Authentication
+    url: authentication/ispring-authentication.yml
   - name: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/api-documentation-10685383.html
     type: Documentation
