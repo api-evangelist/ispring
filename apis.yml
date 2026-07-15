@@ -46,6 +46,8 @@ apis:
         phone: '+1 800 640 0868'
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/ispring-agentic-access.yml
   - type: DomainSecurity
     url: security/ispring-domain-security.yml
   - type: Authentication
