@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments token API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: token
+  description: Retrieve access tokens
+paths:
+  /api/v3/token:
+    post:
+      tags:
+      - token
+      summary: Generates a new access token based on client_id and client_secret
+      operationId: AccessRequest
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClientCredentialsGrantTypeRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+      security:
+      - {}
+components:
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ClientCredentialsGrantTypeRequest:
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        grant_type:
+          type: string
+          enum:
+          - client_credentials
+      type: object
+    TokenResponse:
+      required:
+      - access_token
+      - expires_in
+      - token_type
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        token_type:
+          type: string
+          enum:
+          - bearer
+      type: object
+      xml:
+        name: response
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

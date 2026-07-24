@@ -1,0 +1,453 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments training API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: training
+  description: Training operations
+paths:
+  /training/{trainingId}:
+    get:
+      tags:
+      - training
+      summary: Retrieves information about training
+      operationId: GetTrainingById
+      parameters:
+      - name: trainingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/Training'
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/Training'
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /training/session/{trainingSessionId}:
+    get:
+      tags:
+      - training
+      summary: Retrieves training session information
+      operationId: GetTrainingSession
+      parameters:
+      - name: trainingSessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/TrainingSession'
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/TrainingSession'
+                type: object
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Training session not found
+  /training/{trainingId}/sessions:
+    get:
+      tags:
+      - training
+      summary: Retrieves information about sessions by training id
+      operationId: ListSessionsByTrainingId
+      parameters:
+      - name: trainingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingSession'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingSession'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /training/day/{dayId}:
+    get:
+      tags:
+      - training
+      summary: Retrieves session day information
+      operationId: GetDay
+      parameters:
+      - name: dayId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/Day'
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/Day'
+                type: object
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Day not found
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Day not found
+    post:
+      tags:
+      - training
+      summary: Update day url
+      operationId: UpdateDay
+      parameters:
+      - name: dayId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDay'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateDay'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Day not found
+  /training/session/participants/{sessionId}:
+    get:
+      tags:
+      - training
+      summary: Retrieves information about participants by session id
+      operationId: ListSessionParticipants
+      parameters:
+      - $ref: '#/components/parameters/pageToken'
+      - $ref: '#/components/parameters/pageSize'
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /training/day/{dayId}/participants/attendance/update:
+    post:
+      tags:
+      - training
+      summary: Updates participants attendance by day
+      operationId: UpdateDayParticipantsAttendance
+      parameters:
+      - name: dayId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDayParticipantsAttendanceRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateDayParticipantsAttendanceRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Day not found
+components:
+  schemas:
+    UpdateDayParticipantsAttendanceRequest:
+      properties:
+        participantsAttendance:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrainingParticipantAttendance'
+      type: object
+      xml:
+        name: request
+    Training:
+      required:
+      - title
+      - organizer
+      - sessions
+      - type
+      properties:
+        title:
+          type: string
+        organizer:
+          type: string
+          format: uuid
+        sessions:
+          $ref: '#/components/schemas/ArrayOfIds'
+        type:
+          type: string
+      type: object
+      xml:
+        name: training
+    UpdateDay:
+      properties:
+        url:
+          type: string
+      type: object
+      xml:
+        name: request
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    TrainingParticipantAttendance:
+      required:
+      - participantId
+      - isAttended
+      properties:
+        participantId:
+          type: string
+          format: uuid
+        isAttended:
+          type: boolean
+        duration:
+          description: Duration in seconds
+          type: integer
+      type: object
+      xml:
+        name: trainingParticipantAttendance
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    TrainingSession:
+      required:
+      - id
+      - title
+      - startTime
+      - duration
+      - dayIds
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        startTime:
+          type: string
+          format: datetime
+        duration:
+          type: integer
+        instructor:
+          type: string
+        dayIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: trainingSession
+    Day:
+      required:
+      - dayId
+      - sessionId
+      - trainingId
+      - startTime
+      properties:
+        dayId:
+          type: string
+          format: uuid
+        sessionId:
+          type: string
+          format: uuid
+        trainingId:
+          type: string
+          format: uuid
+        startTime:
+          type: string
+          format: datetime
+        duration:
+          description: Duration in seconds
+          type: integer
+        location:
+          type: string
+        url:
+          type: string
+      type: object
+      xml:
+        name: Day
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,442 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments results API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: results
+  description: User result data operations
+paths:
+  /learners/results:
+    get:
+      tags:
+      - results
+      summary: Retrieves a paginated list of results for specific learners in specific courses
+      operationId: ListLearnerResults
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: userIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: courseIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: departmentIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: enrollmentIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: completionStatuses
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompletionStatus'
+      - name: completionDate
+        in: query
+        required: false
+        style: deepObject
+        schema:
+          $ref: '#/components/schemas/DateRange'
+      - name: accessDate
+        in: query
+        required: false
+        style: deepObject
+        schema:
+          $ref: '#/components/schemas/DateRange'
+      - name: dueDate
+        in: query
+        required: false
+        style: deepObject
+        schema:
+          $ref: '#/components/schemas/DateRange'
+      - name: userStatuses
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserStatus'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearnersResultsResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LearnersResultsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /learners/modules/results:
+    get:
+      tags:
+      - results
+      summary: Retrieves a paginated list of results for specific learners in specific modules
+      operationId: ListLearnerModulesResults
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: userIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: courseIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: moduleIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: courseItemIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: enrollmentIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: departmentIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: completionStatuses
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompletionStatus'
+      - name: completionDate
+        in: query
+        required: false
+        style: deepObject
+        schema:
+          $ref: '#/components/schemas/DateRange'
+      - name: accessDate
+        in: query
+        required: false
+        style: deepObject
+        schema:
+          $ref: '#/components/schemas/DateRange'
+      - name: dueDate
+        in: query
+        required: false
+        style: deepObject
+        schema:
+          $ref: '#/components/schemas/DateRange'
+      - name: userStatuses
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserStatus'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearnersModulesResultsResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LearnersModulesResultsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    LearnerModuleResult:
+      required:
+      - userId
+      - courseId
+      - moduleId
+      - moduleTitle
+      - courseItemId
+      - accessDate
+      - completionStatus
+      - isOverdue
+      properties:
+        userId:
+          type: string
+          format: uuid
+        courseId:
+          type: string
+          format: uuid
+        moduleId:
+          type: string
+          format: uuid
+        moduleTitle:
+          type: string
+        courseItemId:
+          type: string
+          format: uuid
+        enrollmentId:
+          type: string
+          format: uuid
+        accessDate:
+          type: string
+          format: datetime
+        dueDate:
+          type: string
+          format: datetime
+        expirationDate:
+          type: string
+          format: datetime
+        completionDate:
+          type: string
+          format: datetime
+        timeSpent:
+          description: Time spent in seconds
+          type: integer
+        completionStatus:
+          $ref: '#/components/schemas/CompletionStatus'
+        awardedScore:
+          type: number
+          format: float
+        passingScore:
+          type: number
+          format: float
+        progress:
+          type: number
+          format: float
+        isOverdue:
+          type: boolean
+        viewsCount:
+          type: integer
+      type: object
+      xml:
+        name: result
+        wrapped: true
+    LearnersResultsResponse:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LearnerResult'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    LearnerResult:
+      required:
+      - userId
+      - courseId
+      - courseTitle
+      - accessDate
+      - completionStatus
+      - isOverdue
+      properties:
+        userId:
+          type: string
+          format: uuid
+        courseId:
+          type: string
+          format: uuid
+        courseTitle:
+          type: string
+        enrollmentId:
+          type: string
+          format: uuid
+        accessDate:
+          type: string
+          format: datetime
+        dueDate:
+          type: string
+          format: datetime
+        expirationDate:
+          type: string
+          format: datetime
+        completionDate:
+          type: string
+          format: datetime
+        duration:
+          type: integer
+        timeSpent:
+          description: Time spent in seconds
+          type: integer
+        completionStatus:
+          $ref: '#/components/schemas/CompletionStatus'
+        awardedScore:
+          type: number
+          format: float
+        passingScore:
+          type: number
+          format: float
+        progress:
+          type: number
+          format: float
+        isOverdue:
+          type: boolean
+        viewsCount:
+          type: integer
+      type: object
+      xml:
+        name: result
+        wrapped: true
+    UserStatus:
+      description: 1 - active, 3 - inactive, 5 - terminated
+      type: integer
+      enum:
+      - 1
+      - 3
+      - 5
+    LearnersModulesResultsResponse:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LearnerModuleResult'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    CompletionStatus:
+      type: string
+      enum:
+      - not_started
+      - in_progress
+      - pending
+      - complete
+      - passed
+      - accepted
+      - incomplete
+      - failed
+      - declined
+    DateRange:
+      required:
+      - startDate
+      - endDate
+      properties:
+        startDate:
+          type: string
+          format: dateTime
+        endDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: dateRange
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

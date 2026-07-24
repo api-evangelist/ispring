@@ -1,0 +1,422 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments jobtraining API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: jobtraining
+paths:
+  /job-training/checklist/sessions/list:
+    post:
+      tags:
+      - jobtraining
+      summary: List сhecklists with sessions
+      operationId: listChecklistSessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListChecklistsSessionsRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistSessionsData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistSessionsData'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /job-training/sessions/result/list:
+    post:
+      tags:
+      - jobtraining
+      summary: List sessions result
+      operationId: listSessionsResult
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListSessionsResultRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobTrainingSessionResultData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobTrainingSessionResultData'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /job-training/completed-session/criterion-group/result/list:
+    post:
+      tags:
+      - jobtraining
+      summary: List criterion groups result
+      operationId: listCriterionGroupsResult
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListCriterionGroupsResultRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CriterionGroupResultData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CriterionGroupResultData'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /job-training/completed-session/criterion/result/list:
+    post:
+      tags:
+      - jobtraining
+      summary: List criterion result in completed sessions
+      operationId: listCriterionResult
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListCriterionResultRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CriterionResultData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CriterionResultData'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    ListCriterionResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        criterionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ChecklistSessionsData:
+      required:
+      - checklistId
+      - checklistTitle
+      - checklistStatus
+      - sessionIds
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        checklistTitle:
+          type: string
+        checklistStatus:
+          $ref: '#/components/schemas/ChecklistStatus'
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+      xml:
+        name: checklistSessions
+    CriterionGroupResultData:
+      required:
+      - groupId
+      - groupTitle
+      - checklistId
+      - sessionId
+      - employeeId
+      - observerId
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        checklistId:
+          type: string
+          format: uuid
+        groupTitle:
+          type: string
+        sessionId:
+          type: string
+          format: uuid
+        result:
+          type: number
+          format: float
+        totalPoints:
+          type: number
+          format: float
+        points:
+          type: number
+          format: float
+        employeeId:
+          type: string
+          format: uuid
+        observerId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: criterionGroupResultData
+    JobTrainingSessionResultData:
+      required:
+      - checklistId
+      - checklistTitle
+      - sessionId
+      - sessionStatus
+      - startDate
+      - employeeId
+      - observerId
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        checklistTitle:
+          type: string
+        sessionId:
+          type: string
+          format: uuid
+        sessionStatus:
+          $ref: '#/components/schemas/SessionStatus'
+        startDate:
+          type: string
+          format: dateTime
+        actualStartDate:
+          type: string
+          format: dateTime
+        completionDate:
+          type: string
+          format: dateTime
+        result:
+          type: number
+          format: float
+        totalPoints:
+          type: number
+          format: float
+        points:
+          type: number
+          format: float
+        employeeId:
+          type: string
+          format: uuid
+        observerId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: jobTrainingSessionResult
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ListChecklistsSessionsRequest:
+      properties:
+        checklistIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ChecklistStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - HIDDEN
+    ListSessionsResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionStatus:
+          $ref: '#/components/schemas/SessionStatus'
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ListCriterionGroupsResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    SessionStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - PASSED
+    CriterionResultData:
+      required:
+      - criterionId
+      - criterionTitle
+      - checklistId
+      - sessionId
+      - groupId
+      - skipped
+      - employeeId
+      - observerId
+      properties:
+        criterionId:
+          type: string
+          format: uuid
+        groupId:
+          type: string
+          format: uuid
+        checklistId:
+          type: string
+          format: uuid
+        criterionTitle:
+          type: string
+        sessionId:
+          type: string
+          format: uuid
+        skipped:
+          type: boolean
+        totalPoints:
+          type: number
+          format: float
+        points:
+          type: number
+          format: float
+        employeeId:
+          type: string
+          format: uuid
+        observerId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: criterionResultData
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,574 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments group API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: group
+  description: Group operations
+paths:
+  /group:
+    get:
+      tags:
+      - group
+      summary: Get group list
+      operationId: GetGroups
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - group
+      summary: Add a new group
+      operationId: AddGroup
+      parameters:
+      - $ref: '#/components/parameters/returnObject'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewGroup'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewGroup'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: The group ID
+                type: string
+                format: uuid
+            application/xml:
+              schema:
+                description: The group ID
+                type: string
+                format: uuid
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /group/smart:
+    post:
+      tags:
+      - group
+      summary: Add a new smart group
+      operationId: AddSmartGroup
+      parameters:
+      - $ref: '#/components/parameters/returnObject'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewSmartGroup'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewSmartGroup'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: The group ID
+                type: string
+                format: uuid
+            application/xml:
+              schema:
+                description: The group ID
+                type: string
+                format: uuid
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /group/smart/{groupId}:
+    post:
+      tags:
+      - group
+      summary: Update smart group rules
+      operationId: EditSmartGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSmartGroup'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateSmartGroup'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /group/smart/{groupId}/rules:
+    get:
+      tags:
+      - group
+      summary: Get smart group rules
+      operationId: GetSmartGroupRules
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                required:
+                - smartGroupRules
+                properties:
+                  smartGroupRules:
+                    $ref: '#/components/schemas/SmartGroupRules'
+                type: object
+            application/xml:
+              schema:
+                required:
+                - smartGroupRules
+                properties:
+                  smartGroupRules:
+                    $ref: '#/components/schemas/SmartGroupRules'
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /group/{groupId}:
+    get:
+      tags:
+      - group
+      summary: Get group details
+      operationId: GetGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailedGroup'
+            application/xml:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/DetailedGroup'
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - group
+      summary: Update group
+      operationId: UpdateGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGroup'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateGroup'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    delete:
+      tags:
+      - group
+      summary: Delete group
+      operationId: RemoveGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: No content
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /group/{groupId}/members:
+    post:
+      tags:
+      - group
+      summary: Update group members
+      operationId: UpdateGroupMembers
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGroupMembers'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateGroupMembers'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /groups:
+    get:
+      tags:
+      - group
+      summary: List groups
+      operationId: ListGroups
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GroupsPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    GroupsPage:
+      required:
+      - groups
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    UpdateSmartGroup:
+      required:
+      - rules
+      properties:
+        name:
+          type: string
+        rules:
+          $ref: '#/components/schemas/SmartGroupRuleNodes'
+      type: object
+      xml:
+        name: request
+    SmartGroupRuleNodes:
+      required:
+      - and
+      properties:
+        and:
+          type: array
+          items:
+            $ref: '#/components/schemas/AndSmartGroupRuleNode'
+      type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    DetailedGroup:
+      required:
+      - usersCount
+      - groupId
+      - userIds
+      - name
+      - isSmart
+      properties:
+        usersCount:
+          type: integer
+        groupId:
+          type: string
+          format: uuid
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        name:
+          type: string
+        isSmart:
+          type: boolean
+      type: object
+      xml:
+        name: group
+    UpdateGroup:
+      required:
+      - name
+      properties:
+        name:
+          type: string
+      type: object
+      xml:
+        name: request
+    SmartGroupRules:
+      required:
+      - groupId
+      - rules
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        rules:
+          $ref: '#/components/schemas/SmartGroupRuleNodes'
+      type: object
+    Group:
+      required:
+      - groupId
+      - name
+      - isSmart
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        isSmart:
+          type: boolean
+      type: object
+      xml:
+        name: group
+    OrSmartGroupRuleNode:
+      required:
+      - rule
+      properties:
+        rule:
+          $ref: '#/components/schemas/SmartGroupRule'
+      type: object
+    UpdateGroupMembers:
+      required:
+      - userIds
+      properties:
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    NewSmartGroup:
+      required:
+      - name
+      - rules
+      properties:
+        name:
+          type: string
+        rules:
+          $ref: '#/components/schemas/SmartGroupRuleNodes'
+      type: object
+      xml:
+        name: request
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    AndSmartGroupRuleNode:
+      required:
+      - or
+      properties:
+        or:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrSmartGroupRuleNode'
+      type: object
+    SmartGroupRule:
+      required:
+      - attributeType
+      - operator
+      - value
+      properties:
+        attributeType:
+          description: 1 - Department, 2 - Group, 3 - Profile used
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+        attributeId:
+          type: string
+        operator:
+          description: 1 - Only, 2 - This and nested
+          type: integer
+          enum:
+          - 1
+          - 2
+        value:
+          type: string
+      type: object
+    NewGroup:
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    returnObject:
+      name: X-Return-Object
+      in: header
+      required: false
+      schema:
+        type: boolean
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments task API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: task
+  description: Async method operations
+paths:
+  /task/{taskId}/status:
+    get:
+      tags:
+      - task
+      summary: Get async task status
+      operationId: GetTaskStatus
+      parameters:
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskStatus'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaskStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    TaskStatus:
+      required:
+      - status
+      properties:
+        status:
+          $ref: '#/components/schemas/TaskStatusEnum'
+      type: object
+      xml:
+        name: request
+    TaskStatusEnum:
+      type: string
+      enum:
+      - waiting
+      - in_progress
+      - complete
+      - cancelled
+      - error
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

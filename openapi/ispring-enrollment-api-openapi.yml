@@ -1,0 +1,546 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments enrollment API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: enrollment
+  description: Enrollment operations
+paths:
+  /enrollment:
+    get:
+      tags:
+      - enrollment
+      summary: Get enrollment list
+      operationId: GetEnrollments
+      parameters:
+      - name: courseIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: learnerIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: enrollmentIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                required:
+                - enrollments
+                properties:
+                  enrollments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Enrollment'
+                type: object
+            application/xml:
+              schema:
+                required:
+                - enrollments
+                properties:
+                  enrollments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Enrollment'
+                type: object
+                xml:
+                  name: response
+                  wrapped: true
+    post:
+      tags:
+      - enrollment
+      summary: Create new enrollments
+      operationId: EnrollLearnersInCourses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewEnrollment'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewEnrollment'
+      responses:
+        '201':
+          description: Created
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /enrollments:
+    get:
+      tags:
+      - enrollment
+      summary: List enrollments
+      operationId: ListEnrollments
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: courseIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: learnerIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: enrollmentIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnrollmentsPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EnrollmentsPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - enrollment
+      summary: List enrollments
+      operationId: ListEnrollmentsByPost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListEnrollmentsRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ListEnrollmentsRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnrollmentsPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EnrollmentsPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /enrollment/{enrollmentId}:
+    get:
+      tags:
+      - enrollment
+      summary: Get enrollment details
+      operationId: GetEnrollment
+      parameters:
+      - name: enrollmentId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+            application/xml:
+              schema:
+                properties:
+                  enrollment:
+                    $ref: '#/components/schemas/Enrollment'
+                type: object
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - enrollment
+      summary: Update enrollment
+      operationId: ChangeEnrollment
+      parameters:
+      - name: enrollmentId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEnrollment'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateEnrollment'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /enrollment/{enrollmentId}/reenroll:
+    post:
+      tags:
+      - enrollment
+      summary: Reenroll learner
+      operationId: Reenroll
+      parameters:
+      - name: enrollmentId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reenroll'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Reenroll'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /enrollment/delete:
+    post:
+      tags:
+      - enrollment
+      summary: Delete enrollments
+      operationId: Unenroll
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteEnrollments'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DeleteEnrollments'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    NewEnrollment:
+      required:
+      - courseIds
+      - learnerIds
+      - dueDateType
+      properties:
+        courseIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        learnerIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        dueDateType:
+          $ref: '#/components/schemas/DueDateType'
+        dueDate:
+          type: string
+          format: date
+        duePeriod:
+          type: integer
+        accessDate:
+          type: string
+          format: date
+        lockAfterDueDate:
+          type: boolean
+      type: object
+      xml:
+        name: request
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    DueDateType:
+      type: string
+      enum:
+      - unlimited
+      - default
+      - due_date
+      - due_period
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    UpdateEnrollment:
+      required:
+      - accessDate
+      - dueDateType
+      properties:
+        accessDate:
+          type: string
+          format: datetime
+        dueDateType:
+          $ref: '#/components/schemas/DueDateType'
+        dueDate:
+          type: string
+          format: date
+        duePeriod:
+          type: integer
+        lockAfterDueDate:
+          type: boolean
+      type: object
+      xml:
+        name: request
+    Enrollment:
+      required:
+      - enrollmentId
+      - courseId
+      - learnerId
+      - accessDate
+      - shouldLockAfterDueDate
+      - enrollmentTypeGroup
+      properties:
+        enrollmentId:
+          type: string
+          format: uuid
+        courseId:
+          type: string
+          format: uuid
+        learnerId:
+          type: string
+          format: uuid
+        accessDate:
+          type: string
+          format: date
+        dueDate:
+          type: string
+          format: date
+        expirationDate:
+          type: string
+          format: date
+        shouldLockAfterDueDate:
+          type: boolean
+        certificate:
+          $ref: '#/components/schemas/IssuedCertificateInformation'
+        enrollmentTypeGroup:
+          $ref: '#/components/schemas/EnrollmentTypeGroup'
+      type: object
+      xml:
+        name: enrollment
+    ListEnrollmentsRequest:
+      properties:
+        pageSize:
+          type: integer
+          xml:
+            name: pageSize
+            wrapped: false
+        pageToken:
+          type: integer
+          xml:
+            name: pageToken
+            wrapped: false
+        courseIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            name: courseIds
+            wrapped: false
+        learnerIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            name: learnerIds
+            wrapped: false
+        enrollmentIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            name: enrollmentIds
+            wrapped: false
+      type: object
+    EnrollmentsPage:
+      required:
+      - enrollments
+      properties:
+        enrollments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Enrollment'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    EnrollmentTypeGroup:
+      description: 0 - Enrolled by admin 1 - Enrolled from catalog
+      type: integer
+      enum:
+      - 0
+      - 1
+    DeleteEnrollments:
+      required:
+      - enrollmentIds
+      properties:
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    Reenroll:
+      required:
+      - accessDate
+      - dueDateType
+      properties:
+        accessDate:
+          type: string
+          format: date
+        dueDateType:
+          $ref: '#/components/schemas/DueDateType'
+        dueDate:
+          type: string
+          format: date
+        duePeriod:
+          type: integer
+        lockAfterDueDate:
+          type: boolean
+      type: object
+      xml:
+        name: request
+    IssuedCertificateInformation:
+      required:
+      - issuedCertificateId
+      - issueDate
+      properties:
+        issuedCertificateId:
+          type: string
+          format: uuid
+        issueDate:
+          type: string
+          format: date
+        expiryDate:
+          type: string
+          format: date
+      type: object
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,2227 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments performance-management API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: performance-management
+paths:
+  /performance-management/competencies/scale/list:
+    get:
+      tags:
+      - performance-management
+      summary: List competency scales
+      operationId: ListCompetencyScales
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompetencyScale'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompetencyScale'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/competencies/scale/create:
+    post:
+      tags:
+      - performance-management
+      summary: Create competency scale
+      operationId: CreateCompetencyScale
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompetencyScaleData'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                description: The scale ID
+                type: string
+                format: uuid
+            application/xml:
+              schema:
+                description: The scale ID
+                type: string
+                format: uuid
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/competencies/scale/{scaleId}/change:
+    post:
+      tags:
+      - performance-management
+      summary: Change competency scale
+      operationId: ChangeCompetencyScale
+      parameters:
+      - name: scaleId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeCompetencyScaleRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Scale not found
+  /performance-management/competencies/group/create:
+    post:
+      tags:
+      - performance-management
+      summary: Create competency group
+      operationId: CreateCompetencyGroup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompetencyGroupData'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                description: The group ID
+                type: string
+                format: uuid
+            application/xml:
+              schema:
+                description: The group ID
+                type: string
+                format: uuid
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/competencies/group/{groupId}/rename:
+    post:
+      tags:
+      - performance-management
+      summary: Change competency group name
+      operationId: ChangeCompetencyGroupName
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+              type: object
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Group not found
+  /performance-management/competencies/group/batch-move:
+    post:
+      tags:
+      - performance-management
+      summary: Move competency groups to parent group
+      operationId: MoveCompetencyGroups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveCompetencyGroupsToParentGroup'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Group not found
+  /performance-management/competencies/competency/batch-move:
+    post:
+      tags:
+      - performance-management
+      summary: Move competencies to group
+      operationId: MoveCompetenciesToGroup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveCompetenciesToGroup'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Group not found
+  /performance-management/competencies/group/list:
+    get:
+      tags:
+      - performance-management
+      summary: List competency groups
+      operationId: ListCompetencyGroups
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompetencyGroup'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompetencyGroup'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/competencies/competency/list:
+    post:
+      tags:
+      - performance-management
+      summary: List competencies
+      operationId: ListCompetencies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListCompetenciesRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Competency'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Competency'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/competencies/competency/create:
+    post:
+      tags:
+      - performance-management
+      summary: Create competency
+      operationId: CreateCompetency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompetencyData'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                description: The competency ID
+                type: string
+                format: uuid
+            application/xml:
+              schema:
+                description: The competency ID
+                type: string
+                format: uuid
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/competencies/competency/{competencyId}/change:
+    post:
+      tags:
+      - performance-management
+      summary: Change competency
+      operationId: ChangeCompetency
+      parameters:
+      - name: competencyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeCompetencyData'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Competency not found
+  /performance-management/competencies/competency/{competencyId}/indicator/create:
+    post:
+      tags:
+      - performance-management
+      summary: Create competency indicator
+      operationId: CreateCompetencyIndicator
+      parameters:
+      - name: competencyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompetencyIndicatorData'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                description: The competency indicator ID
+                type: string
+                format: uuid
+            application/xml:
+              schema:
+                description: The competency indicator ID
+                type: string
+                format: uuid
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/competencies/competency/{competencyId}/indicator/{indicatorId}/change:
+    post:
+      tags:
+      - performance-management
+      summary: Change competency indicator
+      operationId: ChangeCompetencyIndicator
+      parameters:
+      - name: competencyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: indicatorId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompetencyIndicatorData'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Indicator not found
+  /performance-management/competencies/profile/list:
+    post:
+      tags:
+      - performance-management
+      summary: List competency profiles
+      operationId: ListCompetencyProfiles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListCompetencyProfilesRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompetencyProfile'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompetencyProfile'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/appraisal/session/list:
+    post:
+      tags:
+      - performance-management
+      summary: List appraisal sessions
+      operationId: ListAppraisalSessions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListAppraisalSessionsRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSession'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSession'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/employee-card/list:
+    get:
+      tags:
+      - performance-management
+      summary: List appraisal session employee cards
+      operationId: ListAppraisalSessionEmployeeCards
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionEmployeeCard'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionEmployeeCard'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/review/list:
+    get:
+      tags:
+      - performance-management
+      summary: List appraisal session reviews
+      operationId: ListAppraisalSessionReviews
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionReview'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionReview'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/results:
+    get:
+      tags:
+      - performance-management
+      summary: Get appraisal session results
+      operationId: GetAppraisalSessionResults
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionEmployeeResults'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionEmployeeResults'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /performance-management/appraisal/session/{sessionId}/content/competencies:
+    get:
+      tags:
+      - performance-management
+      summary: Get appraisal session content competencies
+      operationId: GetAppraisalSessionContentCompetencies
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppraisalSessionContentCompetencies'
+            application/xml:
+              schema:
+                properties:
+                  ? ''
+                  : $ref: '#/components/schemas/AppraisalSessionContentCompetencies'
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/user/attributes/list:
+    post:
+      tags:
+      - performance-management
+      summary: List appraisal session user attributes
+      operationId: ListAppraisalSessionUserAttributes
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListAppraisalSessionUserAttributesRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionUserAttributes'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AppraisalSessionUserAttributes'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/start:
+    post:
+      tags:
+      - performance-management
+      summary: Start appraisal session
+      operationId: StartAppraisalSession
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartAppraisalSessionStatusCode'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StartAppraisalSessionStatusCode'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/restart:
+    post:
+      tags:
+      - performance-management
+      summary: Restart appraisal session
+      operationId: RestartAppraisalSession
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestartAppraisalSessionStatusCode'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RestartAppraisalSessionStatusCode'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/complete:
+    post:
+      tags:
+      - performance-management
+      summary: Complete appraisal session
+      operationId: CompleteAppraisalSession
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+  /performance-management/appraisal/session/{sessionId}/update:
+    post:
+      tags:
+      - performance-management
+      summary: Updating the appraisal session
+      operationId: UpdateAppraisalSession
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppraisalSessionRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/create:
+    post:
+      tags:
+      - performance-management
+      summary: Creating the appraisal session
+      operationId: CreateAppraisalSession
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAppraisalSessionRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                description: Created session id
+                type: string
+                format: uuid
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/employee-card/add:
+    post:
+      tags:
+      - performance-management
+      summary: Add employee cards to the appraisal session
+      operationId: AddAppraisalSessionEmployeeCards
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAppraisalSessionEmployeeCardsRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/employee-card/reviewer/replace:
+    post:
+      tags:
+      - performance-management
+      summary: Replaces employee card reviewers in an appraisal session
+      operationId: ReplaceAppraisalSessionEmployeeReviewers
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplaceAppraisalSessionEmployeeReviewersRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/employee-card/remove:
+    post:
+      tags:
+      - performance-management
+      summary: Remove employee cards from the appraisal session
+      operationId: RemoveAppraisalSessionEmployeeCards
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveAppraisalSessionEmployeeCardsRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/employee-card/reviewer/remove:
+    post:
+      tags:
+      - performance-management
+      summary: Remove reviewers from the appraisal session
+      operationId: RemoveAppraisalSessionReviewers
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveAppraisalSessionReviewersRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/question/add:
+    post:
+      tags:
+      - performance-management
+      summary: Adding the appraisal session question
+      operationId: AddAppraisalQuestion
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAppraisalQuestionRequest'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                description: Added question id
+                type: string
+                format: uuid
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/question/{questionId}/update:
+    post:
+      tags:
+      - performance-management
+      summary: Updating the appraisal session question
+      operationId: UpdateAppraisalQuestion
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: questionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppraisalQuestionRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/question/change-order:
+    post:
+      tags:
+      - performance-management
+      summary: Changing the appraisal session question orders
+      operationId: ChangeAppraisalQuestionOrders
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeAppraisalQuestionOrdersRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/question/{questionId}/remove:
+    post:
+      tags:
+      - performance-management
+      summary: Removing the appraisal session question
+      operationId: RemoveAppraisalQuestion
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: questionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/permissions/add:
+    post:
+      tags:
+      - performance-management
+      summary: Adding the appraisal session permissions
+      operationId: AddAppraisalSessionPermissions
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAppraisalSessionPermissionsRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/permissions/remove:
+    post:
+      tags:
+      - performance-management
+      summary: Removing the appraisal session permissions
+      operationId: RemoveAppraisalSessionPermissions
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveAppraisalSessionPermissionsRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/info:
+    get:
+      tags:
+      - performance-management
+      summary: Getting the appraisal session full info
+      operationId: GetAppraisalSessionInfo
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppraisalSessionInfo'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /performance-management/appraisal/session/{sessionId}/notification/change:
+    post:
+      tags:
+      - performance-management
+      summary: Changing the appraisal session notification settings
+      operationId: ChangeAppraisalSessionNotificationSettings
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeAppraisalSessionNotificationSettingsRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    AppraisalSessionUserAttribute:
+      required:
+      - key
+      - value
+      - title
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        title:
+          type: string
+      type: object
+      xml:
+        name: appraisalSessionUserAttribute
+    AppraisalSessionContentCompetencyReviewMethod:
+      type: string
+      enum:
+      - INDICATORS_INDIVIDUALLY
+      - COMPETENCY_ENTIRELY
+    AppraisalSessionContentScaleLevelData:
+      required:
+      - levelId
+      - score
+      properties:
+        levelId:
+          type: string
+          format: uuid
+        score:
+          type: number
+      type: object
+      xml:
+        name: appraisalSessionContentScaleLevelData
+    AppraisalSessionNotificationSettings:
+      required:
+      - dailyReviewersNotificationDay
+      - dailyReviewersNotificationTimeMilli
+      properties:
+        dailyReviewersNotificationDay:
+          type: integer
+        dailyReviewersNotificationTimeMilli:
+          type: integer
+      type: object
+    ReplaceAppraisalSessionEmployeeReviewersRequest:
+      required:
+      - cards
+      properties:
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeDetailedCard'
+      type: object
+    AddAppraisalQuestionRequest:
+      required:
+      - text
+      - isRequired
+      - targetRoles
+      properties:
+        text:
+          type: string
+        isRequired:
+          type: boolean
+        targetRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionReviewerRole'
+      type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    AppraisalSessionReviewerRole:
+      type: string
+      enum:
+      - REVIEWER_ROLE_SELF_REVIEW
+      - REVIEWER_ROLE_DIRECT_MANAGER
+      - REVIEWER_ROLE_PEER
+      - REVIEWER_ROLE_DIRECT_REPORT
+      - REVIEWER_ROLE_CUSTOMER
+      - REVIEWER_ROLE_EXPERT
+    AppraisalSessionContentCommentsRequirementLevel:
+      type: string
+      enum:
+      - DISABLED
+      - OPTIONAL
+      - REQUIRED
+    UpdateAppraisalSessionRequest:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        instruction:
+          type: string
+        selfReviewInstruction:
+          type: string
+        profileId:
+          type: string
+          format: uuid
+        managerId:
+          type: string
+          format: uuid
+      type: object
+    CreateCompetencyData:
+      required:
+      - name
+      - description
+      - scaleId
+      - groupId
+      - reviewMethod
+      - commentsRequirementLevel
+      - emptyAnswersEnabled
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        scaleId:
+          type: string
+          format: uuid
+        groupId:
+          type: string
+          format: uuid
+        reviewMethod:
+          $ref: '#/components/schemas/CompetencyReviewMethod'
+        commentsRequirementLevel:
+          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
+        emptyAnswersEnabled:
+          type: boolean
+      type: object
+    StartAppraisalSessionStatusCode:
+      type: string
+      enum:
+      - SUCCESS
+      - EMPTY_PROFILE
+      - NO_EMPLOYEES
+      - NO_REVIEWERS
+      - ALREADY_STARTED
+      - NO_PROFILE
+      xml:
+        name: response
+    AppraisalSessionEmployeeDetailedCard:
+      required:
+      - employeeId
+      - reviewers
+      properties:
+        employeeId:
+          type: string
+          format: uuid
+        reviewers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionReviewer'
+      type: object
+    RemoveAppraisalSessionEmployeeCardsRequest:
+      required:
+      - employeeIds
+      properties:
+        employeeIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ChangeAppraisalSessionNotificationSettingsRequest:
+      required:
+      - dailyReviewersNotificationDay
+      - dailyReviewersNotificationTimeMilli
+      properties:
+        dailyReviewersNotificationDay:
+          type: integer
+        dailyReviewersNotificationTimeMilli:
+          type: integer
+      type: object
+    CompetencyIndicatorData:
+      required:
+      - name
+      - levels
+      properties:
+        name:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyIndicatorLevel'
+      type: object
+    Competency:
+      required:
+      - competencyId
+      - name
+      - scaleId
+      - reviewMethod
+      - indicators
+      - commentsRequirementLevel
+      - emptyAnswersEnabled
+      properties:
+        competencyId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        scaleId:
+          type: string
+          format: uuid
+        reviewMethod:
+          $ref: '#/components/schemas/CompetencyReviewMethod'
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyIndicator'
+          xml:
+            wrapped: true
+        commentsRequirementLevel:
+          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
+        emptyAnswersEnabled:
+          type: boolean
+      type: object
+      xml:
+        name: competency
+    AppraisalSessionStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - COMPLETED
+    CompetencyGroup:
+      description: The root group has an empty parentId
+      required:
+      - groupId
+      - name
+      - parentId
+      - competencyIds
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        parentId:
+          type: string
+          format: uuid
+        competencyIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: competencyGroup
+    AppraisalSession:
+      required:
+      - sessionId
+      - name
+      - description
+      - managerId
+      - profileId
+      - status
+      - startDate
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        managerId:
+          type: string
+          format: uuid
+        profileId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/AppraisalSessionStatus'
+        startDate:
+          type: string
+          format: dateTime
+        endDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: appraisalSession
+    ListAppraisalSessionUserAttributesRequest:
+      required:
+      - userIds
+      properties:
+        userIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ProfileCompetencyData:
+      required:
+      - competencyId
+      - requiredLevelId
+      properties:
+        competencyId:
+          type: string
+          format: uuid
+        requiredLevelId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: profileCompetencyData
+    MoveCompetenciesToGroup:
+      required:
+      - groupId
+      - competencyIds
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        competencyIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: data
+    ListAppraisalSessionsRequest:
+      properties:
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ListCompetencyProfilesRequest:
+      properties:
+        profileIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ChangeCompetencyData:
+      required:
+      - name
+      - scaleId
+      - reviewMethod
+      - commentsRequirementLevel
+      - emptyAnswersEnabled
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        scaleId:
+          type: string
+          format: uuid
+        reviewMethod:
+          $ref: '#/components/schemas/CompetencyReviewMethod'
+        commentsRequirementLevel:
+          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
+        emptyAnswersEnabled:
+          type: boolean
+      type: object
+    CompetencyIndicator:
+      required:
+      - indicatorId
+      - name
+      - levels
+      properties:
+        indicatorId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyIndicatorLevel'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: competencyIndicator
+    AppraisalSessionContentCompetency:
+      required:
+      - competencyId
+      - name
+      - scaleId
+      - reviewMethod
+      - indicators
+      - commentsRequirementLevel
+      - emptyAnswersEnabled
+      properties:
+        competencyId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        scaleId:
+          type: string
+          format: uuid
+        requiredLevel:
+          $ref: '#/components/schemas/AppraisalSessionContentRequiredLevelData'
+        reviewMethod:
+          $ref: '#/components/schemas/AppraisalSessionContentCompetencyReviewMethod'
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionContentIndicatorData'
+          xml:
+            wrapped: true
+        commentsRequirementLevel:
+          $ref: '#/components/schemas/AppraisalSessionContentCommentsRequirementLevel'
+        emptyAnswersEnabled:
+          type: boolean
+      type: object
+      xml:
+        name: appraisalSessionContentCompetency
+    AddAppraisalSessionPermissionsRequest:
+      required:
+      - userIds
+      properties:
+        userIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    AppraisalSessionEmployeeCompetencyResults:
+      required:
+      - competencyId
+      properties:
+        competencyId:
+          type: string
+          format: uuid
+        result:
+          type: number
+      type: object
+      xml:
+        name: appraisalSessionEmployeeCompetencyResults
+    ProfileIndicatorData:
+      required:
+      - indicatorId
+      - requiredLevelId
+      properties:
+        indicatorId:
+          type: string
+          format: uuid
+        requiredLevelId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: profileIndicatorData
+    ChangeAppraisalQuestionOrdersRequest:
+      required:
+      - questionIds
+      properties:
+        questionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    CreateCompetencyGroupData:
+      required:
+      - name
+      - parentId
+      properties:
+        name:
+          type: string
+        parentId:
+          description: You can use the root group ID from the list of groups or the ID of other groups
+          type: string
+          format: uuid
+      type: object
+    AppraisalSessionUserStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - DEACTIVATED
+      - DELETED
+      - TERMINATED
+    AppraisalSessionReview:
+      required:
+      - reviewId
+      - sessionId
+      - employeeId
+      - reviewerId
+      - status
+      - completionDate
+      properties:
+        reviewId:
+          type: string
+          format: uuid
+        sessionId:
+          type: string
+          format: uuid
+        employeeId:
+          type: string
+          format: uuid
+        reviewerId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/AppraisalSessionReviewStatus'
+        completionDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: appraisalSessionReview
+    AppraisalSessionReviewStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - SUBMITTED
+    CreateCompetencyScaleLevelData:
+      required:
+      - name
+      - score
+      properties:
+        name:
+          type: string
+        score:
+          type: number
+      type: object
+    AppraisalSessionUserAttributes:
+      required:
+      - sessionId
+      - userId
+      - displayingName
+      - initials
+      - departmentId
+      - departmentName
+      - status
+      - attributes
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+        displayingName:
+          type: string
+        initials:
+          type: string
+        departmentId:
+          type: string
+          format: uuid
+        departmentName:
+          type: string
+        status:
+          $ref: '#/components/schemas/AppraisalSessionUserStatus'
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionUserAttribute'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionUserAttributes
+    AppraisalSessionContentIndicatorData:
+      required:
+      - indicatorId
+      - name
+      properties:
+        indicatorId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        requiredLevel:
+          $ref: '#/components/schemas/AppraisalSessionContentRequiredLevelData'
+      type: object
+      xml:
+        name: appraisalSessionContentIndicatorData
+    RestartAppraisalSessionStatusCode:
+      type: string
+      enum:
+      - SUCCESS
+      - NOT_COMPLETED
+      xml:
+        name: response
+    ListCompetenciesRequest:
+      properties:
+        competencyIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    RemoveAppraisalSessionPermissionsRequest:
+      required:
+      - userIds
+      properties:
+        userIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    AppraisalSessionReviewer:
+      required:
+      - reviewerId
+      - role
+      properties:
+        reviewerId:
+          type: string
+          format: uuid
+        role:
+          $ref: '#/components/schemas/AppraisalSessionReviewerRole'
+      type: object
+    AppraisalSessionContentScale:
+      required:
+      - scaleId
+      - levels
+      properties:
+        scaleId:
+          type: string
+          format: uuid
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionContentScaleLevelData'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionContentScale
+    CreateAppraisalSessionRequest:
+      required:
+      - name
+      - managerId
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        managerId:
+          type: string
+          format: uuid
+      type: object
+    AppraisalSessionEmployeeResults:
+      required:
+      - employeeId
+      - sessionId
+      - competencyResults
+      - indicatorResults
+      properties:
+        employeeId:
+          type: string
+          format: uuid
+        sessionId:
+          type: string
+          format: uuid
+        competencyResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeCompetencyResults'
+          xml:
+            wrapped: true
+        indicatorResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeIndicatorResults'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionEmployeeResults
+    CreateCompetencyScaleData:
+      required:
+      - name
+      - levels
+      properties:
+        name:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateCompetencyScaleLevelData'
+      type: object
+    AppraisalSessionContentCompetencies:
+      required:
+      - competencies
+      - scales
+      properties:
+        competencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionContentCompetency'
+          xml:
+            wrapped: true
+        scales:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionContentScale'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionContentCompetencies
+    ChangeCompetencyScaleRequest:
+      required:
+      - name
+      - levels
+      properties:
+        name:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyScaleLevel'
+      type: object
+    CompetencyScale:
+      required:
+      - scaleId
+      - name
+      - levels
+      properties:
+        scaleId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyScaleLevel'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: competencyScale
+    AppraisalQuestion:
+      required:
+      - id
+      - text
+      - isRequired
+      - targetRoles
+      properties:
+        id:
+          type: string
+          format: uuid
+        text:
+          type: string
+        isRequired:
+          type: boolean
+        targetRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionReviewerRole'
+      type: object
+    CompetencyScaleLevel:
+      required:
+      - levelId
+      - name
+      - score
+      properties:
+        levelId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        score:
+          type: number
+      type: object
+      xml:
+        name: competencyScaleLevel
+    AddAppraisalSessionEmployeeCardsRequest:
+      required:
+      - cards
+      properties:
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeDetailedCard'
+      type: object
+    CompetencyReviewMethod:
+      type: string
+      enum:
+      - INDICATORS_INDIVIDUALLY
+      - COMPETENCY_ENTIRELY
+    AppraisalSessionEmployeeCard:
+      required:
+      - employeeId
+      - reviewerIds
+      properties:
+        employeeId:
+          type: string
+          format: uuid
+        reviewerIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionEmployeeCard
+    AppraisalSessionEmployeeIndicatorResults:
+      required:
+      - indicatorId
+      properties:
+        indicatorId:
+          type: string
+          format: uuid
+        result:
+          type: number
+      type: object
+      xml:
+        name: appraisalSessionEmployeeIndicatorResults
+    CompetencyCommentsRequirementLevel:
+      type: string
+      enum:
+      - DISABLED
+      - OPTIONAL
+      - REQUIRED
+    CompetencyIndicatorLevel:
+      required:
+      - levelId
+      properties:
+        levelId:
+          type: string
+          format: uuid
+        description:
+          type: string
+      type: object
+      xml:
+        name: competencyIndicatorLevel
+    AppraisalSessionInfo:
+      required:
+      - sessionId
+      - name
+      - description
+      - managerId
+      - startDate
+      - endDate
+      - status
+      - profileId
+      - instruction
+      - selfReviewInstruction
+      - questions
+      - employees
+      - permittedUserIds
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        managerId:
+          type: string
+          format: uuid
+        startDate:
+          type: string
+          format: dateTime
+        endDate:
+          type: string
+          format: dateTime
+        status:
+          $ref: '#/components/schemas/AppraisalSessionStatus'
+        profileId:
+          type: string
+          format: uuid
+        instruction:
+          type: string
+        selfReviewInstruction:
+          type: string
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalQuestion'
+        employees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeDetailedCard'
+        permittedUserIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        sessionNotificationSettings:
+          $ref: '#/components/schemas/AppraisalSessionNotificationSettings'
+      type: object
+    UpdateAppraisalQuestionRequest:
+      properties:
+        text:
+          type: string
+        isRequired:
+          type: boolean
+        targetRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionReviewerRole'
+      type: object
+    AppraisalSessionContentRequiredLevelData:
+      required:
+      - name
+      - score
+      properties:
+        name:
+          type: string
+        score:
+          type: number
+      type: object
+      xml:
+        name: requiredLevel
+    MoveCompetencyGroupsToParentGroup:
+      required:
+      - parentGroupId
+      - groupIds
+      properties:
+        parentGroupId:
+          type: string
+          format: uuid
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    CompetencyProfile:
+      required:
+      - profileId
+      - name
+      - description
+      - competencies
+      - indicators
+      properties:
+        profileId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        competencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileCompetencyData'
+          xml:
+            wrapped: true
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileIndicatorData'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: competencyProfile
+    RemoveAppraisalSessionReviewersRequest:
+      required:
+      - reviewerIds
+      properties:
+        reviewerIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

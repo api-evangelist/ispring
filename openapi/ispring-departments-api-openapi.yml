@@ -1,0 +1,149 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments departments API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: departments
+paths:
+  /departments:
+    get:
+      tags:
+      - departments
+      summary: List departments
+      operationId: ListDepartments
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepartmentsPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DepartmentsPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    Subordination:
+      required:
+      - subordinationType
+      properties:
+        subordinationType:
+          type: string
+          enum:
+          - manual
+          - inherit
+          - no_supervisor
+        supervisorId:
+          type: string
+      type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    DepartmentsPage:
+      required:
+      - departments
+      properties:
+        departments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Department'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    Department:
+      required:
+      - departmentId
+      - name
+      - subordination
+      - coSubordination
+      properties:
+        departmentId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        parentDepartmentId:
+          type: string
+          format: uuid
+        code:
+          type: string
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+      type: object
+      xml:
+        name: department
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

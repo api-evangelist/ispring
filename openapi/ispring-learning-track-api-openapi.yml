@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments learning_track API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: learning_track
+  description: Learning track operations
+paths:
+  /learning_track/courses:
+    get:
+      tags:
+      - learning_track
+      summary: Retrieves a list of courses included in the trajectories
+      operationId: ListLearningTracksCourses
+      parameters:
+      - name: learningTrackIds
+        in: query
+        required: true
+        schema:
+          description: Comma-separated array of track IDs
+          type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LearningTrackCourse'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LearningTrackCourse'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    LearningTrackCourse:
+      required:
+      - learningTrackId
+      - courseId
+      properties:
+        learningTrackId:
+          type: string
+          format: uuid
+        courseId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: learningTracksCourse
+        wrapped: true
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

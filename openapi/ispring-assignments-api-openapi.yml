@@ -1,0 +1,295 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: assignments
+  description: Assignment operations
+paths:
+  /assignments:
+    get:
+      tags:
+      - assignments
+      summary: List assignments
+      operationId: ListAssignments
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: ungraded
+        in: query
+        required: false
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentsPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AssignmentsPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /assignment/{assignmentId}/attempts/ungraded:
+    get:
+      tags:
+      - assignments
+      summary: Retrieves a list of ungraded attempts for an assignment
+      operationId: ListAssignmentAttempts
+      parameters:
+      - name: assignmentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: userIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssignmentAttempt'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssignmentAttempt'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /assignments/attempts/grade:
+    post:
+      tags:
+      - assignments
+      summary: Grade user assignment attempts
+      operationId: GradeAssignments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignmentAttemptGrades'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssignmentAttemptGrades'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    Assignment:
+      required:
+      - assignmentId
+      - title
+      properties:
+        assignmentId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        instructorId:
+          type: string
+          format: uuid
+        courseFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseFieldValue'
+      type: object
+      xml:
+        name: assignment
+    CourseFieldValue:
+      required:
+      - fieldId
+      - fieldValue
+      properties:
+        fieldId:
+          type: string
+          format: uuid
+        fieldValue:
+          type: string
+      type: object
+      xml:
+        name: courseField
+        wrapped: true
+    AssignmentAttemptGrade:
+      required:
+      - attemptId
+      - score
+      properties:
+        attemptId:
+          type: string
+          format: uuid
+        score:
+          type: number
+          maximum: 100
+          minimum: 0
+        comment:
+          type: string
+      type: object
+      xml:
+        name: attemptGrade
+    AssignmentsPage:
+      required:
+      - assignments
+      properties:
+        assignments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assignment'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    AssignmentAttemptGrades:
+      required:
+      - assignmentAttemptGrades
+      properties:
+        assignmentAttemptGrades:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssignmentAttemptGrade'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: request
+    AssignmentAttemptAttachment:
+      required:
+      - fileName
+      - fileSize
+      - url
+      properties:
+        fileName:
+          type: string
+        fileSize:
+          description: File size in bytes
+          type: integer
+        url:
+          type: string
+          format: url
+      type: object
+      xml:
+        name: attachment
+    AssignmentAttempt:
+      required:
+      - attemptId
+      - enrollmentId
+      - userId
+      - comment
+      properties:
+        attemptId:
+          type: string
+          format: uuid
+        enrollmentId:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+        comment:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssignmentAttemptAttachment'
+      type: object
+      xml:
+        name: attempt
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

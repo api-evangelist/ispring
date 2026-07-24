@@ -1,0 +1,755 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments content API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: content
+  description: Content operations
+paths:
+  /content:
+    get:
+      tags:
+      - content
+      summary: Get content list
+      operationId: GetContent
+      parameters:
+      - $ref: '#/components/parameters/targetLocale'
+      - name: contentTypes
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentType'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentItemInformation'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentItemInformation'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /contents:
+    get:
+      tags:
+      - content
+      summary: List content
+      operationId: ListContent
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - $ref: '#/components/parameters/targetLocale'
+      - name: contentItemIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: contentTypes
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentType'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentItemsInformationPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContentItemsInformationPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - content
+      summary: List content
+      operationId: ListContentByPost
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              properties:
+                contentItemIds:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                  xml:
+                    name: contentItemIds
+                contentTypes:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ContentType'
+                  xml:
+                    name: contentTypes
+              type: object
+              xml:
+                name: request
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentItemsInformationPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContentItemsInformationPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /content/{contentId}:
+    get:
+      tags:
+      - content
+      summary: Get content item
+      operationId: GetContentItem
+      parameters:
+      - $ref: '#/components/parameters/targetLocale'
+      - name: contentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                required:
+                - contentItem
+                properties:
+                  contentItem:
+                    $ref: '#/components/schemas/ContentItemInformation'
+                type: object
+            application/xml:
+              schema:
+                required:
+                - contentItem
+                properties:
+                  contentItem:
+                    $ref: '#/components/schemas/ContentItemInformation'
+                type: object
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /content/{contentId}/final_statuses:
+    get:
+      tags:
+      - content
+      summary: Get content item final statuses
+      operationId: GetContentItemFinalStatuses
+      parameters:
+      - name: contentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentItemFinalStatus'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentItemFinalStatus'
+                xml:
+                  name: statuses
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Session not found
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Unknown content item
+  /courses/modules:
+    get:
+      tags:
+      - content
+      summary: List courses modules
+      operationId: ListCoursesModules
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: courseIds
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoursesModulesPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CoursesModulesPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+      deprecated: true
+  /course_fields:
+    get:
+      tags:
+      - content
+      summary: List course fields
+      operationId: ListCourseFields
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseFields'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseFields'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /content/create/{contentType}:
+    post:
+      tags:
+      - content
+      summary: Create content item
+      operationId: CreateContent
+      parameters:
+      - name: contentType
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ContentType'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/CreateCourseRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: The content item ID
+                type: string
+                format: uuid
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /course/{courseId}/modules:
+    get:
+      tags:
+      - content
+      summary: List modules by course id
+      operationId: ListCourseModules
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                required:
+                - modules
+                properties:
+                  modules:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CoursesModule'
+                type: object
+            application/xml:
+              schema:
+                required:
+                - modules
+                properties:
+                  modules:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CoursesModule'
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Unknown content item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /courses_tree:
+    get:
+      tags:
+      - content
+      summary: Get courses tree
+      operationId: GetCoursesTree
+      parameters:
+      - $ref: '#/components/parameters/targetLocale'
+      - name: contentItemIds
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArrayOfIds'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CourseTreeItem'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CourseTreeItem'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    CourseFields:
+      required:
+      - courseFields
+      properties:
+        courseFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseField'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: response
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    CoursesModulesPage:
+      required:
+      - modules
+      properties:
+        modules:
+          type: array
+          items:
+            $ref: '#/components/schemas/CoursesModule'
+          xml:
+            wrapped: true
+        nextPageToekn:
+          type: string
+      type: object
+      xml:
+        name: response
+    CourseField:
+      required:
+      - fieldId
+      - fieldCustomId
+      - fieldLabel
+      - fieldType
+      properties:
+        fieldId:
+          type: string
+          format: uuid
+        fieldCustomId:
+          type: string
+        fieldLabel:
+          type: string
+        fieldType:
+          $ref: '#/components/schemas/CourseFieldType'
+      type: object
+      xml:
+        name: courseField
+        wrapped: true
+    ContentItemInformation:
+      required:
+      - contentItemId
+      - title
+      - subtitle
+      - description
+      - userId
+      - addedDate
+      - viewUrl
+      - type
+      - viewType
+      properties:
+        contentItemId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        subtitle:
+          type: string
+        description:
+          type: string
+        userId:
+          type: string
+          format: uuid
+        addedDate:
+          type: string
+          format: date-time
+        viewUrl:
+          type: string
+          format: url
+        type:
+          type: string
+          deprecated: true
+        contentItemType:
+          $ref: '#/components/schemas/ContentType'
+        courseFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseFieldValue'
+      type: object
+      xml:
+        name: contentItem
+    ContentItemFinalStatus:
+      required:
+      - userId
+      - status
+      - progress
+      properties:
+        userId:
+          type: string
+          format: uuid
+        status:
+          type: string
+        progress:
+          type: integer
+          maximum: 100
+          minimum: 0
+        completionDate:
+          type: string
+          format: date-time
+        lastViewDate:
+          type: string
+          format: date-time
+      type: object
+      xml:
+        name: status
+        wrapped: true
+    ContentType:
+      type: string
+      enum:
+      - iSpringSuiteModule
+      - Audio
+      - Video
+      - Image
+      - Quiz
+      - Survey
+      - SCORM
+      - Course
+      - LearningTrack
+      - WordDocument
+      - PowerPointPresentation
+      - PDFDocument
+      - ExcelSpreadsheet
+      - RolePlay
+      - Link
+      - Assignment
+      - Book
+      - Interaction
+      - Page
+      - OnlineQuiz
+      - ExternalCourse
+    ContentItemsInformationPage:
+      required:
+      - contentItems
+      properties:
+        contentItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentItemInformation'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    CourseTreeItem:
+      required:
+      - contentItemId
+      - title
+      - type
+      - description
+      - addedDate
+      - viewUrl
+      - parentId
+      - isShared
+      properties:
+        contentItemId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        addedDate:
+          type: string
+          format: date-time
+        viewUrl:
+          type: string
+          format: url
+        parentId:
+          type: string
+          format: uuid
+        isShared:
+          type: boolean
+      type: object
+      xml:
+        name: contentItem
+    CoursesModule:
+      required:
+      - moduleId
+      - contentItemId
+      - courseId
+      - title
+      - description
+      - authorId
+      - addedDate
+      - viewUrl
+      properties:
+        moduleId:
+          type: string
+          format: uuid
+        contentItemId:
+          type: string
+          format: uuid
+        courseId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+        authorId:
+          type: string
+          format: uuid
+        addedDate:
+          type: string
+          format: datetime
+        viewUrl:
+          type: string
+          format: url
+      type: object
+      xml:
+        name: module
+    CourseFieldType:
+      type: string
+      enum:
+      - TEXT
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    CreateCourseRequest:
+      required:
+      - folder_id
+      - title
+      properties:
+        folder_id:
+          type: string
+          format: uuid
+        title:
+          type: string
+      type: object
+    CourseFieldValue:
+      required:
+      - fieldId
+      - fieldValue
+      properties:
+        fieldId:
+          type: string
+          format: uuid
+        fieldValue:
+          type: string
+      type: object
+      xml:
+        name: courseField
+        wrapped: true
+  parameters:
+    targetLocale:
+      name: X-Target-Locale
+      in: header
+      required: false
+      schema:
+        type: string
+        enum:
+        - en-US
+        - ru-RU
+        - da-DK
+        - de-DE
+        - es-ES
+        - fr-FR
+        - zh-CN
+        - ja-JP
+        - pt-BR
+        - id-ID
+        - mn-MN
+        - it-IT
+        - nl-NL
+        - fi-FI
+        - uk-UA
+        - no-NO
+        - pl-PL
+        - az-AZ
+        - kk-KK
+        - ro-RO
+        - ko-KR
+        - bg-BG
+        - cs-CZ
+        - uz-UZ
+        - zh-TW
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

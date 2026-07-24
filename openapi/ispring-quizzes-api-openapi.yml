@@ -1,0 +1,332 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments quizzes API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: quizzes
+paths:
+  /quizzes:
+    get:
+      tags:
+      - quizzes
+      summary: Retrieves a list of quizzes
+      operationId: ListQuizzes
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: quizIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: contentItemIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: parentCourseIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuizzesPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/QuizzesPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /report/answer-breakdown:
+    get:
+      tags:
+      - quizzes
+      summary: Retrieves a paginated list of answers results for answer breakdown report
+      operationId: ListAnswerBreakdownResults
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: quizId
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: parentCourseId
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: userIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: enrollmentIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: departmentIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: groupIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: attemptDate
+        in: query
+        required: false
+        style: deepObject
+        schema:
+          $ref: '#/components/schemas/DateRange'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerBreakdownResultsPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AnswerBreakdownResultsPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    QuizzesPage:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quiz'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    AnswerBreakdownResultsPage:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnswerBreakdownResult'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: results
+    AnswerBreakdownResult:
+      required:
+      - userId
+      - enrollmentId
+      - quizVersion
+      - attemptDate
+      - isAttemptPassed
+      - attemptScore
+      - passingScore
+      - questionNumber
+      - questionTitle
+      - questionType
+      - questionScore
+      - answerText
+      - isAnswerCorrect
+      - answerScore
+      properties:
+        userId:
+          type: string
+          format: uuid
+        enrollmentId:
+          type: string
+          format: uuid
+        quizVersion:
+          type: string
+        attemptDate:
+          type: string
+          format: datetime
+        isAttemptPassed:
+          type: boolean
+        attemptScore:
+          type: number
+          format: float
+        passingScore:
+          type: number
+          format: float
+        questionNumber:
+          type: integer
+        questionTitle:
+          type: string
+        questionType:
+          type: string
+        questionScore:
+          type: number
+          format: float
+        questionGroup:
+          type: string
+        statementTitle:
+          type: string
+        answerText:
+          type: string
+        customAnswerText:
+          type: string
+        isAnswerCorrect:
+          type: boolean
+        answerScore:
+          type: number
+          format: float
+      type: object
+      xml:
+        name: result
+        wrapped: true
+    Quiz:
+      required:
+      - quizId
+      - quizTitle
+      - contentItemId
+      - parentCourseIds
+      properties:
+        quizId:
+          type: string
+          format: uuid
+        quizTitle:
+          type: string
+        contentItemId:
+          type: string
+          format: uuid
+        parentCourseIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: result
+        wrapped: true
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    DateRange:
+      required:
+      - startDate
+      - endDate
+      properties:
+        startDate:
+          type: string
+          format: dateTime
+        endDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: dateRange
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

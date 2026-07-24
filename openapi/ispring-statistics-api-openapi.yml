@@ -1,0 +1,341 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments statistics API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: statistics
+paths:
+  /statistics/course:
+    post:
+      tags:
+      - statistics
+      summary: Update course status
+      operationId: UpdateCourseStatus
+      parameters:
+      - name: courseId
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: enrollmentIds
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArrayOfIds'
+      - name: status
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/CourseCompletionStatus'
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: reason
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: awardedScore
+        in: query
+        required: false
+        schema:
+          type: number
+          maximum: 100
+          minimum: 0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCourseStatus'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateCourseStatus'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                required:
+                - taskId
+                properties:
+                  taskId:
+                    description: Async Task ID
+                    type: integer
+                type: object
+            application/xml:
+              schema:
+                required:
+                - taskId
+                properties:
+                  taskId:
+                    description: Async Task ID
+                    type: integer
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /statistics/module:
+    post:
+      tags:
+      - statistics
+      summary: Update modules statuses
+      operationId: UpdateModuleStatuses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateModulesStatuses'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateModulesStatuses'
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                required:
+                - taskId
+                properties:
+                  taskId:
+                    description: Async Task ID
+                    type: integer
+                type: object
+            application/xml:
+              schema:
+                required:
+                - taskId
+                properties:
+                  taskId:
+                    description: Async Task ID
+                    type: integer
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    delete:
+      tags:
+      - statistics
+      summary: Reset modules statistics
+      operationId: ResetModuleStatistics
+      parameters:
+      - name: courseId
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: enrollmentIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: contentItemIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                required:
+                - taskId
+                properties:
+                  taskId:
+                    description: Async Task ID
+                    type: integer
+                type: object
+            application/xml:
+              schema:
+                required:
+                - taskId
+                properties:
+                  taskId:
+                    description: Async Task ID
+                    type: integer
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    UpdateCourseStatus:
+      required:
+      - courseId
+      - enrollmentIds
+      - status
+      properties:
+        courseId:
+          type: string
+          format: uuid
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        status:
+          $ref: '#/components/schemas/CourseCompletionStatus'
+        date:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        awardedScore:
+          type: number
+          maximum: 100
+          minimum: 0
+      type: object
+      xml:
+        name: request
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    CourseCompletionStatus:
+      type: string
+      enum:
+      - complete
+      - incomplete
+      - passed
+      - failed
+      - automatic
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    CompletionStatus:
+      type: string
+      enum:
+      - not_started
+      - in_progress
+      - pending
+      - complete
+      - passed
+      - accepted
+      - incomplete
+      - failed
+      - declined
+    UpdateModulesStatuses:
+      required:
+      - enrollmentIds
+      - courseId
+      - moduleStatuses
+      properties:
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        courseId:
+          type: string
+          format: uuid
+        moduleStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModuleStatus'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: request
+    ModuleStatus:
+      required:
+      - contentItemId
+      - date
+      - reason
+      - status
+      - awardedScore
+      properties:
+        contentItemId:
+          type: string
+          format: uuid
+        date:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        status:
+          $ref: '#/components/schemas/CompletionStatus'
+        awardedScore:
+          type: number
+          maximum: 100
+          minimum: 0
+      type: object
+      xml:
+        name: moduleStatus
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

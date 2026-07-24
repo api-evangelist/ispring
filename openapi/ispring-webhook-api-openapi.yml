@@ -1,0 +1,435 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments webhook API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: webhook
+paths:
+  /webhook/register:
+    post:
+      tags:
+      - webhook
+      summary: Register new subscriber
+      operationId: RegisterSubscriber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriberRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /webhook/disable:
+    post:
+      tags:
+      - webhook
+      summary: Disable subscriber
+      operationId: DisabableSubscriber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/settings/change:
+    post:
+      tags:
+      - webhook
+      summary: Change subscriber settings
+      operationId: ChangeSubscriberSettings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriberRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/remove:
+    post:
+      tags:
+      - webhook
+      summary: Remove subscriber
+      operationId: RemoveSubscriber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/subscribe:
+    post:
+      tags:
+      - webhook
+      summary: Add subscription
+      operationId: Subscribe
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscribeRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscribeRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/unsubscribe:
+    post:
+      tags:
+      - webhook
+      summary: Remove subscription
+      operationId: unsubscribe
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnsubscribeRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UnsubscribeRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscription not found
+  /webhook/subscription/list:
+    get:
+      tags:
+      - webhook
+      summary: List subscriber subscriptions
+      operationId: ListSubscriptions
+      parameters:
+      - name: subscriberName
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subscription'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subscription'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/enable:
+    post:
+      tags:
+      - webhook
+      summary: Enable subscriber
+      operationId: EnableSubscriber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/code/send:
+    post:
+      tags:
+      - webhook
+      summary: Send a code to confirm the url
+      operationId: SendConfirmationCode
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriberNameRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/confirm:
+    post:
+      tags:
+      - webhook
+      summary: Confirm subscriber callback url
+      operationId: Confirm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfirmRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ConfirmRequest'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+  /webhook/subscriber/info:
+    get:
+      tags:
+      - webhook
+      summary: Get information about subscriber
+      operationId: GetSubscriberInfo
+      parameters:
+      - name: subscriberName
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+        '404':
+          description: Subscriber not found
+components:
+  schemas:
+    SubscribeRequest:
+      required:
+      - subscriberName
+      - subscription
+      properties:
+        subscriberName:
+          type: string
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+      type: object
+    SubscriberRequest:
+      required:
+      - subscriberName
+      - callbackUrl
+      properties:
+        subscriberName:
+          type: string
+        callbackUrl:
+          type: string
+        secret:
+          type: string
+      type: object
+      xml:
+        name: request
+    SubscriptionParameter:
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    SubscriberNameRequest:
+      required:
+      - subscriberName
+      properties:
+        subscriberName:
+          type: string
+      type: object
+    UnsubscribeRequest:
+      required:
+      - subscriberName
+      - subscriptionType
+      properties:
+        subscriberName:
+          type: string
+        subscriptionType:
+          type: string
+      type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ConfirmRequest:
+      required:
+      - subscriberName
+      - code
+      properties:
+        subscriberName:
+          type: string
+        code:
+          type: string
+      type: object
+    Subscription:
+      required:
+      - subscriptionType
+      properties:
+        subscriptionType:
+          type: string
+          enum:
+          - USER_REGISTERED
+          - LEARNERS_ENROLLED_IN_COURSE
+          - TRAINING_MEETING_ADDED
+          - TRAINING_MEETING_REMOVED
+          - TRAINING_MEETING_UPDATED
+          - TRAINING_SESSION_PARTICIPANTS_ADDED
+          - TRAINING_SESSION_PARTICIPANT_REMOVED
+          - COURSE_COMPLETED_SUCCESSFULLY
+          - COURSE_STATUS_CHANGED
+          - COURSE_ITEM_COMPLETED_SUCCESSFULLY
+          - COURSE_ITEM_STATUS_CHANGED
+        params:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionParameter'
+      type: object
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

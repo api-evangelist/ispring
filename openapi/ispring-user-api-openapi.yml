@@ -1,0 +1,1752 @@
+openapi: 3.0.0
+info:
+  title: Learn Rest Api assignments user API
+  version: '3.0'
+  description: Assignment operations
+servers:
+- url: https://api-learn.ispring.com
+  description: Main server
+security:
+- bearerAuth: []
+tags:
+- name: user
+  description: User operations
+paths:
+  /user:
+    get:
+      tags:
+      - user
+      summary: Get user list
+      operationId: GetUsers
+      parameters:
+      - name: departments[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: groups[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: logins[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: emails[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - user
+      summary: Add a new user
+      operationId: AddUser
+      parameters:
+      - $ref: '#/components/parameters/returnObject'
+      - name: X-Department-Id
+        in: header
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: X-Fields
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserProfileFields'
+      - name: X-Password
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: X-Role
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserRoleEnum'
+      - name: X-Role-Id
+        in: header
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: X-Manageable-Department-Ids
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArrayOfIds'
+      - name: X-Group-Ids
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArrayOfIds'
+      - name: X-Roles
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+      - name: X-Send-Login-Email
+        in: header
+        required: false
+        schema:
+          type: boolean
+      - name: X-Invitation-Message
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: X-Send-Login-SMS
+        in: header
+        required: false
+        schema:
+          type: boolean
+      - name: X-Invitation-SMS-Message
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewUser'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewUser'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: The user ID
+                type: string
+                format: uuid
+            application/xml:
+              schema:
+                description: The user ID
+                type: string
+                format: uuid
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}:
+    get:
+      tags:
+      - user
+      summary: Get user profile
+      operationId: GetUserProfile
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/User'
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/User'
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - user
+      summary: Update user profile
+      operationId: UpdateUserProfile
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Department-Id
+        in: header
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: X-Role
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserRoleEnum'
+      - name: X-Role-Id
+        in: header
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: X-Roles
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+      - name: X-Fields
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserProfileFields'
+      - name: X-Group-Ids
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArrayOfIds'
+      - name: X-Manageable-Department-Ids
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArrayOfIds'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUser'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateUser'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    delete:
+      tags:
+      - user
+      summary: Delete user
+      operationId: RemoveUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /users/find_existing:
+    post:
+      tags:
+      - user
+      summary: Find existing users
+      operationId: FindExistingUsers
+      parameters:
+      - name: X-User-Ids
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+          application/xml:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+              xml:
+                name: request
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+                  xml:
+                    name: id
+                    wrapped: true
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+                  xml:
+                    name: id
+                    wrapped: true
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}/v2:
+    get:
+      tags:
+      - user
+      summary: Get user profile
+      operationId: GetUserProfileV2
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/UserV2'
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  response:
+                    $ref: '#/components/schemas/UserV2'
+                type: object
+                xml:
+                  name: response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/v2:
+    get:
+      tags:
+      - user
+      summary: Get user list
+      operationId: GetUsersV2
+      parameters:
+      - name: departments[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: groups[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: logins[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: emails[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserV2'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /users:
+    get:
+      tags:
+      - user
+      summary: List users
+      operationId: ListUsers
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: departments[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: groups[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: logins[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: emails[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersPage'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UsersPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+      deprecated: true
+  /users/v2:
+    get:
+      tags:
+      - user
+      summary: List users
+      operationId: ListUsersV2
+      parameters:
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: departments[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: groups[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: logins[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: emails[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: userIds[]
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersPageV2'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UsersPageV2'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    post:
+      tags:
+      - user
+      summary: List users
+      operationId: ListUsersV2ByPost
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              properties:
+                groups:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                  xml:
+                    name: groups
+                departments:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                  xml:
+                    name: departments
+                logins:
+                  type: array
+                  items:
+                    type: string
+                  xml:
+                    name: logins
+                emails:
+                  type: array
+                  items:
+                    type: string
+                  xml:
+                    name: emails
+                userIds:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                  xml:
+                    name: userIds
+              type: object
+              xml:
+                name: request
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersPageV2'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UsersPageV2'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/profile/fields:
+    get:
+      tags:
+      - user
+      summary: Get user profile fields
+      operationId: GetUserProfileFields
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserFieldInfo'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserFieldInfo'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}/password:
+    post:
+      tags:
+      - user
+      summary: Update user password
+      operationId: UpdateUserPassword
+      parameters:
+      - name: X-Password
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserPassword'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateUserPassword'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}/status:
+    post:
+      tags:
+      - user
+      summary: Activate/Deactivate user
+      operationId: ChangeUserStatus
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Status
+        in: header
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserStatus'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserStatus'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateUserStatus'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}/subordination:
+    post:
+      tags:
+      - user
+      summary: Change user subordination
+      operationId: ChangeUserSubordination
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeUserSubordination'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ChangeUserSubordination'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}/scheduled_deactivation:
+    post:
+      tags:
+      - user
+      summary: Schedule user deactivation
+      operationId: ScheduleUserDeactivation
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduledUserDeactivation'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ScheduledUserDeactivation'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    delete:
+      tags:
+      - user
+      summary: Delete scheduled deactivation date
+      operationId: RemoveScheduledUserDeactivation
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}/scheduled_termination:
+    post:
+      tags:
+      - user
+      summary: Schedule user termination
+      operationId: ScheduleUserTermination
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduledUserTermination'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ScheduledUserTermination'
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+    delete:
+      tags:
+      - user
+      summary: Delete scheduled termination date
+      operationId: RemoveScheduledUserTermination
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success Response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/{userId}/groups/remove:
+    post:
+      tags:
+      - user
+      summary: Remove user from groups
+      operationId: RemoveUserFromGroups
+      parameters:
+      - name: X-Group-Ids
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveUserGroups'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RemoveUserGroups'
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /role:
+    get:
+      tags:
+      - user
+      summary: Get role list
+      operationId: GetRoles
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+                xml:
+                  name: response
+                  wrapped: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /users/activate:
+    post:
+      tags:
+      - user
+      summary: activate users
+      operationId: Activate users
+      parameters:
+      - name: X-User-Ids
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+          application/xml:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+              xml:
+                name: request
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /users/deactivate:
+    post:
+      tags:
+      - user
+      summary: deactivate users
+      operationId: Deactivate users
+      parameters:
+      - name: X-User-Ids
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+          application/xml:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+              xml:
+                name: request
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /users/terminate:
+    post:
+      tags:
+      - user
+      summary: terminate users
+      operationId: Terminate users
+      parameters:
+      - name: X-User-Ids
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+          application/xml:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+              xml:
+                name: request
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /user/list:
+    post:
+      tags:
+      - user
+      summary: Get users list
+      operationId: GetPagedUsersList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetPagedUsersListRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetPagedUsersListRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPagedUsersListResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetPagedUsersListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /users/work-leave-status:
+    post:
+      tags:
+      - user
+      summary: Update work leave statuses
+      operationId: UpdateWorkLeaveStatuses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWorkLeaveStatusesRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateWorkLeaveStatusesRequest'
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+  /users/work-leave-status/delete:
+    post:
+      tags:
+      - user
+      summary: Remove work leave statuses
+      operationId: RemoveWorkLeaveStatuses
+      parameters:
+      - name: X-User-Ids
+        in: header
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+          application/xml:
+            schema:
+              required:
+              - userIds
+              properties:
+                userIds:
+                  $ref: '#/components/schemas/ArrayOfIds'
+              type: object
+              xml:
+                name: request
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/PermissionDenied'
+components:
+  schemas:
+    Subordination:
+      required:
+      - subordinationType
+      properties:
+        subordinationType:
+          type: string
+          enum:
+          - manual
+          - inherit
+          - no_supervisor
+        supervisorId:
+          type: string
+      type: object
+    UpdateWorkLeaveStatusesRequest:
+      properties:
+        workLeaveStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkLeaveStatusData'
+          xml:
+            name: workLeaveStatuses
+            wrapped: false
+      type: object
+    GetPagedUsersListResponse:
+      properties:
+        pageNumber:
+          type: integer
+        totalUsersNumber:
+          type: integer
+        userProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+      type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    UpdateUserPassword:
+      required:
+      - password
+      properties:
+        password:
+          type: string
+          format: password
+      type: object
+      xml:
+        name: request
+    UserProfileFields:
+      required:
+      - login
+      - email
+      properties:
+        additionalProperties:
+          type: string
+        login:
+          type: string
+        email:
+          type: string
+      type: object
+    RemoveUserGroups:
+      required:
+      - groupIds
+      properties:
+        groupIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    UserRoleEnum:
+      type: string
+      enum:
+      - learner
+      - administrator
+      - department_administrator
+      - publisher
+      - custom
+    GetPagedUsersListRequest:
+      properties:
+        groups:
+          type: array
+          items:
+            type: string
+            format: uuid
+        departments:
+          type: array
+          items:
+            type: string
+            format: uuid
+        logins:
+          type: array
+          items:
+            type: string
+        emails:
+          type: array
+          items:
+            type: string
+        profileFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileFieldsFilterItem'
+        profileFieldsDateRange:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileFieldsDateRangeItem'
+      type: object
+    UserV2:
+      required:
+      - userId
+      - role
+      - roleId
+      - departmentId
+      - status
+      - fields
+      - addedDate
+      - lastLoginDate
+      - userRoles
+      - subordination
+      - coSubordination
+      properties:
+        userId:
+          type: string
+          format: uuid
+        role:
+          $ref: '#/components/schemas/UserRoleEnum'
+        roleId:
+          type: string
+          format: uuid
+        departmentId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        fields:
+          $ref: '#/components/schemas/UserProfileFields'
+        addedDate:
+          type: string
+          format: datetime
+        lastLoginDate:
+          type: string
+          format: datetime
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        userRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+        groups:
+          $ref: '#/components/schemas/ArrayOfIds'
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+        workLeaveStatus:
+          $ref: '#/components/schemas/WorkLeaveStatus'
+        securityPolicyAcceptanceDate:
+          type: string
+          format: datetime
+        privacyPolicyConsentAcceptanceDate:
+          type: string
+          format: datetime
+      type: object
+      xml:
+        name: userProfile
+        wrapped: true
+    WorkLeaveReason:
+      type: string
+      enum:
+      - OutOfTheOffice
+      - OnVacation
+      - PersonalLeave
+      - BusinessTrip
+      - SickLeave
+      - ParentalLeave
+      - EducationalLeave
+    UpdateUser:
+      properties:
+        departmentId:
+          type: string
+        role:
+          $ref: '#/components/schemas/UserRoleEnum'
+        roleId:
+          type: string
+          format: uuid
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+        fields:
+          $ref: '#/components/schemas/UserProfileFields'
+        groupIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    ChangeUserSubordination:
+      properties:
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+      type: object
+      xml:
+        name: request
+    NewUser:
+      required:
+      - departmentId
+      - fields
+      properties:
+        departmentId:
+          type: string
+        fields:
+          $ref: '#/components/schemas/UserProfileFields'
+        password:
+          type: string
+        role:
+          type: string
+        roleId:
+          type: string
+          format: uuid
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        groupIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+        sendLoginEmail:
+          type: boolean
+        invitationMessage:
+          type: string
+        sendLoginSMS:
+          type: boolean
+        invitationSMSMessage:
+          type: string
+      type: object
+      xml:
+        name: response
+    ProfileFieldsDateRangeItem:
+      required:
+      - name
+      - from
+      - to
+      properties:
+        name:
+          type: string
+        from:
+          type: string
+          format: date
+        to:
+          type: string
+          format: date
+      type: object
+    UserRole:
+      required:
+      - roleId
+      properties:
+        roleId:
+          type: string
+          format: uuid
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        roleType:
+          $ref: '#/components/schemas/UserRoleEnum'
+      type: object
+      xml:
+        name: userRole
+        wrapped: true
+    Role:
+      required:
+      - roleId
+      - type
+      - title
+      - description
+      properties:
+        roleId:
+          type: string
+          format: uuid
+        type:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+      type: object
+      xml:
+        name: role
+    ScheduledUserTermination:
+      required:
+      - date
+      properties:
+        date:
+          type: string
+          format: date
+      type: object
+      xml:
+        name: request
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    UsersPage:
+      required:
+      - userProfiles
+      properties:
+        userProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    UserStatus:
+      description: 1 - active, 3 - inactive, 5 - terminated
+      type: integer
+      enum:
+      - 1
+      - 3
+      - 5
+    User:
+      required:
+      - userId
+      - role
+      - roleId
+      - departmentId
+      - status
+      - fields
+      - addedDate
+      - lastLoginDate
+      - userRoles
+      - subordination
+      - coSubordination
+      properties:
+        userId:
+          type: string
+          format: uuid
+        role:
+          $ref: '#/components/schemas/UserRoleEnum'
+        roleId:
+          type: string
+          format: uuid
+        departmentId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        fields:
+          $ref: '#/components/schemas/UserProfileFields'
+        addedDate:
+          type: string
+          format: datetime
+        lastLoginDate:
+          type: string
+          format: datetime
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        userRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+        groups:
+          $ref: '#/components/schemas/ArrayOfIds'
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+        workLeaveStatus:
+          $ref: '#/components/schemas/WorkLeaveStatus'
+        securityPolicyAcceptanceDate:
+          type: string
+          format: datetime
+        personalDataConsentAcceptanceDate:
+          type: string
+          format: datetime
+      type: object
+      xml:
+        name: userProfile
+        wrapped: true
+    WorkLeaveStatus:
+      required:
+      - workLeaveReason
+      - startDate
+      properties:
+        workLeaveReason:
+          $ref: '#/components/schemas/WorkLeaveReason'
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+      type: object
+      xml:
+        name: workLeaveStatus
+        wrapped: true
+    WorkLeaveStatusData:
+      required:
+      - userId
+      - workLeaveReason
+      properties:
+        userId:
+          type: string
+          format: uuid
+        workLeaveReason:
+          $ref: '#/components/schemas/WorkLeaveReason'
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+      type: object
+    ScheduledUserDeactivation:
+      required:
+      - date
+      properties:
+        date:
+          type: string
+          format: date
+      type: object
+      xml:
+        name: request
+    UserFieldInfo:
+      required:
+      - userFieldInfoId
+      - name
+      - label
+      - type
+      - isUnique
+      - isRequired
+      - orderPriority
+      - values
+      properties:
+        userFieldInfoId:
+          type: string
+        name:
+          type: string
+        label:
+          type: string
+        type:
+          type: string
+        isUnique:
+          type: integer
+          enum:
+          - 0
+          - 1
+        isRequired:
+          type: integer
+          enum:
+          - 0
+          - 1
+        orderPriority:
+          type: integer
+        values:
+          $ref: '#/components/schemas/UserProfileFields'
+      type: object
+      xml:
+        name: userFieldInfo
+        wrapped: true
+    UpdateUserStatus:
+      required:
+      - status
+      properties:
+        status: {}
+      type: object
+      xml:
+        name: request
+    ProfileFieldsFilterItem:
+      required:
+      - name
+      - values
+      properties:
+        name:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+      type: object
+    UsersPageV2:
+      required:
+      - userProfiles
+      properties:
+        userProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserV2'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    returnObject:
+      name: X-Return-Object
+      in: header
+      required: false
+      schema:
+        type: boolean
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
