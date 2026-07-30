@@ -2,7 +2,20 @@ aid: ispring
 name: iSpring Learn
 description: iSpring Learn is an eLearning platform and LMS that provides a REST API for managing courses, users, groups, departments, enrollments, learning paths, and accessing detailed learner progress reports. The API supports content management, assignment grading, 360-degree performance reviews, on-the-job training, and event-driven webhooks. API access requires a Business subscription.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ispring.png
 url: https://raw.githubusercontent.com/api-evangelist/ispring/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -21,30 +34,247 @@ tags:
   - SCORM
   - Corporate Training
 apis:
-  - name: iSpring Learn REST API
-    description: REST API providing programmatic access to iSpring Learn LMS functions including user management, content management, enrollments, learning paths, assignments, performance reviews, on-the-job training, and analytics reporting.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
-    baseURL: https://api-learn.ispringlearn.com
-    tags:
-      - eLearning
-      - LMS
-      - Users
-      - Courses
-      - Enrollments
-      - Reporting
-    properties:
-      - type: Documentation
-        url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
-      - type: OpenAPI
-        url: https://api-learn.ispringlearn.com/docs/rest-api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/ispring/refs/heads/main/openapi/openapi.yaml
-    contact:
-      - FN: iSpring Support
-        url: https://www.ispringsolutions.com/support
-        phone: '+1 800 640 0868'
-
+- aid: ispring:ispring-assignments-api
+  name: iSpring Learn assignments API
+  description: Assignment operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - assignments
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-assignments-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-certificate-api
+  name: iSpring Learn certificate API
+  description: Certificate operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - certificate
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-certificate-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-content-api
+  name: iSpring Learn content API
+  description: Content operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - content
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-content-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-department-api
+  name: iSpring Learn department API
+  description: Department operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - department
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-department-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-departments-api
+  name: iSpring Learn departments API
+  description: The departments API from iSpring Learn — 1 operation(s) for departments.
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - departments
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-departments-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-enrollment-api
+  name: iSpring Learn enrollment API
+  description: Enrollment operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - enrollment
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-enrollment-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-gamification-api
+  name: iSpring Learn gamification API
+  description: Gamification operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - gamification
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-gamification-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-group-api
+  name: iSpring Learn group API
+  description: Group operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - group
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-group-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-jobtraining-api
+  name: iSpring Learn jobtraining API
+  description: The jobtraining API from iSpring Learn — 4 operation(s) for jobtraining.
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - jobtraining
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-jobtraining-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-learning-track-api
+  name: iSpring Learn learning_track API
+  description: Learning track operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - learning_track
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-learning-track-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-performance-management-api
+  name: iSpring Learn performance-management API
+  description: >-
+    The performance-management API from iSpring Learn — 37 operation(s) for performance-management.
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - performance-management
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-performance-management-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-quizzes-api
+  name: iSpring Learn quizzes API
+  description: The quizzes API from iSpring Learn — 2 operation(s) for quizzes.
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - quizzes
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-quizzes-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-report-api
+  name: iSpring Learn report API
+  description: The report API from iSpring Learn — 2 operation(s) for report.
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - report
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-report-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-results-api
+  name: iSpring Learn results API
+  description: User result data operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - results
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-results-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-statistics-api
+  name: iSpring Learn statistics API
+  description: The statistics API from iSpring Learn — 2 operation(s) for statistics.
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-task-api
+  name: iSpring Learn task API
+  description: Async method operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - task
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-task-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-token-api
+  name: iSpring Learn token API
+  description: Retrieve access tokens
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - token
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-token-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-training-api
+  name: iSpring Learn training API
+  description: Training operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - training
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-training-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-user-api
+  name: iSpring Learn user API
+  description: User operations
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-user-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+- aid: ispring:ispring-webhook-api
+  name: iSpring Learn webhook API
+  description: The webhook API from iSpring Learn — 11 operation(s) for webhook.
+  humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  baseURL: https://api-learn.ispringlearn.com
+  tags:
+  - webhook
+  properties:
+  - type: OpenAPI
+    url: openapi/ispring-webhook-api-openapi.yml
+  - type: Documentation
+    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 common:
   - type: AgenticAccess
     url: agentic-access/ispring-agentic-access.yml
