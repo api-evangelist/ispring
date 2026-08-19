@@ -1,0 +1,1020 @@
+{
+  "item": [
+    {
+      "id": "278ad2f6-acfc-4ce1-8be4-2909b5b1037a",
+      "name": "statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2dd21e9c-e97a-4ee4-a170-e99807166aed",
+          "name": "Update course status",
+          "request": {
+            "name": "Update course status",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics",
+                "course"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "courseId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reason",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "awardedScore",
+                  "value": "<number>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": \"<uuid>\",\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"status\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"reason\": \"<string>\",\n  \"awardedScore\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3498caa5-beb3-4988-9e52-3014aed9611b",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "course"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "awardedScore",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseId\": \"<uuid>\",\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"status\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"reason\": \"<string>\",\n  \"awardedScore\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taskId\": 2980\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49423cc4-8c9d-4fea-b690-502ceb0b1292",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "course"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "awardedScore",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseId\": \"<uuid>\",\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"status\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"reason\": \"<string>\",\n  \"awardedScore\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13224122-1d58-4db0-a185-e199034e3c5f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "course"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "awardedScore",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseId\": \"<uuid>\",\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"status\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"reason\": \"<string>\",\n  \"awardedScore\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdc95f09-7c28-4049-af9e-4106a9c011e2",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "course"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "awardedScore",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseId\": \"<uuid>\",\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"status\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"reason\": \"<string>\",\n  \"awardedScore\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b48ff1bc-02d0-4688-b694-741ea4c330cc",
+          "name": "Update modules statuses",
+          "request": {
+            "name": "Update modules statuses",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics",
+                "module"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"courseId\": \"<uuid>\",\n  \"moduleStatuses\": [\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    },\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a518533-993e-4340-b24d-4934be069cf5",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"courseId\": \"<uuid>\",\n  \"moduleStatuses\": [\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    },\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taskId\": 2980\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "955d1c83-8eae-4a16-ac34-ad80aae1fdd1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"courseId\": \"<uuid>\",\n  \"moduleStatuses\": [\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    },\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8121d1ea-8e6f-483d-a3f8-c09205c6b37d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"courseId\": \"<uuid>\",\n  \"moduleStatuses\": [\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    },\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a479b088-7046-4c8a-92b5-b39ccfc59671",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"courseId\": \"<uuid>\",\n  \"moduleStatuses\": [\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    },\n    {\n      \"contentItemId\": \"<uuid>\",\n      \"date\": \"<dateTime>\",\n      \"reason\": \"<string>\",\n      \"status\": \"<string>\",\n      \"awardedScore\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53df65b8-09c7-4db7-a511-68d76a0e9173",
+          "name": "Reset modules statistics",
+          "request": {
+            "name": "Reset modules statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics",
+                "module"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "courseId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "contentItemIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "contentItemIds",
+                  "value": "<uuid>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21b723fa-13c3-4cb1-80f0-e50d46920afa",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taskId\": 2980\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fca29221-9f80-49ec-9378-b63121b11b02",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "add7d8f4-591d-45ec-9a2c-0173367cbb06",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13574754-212d-4f2c-9de9-ae1078bfe17a",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "module"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-learn.ispring.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "db3581a8-b40d-4652-8a74-9c6cd4f918df",
+    "name": "Learn Rest Api assignments statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Assignment operations",
+      "type": "text/plain"
+    }
+  }
+}

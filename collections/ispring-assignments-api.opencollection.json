@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "assignments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/assignments",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ungraded",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List assignments"
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of ungraded attempts for an assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/assignment/:assignmentId/attempts/ungraded",
+            "params": [
+              {
+                "name": "assignmentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userIds[]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of ungraded attempts for an assignment"
+        },
+        {
+          "info": {
+            "name": "Grade user assignment attempts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/assignments/attempts/grade",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Grade user assignment attempts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

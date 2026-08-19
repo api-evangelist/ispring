@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments group API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "group",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get group list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/group"
+          },
+          "docs": "Get group list"
+        },
+        {
+          "info": {
+            "name": "Add a new group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/group",
+            "headers": [
+              {
+                "name": "X-Return-Object",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new group"
+        },
+        {
+          "info": {
+            "name": "Add a new smart group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/group/smart",
+            "headers": [
+              {
+                "name": "X-Return-Object",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new smart group"
+        },
+        {
+          "info": {
+            "name": "Update smart group rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/group/smart/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update smart group rules"
+        },
+        {
+          "info": {
+            "name": "Get smart group rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/group/smart/:groupId/rules",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get smart group rules"
+        },
+        {
+          "info": {
+            "name": "Get group details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/group/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get group details"
+        },
+        {
+          "info": {
+            "name": "Update group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/group/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update group"
+        },
+        {
+          "info": {
+            "name": "Delete group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-learn.ispring.com/group/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete group"
+        },
+        {
+          "info": {
+            "name": "Update group members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/group/:groupId/members",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update group members"
+        },
+        {
+          "info": {
+            "name": "List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/groups",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List groups"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

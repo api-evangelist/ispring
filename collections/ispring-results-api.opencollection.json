@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments results API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "results",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves a paginated list of results for specific learners in specific courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/learners/results",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "courseIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "departmentIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "enrollmentIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completionStatuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completionDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accessDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dueDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userStatuses",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of results for specific learners in specific courses"
+        },
+        {
+          "info": {
+            "name": "Retrieves a paginated list of results for specific learners in specific modules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/learners/modules/results",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "courseIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "moduleIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "courseItemIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "enrollmentIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "departmentIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completionStatuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completionDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "accessDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dueDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userStatuses",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of results for specific learners in specific modules"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

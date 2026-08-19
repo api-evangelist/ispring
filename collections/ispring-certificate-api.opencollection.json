@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments certificate API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "certificate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves issued certificate information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/certificate/:issuedCertificateId",
+            "params": [
+              {
+                "name": "issuedCertificateId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves issued certificate information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

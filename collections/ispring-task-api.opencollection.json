@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments task API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "task",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get async task status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/task/:taskId/status",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get async task status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,243 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments content API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "content",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get content list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/content",
+            "headers": [
+              {
+                "name": "X-Target-Locale",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentTypes",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get content list"
+        },
+        {
+          "info": {
+            "name": "List content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/contents",
+            "headers": [
+              {
+                "name": "X-Target-Locale",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "contentItemIds[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "contentTypes",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List content"
+        },
+        {
+          "info": {
+            "name": "List content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/contents"
+          },
+          "docs": "List content"
+        },
+        {
+          "info": {
+            "name": "Get content item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/content/:contentId",
+            "headers": [
+              {
+                "name": "X-Target-Locale",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get content item"
+        },
+        {
+          "info": {
+            "name": "Get content item final statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/content/:contentId/final_statuses",
+            "params": [
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get content item final statuses"
+        },
+        {
+          "info": {
+            "name": "List courses modules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/courses/modules",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "courseIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List courses modules"
+        },
+        {
+          "info": {
+            "name": "List course fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/course_fields"
+          },
+          "docs": "List course fields"
+        },
+        {
+          "info": {
+            "name": "Create content item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/content/create/:contentType",
+            "params": [
+              {
+                "name": "contentType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create content item"
+        },
+        {
+          "info": {
+            "name": "List modules by course id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/course/:courseId/modules",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List modules by course id"
+        },
+        {
+          "info": {
+            "name": "Get courses tree",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/courses_tree",
+            "headers": [
+              {
+                "name": "X-Target-Locale",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contentItemIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get courses tree"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

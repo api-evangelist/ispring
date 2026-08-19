@@ -1,0 +1,195 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments webhook API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "webhook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register new subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register new subscriber"
+        },
+        {
+          "info": {
+            "name": "Disable subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/disable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disable subscriber"
+        },
+        {
+          "info": {
+            "name": "Change subscriber settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/settings/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change subscriber settings"
+        },
+        {
+          "info": {
+            "name": "Remove subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove subscriber"
+        },
+        {
+          "info": {
+            "name": "Add subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/subscribe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add subscription"
+        },
+        {
+          "info": {
+            "name": "Remove subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/unsubscribe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove subscription"
+        },
+        {
+          "info": {
+            "name": "List subscriber subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/webhook/subscription/list",
+            "params": [
+              {
+                "name": "subscriberName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List subscriber subscriptions"
+        },
+        {
+          "info": {
+            "name": "Enable subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/enable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enable subscriber"
+        },
+        {
+          "info": {
+            "name": "Send a code to confirm the url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/code/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a code to confirm the url"
+        },
+        {
+          "info": {
+            "name": "Confirm subscriber callback url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/webhook/confirm",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Confirm subscriber callback url"
+        },
+        {
+          "info": {
+            "name": "Get information about subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/webhook/subscriber/info",
+            "params": [
+              {
+                "name": "subscriberName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get information about subscriber"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

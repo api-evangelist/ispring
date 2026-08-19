@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments jobtraining API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "jobtraining",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List сhecklists with sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/job-training/checklist/sessions/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List сhecklists with sessions"
+        },
+        {
+          "info": {
+            "name": "List sessions result",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/job-training/sessions/result/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List sessions result"
+        },
+        {
+          "info": {
+            "name": "List criterion groups result",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/job-training/completed-session/criterion-group/result/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List criterion groups result"
+        },
+        {
+          "info": {
+            "name": "List criterion result in completed sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/job-training/completed-session/criterion/result/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List criterion result in completed sessions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

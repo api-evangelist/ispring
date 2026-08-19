@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments token API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generates a new access token based on client_id and client_secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/api/v3/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Generates a new access token based on client_id and client_secret"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments department API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "department",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get department list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/department",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get department list"
+        },
+        {
+          "info": {
+            "name": "Add a new department",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/department",
+            "headers": [
+              {
+                "name": "X-Return-Object",
+                "value": ""
+              },
+              {
+                "name": "X-Name",
+                "value": ""
+              },
+              {
+                "name": "X-Parent-Department-Id",
+                "value": ""
+              },
+              {
+                "name": "X-Code",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new department"
+        },
+        {
+          "info": {
+            "name": "Get department info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/department/:departmentId",
+            "params": [
+              {
+                "name": "departmentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get department info"
+        },
+        {
+          "info": {
+            "name": "Update department",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/department/:departmentId",
+            "params": [
+              {
+                "name": "departmentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update department"
+        },
+        {
+          "info": {
+            "name": "Delete department",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-learn.ispring.com/department/:departmentId",
+            "params": [
+              {
+                "name": "departmentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete department"
+        },
+        {
+          "info": {
+            "name": "Change department subordination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/department/:departmentId/subordination",
+            "params": [
+              {
+                "name": "departmentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change department subordination"
+        },
+        {
+          "info": {
+            "name": "Move users to department",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/department/:departmentId/user/move",
+            "params": [
+              {
+                "name": "departmentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move users to department"
+        },
+        {
+          "info": {
+            "name": "Move departments to parent department",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/department/:parentId/department/move",
+            "params": [
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move departments to parent department"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

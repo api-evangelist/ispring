@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments statistics API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update course status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/statistics/course",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "enrollmentIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reason",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "awardedScore",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update course status"
+        },
+        {
+          "info": {
+            "name": "Update modules statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/statistics/module",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update modules statuses"
+        },
+        {
+          "info": {
+            "name": "Reset modules statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-learn.ispring.com/statistics/module",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "enrollmentIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "contentItemIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Reset modules statistics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

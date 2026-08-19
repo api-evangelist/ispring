@@ -1,0 +1,732 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments performance-management API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "performance-management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List competency scales",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/scale/list"
+          },
+          "docs": "List competency scales"
+        },
+        {
+          "info": {
+            "name": "Create competency scale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/scale/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create competency scale"
+        },
+        {
+          "info": {
+            "name": "Change competency scale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/scale/:scaleId/change",
+            "params": [
+              {
+                "name": "scaleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change competency scale"
+        },
+        {
+          "info": {
+            "name": "Create competency group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/group/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create competency group"
+        },
+        {
+          "info": {
+            "name": "Change competency group name",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/group/:groupId/rename",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change competency group name"
+        },
+        {
+          "info": {
+            "name": "Move competency groups to parent group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/group/batch-move",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move competency groups to parent group"
+        },
+        {
+          "info": {
+            "name": "Move competencies to group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/competency/batch-move",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move competencies to group"
+        },
+        {
+          "info": {
+            "name": "List competency groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/group/list"
+          },
+          "docs": "List competency groups"
+        },
+        {
+          "info": {
+            "name": "List competencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/competency/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List competencies"
+        },
+        {
+          "info": {
+            "name": "Create competency",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/competency/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create competency"
+        },
+        {
+          "info": {
+            "name": "Change competency",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/competency/:competencyId/change",
+            "params": [
+              {
+                "name": "competencyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change competency"
+        },
+        {
+          "info": {
+            "name": "Create competency indicator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/competency/:competencyId/indicator/create",
+            "params": [
+              {
+                "name": "competencyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create competency indicator"
+        },
+        {
+          "info": {
+            "name": "Change competency indicator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/competency/:competencyId/indicator/:indicatorId/change",
+            "params": [
+              {
+                "name": "competencyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "indicatorId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change competency indicator"
+        },
+        {
+          "info": {
+            "name": "List competency profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/competencies/profile/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List competency profiles"
+        },
+        {
+          "info": {
+            "name": "List appraisal sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List appraisal sessions"
+        },
+        {
+          "info": {
+            "name": "List appraisal session employee cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/employee-card/list",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List appraisal session employee cards"
+        },
+        {
+          "info": {
+            "name": "List appraisal session reviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/review/list",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List appraisal session reviews"
+        },
+        {
+          "info": {
+            "name": "Get appraisal session results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/results",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get appraisal session results"
+        },
+        {
+          "info": {
+            "name": "Get appraisal session content competencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/content/competencies",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get appraisal session content competencies"
+        },
+        {
+          "info": {
+            "name": "List appraisal session user attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/user/attributes/list",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List appraisal session user attributes"
+        },
+        {
+          "info": {
+            "name": "Start appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/start",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Start appraisal session"
+        },
+        {
+          "info": {
+            "name": "Restart appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/restart",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Restart appraisal session"
+        },
+        {
+          "info": {
+            "name": "Complete appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/complete",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Complete appraisal session"
+        },
+        {
+          "info": {
+            "name": "Updating the appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/update",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updating the appraisal session"
+        },
+        {
+          "info": {
+            "name": "Creating the appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating the appraisal session"
+        },
+        {
+          "info": {
+            "name": "Add employee cards to the appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/employee-card/add",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add employee cards to the appraisal session"
+        },
+        {
+          "info": {
+            "name": "Replaces employee card reviewers in an appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/employee-card/reviewer/replace",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces employee card reviewers in an appraisal session"
+        },
+        {
+          "info": {
+            "name": "Remove employee cards from the appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/employee-card/remove",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove employee cards from the appraisal session"
+        },
+        {
+          "info": {
+            "name": "Remove reviewers from the appraisal session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/employee-card/reviewer/remove",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove reviewers from the appraisal session"
+        },
+        {
+          "info": {
+            "name": "Adding the appraisal session question",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/question/add",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adding the appraisal session question"
+        },
+        {
+          "info": {
+            "name": "Updating the appraisal session question",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/question/:questionId/update",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "questionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updating the appraisal session question"
+        },
+        {
+          "info": {
+            "name": "Changing the appraisal session question orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/question/change-order",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Changing the appraisal session question orders"
+        },
+        {
+          "info": {
+            "name": "Removing the appraisal session question",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/question/:questionId/remove",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "questionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removing the appraisal session question"
+        },
+        {
+          "info": {
+            "name": "Adding the appraisal session permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/permissions/add",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adding the appraisal session permissions"
+        },
+        {
+          "info": {
+            "name": "Removing the appraisal session permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/permissions/remove",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removing the appraisal session permissions"
+        },
+        {
+          "info": {
+            "name": "Getting the appraisal session full info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/info",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Getting the appraisal session full info"
+        },
+        {
+          "info": {
+            "name": "Changing the appraisal session notification settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/performance-management/appraisal/session/:sessionId/notification/change",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Changing the appraisal session notification settings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

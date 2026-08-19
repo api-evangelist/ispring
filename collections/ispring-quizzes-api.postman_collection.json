@@ -1,0 +1,927 @@
+{
+  "item": [
+    {
+      "id": "cdfd20c1-075c-481d-befd-59cccbe51dff",
+      "name": "quizzes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8046b5c-b77f-43c5-90b7-f793a4984fcd",
+          "name": "Retrieves a list of quizzes",
+          "request": {
+            "name": "Retrieves a list of quizzes",
+            "description": {},
+            "url": {
+              "path": [
+                "quizzes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quizIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quizIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "contentItemIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "contentItemIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parentCourseIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parentCourseIds",
+                  "value": "<uuid>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a63f9ec7-3d57-48be-aa0d-741b955f4c8a",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quizzes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"quizId\": \"6ab29dc1-fefd-b4cf-d81c-dce8fba86d3a\",\n      \"quizTitle\": \"string\",\n      \"contentItemId\": \"2d8729b4-243c-1e5c-b3b0-beac910a8d3b\",\n      \"parentCourseIds\": [\n        \"00f7fd63-301e-9879-35d7-c0d637f0adf0\",\n        \"814b8a53-239d-157e-9ac5-1b81f85767ed\"\n      ]\n    },\n    {\n      \"quizId\": \"6d1b4458-2265-e8c3-1055-9af299fca4b8\",\n      \"quizTitle\": \"string\",\n      \"contentItemId\": \"05c27dfd-58bd-db38-4bf3-9502bcb48661\",\n      \"parentCourseIds\": [\n        \"9cf358ba-b56c-4b19-4934-44da9ae56511\",\n        \"15e6f5c0-572e-d326-3be2-aa8263153532\"\n      ]\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72691b62-610f-4cf5-b200-3495042d4d10",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quizzes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2289,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8f23359-b106-4a0c-b77b-e54e977358e2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quizzes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2289,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8492620-b48b-4774-8c3b-f9b81784244d",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quizzes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "quizIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "contentItemIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseIds",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2289,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1558955-29a8-4b2b-afe9-ab9d3e6d81c5",
+          "name": "Retrieves a paginated list of answers results for answer breakdown report",
+          "request": {
+            "name": "Retrieves a paginated list of answers results for answer breakdown report",
+            "description": {},
+            "url": {
+              "path": [
+                "report",
+                "answer-breakdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quizId",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "parentCourseId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "userIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "userIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "departmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "departmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attemptDate[startDate]",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attemptDate[endDate]",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83411758-cb2a-47af-b38c-90a4dbb29d5d",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"userId\": \"87178d7a-f777-cb40-ecdb-468ffeca6d8f\",\n      \"enrollmentId\": \"a227378a-ee52-af23-c8ef-74c67f9f6e5a\",\n      \"quizVersion\": \"string\",\n      \"attemptDate\": \"string\",\n      \"isAttemptPassed\": true,\n      \"attemptScore\": 2143.8034648010107,\n      \"passingScore\": 8588.661390605654,\n      \"questionNumber\": 4410,\n      \"questionTitle\": \"string\",\n      \"questionType\": \"string\",\n      \"questionScore\": 2212.3257941814377,\n      \"answerText\": \"string\",\n      \"isAnswerCorrect\": true,\n      \"answerScore\": 1412.993816683681,\n      \"questionGroup\": \"string\",\n      \"statementTitle\": \"string\",\n      \"customAnswerText\": \"string\"\n    },\n    {\n      \"userId\": \"6ca71281-33cb-a920-ef1e-3b2d4c98efa1\",\n      \"enrollmentId\": \"ec638d4f-cd1d-08cc-4df9-b7fd2144e142\",\n      \"quizVersion\": \"string\",\n      \"attemptDate\": \"string\",\n      \"isAttemptPassed\": true,\n      \"attemptScore\": 8624.911032333395,\n      \"passingScore\": 3803.5901521290625,\n      \"questionNumber\": 7691,\n      \"questionTitle\": \"string\",\n      \"questionType\": \"string\",\n      \"questionScore\": 3322.064927608268,\n      \"answerText\": \"string\",\n      \"isAnswerCorrect\": false,\n      \"answerScore\": 5153.2311009789955,\n      \"questionGroup\": \"string\",\n      \"statementTitle\": \"string\",\n      \"customAnswerText\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7df824ae-0396-410d-a0c1-1e1ada2423a6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2289,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5801dc6c-d8bc-4b75-99cb-961074910d7d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2289,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b78ac94b-6327-4101-9564-8cb871d38b76",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2289,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-learn.ispring.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "780fa0e2-cd52-4154-be64-56ac88fa061d",
+    "name": "Learn Rest Api assignments quizzes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Assignment operations",
+      "type": "text/plain"
+    }
+  }
+}

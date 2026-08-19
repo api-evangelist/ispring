@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments gamification API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "gamification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves a list of users and their gamification points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/gamification/points",
+            "params": [
+              {
+                "name": "userIds[]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of users and their gamification points"
+        },
+        {
+          "info": {
+            "name": "Award points to user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/gamification/points/award",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Award points to user"
+        },
+        {
+          "info": {
+            "name": "Withdraw points from user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/gamification/points/withdraw",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Withdraw points from user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

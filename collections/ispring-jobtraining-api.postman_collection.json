@@ -1,0 +1,1107 @@
+{
+  "item": [
+    {
+      "id": "5b8e7a50-f15b-42ba-ba85-3b1583b6ef0c",
+      "name": "jobtraining",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "be619d9f-8808-4035-83e0-be495af2cd73",
+          "name": "List сhecklists with sessions",
+          "request": {
+            "name": "List сhecklists with sessions",
+            "description": {},
+            "url": {
+              "path": [
+                "job-training",
+                "checklist",
+                "sessions",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"checklistIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34e3655c-6ab2-4e51-8d91-72f4d59f5d5f",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "checklist",
+                    "sessions",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"checklistId\": \"4e6967c2-ffd0-1bda-5f43-4e3e870fe697\",\n    \"checklistTitle\": \"string\",\n    \"checklistStatus\": \"PUBLISHED\",\n    \"sessionIds\": [\n      \"37504197-af60-4ac6-52b7-f902e685b253\",\n      \"abf37181-6ed5-8bbe-6224-00383374c809\"\n    ]\n  },\n  {\n    \"checklistId\": \"5b9accf6-7150-d0f4-40b6-2bebe1295877\",\n    \"checklistTitle\": \"string\",\n    \"checklistStatus\": \"HIDDEN\",\n    \"sessionIds\": [\n      \"964b1135-afa1-fea5-4c6c-552dccd9c16e\",\n      \"a2a5c605-4966-01bb-6706-a30888266894\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72379e34-1b83-42ca-828b-10fdb47b4fe5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "checklist",
+                    "sessions",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f66f6eff-a87d-4346-bbac-a8ca10c15273",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "checklist",
+                    "sessions",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddc5b361-b212-446a-8cb7-9846db046b9f",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "checklist",
+                    "sessions",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8dd8151f-0818-402d-bbb5-677a03037379",
+          "name": "List sessions result",
+          "request": {
+            "name": "List sessions result",
+            "description": {},
+            "url": {
+              "path": [
+                "job-training",
+                "sessions",
+                "result",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionStatus\": \"<string>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6beca71-e33e-4055-b3d2-400e400c472c",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "sessions",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionStatus\": \"<string>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"checklistId\": \"9fa9765f-72ed-684e-8b25-0390a5903619\",\n    \"checklistTitle\": \"string\",\n    \"sessionId\": \"1b30945d-bc8e-cd60-afab-6d16ae395513\",\n    \"sessionStatus\": \"<string>\",\n    \"startDate\": \"string\",\n    \"employeeId\": \"afe9a0c6-ce2f-7af7-7237-596e7bb85686\",\n    \"observerId\": \"8f2472ec-ecfc-1d0d-4486-a8ecd25a1383\",\n    \"actualStartDate\": \"string\",\n    \"completionDate\": \"string\",\n    \"result\": 1320.1432772796118,\n    \"totalPoints\": 7658.873893636489,\n    \"points\": 6539.04962409628\n  },\n  {\n    \"checklistId\": \"4f1e9cfa-0592-ed3e-38a5-b94ff284416d\",\n    \"checklistTitle\": \"string\",\n    \"sessionId\": \"456d8aff-74cb-ff03-2678-3b8eca097a5a\",\n    \"sessionStatus\": \"<string>\",\n    \"startDate\": \"string\",\n    \"employeeId\": \"54f167d1-cc83-7038-1061-0838fd9c898e\",\n    \"observerId\": \"25b1fb10-28ff-fca3-3fb1-3063e378b938\",\n    \"actualStartDate\": \"string\",\n    \"completionDate\": \"string\",\n    \"result\": 8657.412889687077,\n    \"totalPoints\": 7106.930420396391,\n    \"points\": 3128.0367310402003\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2e8431a-a560-4e85-8b17-8c3e2babd482",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "sessions",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionStatus\": \"<string>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0305a0e-5247-476b-85c3-9096a8b46e8b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "sessions",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionStatus\": \"<string>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7edac963-e3cd-4225-9619-4d0c458773f7",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "sessions",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionStatus\": \"<string>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28c2c28d-8468-41d2-ab4f-11e2191182fe",
+          "name": "List criterion groups result",
+          "request": {
+            "name": "List criterion groups result",
+            "description": {},
+            "url": {
+              "path": [
+                "job-training",
+                "completed-session",
+                "criterion-group",
+                "result",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a8e3aef-6b19-499d-ba63-e759d52ab32c",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion-group",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"groupId\": \"e7f2006c-6791-257a-3f96-fe2b72b9ab95\",\n    \"groupTitle\": \"string\",\n    \"checklistId\": \"b9a63e23-2aea-9271-9cef-59f7d5a3e112\",\n    \"sessionId\": \"fe5d54b8-0f2c-9e7a-a1ff-a415fc132f44\",\n    \"employeeId\": \"adbd2aad-ff04-cff4-e056-9558129ac00a\",\n    \"observerId\": \"3dd241fd-60dd-189e-ae2c-5af7e9bc0e1a\",\n    \"result\": 3727.0842917202917,\n    \"totalPoints\": 7721.299352574358,\n    \"points\": 0.05032531409598917\n  },\n  {\n    \"groupId\": \"f9347404-8af3-2a0d-0f77-fbd0b6120573\",\n    \"groupTitle\": \"string\",\n    \"checklistId\": \"9440824d-40c4-f558-b7bd-d318e0a76f3f\",\n    \"sessionId\": \"50104775-0a5d-ff04-77db-64f03cfba1be\",\n    \"employeeId\": \"8099f295-03f4-4b8d-6500-3b91916e2cda\",\n    \"observerId\": \"efa93831-1a6e-9294-3ea2-4ea98b839abb\",\n    \"result\": 881.2134939123695,\n    \"totalPoints\": 794.0341267625994,\n    \"points\": 8964.660420842309\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bad7f69-9837-448f-b9ec-82ecb390ad1d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion-group",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9663f18f-4348-45f5-83b4-72a4b1a6fa1d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion-group",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "170082ea-1557-4797-a444-a54c9f3b28ec",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion-group",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fed08f65-3690-4dcd-97ec-b1565cc710a0",
+          "name": "List criterion result in completed sessions",
+          "request": {
+            "name": "List criterion result in completed sessions",
+            "description": {},
+            "url": {
+              "path": [
+                "job-training",
+                "completed-session",
+                "criterion",
+                "result",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"criterionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6705cf84-f156-49be-9cba-bfeb1b92791c",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"criterionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"criterionId\": \"70de0b5c-61c4-fff9-26c1-d705e5ed766d\",\n    \"criterionTitle\": \"string\",\n    \"checklistId\": \"30caf45a-f528-f2f0-2563-2883095441c9\",\n    \"sessionId\": \"bf9f9803-b151-2ccb-40eb-41f524437ecd\",\n    \"groupId\": \"47888ef4-956a-eeee-9765-133349d6b272\",\n    \"skipped\": true,\n    \"employeeId\": \"70385d30-adad-cfef-9b99-9810a04430f3\",\n    \"observerId\": \"2c7e7f0b-177f-bd0d-5814-355ea0342057\",\n    \"totalPoints\": 599.5901414717042,\n    \"points\": 1102.1163403437251\n  },\n  {\n    \"criterionId\": \"5eaeb890-8189-ed56-fa28-f1f891e213cb\",\n    \"criterionTitle\": \"string\",\n    \"checklistId\": \"477d4631-1388-663a-88fd-a25be4e7a1ae\",\n    \"sessionId\": \"5821363b-8061-8241-4aac-0779af698b06\",\n    \"groupId\": \"ca99ec78-529d-83cf-2795-71a776185ba6\",\n    \"skipped\": false,\n    \"employeeId\": \"680ca734-f619-292c-3325-9c502b9a1e30\",\n    \"observerId\": \"3df05a91-a551-fb8f-439f-f3370b9b138d\",\n    \"totalPoints\": 6355.061501246636,\n    \"points\": 5216.508688667743\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ec85236-f8d7-4831-9170-f47551789b4c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"criterionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65de66ea-b63d-474e-a527-15d7872f6d15",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"criterionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd790d7a-8460-49c5-a673-225296ec688a",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-training",
+                    "completed-session",
+                    "criterion",
+                    "result",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistId\": \"<uuid>\",\n  \"sessionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"groupIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"criterionIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9170,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-learn.ispring.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e190abd3-f2ca-4ea2-97c4-a7db1ad646ef",
+    "name": "Learn Rest Api assignments jobtraining API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Assignment operations",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments training API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "training",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves information about training",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/training/:trainingId",
+            "params": [
+              {
+                "name": "trainingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves information about training"
+        },
+        {
+          "info": {
+            "name": "Retrieves training session information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/training/session/:trainingSessionId",
+            "params": [
+              {
+                "name": "trainingSessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves training session information"
+        },
+        {
+          "info": {
+            "name": "Retrieves information about sessions by training id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/training/:trainingId/sessions",
+            "params": [
+              {
+                "name": "trainingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves information about sessions by training id"
+        },
+        {
+          "info": {
+            "name": "Retrieves session day information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/training/day/:dayId",
+            "params": [
+              {
+                "name": "dayId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves session day information"
+        },
+        {
+          "info": {
+            "name": "Update day url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/training/day/:dayId",
+            "params": [
+              {
+                "name": "dayId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update day url"
+        },
+        {
+          "info": {
+            "name": "Retrieves information about participants by session id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/training/session/participants/:sessionId",
+            "params": [
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves information about participants by session id"
+        },
+        {
+          "info": {
+            "name": "Updates participants attendance by day",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/training/day/:dayId/participants/attendance/update",
+            "params": [
+              {
+                "name": "dayId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates participants attendance by day"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

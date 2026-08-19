@@ -1,0 +1,2127 @@
+{
+  "item": [
+    {
+      "id": "14be6a80-4092-4765-af17-4b968855a845",
+      "name": "enrollment",
+      "description": {
+        "content": "Enrollment operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07cb0b6c-687f-4bce-8f7a-48a2669d87ff",
+          "name": "Get enrollment list",
+          "request": {
+            "name": "Get enrollment list",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "courseIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "courseIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "learnerIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "learnerIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds[]",
+                  "value": "<uuid>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "943b7b81-f2a4-41d6-baea-67867f21952d",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enrollments\": [\n    {\n      \"enrollmentId\": \"d9429cfa-0daf-e2b3-13a7-c766624c0c92\",\n      \"courseId\": \"c55b3ba0-8113-5eb7-9a24-51d9416de74a\",\n      \"learnerId\": \"d511ac02-72fd-d9d1-0b25-4b0253831c44\",\n      \"accessDate\": \"2022-10-01\",\n      \"shouldLockAfterDueDate\": true,\n      \"enrollmentTypeGroup\": 0,\n      \"dueDate\": \"2017-08-13\",\n      \"expirationDate\": \"1948-10-21\",\n      \"certificate\": {\n        \"issuedCertificateId\": \"92d218dd-1af5-dde3-bc5f-473610344eac\",\n        \"issueDate\": \"1957-01-16\",\n        \"expiryDate\": \"1991-09-01\"\n      }\n    },\n    {\n      \"enrollmentId\": \"b2fe0d99-459c-9f66-9542-a9d448623e28\",\n      \"courseId\": \"72ff6df6-a4a9-54ba-ac4a-46ea824e9e61\",\n      \"learnerId\": \"03f7ccc0-8bbe-a1dc-8405-29efca624ede\",\n      \"accessDate\": \"1958-06-07\",\n      \"shouldLockAfterDueDate\": true,\n      \"enrollmentTypeGroup\": 1,\n      \"dueDate\": \"1975-11-11\",\n      \"expirationDate\": \"2000-07-14\",\n      \"certificate\": {\n        \"issuedCertificateId\": \"93e1015e-0bad-e262-a5b7-a358d01cf35a\",\n        \"issueDate\": \"1946-10-25\",\n        \"expiryDate\": \"2026-01-11\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "104e4dba-5443-442d-abd7-e0c7674944f7",
+          "name": "Create new enrollments",
+          "request": {
+            "name": "Create new enrollments",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"accessDate\": \"<date>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98b4fe5a-55b5-4eef-81c2-467932de0ecb",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"accessDate\": \"<date>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a7341b1-7b63-44bd-b00e-f603bf133252",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"accessDate\": \"<date>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9dfa50b-4d86-4b1c-b4cd-d201f96234e9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"accessDate\": \"<date>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afb4458a-17ad-4a82-9e8a-564663a45b2d",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"accessDate\": \"<date>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22da1515-2cc6-40a6-8c8f-d09f9dabcdb8",
+          "name": "List enrollments",
+          "request": {
+            "name": "List enrollments",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "courseIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "courseIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "learnerIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "learnerIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds[]",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds[]",
+                  "value": "<uuid>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41379c5c-a6ed-4865-913d-ad44dfb91fd0",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enrollments\": [\n    {\n      \"enrollmentId\": \"aff8c7c0-b9b0-90ca-790b-30513dc4c5fa\",\n      \"courseId\": \"25db8f43-e574-f07f-52e9-aba6be34cb48\",\n      \"learnerId\": \"3b2dfd08-684f-2f54-3558-98352b76be97\",\n      \"accessDate\": \"2003-05-10\",\n      \"shouldLockAfterDueDate\": true,\n      \"enrollmentTypeGroup\": 1,\n      \"dueDate\": \"1965-09-09\",\n      \"expirationDate\": \"1974-06-21\",\n      \"certificate\": {\n        \"issuedCertificateId\": \"76673a77-dd8e-315a-d254-4a0d8228f8a6\",\n        \"issueDate\": \"2025-04-07\",\n        \"expiryDate\": \"1955-11-25\"\n      }\n    },\n    {\n      \"enrollmentId\": \"5f1d8fa0-41f1-f8eb-c41e-aeb20eb41116\",\n      \"courseId\": \"76767b79-bf14-b998-8974-0a916a2b7e08\",\n      \"learnerId\": \"5234b12d-9175-ef1b-1b1e-e4e03d249c51\",\n      \"accessDate\": \"1999-10-22\",\n      \"shouldLockAfterDueDate\": true,\n      \"enrollmentTypeGroup\": 0,\n      \"dueDate\": \"1971-04-20\",\n      \"expirationDate\": \"1992-01-04\",\n      \"certificate\": {\n        \"issuedCertificateId\": \"68c1c96c-b821-b815-4d33-3d7433e8dccc\",\n        \"issueDate\": \"1955-04-24\",\n        \"expiryDate\": \"1962-11-05\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "025de6b8-2254-4964-afb4-d63784fcd538",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46dc2acf-8afc-4b8f-820d-5081295bdc20",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "335c7850-a045-4494-9123-1554988a4027",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "courseIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "learnerIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds[]",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d3e6b55-2c5d-4753-826c-edac1f0b4c8d",
+          "name": "List enrollments",
+          "request": {
+            "name": "List enrollments",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pageSize\": \"<integer>\",\n  \"pageToken\": \"<integer>\",\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aa22c4da-fa2e-4d9a-b4ab-b9a3b90618a8",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageSize\": \"<integer>\",\n  \"pageToken\": \"<integer>\",\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enrollments\": [\n    {\n      \"enrollmentId\": \"43616e89-d343-07da-eeb3-c9a0537ebf2b\",\n      \"courseId\": \"bc6f367e-8d53-a0fa-b46a-eea54bf444c5\",\n      \"learnerId\": \"ed8e0804-cba8-c570-b3dd-4249021fa5fc\",\n      \"accessDate\": \"1959-08-11\",\n      \"shouldLockAfterDueDate\": true,\n      \"enrollmentTypeGroup\": 1,\n      \"dueDate\": \"2012-05-21\",\n      \"expirationDate\": \"2015-07-20\",\n      \"certificate\": {\n        \"issuedCertificateId\": \"6b15b569-517c-1b68-7f23-ed84879975b2\",\n        \"issueDate\": \"2015-03-07\",\n        \"expiryDate\": \"1995-08-05\"\n      }\n    },\n    {\n      \"enrollmentId\": \"258930e7-8734-8aee-a1fe-f1329fd84970\",\n      \"courseId\": \"4f0661a2-a80a-a6be-0d4d-8b47225cd95f\",\n      \"learnerId\": \"a618f436-2c44-ca10-8bb4-009fcfd293f2\",\n      \"accessDate\": \"2023-10-17\",\n      \"shouldLockAfterDueDate\": true,\n      \"enrollmentTypeGroup\": 1,\n      \"dueDate\": \"1985-06-15\",\n      \"expirationDate\": \"1966-09-07\",\n      \"certificate\": {\n        \"issuedCertificateId\": \"56c6b153-f188-f0ed-0147-ae553954831c\",\n        \"issueDate\": \"1963-07-23\",\n        \"expiryDate\": \"1990-01-25\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da2f7fef-079f-48dd-9532-1044f0977327",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageSize\": \"<integer>\",\n  \"pageToken\": \"<integer>\",\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c3518f5-beef-4c54-987b-eb24af96d25f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageSize\": \"<integer>\",\n  \"pageToken\": \"<integer>\",\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ce81eab-c5ef-4001-bd1b-8fa5bf09e621",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageSize\": \"<integer>\",\n  \"pageToken\": \"<integer>\",\n  \"courseIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"learnerIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2af24b1-26e8-46bc-b20a-266c689cfa0a",
+          "name": "Get enrollment details",
+          "request": {
+            "name": "Get enrollment details",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollment",
+                ":enrollmentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enrollmentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3f89dfd-e5fa-4c7f-858c-52e836609a78",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enrollmentId\": \"ff1aeccc-d2f7-861b-dbe6-af3432ad8a78\",\n  \"courseId\": \"fb0a7cc1-9fe2-f421-ac19-eaf24ee8b265\",\n  \"learnerId\": \"6026b563-9dfb-4f8a-aa6f-efd56e90e57e\",\n  \"accessDate\": \"1952-12-01\",\n  \"shouldLockAfterDueDate\": false,\n  \"enrollmentTypeGroup\": 0,\n  \"dueDate\": \"1972-08-25\",\n  \"expirationDate\": \"1968-02-05\",\n  \"certificate\": {\n    \"issuedCertificateId\": \"89ea2d00-deb7-7b83-a5d9-805109d68ef0\",\n    \"issueDate\": \"2002-05-05\",\n    \"expiryDate\": \"1969-12-09\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d0f999c-77bf-4fbe-b066-d08023284af3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb881eb7-8950-47ae-96e0-9c1c17a34e84",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a83523b-d094-431e-8359-19010b48569e",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc9ea346-66f2-457e-8f5b-b340cd00d1b8",
+          "name": "Update enrollment",
+          "request": {
+            "name": "Update enrollment",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollment",
+                ":enrollmentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enrollmentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accessDate\": \"<datetime>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d31c76bb-6374-477f-a196-5232b5d9ac45",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<datetime>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1e20fad-5a9b-4b85-a868-389fe95bedf0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<datetime>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45a11eb4-3510-40dc-8df5-bf4147cb459a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<datetime>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45bfe190-bcea-44ef-9e93-1301a7931b3b",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<datetime>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9253fa6b-9e44-4a0f-be40-cdd70be27312",
+          "name": "Reenroll learner",
+          "request": {
+            "name": "Reenroll learner",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollment",
+                ":enrollmentId",
+                "reenroll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enrollmentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accessDate\": \"<date>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f53a7c74-691d-4376-9b8f-271eaa6a0a43",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId",
+                    "reenroll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<date>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3649c7d4-20e1-49b4-ad6c-21f53343b259",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId",
+                    "reenroll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<date>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78d37e8e-2252-4645-b68c-b4f4c7b94085",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId",
+                    "reenroll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<date>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64a6c623-e3b4-4aec-bb1c-1580f001dbeb",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    ":enrollmentId",
+                    "reenroll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrollmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessDate\": \"<date>\",\n  \"dueDateType\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"duePeriod\": \"<integer>\",\n  \"lockAfterDueDate\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b50ec4a6-46f8-4ebd-819d-ee684e15f008",
+          "name": "Delete enrollments",
+          "request": {
+            "name": "Delete enrollments",
+            "description": {},
+            "url": {
+              "path": [
+                "enrollment",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd49572c-d8c7-4c57-a186-ef1050cd9f50",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75d4dd6f-db07-49cd-88ce-14fbfd9f54c3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52af0b12-6fde-4059-a4f6-5cbfaa04b17d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c172ada-059b-47ce-b959-c69fcfbf2f59",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enrollmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1097,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-learn.ispring.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "86b1f0a6-e280-4bb9-9a5a-bc7c3e5a5c6c",
+    "name": "Learn Rest Api assignments enrollment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Assignment operations",
+      "type": "text/plain"
+    }
+  }
+}

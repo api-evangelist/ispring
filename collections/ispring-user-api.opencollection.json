@@ -1,0 +1,710 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Learn Rest Api assignments user API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get user list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/user",
+            "params": [
+              {
+                "name": "departments[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groups[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logins[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emails[]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get user list"
+        },
+        {
+          "info": {
+            "name": "Add a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user",
+            "headers": [
+              {
+                "name": "X-Return-Object",
+                "value": ""
+              },
+              {
+                "name": "X-Department-Id",
+                "value": ""
+              },
+              {
+                "name": "X-Fields",
+                "value": ""
+              },
+              {
+                "name": "X-Password",
+                "value": ""
+              },
+              {
+                "name": "X-Role",
+                "value": ""
+              },
+              {
+                "name": "X-Role-Id",
+                "value": ""
+              },
+              {
+                "name": "X-Manageable-Department-Ids",
+                "value": ""
+              },
+              {
+                "name": "X-Group-Ids",
+                "value": ""
+              },
+              {
+                "name": "X-Roles",
+                "value": ""
+              },
+              {
+                "name": "X-Send-Login-Email",
+                "value": ""
+              },
+              {
+                "name": "X-Invitation-Message",
+                "value": ""
+              },
+              {
+                "name": "X-Send-Login-SMS",
+                "value": ""
+              },
+              {
+                "name": "X-Invitation-SMS-Message",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new user"
+        },
+        {
+          "info": {
+            "name": "Get user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/user/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get user profile"
+        },
+        {
+          "info": {
+            "name": "Update user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/:userId",
+            "headers": [
+              {
+                "name": "X-Department-Id",
+                "value": ""
+              },
+              {
+                "name": "X-Role",
+                "value": ""
+              },
+              {
+                "name": "X-Role-Id",
+                "value": ""
+              },
+              {
+                "name": "X-Roles",
+                "value": ""
+              },
+              {
+                "name": "X-Fields",
+                "value": ""
+              },
+              {
+                "name": "X-Group-Ids",
+                "value": ""
+              },
+              {
+                "name": "X-Manageable-Department-Ids",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user profile"
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-learn.ispring.com/user/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete user"
+        },
+        {
+          "info": {
+            "name": "Find existing users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/users/find_existing",
+            "headers": [
+              {
+                "name": "X-User-Ids",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Find existing users"
+        },
+        {
+          "info": {
+            "name": "Get user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/user/:userId/v2",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get user profile"
+        },
+        {
+          "info": {
+            "name": "Get user list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/user/v2",
+            "params": [
+              {
+                "name": "departments[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groups[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logins[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emails[]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get user list"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/users",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "departments[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groups[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logins[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emails[]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List users"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/users/v2",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "departments[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groups[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logins[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emails[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userIds[]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List users"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/users/v2"
+          },
+          "docs": "List users"
+        },
+        {
+          "info": {
+            "name": "Get user profile fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/user/profile/fields"
+          },
+          "docs": "Get user profile fields"
+        },
+        {
+          "info": {
+            "name": "Update user password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/:userId/password",
+            "headers": [
+              {
+                "name": "X-Password",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user password"
+        },
+        {
+          "info": {
+            "name": "Activate/Deactivate user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/:userId/status",
+            "headers": [
+              {
+                "name": "X-Status",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Activate/Deactivate user"
+        },
+        {
+          "info": {
+            "name": "Change user subordination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/:userId/subordination",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change user subordination"
+        },
+        {
+          "info": {
+            "name": "Schedule user deactivation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/:userId/scheduled_deactivation",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Schedule user deactivation"
+        },
+        {
+          "info": {
+            "name": "Delete scheduled deactivation date",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-learn.ispring.com/user/:userId/scheduled_deactivation",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete scheduled deactivation date"
+        },
+        {
+          "info": {
+            "name": "Schedule user termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/:userId/scheduled_termination",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Schedule user termination"
+        },
+        {
+          "info": {
+            "name": "Delete scheduled termination date",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-learn.ispring.com/user/:userId/scheduled_termination",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete scheduled termination date"
+        },
+        {
+          "info": {
+            "name": "Remove user from groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/:userId/groups/remove",
+            "headers": [
+              {
+                "name": "X-Group-Ids",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove user from groups"
+        },
+        {
+          "info": {
+            "name": "Get role list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-learn.ispring.com/role"
+          },
+          "docs": "Get role list"
+        },
+        {
+          "info": {
+            "name": "activate users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/users/activate",
+            "headers": [
+              {
+                "name": "X-User-Ids",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "activate users"
+        },
+        {
+          "info": {
+            "name": "deactivate users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/users/deactivate",
+            "headers": [
+              {
+                "name": "X-User-Ids",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "deactivate users"
+        },
+        {
+          "info": {
+            "name": "terminate users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/users/terminate",
+            "headers": [
+              {
+                "name": "X-User-Ids",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "terminate users"
+        },
+        {
+          "info": {
+            "name": "Get users list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/user/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get users list"
+        },
+        {
+          "info": {
+            "name": "Update work leave statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/users/work-leave-status",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update work leave statuses"
+        },
+        {
+          "info": {
+            "name": "Remove work leave statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-learn.ispring.com/users/work-leave-status/delete",
+            "headers": [
+              {
+                "name": "X-User-Ids",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove work leave statuses"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,806 @@
+{
+  "item": [
+    {
+      "id": "6a13e358-6800-432a-8a3b-bb6b1947baee",
+      "name": "report",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e32cb90b-6047-4a00-928f-caaf0fec29a7",
+          "name": "Get active users",
+          "request": {
+            "name": "Get active users",
+            "description": {},
+            "url": {
+              "path": [
+                "report",
+                "active-users-by-period"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "activityDate[startDate]",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "activityDate[endDate]",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3c7a498-66dc-4696-a310-d08d6ee37e4c",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "active-users-by-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "activityDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "activityDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"30f97509-5ca7-9a73-be5c-75df9b8ead58\",\n  \"a53c39c3-aa69-85e3-2720-db03d4e5db65\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55623a47-fab7-4b32-a486-ab42355dfad3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "active-users-by-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "activityDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "activityDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4f5e644-1ef1-4911-b363-c4bd4969db23",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "active-users-by-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "activityDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "activityDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b07c2575-6191-4b29-9ce0-049df05470c8",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "active-users-by-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "activityDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "activityDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1502cd2a-27dd-43ca-a70f-467e7ee0e3e3",
+          "name": "Retrieves a paginated list of answers results for answer breakdown report",
+          "request": {
+            "name": "Retrieves a paginated list of answers results for answer breakdown report",
+            "description": {},
+            "url": {
+              "path": [
+                "report",
+                "answer-breakdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quizId",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "parentCourseId",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "userIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "userIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enrollmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "departmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "departmentIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attemptDate[startDate]",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attemptDate[endDate]",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a23c1f67-e4aa-46a1-af26-eb9fcf77c1d5",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"userId\": \"a366011c-ae69-5835-39de-36eab40f9a78\",\n      \"enrollmentId\": \"993e0f4c-3b5a-e1ad-af0f-70265d4033a6\",\n      \"quizVersion\": \"string\",\n      \"attemptDate\": \"string\",\n      \"isAttemptPassed\": true,\n      \"attemptScore\": 7452.227899796782,\n      \"passingScore\": 9315.552683929376,\n      \"questionNumber\": 306,\n      \"questionTitle\": \"string\",\n      \"questionType\": \"string\",\n      \"questionScore\": 7972.8662880055335,\n      \"answerText\": \"string\",\n      \"isAnswerCorrect\": true,\n      \"answerScore\": 3972.1852981874663,\n      \"questionGroup\": \"string\",\n      \"statementTitle\": \"string\",\n      \"customAnswerText\": \"string\"\n    },\n    {\n      \"userId\": \"19352aec-4d34-d8da-37a2-4c9948a3d261\",\n      \"enrollmentId\": \"82579b23-815e-6e13-f57e-cc560c0489e3\",\n      \"quizVersion\": \"string\",\n      \"attemptDate\": \"string\",\n      \"isAttemptPassed\": true,\n      \"attemptScore\": 8700.151089722898,\n      \"passingScore\": 1171.7801859916044,\n      \"questionNumber\": 3844,\n      \"questionTitle\": \"string\",\n      \"questionType\": \"string\",\n      \"questionScore\": 2201.448155720669,\n      \"answerText\": \"string\",\n      \"isAnswerCorrect\": true,\n      \"answerScore\": 6033.177587023286,\n      \"questionGroup\": \"string\",\n      \"statementTitle\": \"string\",\n      \"customAnswerText\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68086b72-cb2f-44e5-8cc9-fab8f5396d81",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "884b94ea-1954-4de2-9de0-8f0bb97ec521",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63d1bdad-2bf2-4970-bb61-0be738a95e61",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report",
+                    "answer-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "quizId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "parentCourseId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "userIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "enrollmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "departmentIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "attemptDate[startDate]",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "attemptDate[endDate]",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-learn.ispring.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "210df622-2b9c-47bd-acca-815783a2872b",
+    "name": "Learn Rest Api assignments report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Assignment operations",
+      "type": "text/plain"
+    }
+  }
+}
