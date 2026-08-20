@@ -21,6 +21,19 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
 tags:
+  - E-Learning
+  - LMS
+  - Learning Management System
+  - Training
+  - Courses
+  - Enrollments
+  - User
+  - Group
+  - Reporting
+  - Webhook
+  - SCORM
+  - Corporate Training
+tags_raw:
   - eLearning
   - LMS
   - Learning Management System
@@ -40,6 +53,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Assignments
+  tags_raw:
   - assignments
   properties:
   - type: OpenAPI
@@ -52,6 +67,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Certificate
+  tags_raw:
   - certificate
   properties:
   - type: OpenAPI
@@ -64,6 +81,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Content
+  tags_raw:
   - content
   properties:
   - type: OpenAPI
@@ -76,6 +95,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Department
+  tags_raw:
   - department
   properties:
   - type: OpenAPI
@@ -88,6 +109,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Departments
+  tags_raw:
   - departments
   properties:
   - type: OpenAPI
@@ -100,6 +123,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Enrollment
+  tags_raw:
   - enrollment
   properties:
   - type: OpenAPI
@@ -112,6 +137,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Gamification
+  tags_raw:
   - gamification
   properties:
   - type: OpenAPI
@@ -124,6 +151,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Group
+  tags_raw:
   - group
   properties:
   - type: OpenAPI
@@ -147,7 +176,8 @@ apis:
   description: Learning track operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
-  tags:
+  tags: []
+  tags_raw:
   - learning_track
   properties:
   - type: OpenAPI
@@ -161,6 +191,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Performance Management
+  tags_raw:
   - performance-management
   properties:
   - type: OpenAPI
@@ -173,6 +205,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Quizzes
+  tags_raw:
   - quizzes
   properties:
   - type: OpenAPI
@@ -185,6 +219,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Report
+  tags_raw:
   - report
   properties:
   - type: OpenAPI
@@ -197,6 +233,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Results
+  tags_raw:
   - results
   properties:
   - type: OpenAPI
@@ -209,6 +247,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Statistics
+  tags_raw:
   - statistics
   properties:
   - type: OpenAPI
@@ -221,6 +261,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Task
+  tags_raw:
   - task
   properties:
   - type: OpenAPI
@@ -233,6 +275,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Token
+  tags_raw:
   - token
   properties:
   - type: OpenAPI
@@ -245,6 +289,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Training
+  tags_raw:
   - training
   properties:
   - type: OpenAPI
@@ -257,6 +303,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
@@ -269,6 +317,8 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
+  - Webhook
+  tags_raw:
   - webhook
   properties:
   - type: OpenAPI
