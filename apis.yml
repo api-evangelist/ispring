@@ -338,6 +338,9 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 common:
+  - type: CapabilityMap
+    url: capabilities/ispring-capability-edges.yml
+    name: iSpring Learn Business Capability Map
   - type: AgenticAccess
     url: agentic-access/ispring-agentic-access.yml
   - type: DomainSecurity

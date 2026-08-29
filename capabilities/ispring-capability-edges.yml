@@ -1,0 +1,55 @@
+slug: ispring
+provider: iSpring Learn
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: performance-management
+  spec_file: ispring-performance-management-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.88
+  evidence: CreateCompetency, CompetencyIndicatorLevel, CreateAppraisalSessionRequest, AppraisalSessionEmployeeCard
+  reason: Competency frameworks, competency scales/indicators and appraisal sessions with employee cards
+    are performance and competency appraisal — Talent Management. The vendor description confirms '360-degree
+    performance reviews'.
+- tag: training
+  spec_file: ispring-training-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.78
+  evidence: GET /training/session/participants/{sessionId}  ListSessionParticipants; POST /training/day/{dayId}/participants/attendance/update  UpdateDayParticipantsAttendance
+  reason: Scheduled training sessions, session days, participants and attendance updates are the operational
+    delivery and tracking of instructor-led training, i.e. Learning & Development Management.
+- tag: jobtraining
+  spec_file: ispring-jobtraining-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.72
+  evidence: POST /job-training/checklist/sessions/list  listChecklistSessions  List сhecklists with sessions
+  reason: On-the-job training checklists, sessions and criterion results are the delivery and evaluation
+    of workplace training, which is Learning & Development Management for a corporate LMS vendor. The
+    Education-frame practicum capability is a weaker fit since this is employee, not student, training.
+- tag: assignments
+  spec_file: ispring-assignments-api-openapi.yml
+  capability_id: BC-4740.30
+  capability_id_l1: BC-4740
+  capability_name: Marking & Grading Operations
+  confidence: 0.7
+  evidence: POST /assignments/attempts/grade 'Grade user assignment attempts'; 'Retrieves a list of ungraded
+    attempts for an assignment'
+  reason: Operations mark learner assignment attempts and record grades, which is marking and grading
+    of assessments; slight ambiguity because the vendor is a corporate LMS where this could also read
+    as L&D administration.
