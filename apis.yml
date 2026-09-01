@@ -33,7 +33,7 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
 tags:
-  - eLearning
+  - E-Learning
   - LMS
   - Learning Management System
   - Training
@@ -65,7 +65,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - assignments
+  - Assignments
   tags_raw:
   - assignments
   properties:
@@ -79,7 +79,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - certificate
+  - Certificate
   tags_raw:
   - certificate
   properties:
@@ -93,7 +93,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - content
+  - Content
   tags_raw:
   - content
   properties:
@@ -107,7 +107,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - department
+  - Department
   tags_raw:
   - department
   properties:
@@ -121,7 +121,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - departments
+  - Departments
   tags_raw:
   - departments
   properties:
@@ -135,7 +135,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - enrollment
+  - Enrollment
   tags_raw:
   - enrollment
   properties:
@@ -149,7 +149,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - gamification
+  - Gamification
   tags_raw:
   - gamification
   properties:
@@ -203,7 +203,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - performance-management
+  - Performance Management
   tags_raw:
   - performance-management
   properties:
@@ -217,7 +217,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - quizzes
+  - Quizzes
   tags_raw:
   - quizzes
   properties:
@@ -301,7 +301,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - training
+  - Training
   tags_raw:
   - training
   properties:
