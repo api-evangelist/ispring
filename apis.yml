@@ -1,6 +1,9 @@
 aid: ispring
 name: iSpring Learn
-description: iSpring Learn is an eLearning platform and LMS that provides a REST API for managing courses, users, groups, departments, enrollments, learning paths, and accessing detailed learner progress reports. The API supports content management, assignment grading, 360-degree performance reviews, on-the-job training, and event-driven webhooks. API access requires a Business subscription.
+description: iSpring Learn is an eLearning platform and LMS that provides a REST API for managing courses,
+  users, groups, departments, enrollments, learning paths, and accessing detailed learner progress reports.
+  The API supports content management, assignment grading, 360-degree performance reviews, on-the-job
+  training, and event-driven webhooks. API access requires a Business subscription.
 type: Index
 deliveryModel:
   model: saas
@@ -31,34 +34,34 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ispring.png
 url: https://raw.githubusercontent.com/api-evangelist/ispring/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
-  - E-Learning
-  - LMS
-  - Learning Management System
-  - Training
-  - Courses
-  - Enrollments
-  - User
-  - Group
-  - Reporting
-  - Webhook
-  - SCORM
-  - Corporate Training
+- E-Learning
+- LMS
+- Learning Management System
+- Training
+- Courses
+- Enrollments
+- User
+- Group
+- Reporting
+- Webhook
+- SCORM
+- Corporate Training
 tags_raw:
-  - eLearning
-  - LMS
-  - Learning Management System
-  - Training
-  - Courses
-  - Enrollments
-  - Users
-  - Groups
-  - Reporting
-  - Webhooks
-  - SCORM
-  - Corporate Training
+- eLearning
+- LMS
+- Learning Management System
+- Training
+- Courses
+- Enrollments
+- Users
+- Groups
+- Reporting
+- Webhooks
+- SCORM
+- Corporate Training
 apis:
 - aid: ispring:ispring-assignments-api
   name: iSpring Learn assignments API
@@ -199,8 +202,7 @@ apis:
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-performance-management-api
   name: iSpring Learn performance-management API
-  description: >-
-    The performance-management API from iSpring Learn — 37 operation(s) for performance-management.
+  description: The performance-management API from iSpring Learn — 37 operation(s) for performance-management.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
@@ -339,71 +341,59 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 common:
-  - type: CapabilityMap
-    url: capabilities/ispring-capability-edges.yml
-    name: iSpring Learn Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/ispring-agentic-access.yml
-  - type: DomainSecurity
-    url: security/ispring-domain-security.yml
-  - type: Authentication
-    url: authentication/ispring-authentication.yml
-  - name: Documentation
-    url: https://ispringhelpdocs.com/ispring-learn/api-documentation-10685383.html
-    type: Documentation
-
-  - name: REST API Reference
-    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
-    type: Reference
-
-  - name: OpenAPI Specification
-    url: https://api-learn.ispringlearn.com/docs/rest-api
-    type: OpenAPI
-
-  - name: Webhook Documentation
-    url: https://ispringhelpdocs.com/ispring-learn/webhook-62863671.html
-    type: Webhooks
-
-  - name: Authentication
-    url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
-    type: Authentication
-
-  - name: Integration Guide
-    url: https://www.ispringsolutions.com/articles/integration-of-ispring-learn-with-your-system
-    type: GettingStarted
-
-  - name: Blog
-    url: https://www.ispringsolutions.com/blog/
-    type: Blog
-
-  - name: Changelog
-    url: https://www.ispring.com/whats-new
-    type: ChangeLog
-
-  - name: Support
-    url: https://www.ispringsolutions.com/support
-    type: Support
-
-  - name: Privacy Policy
-    url: https://www.ispringsolutions.com/company/policy/privacy
-    type: PrivacyPolicy
-
-  - name: Terms of Service
-    url: https://www.ispringsolutions.com/services-subscription-agreement
-    type: TermsOfService
-
-  - name: Plans
-    url: plans/ispring-plans-pricing.yml
-    type: Plans
-
-  - name: RateLimits
-    url: rate-limits/ispring-rate-limits.yml
-    type: RateLimits
-
-  - name: FinOps
-    url: finops/ispring-finops.yml
-    type: FinOps
-
+- type: Website
+  url: https://ispringhelpdocs.com
+- type: CapabilityMap
+  url: capabilities/ispring-capability-edges.yml
+  name: iSpring Learn Business Capability Map
+- type: AgenticAccess
+  url: agentic-access/ispring-agentic-access.yml
+- type: DomainSecurity
+  url: security/ispring-domain-security.yml
+- type: Authentication
+  url: authentication/ispring-authentication.yml
+- name: Documentation
+  url: https://ispringhelpdocs.com/ispring-learn/api-documentation-10685383.html
+  type: Documentation
+- name: REST API Reference
+  url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  type: Reference
+- name: OpenAPI Specification
+  url: https://api-learn.ispringlearn.com/docs/rest-api
+  type: OpenAPI
+- name: Webhook Documentation
+  url: https://ispringhelpdocs.com/ispring-learn/webhook-62863671.html
+  type: Webhooks
+- name: Authentication
+  url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
+  type: Authentication
+- name: Integration Guide
+  url: https://www.ispringsolutions.com/articles/integration-of-ispring-learn-with-your-system
+  type: GettingStarted
+- name: Blog
+  url: https://www.ispringsolutions.com/blog/
+  type: Blog
+- name: Changelog
+  url: https://www.ispring.com/whats-new
+  type: ChangeLog
+- name: Support
+  url: https://www.ispringsolutions.com/support
+  type: Support
+- name: Privacy Policy
+  url: https://www.ispringsolutions.com/company/policy/privacy
+  type: PrivacyPolicy
+- name: Terms of Service
+  url: https://www.ispringsolutions.com/services-subscription-agreement
+  type: TermsOfService
+- name: Plans
+  url: plans/ispring-plans-pricing.yml
+  type: Plans
+- name: RateLimits
+  url: rate-limits/ispring-rate-limits.yml
+  type: RateLimits
+- name: FinOps
+  url: finops/ispring-finops.yml
+  type: FinOps
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
