@@ -42,7 +42,7 @@ tags:
 - Learning Management System
 - Training
 - Courses
-- Enrollments
+- Enrollment
 - User
 - Group
 - Reporting
@@ -290,7 +290,7 @@ apis:
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
   tags:
-  - Token
+  - Tokens
   tags_raw:
   - token
   properties:
