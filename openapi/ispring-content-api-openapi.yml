@@ -1,21 +1,21 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Learn Rest Api assignments content API
+  title: Learn Rest Content API
   version: '3.0'
-  description: Assignment operations
+  description: Content operations
 servers:
 - url: https://api-learn.ispring.com
   description: Main server
 security:
 - bearerAuth: []
 tags:
-- name: content
+- name: Content
   description: Content operations
 paths:
   /content:
     get:
       tags:
-      - content
+      - Content
       summary: Get content list
       operationId: GetContent
       parameters:
@@ -53,7 +53,7 @@ paths:
   /contents:
     get:
       tags:
-      - content
+      - Content
       summary: List content
       operationId: ListContent
       parameters:
@@ -93,7 +93,7 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
     post:
       tags:
-      - content
+      - Content
       summary: List content
       operationId: ListContentByPost
       requestBody:
@@ -137,7 +137,7 @@ paths:
   /content/{contentId}:
     get:
       tags:
-      - content
+      - Content
       summary: Get content item
       operationId: GetContentItem
       parameters:
@@ -180,7 +180,7 @@ paths:
   /content/{contentId}/final_statuses:
     get:
       tags:
-      - content
+      - Content
       summary: Get content item final statuses
       operationId: GetContentItemFinalStatuses
       parameters:
@@ -223,7 +223,7 @@ paths:
   /courses/modules:
     get:
       tags:
-      - content
+      - Content
       summary: List courses modules
       operationId: ListCoursesModules
       parameters:
@@ -257,7 +257,7 @@ paths:
   /course_fields:
     get:
       tags:
-      - content
+      - Content
       summary: List course fields
       operationId: ListCourseFields
       responses:
@@ -279,7 +279,7 @@ paths:
   /content/create/{contentType}:
     post:
       tags:
-      - content
+      - Content
       summary: Create content item
       operationId: CreateContent
       parameters:
@@ -313,7 +313,7 @@ paths:
   /course/{courseId}/modules:
     get:
       tags:
-      - content
+      - Content
       summary: List modules by course id
       operationId: ListCourseModules
       parameters:
@@ -367,7 +367,7 @@ paths:
   /courses_tree:
     get:
       tags:
-      - content
+      - Content
       summary: Get courses tree
       operationId: GetCoursesTree
       parameters:
@@ -402,6 +402,20 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
+    CourseFieldValue:
+      required:
+      - fieldId
+      - fieldValue
+      properties:
+        fieldId:
+          type: string
+          format: uuid
+        fieldValue:
+          type: string
+      type: object
+      xml:
+        name: courseField
+        wrapped: true
     CourseFields:
       required:
       - courseFields
@@ -415,18 +429,104 @@ components:
       type: object
       xml:
         name: response
-    ErrorResponse:
+    CreateCourseRequest:
       required:
-      - code
-      - message
+      - folder_id
+      - title
       properties:
-        code:
+        folder_id:
+          type: string
+          format: uuid
+        title:
+          type: string
+      type: object
+    CourseTreeItem:
+      required:
+      - contentItemId
+      - title
+      - type
+      - description
+      - addedDate
+      - viewUrl
+      - parentId
+      - isShared
+      properties:
+        contentItemId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        addedDate:
+          type: string
+          format: date-time
+        viewUrl:
+          type: string
+          format: url
+        parentId:
+          type: string
+          format: uuid
+        isShared:
+          type: boolean
+      type: object
+      xml:
+        name: contentItem
+    ContentItemFinalStatus:
+      required:
+      - userId
+      - status
+      - progress
+      properties:
+        userId:
+          type: string
+          format: uuid
+        status:
+          type: string
+        progress:
           type: integer
-        message:
+          maximum: 100
+          minimum: 0
+        completionDate:
+          type: string
+          format: date-time
+        lastViewDate:
+          type: string
+          format: date-time
+      type: object
+      xml:
+        name: status
+        wrapped: true
+    ContentItemsInformationPage:
+      required:
+      - contentItems
+      properties:
+        contentItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentItemInformation'
+          xml:
+            wrapped: true
+        nextPageToken:
           type: string
       type: object
       xml:
         name: response
+    CourseFieldType:
+      type: string
+      enum:
+      - TEXT
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
     CoursesModulesPage:
       required:
       - modules
@@ -504,31 +604,6 @@ components:
       type: object
       xml:
         name: contentItem
-    ContentItemFinalStatus:
-      required:
-      - userId
-      - status
-      - progress
-      properties:
-        userId:
-          type: string
-          format: uuid
-        status:
-          type: string
-        progress:
-          type: integer
-          maximum: 100
-          minimum: 0
-        completionDate:
-          type: string
-          format: date-time
-        lastViewDate:
-          type: string
-          format: date-time
-      type: object
-      xml:
-        name: status
-        wrapped: true
     ContentType:
       type: string
       enum:
@@ -553,55 +628,18 @@ components:
       - Page
       - OnlineQuiz
       - ExternalCourse
-    ContentItemsInformationPage:
+    ErrorResponse:
       required:
-      - contentItems
+      - code
+      - message
       properties:
-        contentItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContentItemInformation'
-          xml:
-            wrapped: true
-        nextPageToken:
+        code:
+          type: integer
+        message:
           type: string
       type: object
       xml:
         name: response
-    CourseTreeItem:
-      required:
-      - contentItemId
-      - title
-      - type
-      - description
-      - addedDate
-      - viewUrl
-      - parentId
-      - isShared
-      properties:
-        contentItemId:
-          type: string
-          format: uuid
-        title:
-          type: string
-        type:
-          type: string
-        description:
-          type: string
-        addedDate:
-          type: string
-          format: date-time
-        viewUrl:
-          type: string
-          format: url
-        parentId:
-          type: string
-          format: uuid
-        isShared:
-          type: boolean
-      type: object
-      xml:
-        name: contentItem
     CoursesModule:
       required:
       - moduleId
@@ -638,45 +676,47 @@ components:
       type: object
       xml:
         name: module
-    CourseFieldType:
-      type: string
-      enum:
-      - TEXT
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    CreateCourseRequest:
-      required:
-      - folder_id
-      - title
-      properties:
-        folder_id:
-          type: string
-          format: uuid
-        title:
-          type: string
-      type: object
-    CourseFieldValue:
-      required:
-      - fieldId
-      - fieldValue
-      properties:
-        fieldId:
-          type: string
-          format: uuid
-        fieldValue:
-          type: string
-      type: object
-      xml:
-        name: courseField
-        wrapped: true
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
     targetLocale:
       name: X-Target-Locale
       in: header
@@ -709,46 +749,6 @@ components:
         - cs-CZ
         - uz-UZ
         - zh-TW
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
-  responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http

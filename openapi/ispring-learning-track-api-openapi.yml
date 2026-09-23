@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Learn Rest Api assignments learning_track API
+  title: Learn Rest Learning Track API
   version: '3.0'
-  description: Assignment operations
+  description: Learning track operations
 servers:
 - url: https://api-learn.ispring.com
   description: Main server
@@ -49,18 +49,37 @@ paths:
         '403':
           $ref: '#/components/responses/PermissionDenied'
 components:
+  schemas:
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    LearningTrackCourse:
+      required:
+      - learningTrackId
+      - courseId
+      properties:
+        learningTrackId:
+          type: string
+          format: uuid
+        courseId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: learningTracksCourse
+        wrapped: true
   responses:
     PermissionDenied:
       description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
       content:
         application/json:
           schema:
@@ -77,34 +96,15 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  schemas:
-    LearningTrackCourse:
-      required:
-      - learningTrackId
-      - courseId
-      properties:
-        learningTrackId:
-          type: string
-          format: uuid
-        courseId:
-          type: string
-          format: uuid
-      type: object
-      xml:
-        name: learningTracksCourse
-        wrapped: true
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http

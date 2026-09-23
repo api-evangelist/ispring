@@ -1,20 +1,19 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Learn Rest Api assignments departments API
+  title: Learn Rest Departments API
   version: '3.0'
-  description: Assignment operations
 servers:
 - url: https://api-learn.ispring.com
   description: Main server
 security:
 - bearerAuth: []
 tags:
-- name: departments
+- name: Departments
 paths:
   /departments:
     get:
       tags:
-      - departments
+      - Departments
       summary: List departments
       operationId: ListDepartments
       parameters:
@@ -38,46 +37,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    Subordination:
-      required:
-      - subordinationType
-      properties:
-        subordinationType:
-          type: string
-          enum:
-          - manual
-          - inherit
-          - no_supervisor
-        supervisorId:
-          type: string
-      type: object
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    DepartmentsPage:
-      required:
-      - departments
-      properties:
-        departments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Department'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
     Department:
       required:
       - departmentId
@@ -102,18 +61,49 @@ components:
       type: object
       xml:
         name: department
+    DepartmentsPage:
+      required:
+      - departments
+      properties:
+        departments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Department'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    Subordination:
+      required:
+      - subordinationType
+      properties:
+        subordinationType:
+          type: string
+          enum:
+          - manual
+          - inherit
+          - no_supervisor
+        supervisorId:
+          type: string
+      type: object
   responses:
     PermissionDenied:
       description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
       content:
         application/json:
           schema:
@@ -130,19 +120,28 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
     pageToken:
       name: pageToken
       in: query
       required: false
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http

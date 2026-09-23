@@ -1,8 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Learn Rest Api assignments jobtraining API
+  title: Learn Rest Jobtraining API
   version: '3.0'
-  description: Assignment operations
 servers:
 - url: https://api-learn.ispring.com
   description: Main server
@@ -153,27 +152,11 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    ListCriterionResultRequest:
-      properties:
-        checklistId:
-          type: string
-          format: uuid
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        groupIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        criterionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
+    ChecklistStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - HIDDEN
     ChecklistSessionsData:
       required:
       - checklistId
@@ -196,29 +179,33 @@ components:
       type: object
       xml:
         name: checklistSessions
-    CriterionGroupResultData:
+    CriterionResultData:
       required:
-      - groupId
-      - groupTitle
+      - criterionId
+      - criterionTitle
       - checklistId
       - sessionId
+      - groupId
+      - skipped
       - employeeId
       - observerId
       properties:
+        criterionId:
+          type: string
+          format: uuid
         groupId:
           type: string
           format: uuid
         checklistId:
           type: string
           format: uuid
-        groupTitle:
+        criterionTitle:
           type: string
         sessionId:
           type: string
           format: uuid
-        result:
-          type: number
-          format: float
+        skipped:
+          type: boolean
         totalPoints:
           type: number
           format: float
@@ -233,7 +220,51 @@ components:
           format: uuid
       type: object
       xml:
-        name: criterionGroupResultData
+        name: criterionResultData
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ListChecklistsSessionsRequest:
+      properties:
+        checklistIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    SessionStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - PASSED
+    ListSessionsResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionStatus:
+          $ref: '#/components/schemas/SessionStatus'
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
     JobTrainingSessionResultData:
       required:
       - checklistId
@@ -281,44 +312,22 @@ components:
       type: object
       xml:
         name: jobTrainingSessionResult
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    ListChecklistsSessionsRequest:
-      properties:
-        checklistIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    ChecklistStatus:
-      type: string
-      enum:
-      - PUBLISHED
-      - HIDDEN
-    ListSessionsResultRequest:
+    ListCriterionResultRequest:
       properties:
         checklistId:
           type: string
           format: uuid
-        sessionStatus:
-          $ref: '#/components/schemas/SessionStatus'
         sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        criterionIds:
           type: array
           items:
             type: string
@@ -340,39 +349,29 @@ components:
             type: string
             format: uuid
       type: object
-    SessionStatus:
-      type: string
-      enum:
-      - NOT_STARTED
-      - IN_PROGRESS
-      - PASSED
-    CriterionResultData:
+    CriterionGroupResultData:
       required:
-      - criterionId
-      - criterionTitle
+      - groupId
+      - groupTitle
       - checklistId
       - sessionId
-      - groupId
-      - skipped
       - employeeId
       - observerId
       properties:
-        criterionId:
-          type: string
-          format: uuid
         groupId:
           type: string
           format: uuid
         checklistId:
           type: string
           format: uuid
-        criterionTitle:
+        groupTitle:
           type: string
         sessionId:
           type: string
           format: uuid
-        skipped:
-          type: boolean
+        result:
+          type: number
+          format: float
         totalPoints:
           type: number
           format: float
@@ -387,7 +386,7 @@ components:
           format: uuid
       type: object
       xml:
-        name: criterionResultData
+        name: criterionGroupResultData
   responses:
     PermissionDenied:
       description: Permission Denied
@@ -398,8 +397,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -407,8 +406,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:

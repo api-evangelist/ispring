@@ -1,20 +1,19 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Learn Rest Api assignments webhook API
+  title: Learn Rest Webhook API
   version: '3.0'
-  description: Assignment operations
 servers:
 - url: https://api-learn.ispring.com
   description: Main server
 security:
 - bearerAuth: []
 tags:
-- name: webhook
+- name: Webhook
 paths:
   /webhook/register:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Register new subscriber
       operationId: RegisterSubscriber
       requestBody:
@@ -38,7 +37,7 @@ paths:
   /webhook/disable:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Disable subscriber
       operationId: DisabableSubscriber
       requestBody:
@@ -64,7 +63,7 @@ paths:
   /webhook/settings/change:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Change subscriber settings
       operationId: ChangeSubscriberSettings
       requestBody:
@@ -90,7 +89,7 @@ paths:
   /webhook/remove:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Remove subscriber
       operationId: RemoveSubscriber
       requestBody:
@@ -116,7 +115,7 @@ paths:
   /webhook/subscribe:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Add subscription
       operationId: Subscribe
       requestBody:
@@ -142,7 +141,7 @@ paths:
   /webhook/unsubscribe:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Remove subscription
       operationId: unsubscribe
       requestBody:
@@ -168,7 +167,7 @@ paths:
   /webhook/subscription/list:
     get:
       tags:
-      - webhook
+      - Webhook
       summary: List subscriber subscriptions
       operationId: ListSubscriptions
       parameters:
@@ -205,7 +204,7 @@ paths:
   /webhook/enable:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Enable subscriber
       operationId: EnableSubscriber
       requestBody:
@@ -231,7 +230,7 @@ paths:
   /webhook/code/send:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Send a code to confirm the url
       operationId: SendConfirmationCode
       requestBody:
@@ -257,7 +256,7 @@ paths:
   /webhook/confirm:
     post:
       tags:
-      - webhook
+      - Webhook
       summary: Confirm subscriber callback url
       operationId: Confirm
       requestBody:
@@ -283,7 +282,7 @@ paths:
   /webhook/subscriber/info:
     get:
       tags:
-      - webhook
+      - Webhook
       summary: Get information about subscriber
       operationId: GetSubscriberInfo
       parameters:
@@ -305,16 +304,6 @@ paths:
           description: Subscriber not found
 components:
   schemas:
-    SubscribeRequest:
-      required:
-      - subscriberName
-      - subscription
-      properties:
-        subscriberName:
-          type: string
-        subscription:
-          $ref: '#/components/schemas/Subscription'
-      type: object
     SubscriberRequest:
       required:
       - subscriberName
@@ -329,6 +318,16 @@ components:
       type: object
       xml:
         name: request
+    UnsubscribeRequest:
+      required:
+      - subscriberName
+      - subscriptionType
+      properties:
+        subscriberName:
+          type: string
+        subscriptionType:
+          type: string
+      type: object
     SubscriptionParameter:
       required:
       - name
@@ -339,21 +338,14 @@ components:
         value:
           type: string
       type: object
-    SubscriberNameRequest:
+    ConfirmRequest:
       required:
       - subscriberName
+      - code
       properties:
         subscriberName:
           type: string
-      type: object
-    UnsubscribeRequest:
-      required:
-      - subscriberName
-      - subscriptionType
-      properties:
-        subscriberName:
-          type: string
-        subscriptionType:
+        code:
           type: string
       type: object
     ErrorResponse:
@@ -368,15 +360,15 @@ components:
       type: object
       xml:
         name: response
-    ConfirmRequest:
+    SubscribeRequest:
       required:
       - subscriberName
-      - code
+      - subscription
       properties:
         subscriberName:
           type: string
-        code:
-          type: string
+        subscription:
+          $ref: '#/components/schemas/Subscription'
       type: object
     Subscription:
       required:
@@ -401,6 +393,13 @@ components:
           items:
             $ref: '#/components/schemas/SubscriptionParameter'
       type: object
+    SubscriberNameRequest:
+      required:
+      - subscriberName
+      properties:
+        subscriberName:
+          type: string
+      type: object
   responses:
     PermissionDenied:
       description: Permission Denied
@@ -411,8 +410,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -420,8 +419,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:

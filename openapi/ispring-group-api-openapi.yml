@@ -1,21 +1,21 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Learn Rest Api assignments group API
+  title: Learn Rest Group API
   version: '3.0'
-  description: Assignment operations
+  description: Group operations
 servers:
 - url: https://api-learn.ispring.com
   description: Main server
 security:
 - bearerAuth: []
 tags:
-- name: group
+- name: Group
   description: Group operations
 paths:
   /group:
     get:
       tags:
-      - group
+      - Group
       summary: Get group list
       operationId: GetGroups
       responses:
@@ -43,7 +43,7 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
     post:
       tags:
-      - group
+      - Group
       summary: Add a new group
       operationId: AddGroup
       parameters:
@@ -83,7 +83,7 @@ paths:
   /group/smart:
     post:
       tags:
-      - group
+      - Group
       summary: Add a new smart group
       operationId: AddSmartGroup
       parameters:
@@ -123,7 +123,7 @@ paths:
   /group/smart/{groupId}:
     post:
       tags:
-      - group
+      - Group
       summary: Update smart group rules
       operationId: EditSmartGroup
       parameters:
@@ -154,7 +154,7 @@ paths:
   /group/smart/{groupId}/rules:
     get:
       tags:
-      - group
+      - Group
       summary: Get smart group rules
       operationId: GetSmartGroupRules
       parameters:
@@ -195,7 +195,7 @@ paths:
   /group/{groupId}:
     get:
       tags:
-      - group
+      - Group
       summary: Get group details
       operationId: GetGroup
       parameters:
@@ -228,7 +228,7 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
     post:
       tags:
-      - group
+      - Group
       summary: Update group
       operationId: UpdateGroup
       parameters:
@@ -258,7 +258,7 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
     delete:
       tags:
-      - group
+      - Group
       summary: Delete group
       operationId: RemoveGroup
       parameters:
@@ -280,7 +280,7 @@ paths:
   /group/{groupId}/members:
     post:
       tags:
-      - group
+      - Group
       summary: Update group members
       operationId: UpdateGroupMembers
       parameters:
@@ -311,7 +311,7 @@ paths:
   /groups:
     get:
       tags:
-      - group
+      - Group
       summary: List groups
       operationId: ListGroups
       parameters:
@@ -350,6 +350,38 @@ components:
       type: object
       xml:
         name: response
+    SmartGroupRules:
+      required:
+      - groupId
+      - rules
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        rules:
+          $ref: '#/components/schemas/SmartGroupRuleNodes'
+      type: object
+    AndSmartGroupRuleNode:
+      required:
+      - or
+      properties:
+        or:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrSmartGroupRuleNode'
+      type: object
+    NewSmartGroup:
+      required:
+      - name
+      - rules
+      properties:
+        name:
+          type: string
+        rules:
+          $ref: '#/components/schemas/SmartGroupRuleNodes'
+      type: object
+      xml:
+        name: request
     UpdateSmartGroup:
       required:
       - rules
@@ -358,6 +390,26 @@ components:
           type: string
         rules:
           $ref: '#/components/schemas/SmartGroupRuleNodes'
+      type: object
+      xml:
+        name: request
+    UpdateGroupMembers:
+      required:
+      - userIds
+      properties:
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    NewGroup:
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
       type: object
       xml:
         name: request
@@ -370,18 +422,6 @@ components:
           items:
             $ref: '#/components/schemas/AndSmartGroupRuleNode'
       type: object
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
     DetailedGroup:
       required:
       - usersCount
@@ -404,70 +444,6 @@ components:
       type: object
       xml:
         name: group
-    UpdateGroup:
-      required:
-      - name
-      properties:
-        name:
-          type: string
-      type: object
-      xml:
-        name: request
-    SmartGroupRules:
-      required:
-      - groupId
-      - rules
-      properties:
-        groupId:
-          type: string
-          format: uuid
-        rules:
-          $ref: '#/components/schemas/SmartGroupRuleNodes'
-      type: object
-    Group:
-      required:
-      - groupId
-      - name
-      - isSmart
-      properties:
-        groupId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        isSmart:
-          type: boolean
-      type: object
-      xml:
-        name: group
-    OrSmartGroupRuleNode:
-      required:
-      - rule
-      properties:
-        rule:
-          $ref: '#/components/schemas/SmartGroupRule'
-      type: object
-    UpdateGroupMembers:
-      required:
-      - userIds
-      properties:
-        userIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
-    NewSmartGroup:
-      required:
-      - name
-      - rules
-      properties:
-        name:
-          type: string
-        rules:
-          $ref: '#/components/schemas/SmartGroupRuleNodes'
-      type: object
-      xml:
-        name: request
     ArrayOfIds:
       type: array
       items:
@@ -477,14 +453,21 @@ components:
           name: id
       xml:
         wrapped: true
-    AndSmartGroupRuleNode:
+    UpdateGroup:
       required:
-      - or
+      - name
       properties:
-        or:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrSmartGroupRuleNode'
+        name:
+          type: string
+      type: object
+      xml:
+        name: request
+    OrSmartGroupRuleNode:
+      required:
+      - rule
+      properties:
+        rule:
+          $ref: '#/components/schemas/SmartGroupRule'
       type: object
     SmartGroupRule:
       required:
@@ -510,45 +493,34 @@ components:
         value:
           type: string
       type: object
-    NewGroup:
+    ErrorResponse:
       required:
-      - name
+      - code
+      - message
       properties:
-        name:
+        code:
+          type: integer
+        message:
           type: string
-        userIds:
-          $ref: '#/components/schemas/ArrayOfIds'
       type: object
       xml:
-        name: request
-  responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
+        name: response
+    Group:
+      required:
+      - groupId
+      - name
+      - isSmart
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        isSmart:
+          type: boolean
+      type: object
+      xml:
+        name: group
   parameters:
     returnObject:
       name: X-Return-Object
@@ -568,6 +540,34 @@ components:
       required: false
       schema:
         type: string
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http

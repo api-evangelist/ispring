@@ -1,26 +1,7 @@
 {
   "provider": "ispring",
   "sources": [
-    "ispring-assignments-api-openapi.yml",
-    "ispring-certificate-api-openapi.yml",
-    "ispring-content-api-openapi.yml",
-    "ispring-department-api-openapi.yml",
-    "ispring-departments-api-openapi.yml",
-    "ispring-enrollment-api-openapi.yml",
-    "ispring-gamification-api-openapi.yml",
-    "ispring-group-api-openapi.yml",
-    "ispring-jobtraining-api-openapi.yml",
-    "ispring-learning-track-api-openapi.yml",
-    "ispring-performance-management-api-openapi.yml",
-    "ispring-quizzes-api-openapi.yml",
-    "ispring-report-api-openapi.yml",
-    "ispring-results-api-openapi.yml",
-    "ispring-statistics-api-openapi.yml",
-    "ispring-task-api-openapi.yml",
-    "ispring-token-api-openapi.yml",
-    "ispring-training-api-openapi.yml",
-    "ispring-user-api-openapi.yml",
-    "ispring-webhook-api-openapi.yml"
+    "_original/openapi.yaml"
   ],
   "outputs": [
     "ispring-assignments-api-openapi.yml",
@@ -47,6 +28,38 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "openapi.yaml: declared missing tag: departments",
+    "openapi.yaml: declared missing tag: jobtraining",
+    "openapi.yaml: declared missing tag: performance-management",
+    "openapi.yaml: declared missing tag: quizzes",
+    "openapi.yaml: declared missing tag: report",
+    "openapi.yaml: declared missing tag: statistics",
+    "openapi.yaml: declared missing tag: webhook",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "ispring-assignments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-certificate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-department-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-departments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-enrollment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-gamification-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-group-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-jobtraining-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-learning-track-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-performance-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-quizzes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-report-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-results-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-task-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-training-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-user-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ispring-webhook-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

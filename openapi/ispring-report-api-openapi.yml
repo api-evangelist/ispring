@@ -1,20 +1,19 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Learn Rest Api assignments report API
+  title: Learn Rest Report API
   version: '3.0'
-  description: Assignment operations
 servers:
 - url: https://api-learn.ispring.com
   description: Main server
 security:
 - bearerAuth: []
 tags:
-- name: report
+- name: Report
 paths:
   /report/active-users-by-period:
     get:
       tags:
-      - report
+      - Report
       summary: Get active users
       operationId: GetUsersWithActivity
       parameters:
@@ -55,7 +54,7 @@ paths:
   /report/answer-breakdown:
     get:
       tags:
-      - report
+      - Report
       summary: Retrieves a paginated list of answers results for answer breakdown report
       operationId: ListAnswerBreakdownResults
       parameters:
@@ -128,50 +127,19 @@ paths:
         '403':
           $ref: '#/components/responses/PermissionDenied'
 components:
-  responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    AnswerBreakdownResultsPage:
+    ErrorResponse:
       required:
-      - results
+      - code
+      - message
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnswerBreakdownResult'
-          xml:
-            wrapped: true
-        nextPageToken:
+        code:
+          type: integer
+        message:
           type: string
       type: object
       xml:
-        name: results
+        name: response
     AnswerBreakdownResult:
       required:
       - userId
@@ -234,18 +202,6 @@ components:
       xml:
         name: result
         wrapped: true
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
     ActiveUsersByPeriod:
       required:
       - ids
@@ -271,6 +227,21 @@ components:
       type: object
       xml:
         name: activeUsersByPeriod
+    AnswerBreakdownResultsPage:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnswerBreakdownResult'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: results
     DateRange:
       required:
       - startDate
@@ -285,19 +256,47 @@ components:
       type: object
       xml:
         name: dateRange
+  responses:
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
     pageToken:
       name: pageToken
       in: query
       required: false
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http
