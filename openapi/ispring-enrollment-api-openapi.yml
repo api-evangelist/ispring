@@ -288,36 +288,21 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
+    DeleteEnrollments:
+      required:
+      - enrollmentIds
+      properties:
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
       xml:
-        wrapped: true
+        name: request
     EnrollmentTypeGroup:
       description: 0 - Enrolled by admin 1 - Enrolled from catalog
       type: integer
       enum:
       - 0
       - 1
-    EnrollmentsPage:
-      required:
-      - enrollments
-      properties:
-        enrollments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Enrollment'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
     ListEnrollmentsRequest:
       properties:
         pageSize:
@@ -355,6 +340,61 @@ components:
             name: enrollmentIds
             wrapped: false
       type: object
+    Reenroll:
+      required:
+      - accessDate
+      - dueDateType
+      properties:
+        accessDate:
+          type: string
+          format: date
+        dueDateType:
+          $ref: '#/components/schemas/DueDateType'
+        dueDate:
+          type: string
+          format: date
+        duePeriod:
+          type: integer
+        lockAfterDueDate:
+          type: boolean
+      type: object
+      xml:
+        name: request
+    IssuedCertificateInformation:
+      required:
+      - issuedCertificateId
+      - issueDate
+      properties:
+        issuedCertificateId:
+          type: string
+          format: uuid
+        issueDate:
+          type: string
+          format: date
+        expiryDate:
+          type: string
+          format: date
+      type: object
+    UpdateEnrollment:
+      required:
+      - accessDate
+      - dueDateType
+      properties:
+        accessDate:
+          type: string
+          format: datetime
+        dueDateType:
+          $ref: '#/components/schemas/DueDateType'
+        dueDate:
+          type: string
+          format: date
+        duePeriod:
+          type: integer
+        lockAfterDueDate:
+          type: boolean
+      type: object
+      xml:
+        name: request
     NewEnrollment:
       required:
       - courseIds
@@ -380,38 +420,6 @@ components:
       type: object
       xml:
         name: request
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    UpdateEnrollment:
-      required:
-      - accessDate
-      - dueDateType
-      properties:
-        accessDate:
-          type: string
-          format: datetime
-        dueDateType:
-          $ref: '#/components/schemas/DueDateType'
-        dueDate:
-          type: string
-          format: date
-        duePeriod:
-          type: integer
-        lockAfterDueDate:
-          type: boolean
-      type: object
-      xml:
-        name: request
     DueDateType:
       type: string
       enum:
@@ -419,50 +427,6 @@ components:
       - default
       - due_date
       - due_period
-    DeleteEnrollments:
-      required:
-      - enrollmentIds
-      properties:
-        enrollmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
-    IssuedCertificateInformation:
-      required:
-      - issuedCertificateId
-      - issueDate
-      properties:
-        issuedCertificateId:
-          type: string
-          format: uuid
-        issueDate:
-          type: string
-          format: date
-        expiryDate:
-          type: string
-          format: date
-      type: object
-    Reenroll:
-      required:
-      - accessDate
-      - dueDateType
-      properties:
-        accessDate:
-          type: string
-          format: date
-        dueDateType:
-          $ref: '#/components/schemas/DueDateType'
-        dueDate:
-          type: string
-          format: date
-        duePeriod:
-          type: integer
-        lockAfterDueDate:
-          type: boolean
-      type: object
-      xml:
-        name: request
     Enrollment:
       required:
       - enrollmentId
@@ -499,6 +463,42 @@ components:
       type: object
       xml:
         name: enrollment
+    EnrollmentsPage:
+      required:
+      - enrollments
+      properties:
+        enrollments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Enrollment'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
   parameters:
     pageSize:
       name: pageSize
@@ -513,8 +513,8 @@ components:
       schema:
         type: string
   responses:
-    PermissionDenied:
-      description: Permission Denied
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:
@@ -531,8 +531,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:

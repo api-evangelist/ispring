@@ -304,30 +304,6 @@ paths:
           description: Subscriber not found
 components:
   schemas:
-    SubscriberRequest:
-      required:
-      - subscriberName
-      - callbackUrl
-      properties:
-        subscriberName:
-          type: string
-        callbackUrl:
-          type: string
-        secret:
-          type: string
-      type: object
-      xml:
-        name: request
-    UnsubscribeRequest:
-      required:
-      - subscriberName
-      - subscriptionType
-      properties:
-        subscriberName:
-          type: string
-        subscriptionType:
-          type: string
-      type: object
     SubscriptionParameter:
       required:
       - name
@@ -338,28 +314,6 @@ components:
         value:
           type: string
       type: object
-    ConfirmRequest:
-      required:
-      - subscriberName
-      - code
-      properties:
-        subscriberName:
-          type: string
-        code:
-          type: string
-      type: object
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
     SubscribeRequest:
       required:
       - subscriberName
@@ -400,16 +354,53 @@ components:
         subscriberName:
           type: string
       type: object
+    SubscriberRequest:
+      required:
+      - subscriberName
+      - callbackUrl
+      properties:
+        subscriberName:
+          type: string
+        callbackUrl:
+          type: string
+        secret:
+          type: string
+      type: object
+      xml:
+        name: request
+    ConfirmRequest:
+      required:
+      - subscriberName
+      - code
+      properties:
+        subscriberName:
+          type: string
+        code:
+          type: string
+      type: object
+    UnsubscribeRequest:
+      required:
+      - subscriberName
+      - subscriptionType
+      properties:
+        subscriberName:
+          type: string
+        subscriptionType:
+          type: string
+      type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     BadRequest:
       description: Bad Request
       content:
@@ -421,6 +412,15 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:

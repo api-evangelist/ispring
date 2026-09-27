@@ -152,11 +152,63 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    ChecklistStatus:
+    SessionStatus:
       type: string
       enum:
-      - PUBLISHED
-      - HIDDEN
+      - NOT_STARTED
+      - IN_PROGRESS
+      - PASSED
+    CriterionGroupResultData:
+      required:
+      - groupId
+      - groupTitle
+      - checklistId
+      - sessionId
+      - employeeId
+      - observerId
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        checklistId:
+          type: string
+          format: uuid
+        groupTitle:
+          type: string
+        sessionId:
+          type: string
+          format: uuid
+        result:
+          type: number
+          format: float
+        totalPoints:
+          type: number
+          format: float
+        points:
+          type: number
+          format: float
+        employeeId:
+          type: string
+          format: uuid
+        observerId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: criterionGroupResultData
+    ListChecklistsSessionsRequest:
+      properties:
+        checklistIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
     ChecklistSessionsData:
       required:
       - checklistId
@@ -221,6 +273,24 @@ components:
       type: object
       xml:
         name: criterionResultData
+    ListSessionsResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionStatus:
+          $ref: '#/components/schemas/SessionStatus'
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ChecklistStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - HIDDEN
     ErrorResponse:
       required:
       - code
@@ -233,33 +303,38 @@ components:
       type: object
       xml:
         name: response
-    ListChecklistsSessionsRequest:
+    ListCriterionResultRequest:
       properties:
-        checklistIds:
+        checklistId:
+          type: string
+          format: uuid
+        sessionIds:
           type: array
           items:
             type: string
             format: uuid
-        sessionIds:
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        criterionIds:
           type: array
           items:
             type: string
             format: uuid
       type: object
-    SessionStatus:
-      type: string
-      enum:
-      - NOT_STARTED
-      - IN_PROGRESS
-      - PASSED
-    ListSessionsResultRequest:
+    ListCriterionGroupsResultRequest:
       properties:
         checklistId:
           type: string
           format: uuid
-        sessionStatus:
-          $ref: '#/components/schemas/SessionStatus'
         sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        groupIds:
           type: array
           items:
             type: string
@@ -312,91 +387,7 @@ components:
       type: object
       xml:
         name: jobTrainingSessionResult
-    ListCriterionResultRequest:
-      properties:
-        checklistId:
-          type: string
-          format: uuid
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        groupIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        criterionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    ListCriterionGroupsResultRequest:
-      properties:
-        checklistId:
-          type: string
-          format: uuid
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        groupIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    CriterionGroupResultData:
-      required:
-      - groupId
-      - groupTitle
-      - checklistId
-      - sessionId
-      - employeeId
-      - observerId
-      properties:
-        groupId:
-          type: string
-          format: uuid
-        checklistId:
-          type: string
-          format: uuid
-        groupTitle:
-          type: string
-        sessionId:
-          type: string
-          format: uuid
-        result:
-          type: number
-          format: float
-        totalPoints:
-          type: number
-          format: float
-        points:
-          type: number
-          format: float
-        employeeId:
-          type: string
-          format: uuid
-        observerId:
-          type: string
-          format: uuid
-      type: object
-      xml:
-        name: criterionGroupResultData
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     BadRequest:
       description: Bad Request
       content:
@@ -408,6 +399,15 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:

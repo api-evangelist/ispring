@@ -195,48 +195,18 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    CourseCompletionStatus:
+    CompletionStatus:
       type: string
       enum:
+      - not_started
+      - in_progress
+      - pending
       - complete
-      - incomplete
       - passed
+      - accepted
+      - incomplete
       - failed
-      - automatic
-    ModuleStatus:
-      required:
-      - contentItemId
-      - date
-      - reason
-      - status
-      - awardedScore
-      properties:
-        contentItemId:
-          type: string
-          format: uuid
-        date:
-          type: string
-          format: date-time
-        reason:
-          type: string
-        status:
-          $ref: '#/components/schemas/CompletionStatus'
-        awardedScore:
-          type: number
-          maximum: 100
-          minimum: 0
-      type: object
-      xml:
-        name: moduleStatus
+      - declined
     UpdateCourseStatus:
       required:
       - courseId
@@ -262,18 +232,6 @@ components:
       type: object
       xml:
         name: request
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
     UpdateModulesStatuses:
       required:
       - enrollmentIds
@@ -294,28 +252,61 @@ components:
       type: object
       xml:
         name: request
-    CompletionStatus:
+    CourseCompletionStatus:
       type: string
       enum:
-      - not_started
-      - in_progress
-      - pending
       - complete
-      - passed
-      - accepted
       - incomplete
+      - passed
       - failed
-      - declined
+      - automatic
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ModuleStatus:
+      required:
+      - contentItemId
+      - date
+      - reason
+      - status
+      - awardedScore
+      properties:
+        contentItemId:
+          type: string
+          format: uuid
+        date:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        status:
+          $ref: '#/components/schemas/CompletionStatus'
+        awardedScore:
+          type: number
+          maximum: 100
+          minimum: 0
+      type: object
+      xml:
+        name: moduleStatus
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     BadRequest:
       description: Bad Request
       content:
@@ -327,6 +318,15 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:

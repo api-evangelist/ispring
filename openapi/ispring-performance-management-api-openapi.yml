@@ -1202,108 +1202,136 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    StartAppraisalSessionStatusCode:
+    AppraisalSessionNotificationSettings:
+      required:
+      - dailyReviewersNotificationDay
+      - dailyReviewersNotificationTimeMilli
+      properties:
+        dailyReviewersNotificationDay:
+          type: integer
+        dailyReviewersNotificationTimeMilli:
+          type: integer
+      type: object
+    AppraisalSessionUserStatus:
       type: string
       enum:
-      - SUCCESS
-      - EMPTY_PROFILE
-      - NO_EMPLOYEES
-      - NO_REVIEWERS
-      - ALREADY_STARTED
-      - NO_PROFILE
-      xml:
-        name: response
-    UpdateAppraisalSessionRequest:
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        instruction:
-          type: string
-        selfReviewInstruction:
-          type: string
-        profileId:
-          type: string
-          format: uuid
-        managerId:
-          type: string
-          format: uuid
-      type: object
-    AppraisalSession:
+      - ACTIVE
+      - DEACTIVATED
+      - DELETED
+      - TERMINATED
+    CreateCompetencyScaleLevelData:
       required:
-      - sessionId
       - name
-      - description
-      - managerId
-      - profileId
-      - status
-      - startDate
+      - score
       properties:
-        sessionId:
-          type: string
-          format: uuid
         name:
           type: string
-        description:
-          type: string
-        managerId:
-          type: string
-          format: uuid
-        profileId:
-          type: string
-          format: uuid
-        status:
-          $ref: '#/components/schemas/AppraisalSessionStatus'
-        startDate:
-          type: string
-          format: dateTime
-        endDate:
-          type: string
-          format: dateTime
+        score:
+          type: number
       type: object
-      xml:
-        name: appraisalSession
-    MoveCompetencyGroupsToParentGroup:
+    ChangeAppraisalQuestionOrdersRequest:
       required:
-      - parentGroupId
-      - groupIds
+      - questionIds
       properties:
-        parentGroupId:
-          type: string
-          format: uuid
-        groupIds:
+        questionIds:
           type: array
           items:
             type: string
             format: uuid
       type: object
-    CompetencyGroup:
-      description: The root group has an empty parentId
+    AppraisalSessionContentScale:
       required:
-      - groupId
-      - name
-      - parentId
-      - competencyIds
+      - scaleId
+      - levels
       properties:
-        groupId:
+        scaleId:
           type: string
           format: uuid
-        name:
-          type: string
-        parentId:
-          type: string
-          format: uuid
-        competencyIds:
+        levels:
           type: array
           items:
-            type: string
-            format: uuid
+            $ref: '#/components/schemas/AppraisalSessionContentScaleLevelData'
           xml:
             wrapped: true
       type: object
       xml:
-        name: competencyGroup
+        name: appraisalSessionContentScale
+    CompetencyProfile:
+      required:
+      - profileId
+      - name
+      - description
+      - competencies
+      - indicators
+      properties:
+        profileId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        competencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileCompetencyData'
+          xml:
+            wrapped: true
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileIndicatorData'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: competencyProfile
+    AddAppraisalQuestionRequest:
+      required:
+      - text
+      - isRequired
+      - targetRoles
+      properties:
+        text:
+          type: string
+        isRequired:
+          type: boolean
+        targetRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionReviewerRole'
+      type: object
+    CreateAppraisalSessionRequest:
+      required:
+      - name
+      - managerId
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        managerId:
+          type: string
+          format: uuid
+      type: object
+    CreateCompetencyGroupData:
+      required:
+      - name
+      - parentId
+      properties:
+        name:
+          type: string
+        parentId:
+          description: You can use the root group ID from the list of groups or the ID of other groups
+          type: string
+          format: uuid
+      type: object
+    CompetencyCommentsRequirementLevel:
+      type: string
+      enum:
+      - DISABLED
+      - OPTIONAL
+      - REQUIRED
     AppraisalSessionContentCompetency:
       required:
       - competencyId
@@ -1339,7 +1367,143 @@ components:
       type: object
       xml:
         name: appraisalSessionContentCompetency
-    ListAppraisalSessionUserAttributesRequest:
+    AppraisalSessionEmployeeIndicatorResults:
+      required:
+      - indicatorId
+      properties:
+        indicatorId:
+          type: string
+          format: uuid
+        result:
+          type: number
+      type: object
+      xml:
+        name: appraisalSessionEmployeeIndicatorResults
+    Competency:
+      required:
+      - competencyId
+      - name
+      - scaleId
+      - reviewMethod
+      - indicators
+      - commentsRequirementLevel
+      - emptyAnswersEnabled
+      properties:
+        competencyId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        scaleId:
+          type: string
+          format: uuid
+        reviewMethod:
+          $ref: '#/components/schemas/CompetencyReviewMethod'
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyIndicator'
+          xml:
+            wrapped: true
+        commentsRequirementLevel:
+          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
+        emptyAnswersEnabled:
+          type: boolean
+      type: object
+      xml:
+        name: competency
+    AppraisalSessionContentScaleLevelData:
+      required:
+      - levelId
+      - score
+      properties:
+        levelId:
+          type: string
+          format: uuid
+        score:
+          type: number
+      type: object
+      xml:
+        name: appraisalSessionContentScaleLevelData
+    AppraisalSessionUserAttribute:
+      required:
+      - key
+      - value
+      - title
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        title:
+          type: string
+      type: object
+      xml:
+        name: appraisalSessionUserAttribute
+    AppraisalSessionReviewerRole:
+      type: string
+      enum:
+      - REVIEWER_ROLE_SELF_REVIEW
+      - REVIEWER_ROLE_DIRECT_MANAGER
+      - REVIEWER_ROLE_PEER
+      - REVIEWER_ROLE_DIRECT_REPORT
+      - REVIEWER_ROLE_CUSTOMER
+      - REVIEWER_ROLE_EXPERT
+    ProfileCompetencyData:
+      required:
+      - competencyId
+      - requiredLevelId
+      properties:
+        competencyId:
+          type: string
+          format: uuid
+        requiredLevelId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: profileCompetencyData
+    ChangeCompetencyData:
+      required:
+      - name
+      - scaleId
+      - reviewMethod
+      - commentsRequirementLevel
+      - emptyAnswersEnabled
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        scaleId:
+          type: string
+          format: uuid
+        reviewMethod:
+          $ref: '#/components/schemas/CompetencyReviewMethod'
+        commentsRequirementLevel:
+          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
+        emptyAnswersEnabled:
+          type: boolean
+      type: object
+    AppraisalSessionReviewStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - SUBMITTED
+    RemoveAppraisalSessionEmployeeCardsRequest:
+      required:
+      - employeeIds
+      properties:
+        employeeIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    RemoveAppraisalSessionPermissionsRequest:
       required:
       - userIds
       properties:
@@ -1349,6 +1513,326 @@ components:
             type: string
             format: uuid
       type: object
+    RemoveAppraisalSessionReviewersRequest:
+      required:
+      - reviewerIds
+      properties:
+        reviewerIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ProfileIndicatorData:
+      required:
+      - indicatorId
+      - requiredLevelId
+      properties:
+        indicatorId:
+          type: string
+          format: uuid
+        requiredLevelId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: profileIndicatorData
+    UpdateAppraisalQuestionRequest:
+      properties:
+        text:
+          type: string
+        isRequired:
+          type: boolean
+        targetRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionReviewerRole'
+      type: object
+    StartAppraisalSessionStatusCode:
+      type: string
+      enum:
+      - SUCCESS
+      - EMPTY_PROFILE
+      - NO_EMPLOYEES
+      - NO_REVIEWERS
+      - ALREADY_STARTED
+      - NO_PROFILE
+      xml:
+        name: response
+    AppraisalSessionContentRequiredLevelData:
+      required:
+      - name
+      - score
+      properties:
+        name:
+          type: string
+        score:
+          type: number
+      type: object
+      xml:
+        name: requiredLevel
+    AppraisalSessionContentCompetencyReviewMethod:
+      type: string
+      enum:
+      - INDICATORS_INDIVIDUALLY
+      - COMPETENCY_ENTIRELY
+    CompetencyScale:
+      required:
+      - scaleId
+      - name
+      - levels
+      properties:
+        scaleId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyScaleLevel'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: competencyScale
+    CreateCompetencyData:
+      required:
+      - name
+      - description
+      - scaleId
+      - groupId
+      - reviewMethod
+      - commentsRequirementLevel
+      - emptyAnswersEnabled
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        scaleId:
+          type: string
+          format: uuid
+        groupId:
+          type: string
+          format: uuid
+        reviewMethod:
+          $ref: '#/components/schemas/CompetencyReviewMethod'
+        commentsRequirementLevel:
+          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
+        emptyAnswersEnabled:
+          type: boolean
+      type: object
+    AppraisalSessionStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - COMPLETED
+    CompetencyIndicatorLevel:
+      required:
+      - levelId
+      properties:
+        levelId:
+          type: string
+          format: uuid
+        description:
+          type: string
+      type: object
+      xml:
+        name: competencyIndicatorLevel
+    AddAppraisalSessionEmployeeCardsRequest:
+      required:
+      - cards
+      properties:
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeDetailedCard'
+      type: object
+    AppraisalSessionEmployeeCompetencyResults:
+      required:
+      - competencyId
+      properties:
+        competencyId:
+          type: string
+          format: uuid
+        result:
+          type: number
+      type: object
+      xml:
+        name: appraisalSessionEmployeeCompetencyResults
+    AppraisalSessionUserAttributes:
+      required:
+      - sessionId
+      - userId
+      - displayingName
+      - initials
+      - departmentId
+      - departmentName
+      - status
+      - attributes
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+        displayingName:
+          type: string
+        initials:
+          type: string
+        departmentId:
+          type: string
+          format: uuid
+        departmentName:
+          type: string
+        status:
+          $ref: '#/components/schemas/AppraisalSessionUserStatus'
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionUserAttribute'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionUserAttributes
+    ListCompetenciesRequest:
+      properties:
+        competencyIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    AppraisalSessionReview:
+      required:
+      - reviewId
+      - sessionId
+      - employeeId
+      - reviewerId
+      - status
+      - completionDate
+      properties:
+        reviewId:
+          type: string
+          format: uuid
+        sessionId:
+          type: string
+          format: uuid
+        employeeId:
+          type: string
+          format: uuid
+        reviewerId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/AppraisalSessionReviewStatus'
+        completionDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: appraisalSessionReview
+    AppraisalSessionContentCompetencies:
+      required:
+      - competencies
+      - scales
+      properties:
+        competencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionContentCompetency'
+          xml:
+            wrapped: true
+        scales:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionContentScale'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionContentCompetencies
+    MoveCompetenciesToGroup:
+      required:
+      - groupId
+      - competencyIds
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        competencyIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: data
+    AppraisalSessionReviewer:
+      required:
+      - reviewerId
+      - role
+      properties:
+        reviewerId:
+          type: string
+          format: uuid
+        role:
+          $ref: '#/components/schemas/AppraisalSessionReviewerRole'
+      type: object
+    MoveCompetencyGroupsToParentGroup:
+      required:
+      - parentGroupId
+      - groupIds
+      properties:
+        parentGroupId:
+          type: string
+          format: uuid
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    AppraisalSession:
+      required:
+      - sessionId
+      - name
+      - description
+      - managerId
+      - profileId
+      - status
+      - startDate
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        managerId:
+          type: string
+          format: uuid
+        profileId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/AppraisalSessionStatus'
+        startDate:
+          type: string
+          format: dateTime
+        endDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: appraisalSession
     ChangeCompetencyScaleRequest:
       required:
       - name
@@ -1361,67 +1845,12 @@ components:
           items:
             $ref: '#/components/schemas/CompetencyScaleLevel'
       type: object
-    CreateAppraisalSessionRequest:
-      required:
-      - name
-      - managerId
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        managerId:
-          type: string
-          format: uuid
-      type: object
-    AppraisalSessionEmployeeResults:
-      required:
-      - employeeId
-      - sessionId
-      - competencyResults
-      - indicatorResults
-      properties:
-        employeeId:
-          type: string
-          format: uuid
-        sessionId:
-          type: string
-          format: uuid
-        competencyResults:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionEmployeeCompetencyResults'
-          xml:
-            wrapped: true
-        indicatorResults:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionEmployeeIndicatorResults'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: appraisalSessionEmployeeResults
-    CompetencyIndicator:
-      required:
-      - indicatorId
-      - name
-      - levels
-      properties:
-        indicatorId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        levels:
-          type: array
-          items:
-            $ref: '#/components/schemas/CompetencyIndicatorLevel'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: competencyIndicator
+    AppraisalSessionContentCommentsRequirementLevel:
+      type: string
+      enum:
+      - DISABLED
+      - OPTIONAL
+      - REQUIRED
     AppraisalSessionInfo:
       required:
       - sessionId
@@ -1479,259 +1908,38 @@ components:
         sessionNotificationSettings:
           $ref: '#/components/schemas/AppraisalSessionNotificationSettings'
       type: object
-    ChangeAppraisalQuestionOrdersRequest:
-      required:
-      - questionIds
-      properties:
-        questionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    ListAppraisalSessionsRequest:
-      properties:
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    AppraisalSessionUserStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - DEACTIVATED
-      - DELETED
-      - TERMINATED
-    AppraisalSessionReviewStatus:
-      type: string
-      enum:
-      - NOT_STARTED
-      - IN_PROGRESS
-      - SUBMITTED
-    AppraisalSessionContentScaleLevelData:
-      required:
-      - levelId
-      - score
-      properties:
-        levelId:
-          type: string
-          format: uuid
-        score:
-          type: number
-      type: object
-      xml:
-        name: appraisalSessionContentScaleLevelData
-    ChangeAppraisalSessionNotificationSettingsRequest:
-      required:
-      - dailyReviewersNotificationDay
-      - dailyReviewersNotificationTimeMilli
-      properties:
-        dailyReviewersNotificationDay:
-          type: integer
-        dailyReviewersNotificationTimeMilli:
-          type: integer
-      type: object
-    AppraisalSessionReviewerRole:
-      type: string
-      enum:
-      - REVIEWER_ROLE_SELF_REVIEW
-      - REVIEWER_ROLE_DIRECT_MANAGER
-      - REVIEWER_ROLE_PEER
-      - REVIEWER_ROLE_DIRECT_REPORT
-      - REVIEWER_ROLE_CUSTOMER
-      - REVIEWER_ROLE_EXPERT
-    Competency:
-      required:
-      - competencyId
-      - name
-      - scaleId
-      - reviewMethod
-      - indicators
-      - commentsRequirementLevel
-      - emptyAnswersEnabled
-      properties:
-        competencyId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        description:
-          type: string
-        scaleId:
-          type: string
-          format: uuid
-        reviewMethod:
-          $ref: '#/components/schemas/CompetencyReviewMethod'
-        indicators:
-          type: array
-          items:
-            $ref: '#/components/schemas/CompetencyIndicator'
-          xml:
-            wrapped: true
-        commentsRequirementLevel:
-          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
-        emptyAnswersEnabled:
-          type: boolean
-      type: object
-      xml:
-        name: competency
-    AppraisalSessionEmployeeCompetencyResults:
-      required:
-      - competencyId
-      properties:
-        competencyId:
-          type: string
-          format: uuid
-        result:
-          type: number
-      type: object
-      xml:
-        name: appraisalSessionEmployeeCompetencyResults
-    AppraisalSessionContentRequiredLevelData:
-      required:
-      - name
-      - score
-      properties:
-        name:
-          type: string
-        score:
-          type: number
-      type: object
-      xml:
-        name: requiredLevel
-    AppraisalSessionEmployeeIndicatorResults:
+    AppraisalSessionContentIndicatorData:
       required:
       - indicatorId
+      - name
       properties:
         indicatorId:
           type: string
           format: uuid
-        result:
-          type: number
+        name:
+          type: string
+        requiredLevel:
+          $ref: '#/components/schemas/AppraisalSessionContentRequiredLevelData'
       type: object
       xml:
-        name: appraisalSessionEmployeeIndicatorResults
-    AppraisalSessionContentCompetencyReviewMethod:
-      type: string
-      enum:
-      - INDICATORS_INDIVIDUALLY
-      - COMPETENCY_ENTIRELY
-    ReplaceAppraisalSessionEmployeeReviewersRequest:
-      required:
-      - cards
-      properties:
-        cards:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionEmployeeDetailedCard'
-      type: object
-    UpdateAppraisalQuestionRequest:
-      properties:
-        text:
-          type: string
-        isRequired:
-          type: boolean
-        targetRoles:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionReviewerRole'
-      type: object
-    AddAppraisalQuestionRequest:
-      required:
-      - text
-      - isRequired
-      - targetRoles
-      properties:
-        text:
-          type: string
-        isRequired:
-          type: boolean
-        targetRoles:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionReviewerRole'
-      type: object
-    CreateCompetencyScaleLevelData:
-      required:
-      - name
-      - score
-      properties:
-        name:
-          type: string
-        score:
-          type: number
-      type: object
-    AppraisalSessionStatus:
-      type: string
-      enum:
-      - NOT_STARTED
-      - IN_PROGRESS
-      - COMPLETED
-    CreateCompetencyGroupData:
-      required:
-      - name
-      - parentId
-      properties:
-        name:
-          type: string
-        parentId:
-          description: You can use the root group ID from the list of groups or the ID of other groups
-          type: string
-          format: uuid
-      type: object
+        name: appraisalSessionContentIndicatorData
     CompetencyReviewMethod:
       type: string
       enum:
       - INDICATORS_INDIVIDUALLY
       - COMPETENCY_ENTIRELY
-    CompetencyIndicatorLevel:
+    ErrorResponse:
       required:
-      - levelId
+      - code
+      - message
       properties:
-        levelId:
-          type: string
-          format: uuid
-        description:
+        code:
+          type: integer
+        message:
           type: string
       type: object
       xml:
-        name: competencyIndicatorLevel
-    AppraisalSessionContentCompetencies:
-      required:
-      - competencies
-      - scales
-      properties:
-        competencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionContentCompetency'
-          xml:
-            wrapped: true
-        scales:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionContentScale'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: appraisalSessionContentCompetencies
-    ProfileCompetencyData:
-      required:
-      - competencyId
-      - requiredLevelId
-      properties:
-        competencyId:
-          type: string
-          format: uuid
-        requiredLevelId:
-          type: string
-          format: uuid
-      type: object
-      xml:
-        name: profileCompetencyData
+        name: response
     CreateCompetencyScaleData:
       required:
       - name
@@ -1744,6 +1952,30 @@ components:
           items:
             $ref: '#/components/schemas/CreateCompetencyScaleLevelData'
       type: object
+    ListAppraisalSessionsRequest:
+      properties:
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    CompetencyScaleLevel:
+      required:
+      - levelId
+      - name
+      - score
+      properties:
+        levelId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        score:
+          type: number
+      type: object
+      xml:
+        name: competencyScaleLevel
     AppraisalQuestion:
       required:
       - id
@@ -1763,102 +1995,6 @@ components:
           items:
             $ref: '#/components/schemas/AppraisalSessionReviewerRole'
       type: object
-    AppraisalSessionReviewer:
-      required:
-      - reviewerId
-      - role
-      properties:
-        reviewerId:
-          type: string
-          format: uuid
-        role:
-          $ref: '#/components/schemas/AppraisalSessionReviewerRole'
-      type: object
-    AddAppraisalSessionPermissionsRequest:
-      required:
-      - userIds
-      properties:
-        userIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    AppraisalSessionContentScale:
-      required:
-      - scaleId
-      - levels
-      properties:
-        scaleId:
-          type: string
-          format: uuid
-        levels:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionContentScaleLevelData'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: appraisalSessionContentScale
-    ListCompetenciesRequest:
-      properties:
-        competencyIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    CompetencyScale:
-      required:
-      - scaleId
-      - name
-      - levels
-      properties:
-        scaleId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        levels:
-          type: array
-          items:
-            $ref: '#/components/schemas/CompetencyScaleLevel'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: competencyScale
-    CompetencyProfile:
-      required:
-      - profileId
-      - name
-      - description
-      - competencies
-      - indicators
-      properties:
-        profileId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        description:
-          type: string
-        competencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProfileCompetencyData'
-          xml:
-            wrapped: true
-        indicators:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProfileIndicatorData'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: competencyProfile
     CompetencyIndicatorData:
       required:
       - name
@@ -1871,73 +2007,6 @@ components:
           items:
             $ref: '#/components/schemas/CompetencyIndicatorLevel'
       type: object
-    AppraisalSessionNotificationSettings:
-      required:
-      - dailyReviewersNotificationDay
-      - dailyReviewersNotificationTimeMilli
-      properties:
-        dailyReviewersNotificationDay:
-          type: integer
-        dailyReviewersNotificationTimeMilli:
-          type: integer
-      type: object
-    AppraisalSessionEmployeeDetailedCard:
-      required:
-      - employeeId
-      - reviewers
-      properties:
-        employeeId:
-          type: string
-          format: uuid
-        reviewers:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionReviewer'
-      type: object
-    RestartAppraisalSessionStatusCode:
-      type: string
-      enum:
-      - SUCCESS
-      - NOT_COMPLETED
-      xml:
-        name: response
-    AppraisalSessionUserAttributes:
-      required:
-      - sessionId
-      - userId
-      - displayingName
-      - initials
-      - departmentId
-      - departmentName
-      - status
-      - attributes
-      properties:
-        sessionId:
-          type: string
-          format: uuid
-        userId:
-          type: string
-          format: uuid
-        displayingName:
-          type: string
-        initials:
-          type: string
-        departmentId:
-          type: string
-          format: uuid
-        departmentName:
-          type: string
-        status:
-          $ref: '#/components/schemas/AppraisalSessionUserStatus'
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppraisalSessionUserAttribute'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: appraisalSessionUserAttributes
     ListCompetencyProfilesRequest:
       properties:
         profileIds:
@@ -1946,78 +2015,15 @@ components:
             type: string
             format: uuid
       type: object
-    AppraisalSessionUserAttribute:
+    ChangeAppraisalSessionNotificationSettingsRequest:
       required:
-      - key
-      - value
-      - title
+      - dailyReviewersNotificationDay
+      - dailyReviewersNotificationTimeMilli
       properties:
-        key:
-          type: string
-        value:
-          type: string
-        title:
-          type: string
-      type: object
-      xml:
-        name: appraisalSessionUserAttribute
-    ChangeCompetencyData:
-      required:
-      - name
-      - scaleId
-      - reviewMethod
-      - commentsRequirementLevel
-      - emptyAnswersEnabled
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        scaleId:
-          type: string
-          format: uuid
-        reviewMethod:
-          $ref: '#/components/schemas/CompetencyReviewMethod'
-        commentsRequirementLevel:
-          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
-        emptyAnswersEnabled:
-          type: boolean
-      type: object
-    RemoveAppraisalSessionEmployeeCardsRequest:
-      required:
-      - employeeIds
-      properties:
-        employeeIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    RemoveAppraisalSessionReviewersRequest:
-      required:
-      - reviewerIds
-      properties:
-        reviewerIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    CompetencyCommentsRequirementLevel:
-      type: string
-      enum:
-      - DISABLED
-      - OPTIONAL
-      - REQUIRED
-    RemoveAppraisalSessionPermissionsRequest:
-      required:
-      - userIds
-      properties:
-        userIds:
-          type: array
-          items:
-            type: string
-            format: uuid
+        dailyReviewersNotificationDay:
+          type: integer
+        dailyReviewersNotificationTimeMilli:
+          type: integer
       type: object
     AppraisalSessionEmployeeCard:
       required:
@@ -2037,64 +2043,14 @@ components:
       type: object
       xml:
         name: appraisalSessionEmployeeCard
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
+    RestartAppraisalSessionStatusCode:
+      type: string
+      enum:
+      - SUCCESS
+      - NOT_COMPLETED
       xml:
         name: response
-    ProfileIndicatorData:
-      required:
-      - indicatorId
-      - requiredLevelId
-      properties:
-        indicatorId:
-          type: string
-          format: uuid
-        requiredLevelId:
-          type: string
-          format: uuid
-      type: object
-      xml:
-        name: profileIndicatorData
-    CompetencyScaleLevel:
-      required:
-      - levelId
-      - name
-      - score
-      properties:
-        levelId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        score:
-          type: number
-      type: object
-      xml:
-        name: competencyScaleLevel
-    AppraisalSessionContentIndicatorData:
-      required:
-      - indicatorId
-      - name
-      properties:
-        indicatorId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        requiredLevel:
-          $ref: '#/components/schemas/AppraisalSessionContentRequiredLevelData'
-      type: object
-      xml:
-        name: appraisalSessionContentIndicatorData
-    AddAppraisalSessionEmployeeCardsRequest:
+    ReplaceAppraisalSessionEmployeeReviewersRequest:
       required:
       - cards
       properties:
@@ -2103,47 +2059,20 @@ components:
           items:
             $ref: '#/components/schemas/AppraisalSessionEmployeeDetailedCard'
       type: object
-    AppraisalSessionReview:
-      required:
-      - reviewId
-      - sessionId
-      - employeeId
-      - reviewerId
-      - status
-      - completionDate
-      properties:
-        reviewId:
-          type: string
-          format: uuid
-        sessionId:
-          type: string
-          format: uuid
-        employeeId:
-          type: string
-          format: uuid
-        reviewerId:
-          type: string
-          format: uuid
-        status:
-          $ref: '#/components/schemas/AppraisalSessionReviewStatus'
-        completionDate:
-          type: string
-          format: dateTime
-      type: object
-      xml:
-        name: appraisalSessionReview
-    AppraisalSessionContentCommentsRequirementLevel:
-      type: string
-      enum:
-      - DISABLED
-      - OPTIONAL
-      - REQUIRED
-    MoveCompetenciesToGroup:
+    CompetencyGroup:
+      description: The root group has an empty parentId
       required:
       - groupId
+      - name
+      - parentId
       - competencyIds
       properties:
         groupId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        parentId:
           type: string
           format: uuid
         competencyIds:
@@ -2155,44 +2084,106 @@ components:
             wrapped: true
       type: object
       xml:
-        name: data
-    CreateCompetencyData:
+        name: competencyGroup
+    AddAppraisalSessionPermissionsRequest:
       required:
-      - name
-      - description
-      - scaleId
-      - groupId
-      - reviewMethod
-      - commentsRequirementLevel
-      - emptyAnswersEnabled
+      - userIds
+      properties:
+        userIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    UpdateAppraisalSessionRequest:
       properties:
         name:
           type: string
         description:
           type: string
-        scaleId:
+        instruction:
+          type: string
+        selfReviewInstruction:
+          type: string
+        profileId:
           type: string
           format: uuid
-        groupId:
+        managerId:
           type: string
           format: uuid
-        reviewMethod:
-          $ref: '#/components/schemas/CompetencyReviewMethod'
-        commentsRequirementLevel:
-          $ref: '#/components/schemas/CompetencyCommentsRequirementLevel'
-        emptyAnswersEnabled:
-          type: boolean
       type: object
+    ListAppraisalSessionUserAttributesRequest:
+      required:
+      - userIds
+      properties:
+        userIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    AppraisalSessionEmployeeDetailedCard:
+      required:
+      - employeeId
+      - reviewers
+      properties:
+        employeeId:
+          type: string
+          format: uuid
+        reviewers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionReviewer'
+      type: object
+    AppraisalSessionEmployeeResults:
+      required:
+      - employeeId
+      - sessionId
+      - competencyResults
+      - indicatorResults
+      properties:
+        employeeId:
+          type: string
+          format: uuid
+        sessionId:
+          type: string
+          format: uuid
+        competencyResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeCompetencyResults'
+          xml:
+            wrapped: true
+        indicatorResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppraisalSessionEmployeeIndicatorResults'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: appraisalSessionEmployeeResults
+    CompetencyIndicator:
+      required:
+      - indicatorId
+      - name
+      - levels
+      properties:
+        indicatorId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompetencyIndicatorLevel'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: competencyIndicator
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     NotFound:
       description: Not Found
       content:
@@ -2202,8 +2193,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:
@@ -2213,6 +2204,15 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:

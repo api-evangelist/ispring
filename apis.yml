@@ -64,7 +64,7 @@ tags_raw:
 - Corporate Training
 apis:
 - aid: ispring:ispring-assignments-api
-  name: iSpring Learn assignments API
+  name: iSpring Learn Assignments API
   description: Assignment operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -78,7 +78,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-certificate-api
-  name: iSpring Learn certificate API
+  name: iSpring Learn Certificate API
   description: Certificate operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -92,7 +92,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-content-api
-  name: iSpring Learn content API
+  name: iSpring Learn Content API
   description: Content operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -106,7 +106,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-department-api
-  name: iSpring Learn department API
+  name: iSpring Learn Department API
   description: Department operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -120,7 +120,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-departments-api
-  name: iSpring Learn departments API
+  name: iSpring Learn Departments API
   description: The departments API from iSpring Learn — 1 operation(s) for departments.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -134,7 +134,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-enrollment-api
-  name: iSpring Learn enrollment API
+  name: iSpring Learn Enrollment API
   description: Enrollment operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -148,7 +148,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-gamification-api
-  name: iSpring Learn gamification API
+  name: iSpring Learn Gamification API
   description: Gamification operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -162,7 +162,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-group-api
-  name: iSpring Learn group API
+  name: iSpring Learn Group API
   description: Group operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -176,7 +176,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-jobtraining-api
-  name: iSpring Learn jobtraining API
+  name: iSpring Learn Jobtraining API
   description: The jobtraining API from iSpring Learn — 4 operation(s) for jobtraining.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -188,7 +188,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-learning-track-api
-  name: iSpring Learn learning_track API
+  name: iSpring Learn Learning Track API
   description: Learning track operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -201,7 +201,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-performance-management-api
-  name: iSpring Learn performance-management API
+  name: iSpring Learn Performance Management API
   description: The performance-management API from iSpring Learn — 37 operation(s) for performance-management.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -215,7 +215,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-quizzes-api
-  name: iSpring Learn quizzes API
+  name: iSpring Learn Quizzes API
   description: The quizzes API from iSpring Learn — 2 operation(s) for quizzes.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -229,7 +229,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-report-api
-  name: iSpring Learn report API
+  name: iSpring Learn Report API
   description: The report API from iSpring Learn — 2 operation(s) for report.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -243,7 +243,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-results-api
-  name: iSpring Learn results API
+  name: iSpring Learn Results API
   description: User result data operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -257,7 +257,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-statistics-api
-  name: iSpring Learn statistics API
+  name: iSpring Learn Statistics API
   description: The statistics API from iSpring Learn — 2 operation(s) for statistics.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -271,7 +271,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-task-api
-  name: iSpring Learn task API
+  name: iSpring Learn Task API
   description: Async method operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -285,7 +285,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-token-api
-  name: iSpring Learn token API
+  name: iSpring Learn Token API
   description: Retrieve access tokens
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -299,7 +299,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-training-api
-  name: iSpring Learn training API
+  name: iSpring Learn Training API
   description: Training operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -313,7 +313,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-user-api
-  name: iSpring Learn user API
+  name: iSpring Learn User API
   description: User operations
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com
@@ -327,7 +327,7 @@ apis:
   - type: Documentation
     url: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
 - aid: ispring:ispring-webhook-api
-  name: iSpring Learn webhook API
+  name: iSpring Learn Webhook API
   description: The webhook API from iSpring Learn — 11 operation(s) for webhook.
   humanURL: https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
   baseURL: https://api-learn.ispringlearn.com

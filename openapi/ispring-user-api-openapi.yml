@@ -953,7 +953,7 @@ paths:
       tags:
       - User
       summary: activate users
-      operationId: Activate users
+      operationId: ActivateUsers
       parameters:
       - name: X-User-Ids
         in: header
@@ -993,12 +993,14 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/PermissionDenied'
+      x-operation-id-source: normalized
+      x-operation-id-original: Activate users
   /users/deactivate:
     post:
       tags:
       - User
       summary: deactivate users
-      operationId: Deactivate users
+      operationId: DeactivateUsers
       parameters:
       - name: X-User-Ids
         in: header
@@ -1038,12 +1040,14 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/PermissionDenied'
+      x-operation-id-source: normalized
+      x-operation-id-original: Deactivate users
   /users/terminate:
     post:
       tags:
       - User
       summary: terminate users
-      operationId: Terminate users
+      operationId: TerminateUsers
       parameters:
       - name: X-User-Ids
         in: header
@@ -1083,6 +1087,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/PermissionDenied'
+      x-operation-id-source: normalized
+      x-operation-id-original: Terminate users
   /user/list:
     post:
       tags:
@@ -1185,81 +1191,73 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    UpdateUser:
+    WorkLeaveStatusData:
+      required:
+      - userId
+      - workLeaveReason
       properties:
-        departmentId:
-          type: string
-        role:
-          $ref: '#/components/schemas/UserRoleEnum'
-        roleId:
+        userId:
           type: string
           format: uuid
-        roles:
+        workLeaveReason:
+          $ref: '#/components/schemas/WorkLeaveReason'
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+      type: object
+    WorkLeaveReason:
+      type: string
+      enum:
+      - OutOfTheOffice
+      - OnVacation
+      - PersonalLeave
+      - BusinessTrip
+      - SickLeave
+      - ParentalLeave
+      - EducationalLeave
+    ProfileFieldsFilterItem:
+      required:
+      - name
+      - values
+      properties:
+        name:
+          type: string
+        values:
           type: array
           items:
-            $ref: '#/components/schemas/UserRole'
-        fields:
-          $ref: '#/components/schemas/UserProfileFields'
-        groupIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        manageableDepartmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
+            type: string
+      type: object
+    WorkLeaveStatus:
+      required:
+      - workLeaveReason
+      - startDate
+      properties:
+        workLeaveReason:
+          $ref: '#/components/schemas/WorkLeaveReason'
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
       type: object
       xml:
-        name: request
-    UserStatus:
-      description: 1 - active, 3 - inactive, 5 - terminated
-      type: integer
-      enum:
-      - 1
-      - 3
-      - 5
-    UsersPageV2:
+        name: workLeaveStatus
+        wrapped: true
+    UsersPage:
       required:
       - userProfiles
       properties:
         userProfiles:
           type: array
           items:
-            $ref: '#/components/schemas/UserV2'
+            $ref: '#/components/schemas/User'
           xml:
             wrapped: true
         nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
-    NewUser:
-      required:
-      - departmentId
-      - fields
-      properties:
-        departmentId:
-          type: string
-        fields:
-          $ref: '#/components/schemas/UserProfileFields'
-        password:
-          type: string
-        role:
-          type: string
-        roleId:
-          type: string
-          format: uuid
-        manageableDepartmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        groupIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRole'
-        sendLoginEmail:
-          type: boolean
-        invitationMessage:
-          type: string
-        sendLoginSMS:
-          type: boolean
-        invitationSMSMessage:
           type: string
       type: object
       xml:
@@ -1274,6 +1272,94 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/User'
+      type: object
+    UserV2:
+      required:
+      - userId
+      - role
+      - roleId
+      - departmentId
+      - status
+      - fields
+      - addedDate
+      - lastLoginDate
+      - userRoles
+      - subordination
+      - coSubordination
+      properties:
+        userId:
+          type: string
+          format: uuid
+        role:
+          $ref: '#/components/schemas/UserRoleEnum'
+        roleId:
+          type: string
+          format: uuid
+        departmentId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        fields:
+          $ref: '#/components/schemas/UserProfileFields'
+        addedDate:
+          type: string
+          format: datetime
+        lastLoginDate:
+          type: string
+          format: datetime
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        userRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+        groups:
+          $ref: '#/components/schemas/ArrayOfIds'
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+        workLeaveStatus:
+          $ref: '#/components/schemas/WorkLeaveStatus'
+        securityPolicyAcceptanceDate:
+          type: string
+          format: datetime
+        privacyPolicyConsentAcceptanceDate:
+          type: string
+          format: datetime
+      type: object
+      xml:
+        name: userProfile
+        wrapped: true
+    GetPagedUsersListRequest:
+      properties:
+        groups:
+          type: array
+          items:
+            type: string
+            format: uuid
+        departments:
+          type: array
+          items:
+            type: string
+            format: uuid
+        logins:
+          type: array
+          items:
+            type: string
+        emails:
+          type: array
+          items:
+            type: string
+        profileFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileFieldsFilterItem'
+        profileFieldsDateRange:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileFieldsDateRangeItem'
       type: object
     User:
       required:
@@ -1344,41 +1430,14 @@ components:
             name: workLeaveStatuses
             wrapped: false
       type: object
-    ProfileFieldsFilterItem:
-      required:
-      - name
-      - values
-      properties:
-        name:
-          type: string
-        values:
-          type: array
-          items:
-            type: string
-      type: object
-    ProfileFieldsDateRangeItem:
-      required:
-      - name
-      - from
-      - to
-      properties:
-        name:
-          type: string
-        from:
-          type: string
-          format: date
-        to:
-          type: string
-          format: date
-      type: object
-    UsersPage:
+    UsersPageV2:
       required:
       - userProfiles
       properties:
         userProfiles:
           type: array
           items:
-            $ref: '#/components/schemas/User'
+            $ref: '#/components/schemas/UserV2'
           xml:
             wrapped: true
         nextPageToken:
@@ -1386,140 +1445,6 @@ components:
       type: object
       xml:
         name: response
-    WorkLeaveReason:
-      type: string
-      enum:
-      - OutOfTheOffice
-      - OnVacation
-      - PersonalLeave
-      - BusinessTrip
-      - SickLeave
-      - ParentalLeave
-      - EducationalLeave
-    Subordination:
-      required:
-      - subordinationType
-      properties:
-        subordinationType:
-          type: string
-          enum:
-          - manual
-          - inherit
-          - no_supervisor
-        supervisorId:
-          type: string
-      type: object
-    WorkLeaveStatus:
-      required:
-      - workLeaveReason
-      - startDate
-      properties:
-        workLeaveReason:
-          $ref: '#/components/schemas/WorkLeaveReason'
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-      type: object
-      xml:
-        name: workLeaveStatus
-        wrapped: true
-    UpdateUserStatus:
-      required:
-      - status
-      properties:
-        status: {}
-      type: object
-      xml:
-        name: request
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    ChangeUserSubordination:
-      properties:
-        subordination:
-          $ref: '#/components/schemas/Subordination'
-        coSubordination:
-          $ref: '#/components/schemas/Subordination'
-      type: object
-      xml:
-        name: request
-    RemoveUserGroups:
-      required:
-      - groupIds
-      properties:
-        groupIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
-    UserRoleEnum:
-      type: string
-      enum:
-      - learner
-      - administrator
-      - department_administrator
-      - publisher
-      - custom
-    WorkLeaveStatusData:
-      required:
-      - userId
-      - workLeaveReason
-      properties:
-        userId:
-          type: string
-          format: uuid
-        workLeaveReason:
-          $ref: '#/components/schemas/WorkLeaveReason'
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-      type: object
-    Role:
-      required:
-      - roleId
-      - type
-      - title
-      - description
-      properties:
-        roleId:
-          type: string
-          format: uuid
-        type:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-      type: object
-      xml:
-        name: role
-    UserRole:
-      required:
-      - roleId
-      properties:
-        roleId:
-          type: string
-          format: uuid
-        manageableDepartmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        roleType:
-          $ref: '#/components/schemas/UserRoleEnum'
-      type: object
-      xml:
-        name: userRole
-        wrapped: true
     ScheduledUserDeactivation:
       required:
       - date
@@ -1530,109 +1455,6 @@ components:
       type: object
       xml:
         name: request
-    ScheduledUserTermination:
-      required:
-      - date
-      properties:
-        date:
-          type: string
-          format: date
-      type: object
-      xml:
-        name: request
-    UpdateUserPassword:
-      required:
-      - password
-      properties:
-        password:
-          type: string
-          format: password
-      type: object
-      xml:
-        name: request
-    UserProfileFields:
-      required:
-      - login
-      - email
-      properties:
-        additionalProperties:
-          type: string
-        login:
-          type: string
-        email:
-          type: string
-      type: object
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    UserV2:
-      required:
-      - userId
-      - role
-      - roleId
-      - departmentId
-      - status
-      - fields
-      - addedDate
-      - lastLoginDate
-      - userRoles
-      - subordination
-      - coSubordination
-      properties:
-        userId:
-          type: string
-          format: uuid
-        role:
-          $ref: '#/components/schemas/UserRoleEnum'
-        roleId:
-          type: string
-          format: uuid
-        departmentId:
-          type: string
-          format: uuid
-        status:
-          $ref: '#/components/schemas/UserStatus'
-        fields:
-          $ref: '#/components/schemas/UserProfileFields'
-        addedDate:
-          type: string
-          format: datetime
-        lastLoginDate:
-          type: string
-          format: datetime
-        manageableDepartmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        userRoles:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRole'
-        groups:
-          $ref: '#/components/schemas/ArrayOfIds'
-        subordination:
-          $ref: '#/components/schemas/Subordination'
-        coSubordination:
-          $ref: '#/components/schemas/Subordination'
-        workLeaveStatus:
-          $ref: '#/components/schemas/WorkLeaveStatus'
-        securityPolicyAcceptanceDate:
-          type: string
-          format: datetime
-        privacyPolicyConsentAcceptanceDate:
-          type: string
-          format: datetime
-      type: object
-      xml:
-        name: userProfile
-        wrapped: true
     UserFieldInfo:
       required:
       - userFieldInfoId
@@ -1670,54 +1492,238 @@ components:
       xml:
         name: userFieldInfo
         wrapped: true
-    GetPagedUsersListRequest:
+    UpdateUser:
       properties:
-        groups:
+        departmentId:
+          type: string
+        role:
+          $ref: '#/components/schemas/UserRoleEnum'
+        roleId:
+          type: string
+          format: uuid
+        roles:
           type: array
           items:
-            type: string
-            format: uuid
-        departments:
-          type: array
-          items:
-            type: string
-            format: uuid
-        logins:
-          type: array
-          items:
-            type: string
-        emails:
-          type: array
-          items:
-            type: string
-        profileFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProfileFieldsFilterItem'
-        profileFieldsDateRange:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProfileFieldsDateRangeItem'
+            $ref: '#/components/schemas/UserRole'
+        fields:
+          $ref: '#/components/schemas/UserProfileFields'
+        groupIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
       type: object
+      xml:
+        name: request
+    RemoveUserGroups:
+      required:
+      - groupIds
+      properties:
+        groupIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    Role:
+      required:
+      - roleId
+      - type
+      - title
+      - description
+      properties:
+        roleId:
+          type: string
+          format: uuid
+        type:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+      type: object
+      xml:
+        name: role
+    UpdateUserPassword:
+      required:
+      - password
+      properties:
+        password:
+          type: string
+          format: password
+      type: object
+      xml:
+        name: request
+    NewUser:
+      required:
+      - departmentId
+      - fields
+      properties:
+        departmentId:
+          type: string
+        fields:
+          $ref: '#/components/schemas/UserProfileFields'
+        password:
+          type: string
+        role:
+          type: string
+        roleId:
+          type: string
+          format: uuid
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        groupIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+        sendLoginEmail:
+          type: boolean
+        invitationMessage:
+          type: string
+        sendLoginSMS:
+          type: boolean
+        invitationSMSMessage:
+          type: string
+      type: object
+      xml:
+        name: response
+    ScheduledUserTermination:
+      required:
+      - date
+      properties:
+        date:
+          type: string
+          format: date
+      type: object
+      xml:
+        name: request
+    UserStatus:
+      description: 1 - active, 3 - inactive, 5 - terminated
+      type: integer
+      enum:
+      - 1
+      - 3
+      - 5
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    UserRoleEnum:
+      type: string
+      enum:
+      - learner
+      - administrator
+      - department_administrator
+      - publisher
+      - custom
+    ProfileFieldsDateRangeItem:
+      required:
+      - name
+      - from
+      - to
+      properties:
+        name:
+          type: string
+        from:
+          type: string
+          format: date
+        to:
+          type: string
+          format: date
+      type: object
+    UserProfileFields:
+      required:
+      - login
+      - email
+      properties:
+        additionalProperties:
+          type: string
+        login:
+          type: string
+        email:
+          type: string
+      type: object
+    ChangeUserSubordination:
+      properties:
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+      type: object
+      xml:
+        name: request
+    Subordination:
+      required:
+      - subordinationType
+      properties:
+        subordinationType:
+          type: string
+          enum:
+          - manual
+          - inherit
+          - no_supervisor
+        supervisorId:
+          type: string
+      type: object
+    UpdateUserStatus:
+      required:
+      - status
+      properties:
+        status: {}
+      type: object
+      xml:
+        name: request
+    UserRole:
+      required:
+      - roleId
+      properties:
+        roleId:
+          type: string
+          format: uuid
+        manageableDepartmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        roleType:
+          $ref: '#/components/schemas/UserRoleEnum'
+      type: object
+      xml:
+        name: userRole
+        wrapped: true
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
   parameters:
-    returnObject:
-      name: X-Return-Object
-      in: header
-      required: false
-      schema:
-        type: boolean
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
     pageToken:
       name: pageToken
       in: query
       required: false
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    returnObject:
+      name: X-Return-Object
+      in: header
+      required: false
+      schema:
+        type: boolean
   responses:
     PermissionDenied:
       description: Permission Denied
@@ -1728,8 +1734,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:
@@ -1737,8 +1743,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:

@@ -36,6 +36,19 @@ paths:
         '403':
           $ref: '#/components/responses/PermissionDenied'
 components:
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   schemas:
     Department:
       required:
@@ -76,18 +89,6 @@ components:
       type: object
       xml:
         name: response
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
     Subordination:
       required:
       - subordinationType
@@ -101,16 +102,19 @@ components:
         supervisorId:
           type: string
       type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     BadRequest:
       description: Bad Request
       content:
@@ -129,19 +133,15 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http
