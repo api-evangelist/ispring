@@ -59,6 +59,18 @@ components:
           enum:
           - client_credentials
       type: object
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
     TokenResponse:
       required:
       - access_token
@@ -76,21 +88,9 @@ components:
       type: object
       xml:
         name: response
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
   responses:
-    BadRequest:
-      description: Bad Request
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:
@@ -107,8 +107,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    PermissionDenied:
-      description: Permission Denied
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:

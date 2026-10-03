@@ -402,145 +402,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    CourseFieldType:
-      type: string
-      enum:
-      - TEXT
-    CourseFields:
-      required:
-      - courseFields
-      properties:
-        courseFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/CourseField'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: response
-    CoursesModulesPage:
-      required:
-      - modules
-      properties:
-        modules:
-          type: array
-          items:
-            $ref: '#/components/schemas/CoursesModule'
-          xml:
-            wrapped: true
-        nextPageToekn:
-          type: string
-      type: object
-      xml:
-        name: response
-    ContentType:
-      type: string
-      enum:
-      - iSpringSuiteModule
-      - Audio
-      - Video
-      - Image
-      - Quiz
-      - Survey
-      - SCORM
-      - Course
-      - LearningTrack
-      - WordDocument
-      - PowerPointPresentation
-      - PDFDocument
-      - ExcelSpreadsheet
-      - RolePlay
-      - Link
-      - Assignment
-      - Book
-      - Interaction
-      - Page
-      - OnlineQuiz
-      - ExternalCourse
-    CourseTreeItem:
-      required:
-      - contentItemId
-      - title
-      - type
-      - description
-      - addedDate
-      - viewUrl
-      - parentId
-      - isShared
-      properties:
-        contentItemId:
-          type: string
-          format: uuid
-        title:
-          type: string
-        type:
-          type: string
-        description:
-          type: string
-        addedDate:
-          type: string
-          format: date-time
-        viewUrl:
-          type: string
-          format: url
-        parentId:
-          type: string
-          format: uuid
-        isShared:
-          type: boolean
-      type: object
-      xml:
-        name: contentItem
-    ContentItemsInformationPage:
-      required:
-      - contentItems
-      properties:
-        contentItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContentItemInformation'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
-    CourseFieldValue:
-      required:
-      - fieldId
-      - fieldValue
-      properties:
-        fieldId:
-          type: string
-          format: uuid
-        fieldValue:
-          type: string
-      type: object
-      xml:
-        name: courseField
-        wrapped: true
-    CourseField:
-      required:
-      - fieldId
-      - fieldCustomId
-      - fieldLabel
-      - fieldType
-      properties:
-        fieldId:
-          type: string
-          format: uuid
-        fieldCustomId:
-          type: string
-        fieldLabel:
-          type: string
-        fieldType:
-          $ref: '#/components/schemas/CourseFieldType'
-      type: object
-      xml:
-        name: courseField
-        wrapped: true
     ContentItemInformation:
       required:
       - contentItemId
@@ -583,6 +444,26 @@ components:
       type: object
       xml:
         name: contentItem
+    CourseField:
+      required:
+      - fieldId
+      - fieldCustomId
+      - fieldLabel
+      - fieldType
+      properties:
+        fieldId:
+          type: string
+          format: uuid
+        fieldCustomId:
+          type: string
+        fieldLabel:
+          type: string
+        fieldType:
+          $ref: '#/components/schemas/CourseFieldType'
+      type: object
+      xml:
+        name: courseField
+        wrapped: true
     ErrorResponse:
       required:
       - code
@@ -595,31 +476,19 @@ components:
       type: object
       xml:
         name: response
-    ContentItemFinalStatus:
+    CourseFields:
       required:
-      - userId
-      - status
-      - progress
+      - courseFields
       properties:
-        userId:
-          type: string
-          format: uuid
-        status:
-          type: string
-        progress:
-          type: integer
-          maximum: 100
-          minimum: 0
-        completionDate:
-          type: string
-          format: date-time
-        lastViewDate:
-          type: string
-          format: date-time
+        courseFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseField'
+          xml:
+            wrapped: true
       type: object
       xml:
-        name: status
-        wrapped: true
+        name: response
     CoursesModule:
       required:
       - moduleId
@@ -656,6 +525,142 @@ components:
       type: object
       xml:
         name: module
+    CourseTreeItem:
+      required:
+      - contentItemId
+      - title
+      - type
+      - description
+      - addedDate
+      - viewUrl
+      - parentId
+      - isShared
+      properties:
+        contentItemId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        addedDate:
+          type: string
+          format: date-time
+        viewUrl:
+          type: string
+          format: url
+        parentId:
+          type: string
+          format: uuid
+        isShared:
+          type: boolean
+      type: object
+      xml:
+        name: contentItem
+    CoursesModulesPage:
+      required:
+      - modules
+      properties:
+        modules:
+          type: array
+          items:
+            $ref: '#/components/schemas/CoursesModule'
+          xml:
+            wrapped: true
+        nextPageToekn:
+          type: string
+      type: object
+      xml:
+        name: response
+    ContentItemFinalStatus:
+      required:
+      - userId
+      - status
+      - progress
+      properties:
+        userId:
+          type: string
+          format: uuid
+        status:
+          type: string
+        progress:
+          type: integer
+          maximum: 100
+          minimum: 0
+        completionDate:
+          type: string
+          format: date-time
+        lastViewDate:
+          type: string
+          format: date-time
+      type: object
+      xml:
+        name: status
+        wrapped: true
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    ContentItemsInformationPage:
+      required:
+      - contentItems
+      properties:
+        contentItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentItemInformation'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    ContentType:
+      type: string
+      enum:
+      - iSpringSuiteModule
+      - Audio
+      - Video
+      - Image
+      - Quiz
+      - Survey
+      - SCORM
+      - Course
+      - LearningTrack
+      - WordDocument
+      - PowerPointPresentation
+      - PDFDocument
+      - ExcelSpreadsheet
+      - RolePlay
+      - Link
+      - Assignment
+      - Book
+      - Interaction
+      - Page
+      - OnlineQuiz
+      - ExternalCourse
+    CourseFieldValue:
+      required:
+      - fieldId
+      - fieldValue
+      properties:
+        fieldId:
+          type: string
+          format: uuid
+        fieldValue:
+          type: string
+      type: object
+      xml:
+        name: courseField
+        wrapped: true
     CreateCourseRequest:
       required:
       - folder_id
@@ -667,28 +672,51 @@ components:
         title:
           type: string
       type: object
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
+    CourseFieldType:
+      type: string
+      enum:
+      - TEXT
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       required: false
       schema:
         type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
     targetLocale:
       name: X-Target-Locale
       in: header
@@ -721,34 +749,6 @@ components:
         - cs-CZ
         - uz-UZ
         - zh-TW
-  responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http

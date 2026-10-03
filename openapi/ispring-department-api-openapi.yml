@@ -289,16 +289,29 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    returnObject:
+      name: X-Return-Object
+      in: header
+      required: false
+      schema:
+        type: boolean
   schemas:
-    UpdateDepartment:
+    MoveDepartments:
+      required:
+      - departmnetIds
       properties:
-        name:
-          type: string
-        parentDepartmentId:
-          type: string
-          format: uuid
-        code:
-          type: string
+        departmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    MoveUsersToDepartment:
+      required:
+      - userIds
+      properties:
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
       type: object
       xml:
         name: request
@@ -326,33 +339,6 @@ components:
       type: object
       xml:
         name: department
-    ChangeDepartmentSubordination:
-      properties:
-        subordination:
-          $ref: '#/components/schemas/Subordination'
-        coSubordination:
-          $ref: '#/components/schemas/Subordination'
-      type: object
-      xml:
-        name: request
-    MoveUsersToDepartment:
-      required:
-      - userIds
-      properties:
-        userIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
-    MoveDepartments:
-      required:
-      - departmnetIds
-      properties:
-        departmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
     Subordination:
       required:
       - subordinationType
@@ -366,6 +352,36 @@ components:
         supervisorId:
           type: string
       type: object
+    ChangeDepartmentSubordination:
+      properties:
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+      type: object
+      xml:
+        name: request
+    UpdateDepartment:
+      properties:
+        name:
+          type: string
+        parentDepartmentId:
+          type: string
+          format: uuid
+        code:
+          type: string
+      type: object
+      xml:
+        name: request
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
     ErrorResponse:
       required:
       - code
@@ -393,36 +409,9 @@ components:
       type: object
       xml:
         name: request
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
   responses:
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     NotFound:
       description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
       content:
         application/json:
           schema:
@@ -439,13 +428,24 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    returnObject:
-      name: X-Return-Object
-      in: header
-      required: false
-      schema:
-        type: boolean
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http

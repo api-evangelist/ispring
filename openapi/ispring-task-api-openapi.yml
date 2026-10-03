@@ -42,14 +42,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    TaskStatusEnum:
-      type: string
-      enum:
-      - waiting
-      - in_progress
-      - complete
-      - cancelled
-      - error
     TaskStatus:
       required:
       - status
@@ -59,6 +51,14 @@ components:
       type: object
       xml:
         name: request
+    TaskStatusEnum:
+      type: string
+      enum:
+      - waiting
+      - in_progress
+      - complete
+      - cancelled
+      - error
     ErrorResponse:
       required:
       - code
@@ -72,8 +72,8 @@ components:
       xml:
         name: response
   responses:
-    BadRequest:
-      description: Bad Request
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:
@@ -90,8 +90,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    PermissionDenied:
-      description: Permission Denied
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:

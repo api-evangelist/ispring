@@ -195,18 +195,26 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    CompletionStatus:
-      type: string
-      enum:
-      - not_started
-      - in_progress
-      - pending
-      - complete
-      - passed
-      - accepted
-      - incomplete
-      - failed
-      - declined
+    UpdateModulesStatuses:
+      required:
+      - enrollmentIds
+      - courseId
+      - moduleStatuses
+      properties:
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        courseId:
+          type: string
+          format: uuid
+        moduleStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModuleStatus'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: request
     UpdateCourseStatus:
       required:
       - courseId
@@ -232,26 +240,6 @@ components:
       type: object
       xml:
         name: request
-    UpdateModulesStatuses:
-      required:
-      - enrollmentIds
-      - courseId
-      - moduleStatuses
-      properties:
-        enrollmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        courseId:
-          type: string
-          format: uuid
-        moduleStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModuleStatus'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: request
     CourseCompletionStatus:
       type: string
       enum:
@@ -260,18 +248,6 @@ components:
       - passed
       - failed
       - automatic
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
     ModuleStatus:
       required:
       - contentItemId
@@ -297,6 +273,18 @@ components:
       type: object
       xml:
         name: moduleStatus
+    CompletionStatus:
+      type: string
+      enum:
+      - not_started
+      - in_progress
+      - pending
+      - complete
+      - passed
+      - accepted
+      - incomplete
+      - failed
+      - declined
     ArrayOfIds:
       type: array
       items:
@@ -306,9 +294,21 @@ components:
           name: id
       xml:
         wrapped: true
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
   responses:
-    BadRequest:
-      description: Bad Request
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:
@@ -325,8 +325,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    PermissionDenied:
-      description: Permission Denied
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:

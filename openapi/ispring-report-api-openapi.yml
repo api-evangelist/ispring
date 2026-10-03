@@ -128,20 +128,31 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    DateRange:
+    ActiveUsersByPeriod:
       required:
-      - startDate
-      - endDate
+      - ids
       properties:
-        startDate:
+        ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+          xml:
+            name: ids
+            wrapped: true
+        activityStartDate:
           type: string
-          format: dateTime
-        endDate:
+          format: date
+          xml:
+            name: activityStartDate
+        activityEndDate:
           type: string
-          format: dateTime
+          format: date
+          xml:
+            name: activityEndDate
       type: object
       xml:
-        name: dateRange
+        name: activeUsersByPeriod
     AnswerBreakdownResultsPage:
       required:
       - results
@@ -157,6 +168,20 @@ components:
       type: object
       xml:
         name: results
+    DateRange:
+      required:
+      - startDate
+      - endDate
+      properties:
+        startDate:
+          type: string
+          format: dateTime
+        endDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: dateRange
     AnswerBreakdownResult:
       required:
       - userId
@@ -219,31 +244,6 @@ components:
       xml:
         name: result
         wrapped: true
-    ActiveUsersByPeriod:
-      required:
-      - ids
-      properties:
-        ids:
-          type: array
-          items:
-            type: string
-            format: uuid
-          xml:
-            name: ids
-            wrapped: true
-        activityStartDate:
-          type: string
-          format: date
-          xml:
-            name: activityStartDate
-        activityEndDate:
-          type: string
-          format: date
-          xml:
-            name: activityEndDate
-      type: object
-      xml:
-        name: activeUsersByPeriod
     ErrorResponse:
       required:
       - code
@@ -256,22 +256,9 @@ components:
       type: object
       xml:
         name: response
-  parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
   responses:
-    BadRequest:
-      description: Bad Request
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:
@@ -288,8 +275,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    PermissionDenied:
-      description: Permission Denied
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -297,6 +284,19 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http

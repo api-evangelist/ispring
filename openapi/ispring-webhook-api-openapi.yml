@@ -304,26 +304,6 @@ paths:
           description: Subscriber not found
 components:
   schemas:
-    SubscriptionParameter:
-      required:
-      - name
-      - value
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-      type: object
-    SubscribeRequest:
-      required:
-      - subscriberName
-      - subscription
-      properties:
-        subscriberName:
-          type: string
-        subscription:
-          $ref: '#/components/schemas/Subscription'
-      type: object
     Subscription:
       required:
       - subscriptionType
@@ -347,13 +327,6 @@ components:
           items:
             $ref: '#/components/schemas/SubscriptionParameter'
       type: object
-    SubscriberNameRequest:
-      required:
-      - subscriberName
-      properties:
-        subscriberName:
-          type: string
-      type: object
     SubscriberRequest:
       required:
       - subscriberName
@@ -368,14 +341,21 @@ components:
       type: object
       xml:
         name: request
-    ConfirmRequest:
+    SubscribeRequest:
       required:
       - subscriberName
-      - code
+      - subscription
       properties:
         subscriberName:
           type: string
-        code:
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+      type: object
+    SubscriberNameRequest:
+      required:
+      - subscriberName
+      properties:
+        subscriberName:
           type: string
       type: object
     UnsubscribeRequest:
@@ -386,6 +366,26 @@ components:
         subscriberName:
           type: string
         subscriptionType:
+          type: string
+      type: object
+    ConfirmRequest:
+      required:
+      - subscriberName
+      - code
+      properties:
+        subscriberName:
+          type: string
+        code:
+          type: string
+      type: object
+    SubscriptionParameter:
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+        value:
           type: string
       type: object
     ErrorResponse:
@@ -401,8 +401,8 @@ components:
       xml:
         name: response
   responses:
-    BadRequest:
-      description: Bad Request
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:
@@ -419,8 +419,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    PermissionDenied:
-      description: Permission Denied
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
