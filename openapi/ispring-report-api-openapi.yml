@@ -128,6 +128,33 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
+    AnswerBreakdownResultsPage:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnswerBreakdownResult'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: results
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
     ActiveUsersByPeriod:
       required:
       - ids
@@ -153,21 +180,6 @@ components:
       type: object
       xml:
         name: activeUsersByPeriod
-    AnswerBreakdownResultsPage:
-      required:
-      - results
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnswerBreakdownResult'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: results
     DateRange:
       required:
       - startDate
@@ -244,28 +256,7 @@ components:
       xml:
         name: result
         wrapped: true
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
       content:
@@ -284,19 +275,28 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       required: false
       schema:
         type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

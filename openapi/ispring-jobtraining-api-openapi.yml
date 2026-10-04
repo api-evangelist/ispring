@@ -152,19 +152,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    ListChecklistsSessionsRequest:
-      properties:
-        checklistIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
     CriterionResultData:
       required:
       - criterionId
@@ -207,6 +194,130 @@ components:
       type: object
       xml:
         name: criterionResultData
+    ListCriterionResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        criterionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    SessionStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - PASSED
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ListChecklistsSessionsRequest:
+      properties:
+        checklistIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    ListCriterionGroupsResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+        groupIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
+    CriterionGroupResultData:
+      required:
+      - groupId
+      - groupTitle
+      - checklistId
+      - sessionId
+      - employeeId
+      - observerId
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        checklistId:
+          type: string
+          format: uuid
+        groupTitle:
+          type: string
+        sessionId:
+          type: string
+          format: uuid
+        result:
+          type: number
+          format: float
+        totalPoints:
+          type: number
+          format: float
+        points:
+          type: number
+          format: float
+        employeeId:
+          type: string
+          format: uuid
+        observerId:
+          type: string
+          format: uuid
+      type: object
+      xml:
+        name: criterionGroupResultData
+    ChecklistStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - HIDDEN
+    ListSessionsResultRequest:
+      properties:
+        checklistId:
+          type: string
+          format: uuid
+        sessionStatus:
+          $ref: '#/components/schemas/SessionStatus'
+        sessionIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+      type: object
     JobTrainingSessionResultData:
       required:
       - checklistId
@@ -254,11 +365,6 @@ components:
       type: object
       xml:
         name: jobTrainingSessionResult
-    ChecklistStatus:
-      type: string
-      enum:
-      - PUBLISHED
-      - HIDDEN
     ChecklistSessionsData:
       required:
       - checklistId
@@ -281,115 +387,9 @@ components:
       type: object
       xml:
         name: checklistSessions
-    SessionStatus:
-      type: string
-      enum:
-      - NOT_STARTED
-      - IN_PROGRESS
-      - PASSED
-    ListCriterionResultRequest:
-      properties:
-        checklistId:
-          type: string
-          format: uuid
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        groupIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        criterionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    CriterionGroupResultData:
-      required:
-      - groupId
-      - groupTitle
-      - checklistId
-      - sessionId
-      - employeeId
-      - observerId
-      properties:
-        groupId:
-          type: string
-          format: uuid
-        checklistId:
-          type: string
-          format: uuid
-        groupTitle:
-          type: string
-        sessionId:
-          type: string
-          format: uuid
-        result:
-          type: number
-          format: float
-        totalPoints:
-          type: number
-          format: float
-        points:
-          type: number
-          format: float
-        employeeId:
-          type: string
-          format: uuid
-        observerId:
-          type: string
-          format: uuid
-      type: object
-      xml:
-        name: criterionGroupResultData
-    ListSessionsResultRequest:
-      properties:
-        checklistId:
-          type: string
-          format: uuid
-        sessionStatus:
-          $ref: '#/components/schemas/SessionStatus'
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    ListCriterionGroupsResultRequest:
-      properties:
-        checklistId:
-          type: string
-          format: uuid
-        sessionIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-        groupIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-      type: object
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
   responses:
-    PermissionDenied:
-      description: Permission Denied
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:
@@ -397,8 +397,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:

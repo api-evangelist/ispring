@@ -280,91 +280,6 @@ paths:
           description: Day not found
 components:
   schemas:
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    Training:
-      required:
-      - title
-      - organizer
-      - sessions
-      - type
-      properties:
-        title:
-          type: string
-        organizer:
-          type: string
-          format: uuid
-        sessions:
-          $ref: '#/components/schemas/ArrayOfIds'
-        type:
-          type: string
-      type: object
-      xml:
-        name: training
-    TrainingParticipantAttendance:
-      required:
-      - participantId
-      - isAttended
-      properties:
-        participantId:
-          type: string
-          format: uuid
-        isAttended:
-          type: boolean
-        duration:
-          description: Duration in seconds
-          type: integer
-      type: object
-      xml:
-        name: trainingParticipantAttendance
-    UpdateDay:
-      properties:
-        url:
-          type: string
-      type: object
-      xml:
-        name: request
-    UpdateDayParticipantsAttendanceRequest:
-      properties:
-        participantsAttendance:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrainingParticipantAttendance'
-      type: object
-      xml:
-        name: request
-    TrainingSession:
-      required:
-      - id
-      - title
-      - startTime
-      - duration
-      - dayIds
-      properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        startTime:
-          type: string
-          format: datetime
-        duration:
-          type: integer
-        instructor:
-          type: string
-        dayIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: trainingSession
     Day:
       required:
       - dayId
@@ -406,16 +321,92 @@ components:
       type: object
       xml:
         name: response
+    TrainingSession:
+      required:
+      - id
+      - title
+      - startTime
+      - duration
+      - dayIds
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        startTime:
+          type: string
+          format: datetime
+        duration:
+          type: integer
+        instructor:
+          type: string
+        dayIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: trainingSession
+    TrainingParticipantAttendance:
+      required:
+      - participantId
+      - isAttended
+      properties:
+        participantId:
+          type: string
+          format: uuid
+        isAttended:
+          type: boolean
+        duration:
+          description: Duration in seconds
+          type: integer
+      type: object
+      xml:
+        name: trainingParticipantAttendance
+    UpdateDay:
+      properties:
+        url:
+          type: string
+      type: object
+      xml:
+        name: request
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    Training:
+      required:
+      - title
+      - organizer
+      - sessions
+      - type
+      properties:
+        title:
+          type: string
+        organizer:
+          type: string
+          format: uuid
+        sessions:
+          $ref: '#/components/schemas/ArrayOfIds'
+        type:
+          type: string
+      type: object
+      xml:
+        name: training
+    UpdateDayParticipantsAttendanceRequest:
+      properties:
+        participantsAttendance:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrainingParticipantAttendance'
+      type: object
+      xml:
+        name: request
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
       content:
@@ -434,19 +425,28 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       required: false
       schema:
         type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

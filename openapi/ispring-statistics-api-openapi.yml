@@ -195,26 +195,14 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    UpdateModulesStatuses:
-      required:
-      - enrollmentIds
-      - courseId
-      - moduleStatuses
-      properties:
-        enrollmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        courseId:
-          type: string
-          format: uuid
-        moduleStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModuleStatus'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: request
+    CourseCompletionStatus:
+      type: string
+      enum:
+      - complete
+      - incomplete
+      - passed
+      - failed
+      - automatic
     UpdateCourseStatus:
       required:
       - courseId
@@ -240,14 +228,59 @@ components:
       type: object
       xml:
         name: request
-    CourseCompletionStatus:
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    CompletionStatus:
       type: string
       enum:
+      - not_started
+      - in_progress
+      - pending
       - complete
-      - incomplete
       - passed
+      - accepted
+      - incomplete
       - failed
-      - automatic
+      - declined
+    UpdateModulesStatuses:
+      required:
+      - enrollmentIds
+      - courseId
+      - moduleStatuses
+      properties:
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        courseId:
+          type: string
+          format: uuid
+        moduleStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModuleStatus'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: request
     ModuleStatus:
       required:
       - contentItemId
@@ -273,49 +306,7 @@ components:
       type: object
       xml:
         name: moduleStatus
-    CompletionStatus:
-      type: string
-      enum:
-      - not_started
-      - in_progress
-      - pending
-      - complete
-      - passed
-      - accepted
-      - incomplete
-      - failed
-      - declined
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
       content:
@@ -327,6 +318,15 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     BadRequest:
       description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:

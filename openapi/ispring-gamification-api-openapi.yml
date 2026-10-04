@@ -100,22 +100,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    AwardGamificationPoints:
-      required:
-      - userId
-      - amount
-      - reason
-      properties:
-        userId:
-          type: string
-          format: uuid
-        amount:
-          type: number
-        reason:
-          type: string
-      type: object
-      xml:
-        name: request
     UserPointsInfo:
       required:
       - userId
@@ -130,6 +114,18 @@ components:
       xml:
         name: userPointsInfo
         wrapped: true
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
     WithdrawGamificationPoints:
       required:
       - userId
@@ -146,28 +142,23 @@ components:
       type: object
       xml:
         name: request
-    ErrorResponse:
+    AwardGamificationPoints:
       required:
-      - code
-      - message
+      - userId
+      - amount
+      - reason
       properties:
-        code:
-          type: integer
-        message:
+        userId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+        reason:
           type: string
       type: object
       xml:
-        name: response
+        name: request
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
       content:
@@ -179,6 +170,15 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     BadRequest:
       description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
       content:
         application/json:
           schema:

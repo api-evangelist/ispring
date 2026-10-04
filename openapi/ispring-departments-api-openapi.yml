@@ -36,35 +36,47 @@ paths:
         '403':
           $ref: '#/components/responses/PermissionDenied'
 components:
-  responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   schemas:
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    DepartmentsPage:
+      required:
+      - departments
+      properties:
+        departments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Department'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    Subordination:
+      required:
+      - subordinationType
+      properties:
+        subordinationType:
+          type: string
+          enum:
+          - manual
+          - inherit
+          - no_supervisor
+        supervisorId:
+          type: string
+      type: object
     Department:
       required:
       - departmentId
@@ -89,59 +101,47 @@ components:
       type: object
       xml:
         name: department
-    Subordination:
-      required:
-      - subordinationType
-      properties:
-        subordinationType:
-          type: string
-          enum:
-          - manual
-          - inherit
-          - no_supervisor
-        supervisorId:
-          type: string
-      type: object
-    DepartmentsPage:
-      required:
-      - departments
-      properties:
-        departments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Department'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       required: false
       schema:
         type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

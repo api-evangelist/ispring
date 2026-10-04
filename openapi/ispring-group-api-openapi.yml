@@ -335,33 +335,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    OrSmartGroupRuleNode:
-      required:
-      - rule
-      properties:
-        rule:
-          $ref: '#/components/schemas/SmartGroupRule'
-      type: object
-    SmartGroupRuleNodes:
-      required:
-      - and
-      properties:
-        and:
-          type: array
-          items:
-            $ref: '#/components/schemas/AndSmartGroupRuleNode'
-      type: object
-    NewGroup:
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        userIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
     SmartGroupRules:
       required:
       - groupId
@@ -373,118 +346,6 @@ components:
         rules:
           $ref: '#/components/schemas/SmartGroupRuleNodes'
       type: object
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    UpdateGroupMembers:
-      required:
-      - userIds
-      properties:
-        userIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
-    UpdateGroup:
-      required:
-      - name
-      properties:
-        name:
-          type: string
-      type: object
-      xml:
-        name: request
-    Group:
-      required:
-      - groupId
-      - name
-      - isSmart
-      properties:
-        groupId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        isSmart:
-          type: boolean
-      type: object
-      xml:
-        name: group
-    GroupsPage:
-      required:
-      - groups
-      properties:
-        groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/Group'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    UpdateSmartGroup:
-      required:
-      - rules
-      properties:
-        name:
-          type: string
-        rules:
-          $ref: '#/components/schemas/SmartGroupRuleNodes'
-      type: object
-      xml:
-        name: request
-    AndSmartGroupRuleNode:
-      required:
-      - or
-      properties:
-        or:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrSmartGroupRuleNode'
-      type: object
-    DetailedGroup:
-      required:
-      - usersCount
-      - groupId
-      - userIds
-      - name
-      - isSmart
-      properties:
-        usersCount:
-          type: integer
-        groupId:
-          type: string
-          format: uuid
-        userIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        name:
-          type: string
-        isSmart:
-          type: boolean
-      type: object
-      xml:
-        name: group
     SmartGroupRule:
       required:
       - attributeType
@@ -509,6 +370,113 @@ components:
         value:
           type: string
       type: object
+    OrSmartGroupRuleNode:
+      required:
+      - rule
+      properties:
+        rule:
+          $ref: '#/components/schemas/SmartGroupRule'
+      type: object
+    DetailedGroup:
+      required:
+      - usersCount
+      - groupId
+      - userIds
+      - name
+      - isSmart
+      properties:
+        usersCount:
+          type: integer
+        groupId:
+          type: string
+          format: uuid
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        name:
+          type: string
+        isSmart:
+          type: boolean
+      type: object
+      xml:
+        name: group
+    AndSmartGroupRuleNode:
+      required:
+      - or
+      properties:
+        or:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrSmartGroupRuleNode'
+      type: object
+    GroupsPage:
+      required:
+      - groups
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    UpdateGroupMembers:
+      required:
+      - userIds
+      properties:
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    Group:
+      required:
+      - groupId
+      - name
+      - isSmart
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        isSmart:
+          type: boolean
+      type: object
+      xml:
+        name: group
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    NewGroup:
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        userIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    SmartGroupRuleNodes:
+      required:
+      - and
+      properties:
+        and:
+          type: array
+          items:
+            $ref: '#/components/schemas/AndSmartGroupRuleNode'
+      type: object
     NewSmartGroup:
       required:
       - name
@@ -521,9 +489,60 @@ components:
       type: object
       xml:
         name: request
+    UpdateSmartGroup:
+      required:
+      - rules
+      properties:
+        name:
+          type: string
+        rules:
+          $ref: '#/components/schemas/SmartGroupRuleNodes'
+      type: object
+      xml:
+        name: request
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    UpdateGroup:
+      required:
+      - name
+      properties:
+        name:
+          type: string
+      type: object
+      xml:
+        name: request
+  parameters:
+    returnObject:
+      name: X-Return-Object
+      in: header
+      required: false
+      schema:
+        type: boolean
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   responses:
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:
@@ -540,8 +559,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -549,25 +568,6 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
-    returnObject:
-      name: X-Return-Object
-      in: header
-      required: false
-      schema:
-        type: boolean
   securitySchemes:
     bearerAuth:
       type: http

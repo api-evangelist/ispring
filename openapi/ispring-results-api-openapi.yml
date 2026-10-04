@@ -202,84 +202,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    LearnerResult:
-      required:
-      - userId
-      - courseId
-      - courseTitle
-      - accessDate
-      - completionStatus
-      - isOverdue
-      properties:
-        userId:
-          type: string
-          format: uuid
-        courseId:
-          type: string
-          format: uuid
-        courseTitle:
-          type: string
-        enrollmentId:
-          type: string
-          format: uuid
-        accessDate:
-          type: string
-          format: datetime
-        dueDate:
-          type: string
-          format: datetime
-        expirationDate:
-          type: string
-          format: datetime
-        completionDate:
-          type: string
-          format: datetime
-        duration:
-          type: integer
-        timeSpent:
-          description: Time spent in seconds
-          type: integer
-        completionStatus:
-          $ref: '#/components/schemas/CompletionStatus'
-        awardedScore:
-          type: number
-          format: float
-        passingScore:
-          type: number
-          format: float
-        progress:
-          type: number
-          format: float
-        isOverdue:
-          type: boolean
-        viewsCount:
-          type: integer
-      type: object
-      xml:
-        name: result
-        wrapped: true
-    LearnersModulesResultsResponse:
-      required:
-      - results
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LearnerModuleResult'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
-    UserStatus:
-      description: 1 - active, 3 - inactive, 5 - terminated
-      type: integer
-      enum:
-      - 1
-      - 3
-      - 5
     LearnerModuleResult:
       required:
       - userId
@@ -342,32 +264,6 @@ components:
       xml:
         name: result
         wrapped: true
-    DateRange:
-      required:
-      - startDate
-      - endDate
-      properties:
-        startDate:
-          type: string
-          format: dateTime
-        endDate:
-          type: string
-          format: dateTime
-      type: object
-      xml:
-        name: dateRange
-    CompletionStatus:
-      type: string
-      enum:
-      - not_started
-      - in_progress
-      - pending
-      - complete
-      - passed
-      - accepted
-      - incomplete
-      - failed
-      - declined
     LearnersResultsResponse:
       required:
       - results
@@ -395,16 +291,111 @@ components:
       type: object
       xml:
         name: response
+    LearnersModulesResultsResponse:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LearnerModuleResult'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    LearnerResult:
+      required:
+      - userId
+      - courseId
+      - courseTitle
+      - accessDate
+      - completionStatus
+      - isOverdue
+      properties:
+        userId:
+          type: string
+          format: uuid
+        courseId:
+          type: string
+          format: uuid
+        courseTitle:
+          type: string
+        enrollmentId:
+          type: string
+          format: uuid
+        accessDate:
+          type: string
+          format: datetime
+        dueDate:
+          type: string
+          format: datetime
+        expirationDate:
+          type: string
+          format: datetime
+        completionDate:
+          type: string
+          format: datetime
+        duration:
+          type: integer
+        timeSpent:
+          description: Time spent in seconds
+          type: integer
+        completionStatus:
+          $ref: '#/components/schemas/CompletionStatus'
+        awardedScore:
+          type: number
+          format: float
+        passingScore:
+          type: number
+          format: float
+        progress:
+          type: number
+          format: float
+        isOverdue:
+          type: boolean
+        viewsCount:
+          type: integer
+      type: object
+      xml:
+        name: result
+        wrapped: true
+    DateRange:
+      required:
+      - startDate
+      - endDate
+      properties:
+        startDate:
+          type: string
+          format: dateTime
+        endDate:
+          type: string
+          format: dateTime
+      type: object
+      xml:
+        name: dateRange
+    CompletionStatus:
+      type: string
+      enum:
+      - not_started
+      - in_progress
+      - pending
+      - complete
+      - passed
+      - accepted
+      - incomplete
+      - failed
+      - declined
+    UserStatus:
+      description: 1 - active, 3 - inactive, 5 - terminated
+      type: integer
+      enum:
+      - 1
+      - 3
+      - 5
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
       content:
@@ -423,19 +414,28 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       required: false
       schema:
         type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -115,85 +115,23 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    Assignment:
+    AssignmentAttemptAttachment:
       required:
-      - assignmentId
-      - title
+      - fileName
+      - fileSize
+      - url
       properties:
-        assignmentId:
+        fileName:
           type: string
-          format: uuid
-        title:
+        fileSize:
+          description: File size in bytes
+          type: integer
+        url:
           type: string
-        instructorId:
-          type: string
-          format: uuid
-        courseFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/CourseFieldValue'
+          format: url
       type: object
       xml:
-        name: assignment
-    AssignmentsPage:
-      required:
-      - assignments
-      properties:
-        assignments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Assignment'
-          xml:
-            wrapped: true
-        nextPageToken:
-          type: string
-      type: object
-      xml:
-        name: response
-    AssignmentAttemptGrades:
-      required:
-      - assignmentAttemptGrades
-      properties:
-        assignmentAttemptGrades:
-          type: array
-          items:
-            $ref: '#/components/schemas/AssignmentAttemptGrade'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: request
-    AssignmentAttemptGrade:
-      required:
-      - attemptId
-      - score
-      properties:
-        attemptId:
-          type: string
-          format: uuid
-        score:
-          type: number
-          maximum: 100
-          minimum: 0
-        comment:
-          type: string
-      type: object
-      xml:
-        name: attemptGrade
-    CourseFieldValue:
-      required:
-      - fieldId
-      - fieldValue
-      properties:
-        fieldId:
-          type: string
-          format: uuid
-        fieldValue:
-          type: string
-      type: object
-      xml:
-        name: courseField
-        wrapped: true
+        name: attachment
     AssignmentAttempt:
       required:
       - attemptId
@@ -219,23 +157,20 @@ components:
       type: object
       xml:
         name: attempt
-    AssignmentAttemptAttachment:
+    CourseFieldValue:
       required:
-      - fileName
-      - fileSize
-      - url
+      - fieldId
+      - fieldValue
       properties:
-        fileName:
+        fieldId:
           type: string
-        fileSize:
-          description: File size in bytes
-          type: integer
-        url:
+          format: uuid
+        fieldValue:
           type: string
-          format: url
       type: object
       xml:
-        name: attachment
+        name: courseField
+        wrapped: true
     ErrorResponse:
       required:
       - code
@@ -248,16 +183,72 @@ components:
       type: object
       xml:
         name: response
+    AssignmentsPage:
+      required:
+      - assignments
+      properties:
+        assignments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assignment'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: response
+    Assignment:
+      required:
+      - assignmentId
+      - title
+      properties:
+        assignmentId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        instructorId:
+          type: string
+          format: uuid
+        courseFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseFieldValue'
+      type: object
+      xml:
+        name: assignment
+    AssignmentAttemptGrade:
+      required:
+      - attemptId
+      - score
+      properties:
+        attemptId:
+          type: string
+          format: uuid
+        score:
+          type: number
+          maximum: 100
+          minimum: 0
+        comment:
+          type: string
+      type: object
+      xml:
+        name: attemptGrade
+    AssignmentAttemptGrades:
+      required:
+      - assignmentAttemptGrades
+      properties:
+        assignmentAttemptGrades:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssignmentAttemptGrade'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: request
   responses:
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized
       content:
@@ -276,19 +267,28 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       required: false
       schema:
         type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

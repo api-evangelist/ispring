@@ -289,23 +289,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    returnObject:
-      name: X-Return-Object
-      in: header
-      required: false
-      schema:
-        type: boolean
   schemas:
-    MoveDepartments:
-      required:
-      - departmnetIds
-      properties:
-        departmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: request
     MoveUsersToDepartment:
       required:
       - userIds
@@ -315,6 +299,76 @@ components:
       type: object
       xml:
         name: request
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    UpdateDepartment:
+      properties:
+        name:
+          type: string
+        parentDepartmentId:
+          type: string
+          format: uuid
+        code:
+          type: string
+      type: object
+      xml:
+        name: request
+    NewDepartment:
+      required:
+      - name
+      - parentDepartmentId
+      properties:
+        name:
+          type: string
+        parentDepartmentId:
+          type: string
+          format: uuid
+        code:
+          type: string
+      type: object
+      xml:
+        name: request
+    MoveDepartments:
+      required:
+      - departmnetIds
+      properties:
+        departmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: request
+    Subordination:
+      required:
+      - subordinationType
+      properties:
+        subordinationType:
+          type: string
+          enum:
+          - manual
+          - inherit
+          - no_supervisor
+        supervisorId:
+          type: string
+      type: object
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
     Department:
       required:
       - departmentId
@@ -339,19 +393,6 @@ components:
       type: object
       xml:
         name: department
-    Subordination:
-      required:
-      - subordinationType
-      properties:
-        subordinationType:
-          type: string
-          enum:
-          - manual
-          - inherit
-          - no_supervisor
-        supervisorId:
-          type: string
-      type: object
     ChangeDepartmentSubordination:
       properties:
         subordination:
@@ -361,57 +402,16 @@ components:
       type: object
       xml:
         name: request
-    UpdateDepartment:
-      properties:
-        name:
-          type: string
-        parentDepartmentId:
-          type: string
-          format: uuid
-        code:
-          type: string
-      type: object
-      xml:
-        name: request
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    NewDepartment:
-      required:
-      - name
-      - parentDepartmentId
-      properties:
-        name:
-          type: string
-        parentDepartmentId:
-          type: string
-          format: uuid
-        code:
-          type: string
-      type: object
-      xml:
-        name: request
+  parameters:
+    returnObject:
+      name: X-Return-Object
+      in: header
+      required: false
+      schema:
+        type: boolean
   responses:
-    NotFound:
-      description: Not Found
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:
@@ -428,8 +428,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -437,8 +437,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    NotFound:
+      description: Not Found
       content:
         application/json:
           schema:
