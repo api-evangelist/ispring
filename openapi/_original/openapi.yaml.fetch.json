@@ -1,0 +1,12 @@
+{
+ "url": "https://api-learn.ispringlearn.com/docs/rest-api",
+ "requested_url": "https://api-learn.ispringlearn.com/docs/rest-api",
+ "status": 200,
+ "content_type": "application/octet-stream",
+ "bytes": 234391,
+ "sha256": "147206150ddf23f1f9c6364f5985e247c423931104a9f251504953fae482addf",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.986), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
