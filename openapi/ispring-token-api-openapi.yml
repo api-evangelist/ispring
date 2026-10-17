@@ -44,15 +44,20 @@ paths:
       - {}
 components:
   schemas:
-    ErrorResponse:
+    TokenResponse:
       required:
-      - code
-      - message
+      - access_token
+      - expires_in
+      - token_type
       properties:
-        code:
-          type: integer
-        message:
+        access_token:
           type: string
+        expires_in:
+          type: integer
+        token_type:
+          type: string
+          enum:
+          - bearer
       type: object
       xml:
         name: response
@@ -71,20 +76,15 @@ components:
           enum:
           - client_credentials
       type: object
-    TokenResponse:
+    ErrorResponse:
       required:
-      - access_token
-      - expires_in
-      - token_type
+      - code
+      - message
       properties:
-        access_token:
-          type: string
-        expires_in:
+        code:
           type: integer
-        token_type:
+        message:
           type: string
-          enum:
-          - bearer
       type: object
       xml:
         name: response

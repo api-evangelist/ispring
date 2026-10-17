@@ -304,62 +304,6 @@ paths:
           description: Subscriber not found
 components:
   schemas:
-    SubscriptionParameter:
-      required:
-      - name
-      - value
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-      type: object
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    ConfirmRequest:
-      required:
-      - subscriberName
-      - code
-      properties:
-        subscriberName:
-          type: string
-        code:
-          type: string
-      type: object
-    SubscribeRequest:
-      required:
-      - subscriberName
-      - subscription
-      properties:
-        subscriberName:
-          type: string
-        subscription:
-          $ref: '#/components/schemas/Subscription'
-      type: object
-    SubscriberRequest:
-      required:
-      - subscriberName
-      - callbackUrl
-      properties:
-        subscriberName:
-          type: string
-        callbackUrl:
-          type: string
-        secret:
-          type: string
-      type: object
-      xml:
-        name: request
     Subscription:
       required:
       - subscriptionType
@@ -383,11 +327,24 @@ components:
           items:
             $ref: '#/components/schemas/SubscriptionParameter'
       type: object
-    SubscriberNameRequest:
+    SubscribeRequest:
       required:
       - subscriberName
+      - subscription
       properties:
         subscriberName:
+          type: string
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+      type: object
+    SubscriptionParameter:
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+        value:
           type: string
       type: object
     UnsubscribeRequest:
@@ -400,9 +357,52 @@ components:
         subscriptionType:
           type: string
       type: object
+    ConfirmRequest:
+      required:
+      - subscriberName
+      - code
+      properties:
+        subscriberName:
+          type: string
+        code:
+          type: string
+      type: object
+    SubscriberRequest:
+      required:
+      - subscriberName
+      - callbackUrl
+      properties:
+        subscriberName:
+          type: string
+        callbackUrl:
+          type: string
+        secret:
+          type: string
+      type: object
+      xml:
+        name: request
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+    SubscriberNameRequest:
+      required:
+      - subscriberName
+      properties:
+        subscriberName:
+          type: string
+      type: object
   responses:
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -410,8 +410,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:

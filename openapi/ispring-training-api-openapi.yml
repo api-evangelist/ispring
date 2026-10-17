@@ -279,7 +279,80 @@ paths:
         '404':
           description: Day not found
 components:
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   schemas:
+    TrainingSession:
+      required:
+      - id
+      - title
+      - startTime
+      - duration
+      - dayIds
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        startTime:
+          type: string
+          format: datetime
+        duration:
+          type: integer
+        instructor:
+          type: string
+        dayIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+      type: object
+      xml:
+        name: trainingSession
+    UpdateDayParticipantsAttendanceRequest:
+      properties:
+        participantsAttendance:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrainingParticipantAttendance'
+      type: object
+      xml:
+        name: request
+    Training:
+      required:
+      - title
+      - organizer
+      - sessions
+      - type
+      properties:
+        title:
+          type: string
+        organizer:
+          type: string
+          format: uuid
+        sessions:
+          $ref: '#/components/schemas/ArrayOfIds'
+        type:
+          type: string
+      type: object
+      xml:
+        name: training
+    UpdateDay:
+      properties:
+        url:
+          type: string
+      type: object
+      xml:
+        name: request
     Day:
       required:
       - dayId
@@ -309,43 +382,6 @@ components:
       type: object
       xml:
         name: Day
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    TrainingSession:
-      required:
-      - id
-      - title
-      - startTime
-      - duration
-      - dayIds
-      properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        startTime:
-          type: string
-          format: datetime
-        duration:
-          type: integer
-        instructor:
-          type: string
-        dayIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-      type: object
-      xml:
-        name: trainingSession
     TrainingParticipantAttendance:
       required:
       - participantId
@@ -362,13 +398,6 @@ components:
       type: object
       xml:
         name: trainingParticipantAttendance
-    UpdateDay:
-      properties:
-        url:
-          type: string
-      type: object
-      xml:
-        name: request
     ArrayOfIds:
       type: array
       items:
@@ -378,34 +407,18 @@ components:
           name: id
       xml:
         wrapped: true
-    Training:
+    ErrorResponse:
       required:
-      - title
-      - organizer
-      - sessions
-      - type
+      - code
+      - message
       properties:
-        title:
-          type: string
-        organizer:
-          type: string
-          format: uuid
-        sessions:
-          $ref: '#/components/schemas/ArrayOfIds'
-        type:
+        code:
+          type: integer
+        message:
           type: string
       type: object
       xml:
-        name: training
-    UpdateDayParticipantsAttendanceRequest:
-      properties:
-        participantsAttendance:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrainingParticipantAttendance'
-      type: object
-      xml:
-        name: request
+        name: response
   responses:
     Unauthorized:
       description: Unauthorized
@@ -434,19 +447,6 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

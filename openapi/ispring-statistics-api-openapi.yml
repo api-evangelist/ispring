@@ -195,92 +195,6 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    CourseCompletionStatus:
-      type: string
-      enum:
-      - complete
-      - incomplete
-      - passed
-      - failed
-      - automatic
-    UpdateCourseStatus:
-      required:
-      - courseId
-      - enrollmentIds
-      - status
-      properties:
-        courseId:
-          type: string
-          format: uuid
-        enrollmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        status:
-          $ref: '#/components/schemas/CourseCompletionStatus'
-        date:
-          type: string
-          format: date-time
-        reason:
-          type: string
-        awardedScore:
-          type: number
-          maximum: 100
-          minimum: 0
-      type: object
-      xml:
-        name: request
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
-      xml:
-        wrapped: true
-    CompletionStatus:
-      type: string
-      enum:
-      - not_started
-      - in_progress
-      - pending
-      - complete
-      - passed
-      - accepted
-      - incomplete
-      - failed
-      - declined
-    UpdateModulesStatuses:
-      required:
-      - enrollmentIds
-      - courseId
-      - moduleStatuses
-      properties:
-        enrollmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
-        courseId:
-          type: string
-          format: uuid
-        moduleStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModuleStatus'
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: request
     ModuleStatus:
       required:
       - contentItemId
@@ -306,9 +220,95 @@ components:
       type: object
       xml:
         name: moduleStatus
+    CompletionStatus:
+      type: string
+      enum:
+      - not_started
+      - in_progress
+      - pending
+      - complete
+      - passed
+      - accepted
+      - incomplete
+      - failed
+      - declined
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    UpdateCourseStatus:
+      required:
+      - courseId
+      - enrollmentIds
+      - status
+      properties:
+        courseId:
+          type: string
+          format: uuid
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        status:
+          $ref: '#/components/schemas/CourseCompletionStatus'
+        date:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        awardedScore:
+          type: number
+          maximum: 100
+          minimum: 0
+      type: object
+      xml:
+        name: request
+    UpdateModulesStatuses:
+      required:
+      - enrollmentIds
+      - courseId
+      - moduleStatuses
+      properties:
+        enrollmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
+        courseId:
+          type: string
+          format: uuid
+        moduleStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModuleStatus'
+          xml:
+            wrapped: true
+      type: object
+      xml:
+        name: request
+    CourseCompletionStatus:
+      type: string
+      enum:
+      - complete
+      - incomplete
+      - passed
+      - failed
+      - automatic
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
   responses:
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -316,8 +316,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:

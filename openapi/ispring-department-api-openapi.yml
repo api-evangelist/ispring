@@ -289,7 +289,62 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PermissionDenied:
+      description: Permission Denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
+    ArrayOfIds:
+      type: array
+      items:
+        type: string
+        format: uuid
+        xml:
+          name: id
+      xml:
+        wrapped: true
+    ChangeDepartmentSubordination:
+      properties:
+        subordination:
+          $ref: '#/components/schemas/Subordination'
+        coSubordination:
+          $ref: '#/components/schemas/Subordination'
+      type: object
+      xml:
+        name: request
     MoveUsersToDepartment:
       required:
       - userIds
@@ -299,18 +354,15 @@ components:
       type: object
       xml:
         name: request
-    ErrorResponse:
+    MoveDepartments:
       required:
-      - code
-      - message
+      - departmnetIds
       properties:
-        code:
-          type: integer
-        message:
-          type: string
+        departmentIds:
+          $ref: '#/components/schemas/ArrayOfIds'
       type: object
       xml:
-        name: response
+        name: request
     UpdateDepartment:
       properties:
         name:
@@ -320,30 +372,6 @@ components:
           format: uuid
         code:
           type: string
-      type: object
-      xml:
-        name: request
-    NewDepartment:
-      required:
-      - name
-      - parentDepartmentId
-      properties:
-        name:
-          type: string
-        parentDepartmentId:
-          type: string
-          format: uuid
-        code:
-          type: string
-      type: object
-      xml:
-        name: request
-    MoveDepartments:
-      required:
-      - departmnetIds
-      properties:
-        departmentIds:
-          $ref: '#/components/schemas/ArrayOfIds'
       type: object
       xml:
         name: request
@@ -360,15 +388,33 @@ components:
         supervisorId:
           type: string
       type: object
-    ArrayOfIds:
-      type: array
-      items:
-        type: string
-        format: uuid
-        xml:
-          name: id
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
       xml:
-        wrapped: true
+        name: response
+    NewDepartment:
+      required:
+      - name
+      - parentDepartmentId
+      properties:
+        name:
+          type: string
+        parentDepartmentId:
+          type: string
+          format: uuid
+        code:
+          type: string
+      type: object
+      xml:
+        name: request
     Department:
       required:
       - departmentId
@@ -393,15 +439,6 @@ components:
       type: object
       xml:
         name: department
-    ChangeDepartmentSubordination:
-      properties:
-        subordination:
-          $ref: '#/components/schemas/Subordination'
-        coSubordination:
-          $ref: '#/components/schemas/Subordination'
-      type: object
-      xml:
-        name: request
   parameters:
     returnObject:
       name: X-Return-Object
@@ -409,43 +446,6 @@ components:
       required: false
       schema:
         type: boolean
-  responses:
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    PermissionDenied:
-      description: Permission Denied
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    NotFound:
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http

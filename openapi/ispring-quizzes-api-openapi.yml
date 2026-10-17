@@ -136,47 +136,27 @@ paths:
           $ref: '#/components/responses/PermissionDenied'
 components:
   schemas:
-    AnswerBreakdownResultsPage:
+    Quiz:
       required:
-      - results
+      - quizId
+      - quizTitle
+      - contentItemId
+      - parentCourseIds
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnswerBreakdownResult'
-          xml:
-            wrapped: true
-        nextPageToken:
+        quizId:
           type: string
+          format: uuid
+        quizTitle:
+          type: string
+        contentItemId:
+          type: string
+          format: uuid
+        parentCourseIds:
+          $ref: '#/components/schemas/ArrayOfIds'
       type: object
       xml:
-        name: results
-    ErrorResponse:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-      type: object
-      xml:
-        name: response
-    DateRange:
-      required:
-      - startDate
-      - endDate
-      properties:
-        startDate:
-          type: string
-          format: dateTime
-        endDate:
-          type: string
-          format: dateTime
-      type: object
-      xml:
-        name: dateRange
+        name: result
+        wrapped: true
     ArrayOfIds:
       type: array
       items:
@@ -248,27 +228,35 @@ components:
       xml:
         name: result
         wrapped: true
-    Quiz:
+    DateRange:
       required:
-      - quizId
-      - quizTitle
-      - contentItemId
-      - parentCourseIds
+      - startDate
+      - endDate
       properties:
-        quizId:
+        startDate:
           type: string
-          format: uuid
-        quizTitle:
+          format: dateTime
+        endDate:
           type: string
-        contentItemId:
-          type: string
-          format: uuid
-        parentCourseIds:
-          $ref: '#/components/schemas/ArrayOfIds'
+          format: dateTime
       type: object
       xml:
-        name: result
-        wrapped: true
+        name: dateRange
+    AnswerBreakdownResultsPage:
+      required:
+      - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnswerBreakdownResult'
+          xml:
+            wrapped: true
+        nextPageToken:
+          type: string
+      type: object
+      xml:
+        name: results
     QuizzesPage:
       required:
       - results
@@ -284,9 +272,34 @@ components:
       type: object
       xml:
         name: response
+    ErrorResponse:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      type: object
+      xml:
+        name: response
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      required: false
+      schema:
+        type: string
   responses:
-    Unauthorized:
-      description: Unauthorized
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -294,8 +307,8 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Unauthorized
       content:
         application/json:
           schema:
@@ -312,19 +325,6 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      required: false
-      schema:
-        type: integer
-    pageToken:
-      name: pageToken
-      in: query
-      required: false
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
