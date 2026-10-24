@@ -1,277 +1,277 @@
 {
+  "info": {
+    "_postman_id": "f038e252-1cbc-465f-8668-82d55a08aab4",
+    "name": "Learn Rest Task API",
+    "description": "Async method operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:37:04.000Z",
+    "updatedAt": "2026-10-21T20:37:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f038e252-1cbc-465f-8668-82d55a08aab4"
+  },
   "item": [
     {
-      "id": "90c15f2b-b913-44dd-aa8c-c986e58e821a",
       "name": "task",
-      "description": {
-        "content": "Async method operations",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "ae7cc565-3899-4b1c-9698-fce58a3c2367",
-          "name": "Get async task status",
-          "request": {
-            "name": "Get async task status",
-            "description": {},
-            "url": {
-              "path": [
-                "task",
-                ":taskId",
-                "status"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "taskId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{taskId}",
+          "item": [
             {
-              "id": "0f50d578-4023-4c53-a79a-a50ec945343e",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "task",
-                    ":taskId",
-                    "status"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "taskId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "status",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Get async task status",
+                  "id": "6e5991a0-33dd-49c6-882d-6c2c3bd75b8a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/task/:taskId/status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "task",
+                        ":taskId",
+                        "status"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1a98b680-0345-4546-ba0a-e5441fadf971",
+                          "key": "taskId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "969ee87c-2ff1-47b2-83d0-e6bc6a26c7a7",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/task/:taskId/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "task",
+                            ":taskId",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"waiting\"\n}",
+                      "createdAt": "2026-10-21T20:37:05.000Z",
+                      "updatedAt": "2026-10-21T20:37:05.000Z",
+                      "uid": "35240-969ee87c-2ff1-47b2-83d0-e6bc6a26c7a7"
+                    },
+                    {
+                      "id": "1df34223-54d7-4243-8489-478c541d5bf3",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/task/:taskId/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "task",
+                            ":taskId",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:05.000Z",
+                      "updatedAt": "2026-10-21T20:37:05.000Z",
+                      "uid": "35240-1df34223-54d7-4243-8489-478c541d5bf3"
+                    },
+                    {
+                      "id": "c212d5ff-6286-4d81-8829-24e522caa4ae",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/task/:taskId/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "task",
+                            ":taskId",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:05.000Z",
+                      "updatedAt": "2026-10-21T20:37:05.000Z",
+                      "uid": "35240-c212d5ff-6286-4d81-8829-24e522caa4ae"
+                    },
+                    {
+                      "id": "f327649e-4e9e-4465-ab66-45be94007cff",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/task/:taskId/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "task",
+                            ":taskId",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:05.000Z",
+                      "updatedAt": "2026-10-21T20:37:05.000Z",
+                      "uid": "35240-f327649e-4e9e-4465-ab66-45be94007cff"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:37:05.000Z",
+                  "updatedAt": "2026-10-21T20:37:05.000Z",
+                  "uid": "35240-6e5991a0-33dd-49c6-882d-6c2c3bd75b8a"
                 }
               ],
-              "body": "{\n  \"status\": \"complete\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b5d4bd54-5706-4e5e-9771-b7838282aec4",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "task",
-                    ":taskId",
-                    "status"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "taskId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5845,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8c3a91c7-2719-45a5-82eb-37ee40428b20",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "task",
-                    ":taskId",
-                    "status"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "taskId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5845,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "26ec64e4-4f1b-4388-aad3-02b96b0edb59",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "task",
-                    ":taskId",
-                    "status"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "taskId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5845,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "593d4e45-db69-451b-97b6-3e08df4e2649",
+              "createdAt": "2026-10-21T20:37:05.000Z",
+              "updatedAt": "2026-10-21T20:37:05.000Z",
+              "uid": "35240-593d4e45-db69-451b-97b6-3e08df4e2649"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "856fbbe6-ff1e-460f-8b88-4324a2ec1048",
+          "createdAt": "2026-10-21T20:37:05.000Z",
+          "updatedAt": "2026-10-21T20:37:05.000Z",
+          "uid": "35240-856fbbe6-ff1e-460f-8b88-4324a2ec1048"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "146c41a1-387b-4441-b508-c89917a5df72",
+      "createdAt": "2026-10-21T20:37:05.000Z",
+      "updatedAt": "2026-10-21T20:37:05.000Z",
+      "uid": "35240-146c41a1-387b-4441-b508-c89917a5df72"
     }
   ],
   "auth": {
@@ -279,17 +279,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "99956242-2114-456d-b279-bc0bf0f3eb2b",
-    "name": "Learn Rest Api assignments task API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

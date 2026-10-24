@@ -1,62 +1,599 @@
 {
+  "info": {
+    "_postman_id": "30677ed2-1cff-49f2-8b4d-fb57e610bd3d",
+    "name": "Learn Rest Gamification API",
+    "description": "Gamification operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:35:58.000Z",
+    "updatedAt": "2026-10-21T20:35:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-30677ed2-1cff-49f2-8b4d-fb57e610bd3d"
+  },
   "item": [
     {
-      "id": "950b41e7-1aca-4a7c-94f8-01c301e6ba3e",
       "name": "gamification",
-      "description": {
-        "content": "Gamification operations",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "695d07ec-2e23-4650-8d50-8c7d061d2593",
-          "name": "Retrieves a list of users and their gamification points",
-          "request": {
-            "name": "Retrieves a list of users and their gamification points",
-            "description": {},
-            "url": {
-              "path": [
-                "gamification",
-                "points"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "points",
+          "item": [
+            {
+              "name": "award",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "userIds[]",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds[]",
-                  "value": "<uuid>"
+                  "name": "Award points to user",
+                  "id": "b9032e2b-785c-4387-a854-57351f132c68",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gamification/points/award",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gamification",
+                        "points",
+                        "award"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a2d5ccef-014e-43d9-a218-85531cea5439",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/award",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "award"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-a2d5ccef-014e-43d9-a218-85531cea5439"
+                    },
+                    {
+                      "id": "ecd98611-9031-486d-905a-0c46afafe52a",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/award",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "award"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-ecd98611-9031-486d-905a-0c46afafe52a"
+                    },
+                    {
+                      "id": "84641218-a24c-4291-a91d-1e830318c73f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/award",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "award"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-84641218-a24c-4291-a91d-1e830318c73f"
+                    },
+                    {
+                      "id": "33bba386-2a5e-4692-9698-4bf9576d52b2",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/award",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "award"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-33bba386-2a5e-4692-9698-4bf9576d52b2"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:35:58.000Z",
+                  "updatedAt": "2026-10-21T20:35:58.000Z",
+                  "uid": "35240-b9032e2b-785c-4387-a854-57351f132c68"
                 }
               ],
-              "variable": []
+              "id": "d2df374e-daff-4c16-b99f-87b4ca1d369e",
+              "createdAt": "2026-10-21T20:35:58.000Z",
+              "updatedAt": "2026-10-21T20:35:58.000Z",
+              "uid": "35240-d2df374e-daff-4c16-b99f-87b4ca1d369e"
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "fa083486-372c-4734-a1c6-a4bd535d89c7",
-              "name": "Success Response",
-              "originalRequest": {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "Withdraw points from user",
+                  "id": "bc43b379-d971-403f-9dc5-9bc85092725e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gamification/points/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gamification",
+                        "points",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b36aee75-c531-48f5-ad5b-85c960bf1b47",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-b36aee75-c531-48f5-ad5b-85c960bf1b47"
+                    },
+                    {
+                      "id": "4a1387c2-b3d5-45bf-836d-bef2726687c2",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-4a1387c2-b3d5-45bf-836d-bef2726687c2"
+                    },
+                    {
+                      "id": "c37ed072-d61a-463d-b7b3-396c5b3e27aa",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-c37ed072-d61a-463d-b7b3-396c5b3e27aa"
+                    },
+                    {
+                      "id": "2cdcd0b9-5b1a-4e7f-ad24-ec62d98a12c7",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gamification/points/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gamification",
+                            "points",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:58.000Z",
+                      "updatedAt": "2026-10-21T20:35:58.000Z",
+                      "uid": "35240-2cdcd0b9-5b1a-4e7f-ad24-ec62d98a12c7"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:35:58.000Z",
+                  "updatedAt": "2026-10-21T20:35:58.000Z",
+                  "uid": "35240-bc43b379-d971-403f-9dc5-9bc85092725e"
+                }
+              ],
+              "id": "4706630f-69d0-4082-a25c-340dfdd4c326",
+              "createdAt": "2026-10-21T20:35:58.000Z",
+              "updatedAt": "2026-10-21T20:35:58.000Z",
+              "uid": "35240-4706630f-69d0-4082-a25c-340dfdd4c326"
+            },
+            {
+              "name": "Retrieves a list of users and their gamification points",
+              "id": "9d453ff7-62f2-49bb-892e-ee1255fb71aa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/gamification/points?userIds[]=<uuid>&userIds[]=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "gamification",
                     "points"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -67,723 +604,222 @@
                       "key": "userIds[]",
                       "value": "<uuid>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ]
                 }
-              ],
-              "body": "[\n  {\n    \"userId\": \"b0fed30a-fd77-278d-9943-ade7c6f7caee\",\n    \"points\": 3813.370132913908\n  },\n  {\n    \"userId\": \"e2fd031f-52a8-8ad1-97a9-bb21c56fafc9\",\n    \"points\": 9945.532039597616\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9c5d46a5-4be1-427e-bd29-49cc015fae57",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              },
+              "response": [
+                {
+                  "id": "590e421a-e5ff-452c-a48e-923ebaf6ced7",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gamification/points?userIds[]=<uuid>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gamification",
+                        "points"
+                      ],
+                      "query": [
+                        {
+                          "key": "userIds[]",
+                          "value": "<uuid>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"userId\": \"<uuid>\",\n    \"points\": \"<number>\"\n  },\n  {\n    \"userId\": \"<uuid>\",\n    \"points\": \"<number>\"\n  }\n]",
+                  "createdAt": "2026-10-21T20:35:58.000Z",
+                  "updatedAt": "2026-10-21T20:35:58.000Z",
+                  "uid": "35240-590e421a-e5ff-452c-a48e-923ebaf6ced7"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "077d834c-000d-4f1b-98b0-1e3620a3a1d9",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "997f4b86-3435-443b-97bd-a5be4b304b51",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gamification/points?userIds[]=<uuid>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gamification",
+                        "points"
+                      ],
+                      "query": [
+                        {
+                          "key": "userIds[]",
+                          "value": "<uuid>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:58.000Z",
+                  "updatedAt": "2026-10-21T20:35:58.000Z",
+                  "uid": "35240-997f4b86-3435-443b-97bd-a5be4b304b51"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "598afb6e-4f64-4c32-b09c-3a6d2646004e",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "0c224c5a-65c5-4aae-9da2-067e58176047",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gamification/points?userIds[]=<uuid>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gamification",
+                        "points"
+                      ],
+                      "query": [
+                        {
+                          "key": "userIds[]",
+                          "value": "<uuid>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:58.000Z",
+                  "updatedAt": "2026-10-21T20:35:58.000Z",
+                  "uid": "35240-0c224c5a-65c5-4aae-9da2-067e58176047"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "8bce02bc-333a-44c6-ad55-317aee8c6e6d",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gamification/points?userIds[]=<uuid>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gamification",
+                        "points"
+                      ],
+                      "query": [
+                        {
+                          "key": "userIds[]",
+                          "value": "<uuid>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:58.000Z",
+                  "updatedAt": "2026-10-21T20:35:58.000Z",
+                  "uid": "35240-8bce02bc-333a-44c6-ad55-317aee8c6e6d"
                 }
               ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:35:58.000Z",
+              "updatedAt": "2026-10-21T20:35:58.000Z",
+              "uid": "35240-9d453ff7-62f2-49bb-892e-ee1255fb71aa"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c493faf4-69d2-4440-8e6d-421fb17b9603",
-          "name": "Award points to user",
-          "request": {
-            "name": "Award points to user",
-            "description": {},
-            "url": {
-              "path": [
-                "gamification",
-                "points",
-                "award"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "2772cda4-601f-4b5b-b77d-72675daa0e7c",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "award"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5633ac1e-812a-429c-b71f-ec73fd301fda",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "award"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "43061559-5d28-460a-827b-f33f31fea1ea",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "award"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "14c0dedb-6dcd-46ea-8711-be5b9157ec69",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "award"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "44829735-db6b-46e8-ae0b-cb0bb168fd40",
-          "name": "Withdraw points from user",
-          "request": {
-            "name": "Withdraw points from user",
-            "description": {},
-            "url": {
-              "path": [
-                "gamification",
-                "points",
-                "withdraw"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "63ce1fb9-1946-4f7f-b52b-8ec3806c2db6",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "withdraw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "9dbe3b15-d8f3-4912-8148-2b9ce4929180",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "withdraw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2a904756-ae9a-4a5a-8fbc-b2c256bc652f",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "withdraw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "11f5e017-a68d-4324-9069-4e6442b58c5f",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "gamification",
-                    "points",
-                    "withdraw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userId\": \"<uuid>\",\n  \"amount\": \"<number>\",\n  \"reason\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6798,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "35f51689-35ff-40d3-b187-b30ccdf000e6",
+          "createdAt": "2026-10-21T20:35:58.000Z",
+          "updatedAt": "2026-10-21T20:35:58.000Z",
+          "uid": "35240-35f51689-35ff-40d3-b187-b30ccdf000e6"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "60edc26c-5249-437c-9d16-5a76a3ac7f3b",
+      "createdAt": "2026-10-21T20:35:58.000Z",
+      "updatedAt": "2026-10-21T20:35:58.000Z",
+      "uid": "35240-60edc26c-5249-437c-9d16-5a76a3ac7f3b"
     }
   ],
   "auth": {
@@ -791,17 +827,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a4ea046b-a4e6-4da9-80ab-023af107fd5e",
-    "name": "Learn Rest Api assignments gamification API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

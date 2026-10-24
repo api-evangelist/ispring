@@ -1,259 +1,270 @@
 {
+  "info": {
+    "_postman_id": "9157feac-f9cf-45a1-a719-90147e493f71",
+    "name": "Learn Rest Learning Track API",
+    "description": "Learning track operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:36:14.000Z",
+    "updatedAt": "2026-10-21T20:36:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9157feac-f9cf-45a1-a719-90147e493f71"
+  },
   "item": [
     {
-      "id": "70aed5cc-5157-411b-8653-c621aaf7d42c",
       "name": "learning_track",
-      "description": {
-        "content": "Learning track operations",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "0ad8fc10-302d-4dec-ae51-0a70363e4624",
-          "name": "Retrieves a list of courses included in the trajectories",
-          "request": {
-            "name": "Retrieves a list of courses included in the trajectories",
-            "description": {},
-            "url": {
-              "path": [
-                "learning_track",
-                "courses"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "learningTrackIds",
-                  "value": "<string>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "courses",
+          "item": [
             {
-              "id": "6347dca8-da20-44f4-bda2-43ed29298f94",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learning_track",
-                    "courses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "learningTrackIds",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "Retrieves a list of courses included in the trajectories",
+              "id": "e05575ba-e521-4aa5-8d0b-1355394bf903",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"learningTrackId\": \"5b37d04c-bba0-b8e9-3fcb-4766e94a1309\",\n    \"courseId\": \"2a026856-a989-e849-fdae-4c9f3106dae2\"\n  },\n  {\n    \"learningTrackId\": \"7498edec-34a3-d44a-79a3-1afa6bc0c867\",\n    \"courseId\": \"270c196f-997e-2622-1271-120e3228acca\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3113b401-2128-4dea-b08b-cbfff4444949",
-              "name": "Bad Request",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/learning_track/courses?learningTrackIds=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "learning_track",
                     "courses"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "learningTrackIds",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ]
                 }
-              ],
-              "body": "{\n  \"code\": 5911,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fa70355a-85bb-4d4a-9fd1-7a0321ec8ffb",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learning_track",
-                    "courses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              },
+              "response": [
+                {
+                  "id": "8c44ddf6-e8e2-472b-8960-d11d0441b3f2",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learning_track/courses?learningTrackIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learning_track",
+                        "courses"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "learningTrackIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "learningTrackIds",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"learningTrackId\": \"<uuid>\",\n    \"courseId\": \"<uuid>\"\n  },\n  {\n    \"learningTrackId\": \"<uuid>\",\n    \"courseId\": \"<uuid>\"\n  }\n]",
+                  "createdAt": "2026-10-21T20:36:14.000Z",
+                  "updatedAt": "2026-10-21T20:36:14.000Z",
+                  "uid": "35240-8c44ddf6-e8e2-472b-8960-d11d0441b3f2"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5911,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0f33d30d-a6ea-4880-8b6b-a9a61ef40085",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learning_track",
-                    "courses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "beffd55c-7bff-4251-abf2-831520f24fa9",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learning_track/courses?learningTrackIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learning_track",
+                        "courses"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "learningTrackIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "learningTrackIds",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:14.000Z",
+                  "updatedAt": "2026-10-21T20:36:14.000Z",
+                  "uid": "35240-beffd55c-7bff-4251-abf2-831520f24fa9"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "86035346-bae1-4aa1-a309-11ea9db728ec",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learning_track/courses?learningTrackIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learning_track",
+                        "courses"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "learningTrackIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:14.000Z",
+                  "updatedAt": "2026-10-21T20:36:14.000Z",
+                  "uid": "35240-86035346-bae1-4aa1-a309-11ea9db728ec"
+                },
+                {
+                  "id": "916a837c-8bb2-4cb9-9e54-c8854d8acdec",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learning_track/courses?learningTrackIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learning_track",
+                        "courses"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "learningTrackIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:14.000Z",
+                  "updatedAt": "2026-10-21T20:36:14.000Z",
+                  "uid": "35240-916a837c-8bb2-4cb9-9e54-c8854d8acdec"
                 }
               ],
-              "body": "{\n  \"code\": 5911,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:36:14.000Z",
+              "updatedAt": "2026-10-21T20:36:14.000Z",
+              "uid": "35240-e05575ba-e521-4aa5-8d0b-1355394bf903"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "80e44fc4-2a8d-46bf-b3a0-edf111e3156a",
+          "createdAt": "2026-10-21T20:36:14.000Z",
+          "updatedAt": "2026-10-21T20:36:14.000Z",
+          "uid": "35240-80e44fc4-2a8d-46bf-b3a0-edf111e3156a"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "f77d0c79-e63a-499f-b787-ff58060b7924",
+      "createdAt": "2026-10-21T20:36:14.000Z",
+      "updatedAt": "2026-10-21T20:36:14.000Z",
+      "uid": "35240-f77d0c79-e63a-499f-b787-ff58060b7924"
     }
   ],
   "auth": {
@@ -261,17 +272,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "8d0c65b6-a99f-4b53-b22c-6f03566ad066",
-    "name": "Learn Rest Api assignments learning_track API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

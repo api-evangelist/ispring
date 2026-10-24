@@ -1,379 +1,304 @@
 {
+  "info": {
+    "_postman_id": "8079bb19-864c-481b-919b-432f42a1d789",
+    "name": "Learn Rest Report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:36:29.000Z",
+    "updatedAt": "2026-10-21T20:36:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8079bb19-864c-481b-919b-432f42a1d789"
+  },
   "item": [
     {
-      "id": "6a13e358-6800-432a-8a3b-bb6b1947baee",
       "name": "report",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "e32cb90b-6047-4a00-928f-caaf0fec29a7",
-          "name": "Get active users",
-          "request": {
-            "name": "Get active users",
-            "description": {},
-            "url": {
-              "path": [
-                "report",
-                "active-users-by-period"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "activityDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "activityDate[endDate]",
-                  "value": "<dateTime>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "active-users-by-period",
+          "item": [
             {
-              "id": "d3c7a498-66dc-4696-a310-d08d6ee37e4c",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "report",
-                    "active-users-by-period"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "activityDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "activityDate[endDate]",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "Get active users",
+              "id": "4414b1f4-2a9c-468c-ac85-ec9e130f147a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  \"30f97509-5ca7-9a73-be5c-75df9b8ead58\",\n  \"a53c39c3-aa69-85e3-2720-db03d4e5db65\"\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "55623a47-fab7-4b32-a486-ab42355dfad3",
-              "name": "Bad Request",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/report/active-users-by-period?activityDate[startDate]=<string>&activityDate[endDate]=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "report",
                     "active-users-by-period"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
                       "key": "activityDate[startDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
                     },
                     {
                       "key": "activityDate[endDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "4d87c3d4-2eb4-4648-a819-1cb364dd7b1f",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/active-users-by-period?activityDate[startDate]=<string>&activityDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "active-users-by-period"
+                      ],
+                      "query": [
+                        {
+                          "key": "activityDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "activityDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-4d87c3d4-2eb4-4648-a819-1cb364dd7b1f"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d4f5e644-1ef1-4911-b363-c4bd4969db23",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "report",
-                    "active-users-by-period"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "6cc6e3d2-cd84-4811-8929-83636fdcea30",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/active-users-by-period?activityDate[startDate]=<string>&activityDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "active-users-by-period"
+                      ],
+                      "query": [
+                        {
+                          "key": "activityDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "activityDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "activityDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "activityDate[endDate]",
-                      "value": "<dateTime>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-6cc6e3d2-cd84-4811-8929-83636fdcea30"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b07c2575-6191-4b29-9ce0-049df05470c8",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "report",
-                    "active-users-by-period"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "ef50c270-f982-4da0-86b3-360a52f34106",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/active-users-by-period?activityDate[startDate]=<string>&activityDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "active-users-by-period"
+                      ],
+                      "query": [
+                        {
+                          "key": "activityDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "activityDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "activityDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "activityDate[endDate]",
-                      "value": "<dateTime>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-ef50c270-f982-4da0-86b3-360a52f34106"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "9adb0833-0508-41cc-b1fc-80792747a63b",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/active-users-by-period?activityDate[startDate]=<string>&activityDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "active-users-by-period"
+                      ],
+                      "query": [
+                        {
+                          "key": "activityDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "activityDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-9adb0833-0508-41cc-b1fc-80792747a63b"
                 }
               ],
-              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:36:30.000Z",
+              "updatedAt": "2026-10-21T20:36:30.000Z",
+              "uid": "35240-4414b1f4-2a9c-468c-ac85-ec9e130f147a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "07a9adb1-491e-444c-8e38-7a5acc44ad4a",
+          "createdAt": "2026-10-21T20:36:30.000Z",
+          "updatedAt": "2026-10-21T20:36:30.000Z",
+          "uid": "35240-07a9adb1-491e-444c-8e38-7a5acc44ad4a"
         },
         {
-          "id": "1502cd2a-27dd-43ca-a70f-467e7ee0e3e3",
-          "name": "Retrieves a paginated list of answers results for answer breakdown report",
-          "request": {
-            "name": "Retrieves a paginated list of answers results for answer breakdown report",
-            "description": {},
-            "url": {
-              "path": [
-                "report",
-                "answer-breakdown"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageToken",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "quizId",
-                  "value": "<uuid>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "parentCourseId",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "enrollmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "enrollmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "departmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "departmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "groupIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "groupIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "attemptDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "attemptDate[endDate]",
-                  "value": "<dateTime>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "answer-breakdown",
+          "item": [
             {
-              "id": "a23c1f67-e4aa-46a1-af26-eb9fcf77c1d5",
-              "name": "Success Response",
-              "originalRequest": {
+              "name": "Retrieves a paginated list of answers results for answer breakdown report",
+              "id": "9dd8bc4b-b681-44e5-af8c-a4ea653523a5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/report/answer-breakdown?pageSize=<integer>&pageToken=<string>&quizId=<uuid>&parentCourseId=<uuid>&userIds=<uuid>&userIds=<uuid>&enrollmentIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&departmentIds=<uuid>&groupIds=<uuid>&groupIds=<uuid>&attemptDate[startDate]=<string>&attemptDate[endDate]=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "report",
                     "answer-breakdown"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -385,6 +310,7 @@
                       "value": "<string>"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "quizId",
                       "value": "<uuid>"
                     },
@@ -426,363 +352,376 @@
                     },
                     {
                       "key": "attemptDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "attemptDate[endDate]",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"results\": [\n    {\n      \"userId\": \"a366011c-ae69-5835-39de-36eab40f9a78\",\n      \"enrollmentId\": \"993e0f4c-3b5a-e1ad-af0f-70265d4033a6\",\n      \"quizVersion\": \"string\",\n      \"attemptDate\": \"string\",\n      \"isAttemptPassed\": true,\n      \"attemptScore\": 7452.227899796782,\n      \"passingScore\": 9315.552683929376,\n      \"questionNumber\": 306,\n      \"questionTitle\": \"string\",\n      \"questionType\": \"string\",\n      \"questionScore\": 7972.8662880055335,\n      \"answerText\": \"string\",\n      \"isAnswerCorrect\": true,\n      \"answerScore\": 3972.1852981874663,\n      \"questionGroup\": \"string\",\n      \"statementTitle\": \"string\",\n      \"customAnswerText\": \"string\"\n    },\n    {\n      \"userId\": \"19352aec-4d34-d8da-37a2-4c9948a3d261\",\n      \"enrollmentId\": \"82579b23-815e-6e13-f57e-cc560c0489e3\",\n      \"quizVersion\": \"string\",\n      \"attemptDate\": \"string\",\n      \"isAttemptPassed\": true,\n      \"attemptScore\": 8700.151089722898,\n      \"passingScore\": 1171.7801859916044,\n      \"questionNumber\": 3844,\n      \"questionTitle\": \"string\",\n      \"questionType\": \"string\",\n      \"questionScore\": 2201.448155720669,\n      \"answerText\": \"string\",\n      \"isAnswerCorrect\": true,\n      \"answerScore\": 6033.177587023286,\n      \"questionGroup\": \"string\",\n      \"statementTitle\": \"string\",\n      \"customAnswerText\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "68086b72-cb2f-44e5-8cc9-fab8f5396d81",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "report",
-                    "answer-breakdown"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
                       "value": "<string>"
                     },
                     {
-                      "key": "quizId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "parentCourseId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "groupIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "groupIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "attemptDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
                       "key": "attemptDate[endDate]",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "884b94ea-1954-4de2-9de0-8f0bb97ec521",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "report",
-                    "answer-breakdown"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
                       "value": "<string>"
-                    },
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6b0b8f59-1e73-46b9-8dc7-ac8f5a8db3c8",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/answer-breakdown?pageSize=<integer>&pageToken=<string>&quizId=<uuid>&parentCourseId=<uuid>&userIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&groupIds=<uuid>&attemptDate[startDate]=<string>&attemptDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "answer-breakdown"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "quizId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "parentCourseId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "groupIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "attemptDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "attemptDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "quizId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "parentCourseId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "groupIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "groupIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "attemptDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "attemptDate[endDate]",
-                      "value": "<dateTime>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"results\": [\n    {\n      \"userId\": \"<uuid>\",\n      \"enrollmentId\": \"<uuid>\",\n      \"quizVersion\": \"<string>\",\n      \"attemptDate\": \"<string>\",\n      \"isAttemptPassed\": \"<boolean>\",\n      \"attemptScore\": \"<float>\",\n      \"passingScore\": \"<float>\",\n      \"questionNumber\": \"<integer>\",\n      \"questionTitle\": \"<string>\",\n      \"questionType\": \"<string>\",\n      \"questionScore\": \"<float>\",\n      \"answerText\": \"<string>\",\n      \"isAnswerCorrect\": \"<boolean>\",\n      \"answerScore\": \"<float>\",\n      \"questionGroup\": \"<string>\",\n      \"statementTitle\": \"<string>\",\n      \"customAnswerText\": \"<string>\"\n    },\n    {\n      \"userId\": \"<uuid>\",\n      \"enrollmentId\": \"<uuid>\",\n      \"quizVersion\": \"<string>\",\n      \"attemptDate\": \"<string>\",\n      \"isAttemptPassed\": \"<boolean>\",\n      \"attemptScore\": \"<float>\",\n      \"passingScore\": \"<float>\",\n      \"questionNumber\": \"<integer>\",\n      \"questionTitle\": \"<string>\",\n      \"questionType\": \"<string>\",\n      \"questionScore\": \"<float>\",\n      \"answerText\": \"<string>\",\n      \"isAnswerCorrect\": \"<boolean>\",\n      \"answerScore\": \"<float>\",\n      \"questionGroup\": \"<string>\",\n      \"statementTitle\": \"<string>\",\n      \"customAnswerText\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-6b0b8f59-1e73-46b9-8dc7-ac8f5a8db3c8"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "63d1bdad-2bf2-4970-bb61-0be738a95e61",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "report",
-                    "answer-breakdown"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "b8c444e6-7e60-4e09-a425-0d8d96c4d98a",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/answer-breakdown?pageSize=<integer>&pageToken=<string>&quizId=<uuid>&parentCourseId=<uuid>&userIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&groupIds=<uuid>&attemptDate[startDate]=<string>&attemptDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "answer-breakdown"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "quizId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "parentCourseId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "groupIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "attemptDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "attemptDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "quizId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "parentCourseId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "groupIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "groupIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "attemptDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "attemptDate[endDate]",
-                      "value": "<dateTime>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-b8c444e6-7e60-4e09-a425-0d8d96c4d98a"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "c1c0e56e-2914-4ad2-a433-e3ea705afa40",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/answer-breakdown?pageSize=<integer>&pageToken=<string>&quizId=<uuid>&parentCourseId=<uuid>&userIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&groupIds=<uuid>&attemptDate[startDate]=<string>&attemptDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "answer-breakdown"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "quizId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "parentCourseId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "groupIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "attemptDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "attemptDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-c1c0e56e-2914-4ad2-a433-e3ea705afa40"
+                },
+                {
+                  "id": "7eb04012-bce8-4ccd-b0b2-e0c87be2254c",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/report/answer-breakdown?pageSize=<integer>&pageToken=<string>&quizId=<uuid>&parentCourseId=<uuid>&userIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&groupIds=<uuid>&attemptDate[startDate]=<string>&attemptDate[endDate]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "report",
+                        "answer-breakdown"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "quizId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "parentCourseId",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "groupIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "attemptDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "attemptDate[endDate]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:30.000Z",
+                  "updatedAt": "2026-10-21T20:36:30.000Z",
+                  "uid": "35240-7eb04012-bce8-4ccd-b0b2-e0c87be2254c"
                 }
               ],
-              "body": "{\n  \"code\": 5940,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:36:30.000Z",
+              "updatedAt": "2026-10-21T20:36:30.000Z",
+              "uid": "35240-9dd8bc4b-b681-44e5-af8c-a4ea653523a5"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "1857bf40-056e-4009-8fc1-acdb6cdec0a6",
+          "createdAt": "2026-10-21T20:36:30.000Z",
+          "updatedAt": "2026-10-21T20:36:30.000Z",
+          "uid": "35240-1857bf40-056e-4009-8fc1-acdb6cdec0a6"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "5805b432-d46c-4d5c-9022-385e15b13d5e",
+      "createdAt": "2026-10-21T20:36:30.000Z",
+      "updatedAt": "2026-10-21T20:36:30.000Z",
+      "uid": "35240-5805b432-d46c-4d5c-9022-385e15b13d5e"
     }
   ],
   "auth": {
@@ -790,17 +729,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "210df622-2b9c-47bd-acca-815783a2872b",
-    "name": "Learn Rest Api assignments report API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

@@ -1,856 +1,889 @@
 {
+  "info": {
+    "_postman_id": "d7d1d55f-f1f8-44cf-b048-955f272de7f4",
+    "name": "Learn Rest Assignments API",
+    "description": "Assignment operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:35:21.000Z",
+    "updatedAt": "2026-10-21T20:35:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d7d1d55f-f1f8-44cf-b048-955f272de7f4"
+  },
   "item": [
     {
-      "id": "5c984e8d-d2a0-4008-ab81-d29826fbef53",
       "name": "assignments",
-      "description": {
-        "content": "Assignment operations",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "99fa17df-2785-4ebb-a1f6-14cc2f542205",
-          "name": "List assignments",
-          "request": {
-            "name": "List assignments",
-            "description": {},
-            "url": {
-              "path": [
-                "assignments"
+          "name": "attempts",
+          "item": [
+            {
+              "name": "grade",
+              "item": [
+                {
+                  "name": "Grade user assignment attempts",
+                  "id": "ab43a59a-11f3-48d1-9629-bd6ee7e60180",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assignments/attempts/grade",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assignments",
+                        "attempts",
+                        "grade"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6bf7a256-e360-495c-8f39-8cc8711e53ad",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assignments/attempts/grade",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assignments",
+                            "attempts",
+                            "grade"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:35:21.000Z",
+                      "updatedAt": "2026-10-21T20:35:21.000Z",
+                      "uid": "35240-6bf7a256-e360-495c-8f39-8cc8711e53ad"
+                    },
+                    {
+                      "id": "3de0847c-11d2-4e50-8a40-acf66aebf47a",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assignments/attempts/grade",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assignments",
+                            "attempts",
+                            "grade"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:21.000Z",
+                      "updatedAt": "2026-10-21T20:35:21.000Z",
+                      "uid": "35240-3de0847c-11d2-4e50-8a40-acf66aebf47a"
+                    },
+                    {
+                      "id": "f1b0b0cb-e9b3-44e5-a036-cde7a1eb3d41",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assignments/attempts/grade",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assignments",
+                            "attempts",
+                            "grade"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:21.000Z",
+                      "updatedAt": "2026-10-21T20:35:21.000Z",
+                      "uid": "35240-f1b0b0cb-e9b3-44e5-a036-cde7a1eb3d41"
+                    },
+                    {
+                      "id": "669a54b5-c835-4061-8ff2-d9c9b9201e53",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assignments/attempts/grade",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assignments",
+                            "attempts",
+                            "grade"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:21.000Z",
+                      "updatedAt": "2026-10-21T20:35:21.000Z",
+                      "uid": "35240-669a54b5-c835-4061-8ff2-d9c9b9201e53"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:35:21.000Z",
+                  "updatedAt": "2026-10-21T20:35:21.000Z",
+                  "uid": "35240-ab43a59a-11f3-48d1-9629-bd6ee7e60180"
+                }
               ],
+              "id": "72984164-315e-4e50-8024-608ab1800962",
+              "createdAt": "2026-10-21T20:35:21.000Z",
+              "updatedAt": "2026-10-21T20:35:21.000Z",
+              "uid": "35240-72984164-315e-4e50-8024-608ab1800962"
+            }
+          ],
+          "id": "b14d9767-c87a-4feb-8f12-e4a3fd90dbc0",
+          "createdAt": "2026-10-21T20:35:21.000Z",
+          "updatedAt": "2026-10-21T20:35:21.000Z",
+          "uid": "35240-b14d9767-c87a-4feb-8f12-e4a3fd90dbc0"
+        },
+        {
+          "name": "List assignments",
+          "id": "0b2da830-57f3-454e-a2ac-8bb44f023ed1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/assignments?pageSize=<integer>&pageToken=<string>&ungraded=1",
               "host": [
                 "{{baseUrl}}"
               ],
+              "path": [
+                "assignments"
+              ],
               "query": [
                 {
-                  "disabled": false,
                   "key": "pageSize",
                   "value": "<integer>"
                 },
                 {
-                  "disabled": false,
                   "key": "pageToken",
                   "value": "<string>"
                 },
                 {
-                  "disabled": false,
                   "key": "ungraded",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fabbb00a-6f6f-4ee8-81d9-03065b9dcf8b",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ungraded",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"assignments\": [\n    {\n      \"assignmentId\": \"6f760411-9b24-7ac5-5b1a-ba9a97fc884a\",\n      \"title\": \"string\",\n      \"instructorId\": \"b3b47606-b0c6-0219-1ccb-f3aaa5e0ebf2\",\n      \"courseFields\": [\n        {\n          \"fieldId\": \"93364f6f-646d-1f56-ef39-f5b2fb97cb82\",\n          \"fieldValue\": \"string\"\n        },\n        {\n          \"fieldId\": \"23622cc3-ee35-761b-cbf4-f03c6229169c\",\n          \"fieldValue\": \"string\"\n        }\n      ]\n    },\n    {\n      \"assignmentId\": \"a42c40a2-a5c6-3e91-66bc-c6893f1219ab\",\n      \"title\": \"string\",\n      \"instructorId\": \"ceaa52f1-3ffd-f346-cf7e-edb193fc5189\",\n      \"courseFields\": [\n        {\n          \"fieldId\": \"1f4f0517-a7b6-81c2-8ffc-51f032a90025\",\n          \"fieldValue\": \"string\"\n        },\n        {\n          \"fieldId\": \"653e2f45-7a27-1b90-df38-d24223508bf3\",\n          \"fieldValue\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e8b6995f-53bd-4489-a5d1-317ba31bd543",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ungraded",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0d9a124f-df90-403f-8e69-218665b3ebc0",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ungraded",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e111490b-d37e-472f-95c5-5b0f8c25c272",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ungraded",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b6e6cb3d-708f-4898-b699-f1f0c78f2727",
-          "name": "Retrieves a list of ungraded attempts for an assignment",
-          "request": {
-            "name": "Retrieves a list of ungraded attempts for an assignment",
-            "description": {},
-            "url": {
-              "path": [
-                "assignment",
-                ":assignmentId",
-                "attempts",
-                "ungraded"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "userIds[]",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds[]",
-                  "value": "<uuid>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "assignmentId",
-                  "description": "(Required) "
+                  "value": "1"
                 }
               ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "16e1dcbe-88ee-4925-a0d9-17165712382b",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignment",
-                    ":assignmentId",
-                    "attempts",
-                    "ungraded"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "assignmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"attemptId\": \"6486f6b3-bcad-c87c-c871-a96564f1a127\",\n    \"enrollmentId\": \"7326400a-57da-760a-dcb2-51be17fcc80c\",\n    \"userId\": \"9f5e1175-4474-845f-407c-c3d3d4bbeb75\",\n    \"comment\": \"string\",\n    \"attachments\": [\n      {\n        \"fileName\": \"string\",\n        \"fileSize\": 762,\n        \"url\": \"string\"\n      },\n      {\n        \"fileName\": \"string\",\n        \"fileSize\": 2022,\n        \"url\": \"string\"\n      }\n    ]\n  },\n  {\n    \"attemptId\": \"3c59ebd8-14e5-92e4-ffee-08ed1c381e61\",\n    \"enrollmentId\": \"fc8fcb0a-7278-bb4e-4880-f6cdd5d11495\",\n    \"userId\": \"e5940456-d6ac-720a-f795-842d52d0b6f4\",\n    \"comment\": \"string\",\n    \"attachments\": [\n      {\n        \"fileName\": \"string\",\n        \"fileSize\": 8436,\n        \"url\": \"string\"\n      },\n      {\n        \"fileName\": \"string\",\n        \"fileSize\": 1040,\n        \"url\": \"string\"\n      }\n    ]\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c862f121-ccdd-4b14-934a-d174df4e53b5",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignment",
-                    ":assignmentId",
-                    "attempts",
-                    "ungraded"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "assignmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2a294133-dc51-4972-8a5a-2877faf4b8ea",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignment",
-                    ":assignmentId",
-                    "attempts",
-                    "ungraded"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "assignmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8371f167-eba6-42b1-83f2-eb6b9fa7cbdf",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignment",
-                    ":assignmentId",
-                    "attempts",
-                    "ungraded"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds[]",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "assignmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "307d35c8-440f-4853-9a40-47ff54686a41",
-          "name": "Grade user assignment attempts",
-          "request": {
-            "name": "Grade user assignment attempts",
-            "description": {},
-            "url": {
-              "path": [
-                "assignments",
-                "attempts",
-                "grade"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
           },
           "response": [
             {
-              "id": "787bc83d-ac6a-4ba3-8455-305660159669",
+              "id": "407dd590-b06a-4d3d-a4c4-7a430e21783d",
               "name": "Success Response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments",
-                    "attempts",
-                    "grade"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                "url": {
+                  "raw": "{{baseUrl}}/assignments?pageSize=<integer>&pageToken=<string>&ungraded=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assignments"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ungraded",
+                      "value": "1"
                     }
-                  }
+                  ]
                 }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "text/plain"
+                  "value": "application/json"
                 }
               ],
-              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": "{\n  \"assignments\": [\n    {\n      \"assignmentId\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"instructorId\": \"<uuid>\",\n      \"courseFields\": [\n        {\n          \"fieldId\": \"<uuid>\",\n          \"fieldValue\": \"<string>\"\n        },\n        {\n          \"fieldId\": \"<uuid>\",\n          \"fieldValue\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"assignmentId\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"instructorId\": \"<uuid>\",\n      \"courseFields\": [\n        {\n          \"fieldId\": \"<uuid>\",\n          \"fieldValue\": \"<string>\"\n        },\n        {\n          \"fieldId\": \"<uuid>\",\n          \"fieldValue\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:21.000Z",
+              "updatedAt": "2026-10-21T20:35:21.000Z",
+              "uid": "35240-407dd590-b06a-4d3d-a4c4-7a430e21783d"
             },
             {
-              "id": "71b73c98-8f8b-4c49-9e16-f50421bd4e69",
+              "id": "bc69a40c-25f4-4e08-9004-707f1d6e6686",
               "name": "Bad Request",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments",
-                    "attempts",
-                    "grade"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                "url": {
+                  "raw": "{{baseUrl}}/assignments?pageSize=<integer>&pageToken=<string>&ungraded=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assignments"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ungraded",
+                      "value": "1"
                     }
-                  }
+                  ]
                 }
               },
               "status": "Bad Request",
               "code": 400,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:21.000Z",
+              "updatedAt": "2026-10-21T20:35:21.000Z",
+              "uid": "35240-bc69a40c-25f4-4e08-9004-707f1d6e6686"
             },
             {
-              "id": "7e8518db-4ce9-4ab2-ae1d-6c3f71050696",
+              "id": "4102c762-cbe7-4d1d-aa1e-025733717e01",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments",
-                    "attempts",
-                    "grade"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                "url": {
+                  "raw": "{{baseUrl}}/assignments?pageSize=<integer>&pageToken=<string>&ungraded=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assignments"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ungraded",
+                      "value": "1"
                     }
-                  }
+                  ]
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:21.000Z",
+              "updatedAt": "2026-10-21T20:35:21.000Z",
+              "uid": "35240-4102c762-cbe7-4d1d-aa1e-025733717e01"
             },
             {
-              "id": "aa916937-b756-43a6-adf7-0a10acf7f517",
+              "id": "c67844ed-ce06-4ebb-9653-081df0344245",
               "name": "Permission Denied",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "assignments",
-                    "attempts",
-                    "grade"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assignmentAttemptGrades\": [\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    },\n    {\n      \"attemptId\": \"<uuid>\",\n      \"score\": \"<number>\",\n      \"comment\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                "url": {
+                  "raw": "{{baseUrl}}/assignments?pageSize=<integer>&pageToken=<string>&ungraded=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assignments"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ungraded",
+                      "value": "1"
                     }
-                  }
+                  ]
                 }
               },
               "status": "Forbidden",
               "code": 403,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 3256,\n  \"message\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:21.000Z",
+              "updatedAt": "2026-10-21T20:35:21.000Z",
+              "uid": "35240-c67844ed-ce06-4ebb-9653-081df0344245"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T20:35:21.000Z",
+          "updatedAt": "2026-10-21T20:35:21.000Z",
+          "uid": "35240-0b2da830-57f3-454e-a2ac-8bb44f023ed1"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
+      "id": "c25c8600-0404-4590-8843-3e708086fb06",
+      "createdAt": "2026-10-21T20:35:21.000Z",
+      "updatedAt": "2026-10-21T20:35:21.000Z",
+      "uid": "35240-c25c8600-0404-4590-8843-3e708086fb06"
+    },
     {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "name": "assignment",
+      "item": [
+        {
+          "name": "{assignmentId}",
+          "item": [
+            {
+              "name": "attempts",
+              "item": [
+                {
+                  "name": "ungraded",
+                  "item": [
+                    {
+                      "name": "Retrieves a list of ungraded attempts for an assignment",
+                      "id": "96ad882f-5e6a-47de-afb8-d0fc0212dd3a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assignment/:assignmentId/attempts/ungraded?userIds[]=<uuid>&userIds[]=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assignment",
+                            ":assignmentId",
+                            "attempts",
+                            "ungraded"
+                          ],
+                          "query": [
+                            {
+                              "key": "userIds[]",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "userIds[]",
+                              "value": "<uuid>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "6e30bb26-341c-4955-8131-32685e37ce2f",
+                              "key": "assignmentId",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "598a8735-bf2c-490a-a3a9-3e80621cdffb",
+                          "name": "Success Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/assignment/:assignmentId/attempts/ungraded?userIds[]=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "assignment",
+                                ":assignmentId",
+                                "attempts",
+                                "ungraded"
+                              ],
+                              "query": [
+                                {
+                                  "key": "userIds[]",
+                                  "value": "<uuid>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "assignmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"attemptId\": \"<uuid>\",\n    \"enrollmentId\": \"<uuid>\",\n    \"userId\": \"<uuid>\",\n    \"comment\": \"<string>\",\n    \"attachments\": [\n      {\n        \"fileName\": \"<string>\",\n        \"fileSize\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"fileName\": \"<string>\",\n        \"fileSize\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"attemptId\": \"<uuid>\",\n    \"enrollmentId\": \"<uuid>\",\n    \"userId\": \"<uuid>\",\n    \"comment\": \"<string>\",\n    \"attachments\": [\n      {\n        \"fileName\": \"<string>\",\n        \"fileSize\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"fileName\": \"<string>\",\n        \"fileSize\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    ]\n  }\n]",
+                          "createdAt": "2026-10-21T20:35:21.000Z",
+                          "updatedAt": "2026-10-21T20:35:21.000Z",
+                          "uid": "35240-598a8735-bf2c-490a-a3a9-3e80621cdffb"
+                        },
+                        {
+                          "id": "2496f43b-94ce-43e8-8050-de7553a6962a",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/assignment/:assignmentId/attempts/ungraded?userIds[]=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "assignment",
+                                ":assignmentId",
+                                "attempts",
+                                "ungraded"
+                              ],
+                              "query": [
+                                {
+                                  "key": "userIds[]",
+                                  "value": "<uuid>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "assignmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:21.000Z",
+                          "updatedAt": "2026-10-21T20:35:21.000Z",
+                          "uid": "35240-2496f43b-94ce-43e8-8050-de7553a6962a"
+                        },
+                        {
+                          "id": "be48778c-a4d2-4d0e-acdf-46a6209f73c2",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/assignment/:assignmentId/attempts/ungraded?userIds[]=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "assignment",
+                                ":assignmentId",
+                                "attempts",
+                                "ungraded"
+                              ],
+                              "query": [
+                                {
+                                  "key": "userIds[]",
+                                  "value": "<uuid>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "assignmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:21.000Z",
+                          "updatedAt": "2026-10-21T20:35:21.000Z",
+                          "uid": "35240-be48778c-a4d2-4d0e-acdf-46a6209f73c2"
+                        },
+                        {
+                          "id": "2c743b6b-4dea-49b5-87da-72715f2f7d47",
+                          "name": "Permission Denied",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/assignment/:assignmentId/attempts/ungraded?userIds[]=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "assignment",
+                                ":assignmentId",
+                                "attempts",
+                                "ungraded"
+                              ],
+                              "query": [
+                                {
+                                  "key": "userIds[]",
+                                  "value": "<uuid>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "assignmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:21.000Z",
+                          "updatedAt": "2026-10-21T20:35:21.000Z",
+                          "uid": "35240-2c743b6b-4dea-49b5-87da-72715f2f7d47"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:35:21.000Z",
+                      "updatedAt": "2026-10-21T20:35:21.000Z",
+                      "uid": "35240-96ad882f-5e6a-47de-afb8-d0fc0212dd3a"
+                    }
+                  ],
+                  "id": "af0cf498-a0ab-43f4-a7cb-bbc0bf0a0fb1",
+                  "createdAt": "2026-10-21T20:35:21.000Z",
+                  "updatedAt": "2026-10-21T20:35:21.000Z",
+                  "uid": "35240-af0cf498-a0ab-43f4-a7cb-bbc0bf0a0fb1"
+                }
+              ],
+              "id": "fb7774d4-7a2d-4df6-8293-f762f6437b0f",
+              "createdAt": "2026-10-21T20:35:21.000Z",
+              "updatedAt": "2026-10-21T20:35:21.000Z",
+              "uid": "35240-fb7774d4-7a2d-4df6-8293-f762f6437b0f"
+            }
+          ],
+          "id": "5f41a3f5-9a4e-4cdd-bb68-159c69890ad9",
+          "createdAt": "2026-10-21T20:35:21.000Z",
+          "updatedAt": "2026-10-21T20:35:21.000Z",
+          "uid": "35240-5f41a3f5-9a4e-4cdd-bb68-159c69890ad9"
+        }
+      ],
+      "id": "e5e046fe-21b2-44c5-953c-060933308fc3",
+      "createdAt": "2026-10-21T20:35:21.000Z",
+      "updatedAt": "2026-10-21T20:35:21.000Z",
+      "uid": "35240-e5e046fe-21b2-44c5-953c-060933308fc3"
     }
   ],
   "auth": {
@@ -858,17 +891,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "e4a2bf36-d04c-43a0-b621-1252fedabacd",
-    "name": "Learn Rest Api assignments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

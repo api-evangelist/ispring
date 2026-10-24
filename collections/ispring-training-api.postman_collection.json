@@ -1,2276 +1,2261 @@
 {
+  "info": {
+    "_postman_id": "aabb44c1-7b91-4c82-b783-6d91daf2470f",
+    "name": "Learn Rest Training API",
+    "description": "Training operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:37:17.000Z",
+    "updatedAt": "2026-10-21T20:37:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aabb44c1-7b91-4c82-b783-6d91daf2470f"
+  },
   "item": [
     {
-      "id": "fd9cf881-2556-46c9-aea4-4b6ba3b5757d",
       "name": "training",
-      "description": {
-        "content": "Training operations",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "2dc74b3d-9197-421f-b0a1-605fe84992e9",
-          "name": "Retrieves information about training",
-          "request": {
-            "name": "Retrieves information about training",
-            "description": {},
-            "url": {
-              "path": [
-                "training",
-                ":trainingId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "trainingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{trainingId}",
+          "item": [
             {
-              "id": "b7a8636a-efd4-4389-9b97-8a3f9ff9e8d4",
-              "name": "Success Response",
-              "originalRequest": {
+              "name": "sessions",
+              "item": [
+                {
+                  "name": "Retrieves information about sessions by training id",
+                  "id": "e1f93314-c546-46a5-aa13-d85286ef3cbb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/training/:trainingId/sessions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        ":trainingId",
+                        "sessions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9baf602a-4d13-4aec-b4fa-9da7fa413a02",
+                          "key": "trainingId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d6613f2e-2000-47bc-bc18-f9615671ab42",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/:trainingId/sessions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            ":trainingId",
+                            "sessions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"startTime\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"dayIds\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"instructor\": \"<string>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"startTime\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"dayIds\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"instructor\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-d6613f2e-2000-47bc-bc18-f9615671ab42"
+                    },
+                    {
+                      "id": "c5d4d120-84ad-46a7-9411-1da3dafb181f",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/:trainingId/sessions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            ":trainingId",
+                            "sessions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-c5d4d120-84ad-46a7-9411-1da3dafb181f"
+                    },
+                    {
+                      "id": "82659fe5-8cdf-4450-bb00-8a910d2df1ce",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/:trainingId/sessions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            ":trainingId",
+                            "sessions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-82659fe5-8cdf-4450-bb00-8a910d2df1ce"
+                    },
+                    {
+                      "id": "8bc5ba47-163f-4ea3-b678-15879bd1d43f",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/:trainingId/sessions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            ":trainingId",
+                            "sessions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-8bc5ba47-163f-4ea3-b678-15879bd1d43f"
+                    },
+                    {
+                      "id": "51ad72fc-94e7-443d-a0f0-a13569ccf959",
+                      "name": "Session not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/:trainingId/sessions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            ":trainingId",
+                            "sessions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-51ad72fc-94e7-443d-a0f0-a13569ccf959"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-e1f93314-c546-46a5-aa13-d85286ef3cbb"
+                }
+              ],
+              "id": "001e2fce-f08e-43d4-a723-45fc6e3cedad",
+              "createdAt": "2026-10-21T20:37:17.000Z",
+              "updatedAt": "2026-10-21T20:37:17.000Z",
+              "uid": "35240-001e2fce-f08e-43d4-a723-45fc6e3cedad"
+            },
+            {
+              "name": "Retrieves information about training",
+              "id": "4f507708-a17d-473e-8fd1-ee9362eb4794",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/training/:trainingId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "training",
                     ":trainingId"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
+                      "id": "da1792cb-d1fb-4730-b596-cf39eb780ee2",
                       "key": "trainingId",
+                      "value": "<uuid>",
                       "description": "(Required) "
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
                 }
-              ],
-              "body": "{\n  \"response\": {\n    \"title\": \"string\",\n    \"organizer\": \"19d2197b-5edf-70a2-db51-7b8abf15a1ba\",\n    \"sessions\": [\n      \"fca7599b-9b80-9e41-dbeb-83f854759c52\",\n      \"a3f7eaa8-0849-da06-5957-96ccfd20d0a6\"\n    ],\n    \"type\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "08eca405-162f-464e-8679-6f8d6bfc343f",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
+              },
+              "response": [
+                {
+                  "id": "83957698-c564-484c-b979-7614ebe0a7d5",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/training/:trainingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        ":trainingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "trainingId"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "007dfb59-b480-46a2-a55c-0803ea9c55e6",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"response\": {\n    \"title\": \"<string>\",\n    \"organizer\": \"<uuid>\",\n    \"sessions\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"type\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-83957698-c564-484c-b979-7614ebe0a7d5"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a9e1f281-4a40-4481-bc8c-5447a2e75c48",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "id": "d1eb78ce-8ef3-4f02-9320-fa611533dbf3",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/training/:trainingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        ":trainingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "trainingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-d1eb78ce-8ef3-4f02-9320-fa611533dbf3"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "700346d8-202c-440e-bc4c-a3275241d265",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/training/:trainingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        ":trainingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "trainingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-700346d8-202c-440e-bc4c-a3275241d265"
+                },
+                {
+                  "id": "b64baea9-bb27-45c8-b92d-b9a35a10e4e4",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/training/:trainingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        ":trainingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "trainingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-b64baea9-bb27-45c8-b92d-b9a35a10e4e4"
                 }
               ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:37:17.000Z",
+              "updatedAt": "2026-10-21T20:37:17.000Z",
+              "uid": "35240-4f507708-a17d-473e-8fd1-ee9362eb4794"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "abc8a980-c4fc-4c47-b93e-35a8193d6306",
+          "createdAt": "2026-10-21T20:37:17.000Z",
+          "updatedAt": "2026-10-21T20:37:17.000Z",
+          "uid": "35240-abc8a980-c4fc-4c47-b93e-35a8193d6306"
         },
         {
-          "id": "69c96a06-8a9d-4392-8227-efcc08acf858",
-          "name": "Retrieves training session information",
-          "request": {
-            "name": "Retrieves training session information",
-            "description": {},
-            "url": {
-              "path": [
-                "training",
-                "session",
-                ":trainingSessionId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "trainingSessionId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "session",
+          "item": [
             {
-              "id": "8085bbef-db90-40ee-a46e-5d8af5d21481",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    ":trainingSessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingSessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{trainingSessionId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Retrieves training session information",
+                  "id": "043a2640-cbd5-43e5-9ecd-99abf0fab10d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/training/session/:trainingSessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        "session",
+                        ":trainingSessionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d7bfdb1b-a68e-46e1-88d5-62ac8c27358c",
+                          "key": "trainingSessionId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "29e3c4c1-c26c-46be-9914-7837821da49d",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/session/:trainingSessionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "session",
+                            ":trainingSessionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingSessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"response\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"startTime\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"dayIds\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"instructor\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-29e3c4c1-c26c-46be-9914-7837821da49d"
+                    },
+                    {
+                      "id": "8914fd5e-6c08-4827-821a-100ceb9a6044",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/session/:trainingSessionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "session",
+                            ":trainingSessionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingSessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-8914fd5e-6c08-4827-821a-100ceb9a6044"
+                    },
+                    {
+                      "id": "39aded3f-ac10-46e2-8f98-af1e69a749f3",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/session/:trainingSessionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "session",
+                            ":trainingSessionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingSessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-39aded3f-ac10-46e2-8f98-af1e69a749f3"
+                    },
+                    {
+                      "id": "898501bc-0603-430d-9664-44d75149f63e",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/session/:trainingSessionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "session",
+                            ":trainingSessionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingSessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-898501bc-0603-430d-9664-44d75149f63e"
+                    },
+                    {
+                      "id": "dbcdc1eb-957c-4c6e-a2e2-859518c1e1af",
+                      "name": "Session not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/session/:trainingSessionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "session",
+                            ":trainingSessionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "trainingSessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-dbcdc1eb-957c-4c6e-a2e2-859518c1e1af"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-043a2640-cbd5-43e5-9ecd-99abf0fab10d"
                 }
               ],
-              "body": "{\n  \"response\": {\n    \"id\": \"49bb3c37-a8c6-8d3a-360b-db358358006c\",\n    \"title\": \"string\",\n    \"startTime\": \"string\",\n    \"duration\": 3133,\n    \"dayIds\": [\n      \"d03df08e-7eab-2d80-3f68-f27c2b04b77b\",\n      \"bbbfcbcc-5cfa-30a6-c289-e96cbf5113ff\"\n    ],\n    \"instructor\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "ff997687-a62c-4ca8-bc09-0aee154e2a2c",
+              "createdAt": "2026-10-21T20:37:17.000Z",
+              "updatedAt": "2026-10-21T20:37:17.000Z",
+              "uid": "35240-ff997687-a62c-4ca8-bc09-0aee154e2a2c"
             },
             {
-              "id": "8551a12f-5e7d-485c-aca1-4d36b3ab61eb",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    ":trainingSessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingSessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "name": "participants",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{sessionId}",
+                  "item": [
+                    {
+                      "name": "Retrieves information about participants by session id",
+                      "id": "303c0e5f-93f5-44ae-a828-c3c3c1669b30",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/session/participants/:sessionId?pageToken=<string>&pageSize=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "session",
+                            "participants",
+                            ":sessionId"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "ae8421f4-e192-4261-8cdc-0deb8f08420f",
+                              "key": "sessionId",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "810a9958-3032-4f67-bb56-d294a53638c0",
+                          "name": "Success Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/training/session/participants/:sessionId?pageToken=<string>&pageSize=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "training",
+                                "session",
+                                "participants",
+                                ":sessionId"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "sessionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                          "createdAt": "2026-10-21T20:37:17.000Z",
+                          "updatedAt": "2026-10-21T20:37:17.000Z",
+                          "uid": "35240-810a9958-3032-4f67-bb56-d294a53638c0"
+                        },
+                        {
+                          "id": "5290a35a-c4dd-4c75-b620-784dfe6b3730",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/training/session/participants/:sessionId?pageToken=<string>&pageSize=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "training",
+                                "session",
+                                "participants",
+                                ":sessionId"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "sessionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:37:17.000Z",
+                          "updatedAt": "2026-10-21T20:37:17.000Z",
+                          "uid": "35240-5290a35a-c4dd-4c75-b620-784dfe6b3730"
+                        },
+                        {
+                          "id": "ebea4fca-791c-4b00-a82f-67786d4f8faf",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/training/session/participants/:sessionId?pageToken=<string>&pageSize=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "training",
+                                "session",
+                                "participants",
+                                ":sessionId"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "sessionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:37:17.000Z",
+                          "updatedAt": "2026-10-21T20:37:17.000Z",
+                          "uid": "35240-ebea4fca-791c-4b00-a82f-67786d4f8faf"
+                        },
+                        {
+                          "id": "cf98893e-3ef6-4dc7-97e8-4bc69fc65fa3",
+                          "name": "Permission Denied",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/training/session/participants/:sessionId?pageToken=<string>&pageSize=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "training",
+                                "session",
+                                "participants",
+                                ":sessionId"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "sessionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:37:17.000Z",
+                          "updatedAt": "2026-10-21T20:37:17.000Z",
+                          "uid": "35240-cf98893e-3ef6-4dc7-97e8-4bc69fc65fa3"
+                        },
+                        {
+                          "id": "2d4794c6-132e-4419-915a-f1ea9374988c",
+                          "name": "Session not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/training/session/participants/:sessionId?pageToken=<string>&pageSize=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "training",
+                                "session",
+                                "participants",
+                                ":sessionId"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "sessionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:37:17.000Z",
+                          "updatedAt": "2026-10-21T20:37:17.000Z",
+                          "uid": "35240-2d4794c6-132e-4419-915a-f1ea9374988c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-303c0e5f-93f5-44ae-a828-c3c3c1669b30"
+                    }
+                  ],
+                  "id": "03dc6af5-a4e3-4712-a014-d3bf76df4fd6",
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-03dc6af5-a4e3-4712-a014-d3bf76df4fd6"
                 }
               ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c6e5a132-89fb-4a43-b8bd-0a10ea80b64a",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    ":trainingSessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingSessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6a5d622f-ec7a-4c0e-b32b-f60865de8786",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    ":trainingSessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingSessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0f2c723e-35cb-4a7f-a499-85a3ef017167",
-              "name": "Session not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    ":trainingSessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingSessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "Training session not found",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "de47dec8-e3d3-4e5e-8894-aef9fb87a49e",
+              "createdAt": "2026-10-21T20:37:17.000Z",
+              "updatedAt": "2026-10-21T20:37:17.000Z",
+              "uid": "35240-de47dec8-e3d3-4e5e-8894-aef9fb87a49e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "1da79d6f-49ad-4914-8eaf-9ed6e9c52439",
+          "createdAt": "2026-10-21T20:37:17.000Z",
+          "updatedAt": "2026-10-21T20:37:17.000Z",
+          "uid": "35240-1da79d6f-49ad-4914-8eaf-9ed6e9c52439"
         },
         {
-          "id": "859943b6-f7a2-45d3-9759-e92154e54423",
-          "name": "Retrieves information about sessions by training id",
-          "request": {
-            "name": "Retrieves information about sessions by training id",
-            "description": {},
-            "url": {
-              "path": [
-                "training",
-                ":trainingId",
-                "sessions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "trainingId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "day",
+          "item": [
             {
-              "id": "2b90039d-9c8c-413c-a716-8cec5562ff05",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId",
-                    "sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "{dayId}",
+              "item": [
+                {
+                  "name": "participants",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
+                      "name": "attendance",
+                      "item": [
+                        {
+                          "name": "update",
+                          "item": [
+                            {
+                              "name": "Updates participants attendance by day",
+                              "id": "6c358a3b-a229-45c0-ad61-4ebce38d6f96",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/training/day/:dayId/participants/attendance/update",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "training",
+                                    "day",
+                                    ":dayId",
+                                    "participants",
+                                    "attendance",
+                                    "update"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3da1d1a1-e192-4035-8977-c487180e66e7",
+                                      "key": "dayId",
+                                      "value": "<uuid>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "23535f85-12fb-4bfd-9dfb-c38ebe1cf8a0",
+                                  "name": "Success Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/training/day/:dayId/participants/attendance/update",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "training",
+                                        "day",
+                                        ":dayId",
+                                        "participants",
+                                        "attendance",
+                                        "update"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "dayId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-21T20:37:17.000Z",
+                                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                                  "uid": "35240-23535f85-12fb-4bfd-9dfb-c38ebe1cf8a0"
+                                },
+                                {
+                                  "id": "7c44fc9d-8f7e-4428-bf85-dd1593490736",
+                                  "name": "Bad Request",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/training/day/:dayId/participants/attendance/update",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "training",
+                                        "day",
+                                        ":dayId",
+                                        "participants",
+                                        "attendance",
+                                        "update"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "dayId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T20:37:17.000Z",
+                                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                                  "uid": "35240-7c44fc9d-8f7e-4428-bf85-dd1593490736"
+                                },
+                                {
+                                  "id": "408df961-7cad-4ba9-b276-82672b7d8ae6",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/training/day/:dayId/participants/attendance/update",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "training",
+                                        "day",
+                                        ":dayId",
+                                        "participants",
+                                        "attendance",
+                                        "update"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "dayId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T20:37:17.000Z",
+                                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                                  "uid": "35240-408df961-7cad-4ba9-b276-82672b7d8ae6"
+                                },
+                                {
+                                  "id": "6a7d15da-b174-4cbf-94a8-9eca3efb17d6",
+                                  "name": "Permission Denied",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/training/day/:dayId/participants/attendance/update",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "training",
+                                        "day",
+                                        ":dayId",
+                                        "participants",
+                                        "attendance",
+                                        "update"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "dayId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T20:37:17.000Z",
+                                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                                  "uid": "35240-6a7d15da-b174-4cbf-94a8-9eca3efb17d6"
+                                },
+                                {
+                                  "id": "ac49dc3d-6c3b-439f-9ff8-dfde58e058fc",
+                                  "name": "Day not found",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/training/day/:dayId/participants/attendance/update",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "training",
+                                        "day",
+                                        ":dayId",
+                                        "participants",
+                                        "attendance",
+                                        "update"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "dayId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-21T20:37:17.000Z",
+                                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                                  "uid": "35240-ac49dc3d-6c3b-439f-9ff8-dfde58e058fc"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:37:17.000Z",
+                              "updatedAt": "2026-10-21T20:37:17.000Z",
+                              "uid": "35240-6c358a3b-a229-45c0-ad61-4ebce38d6f96"
+                            }
+                          ],
+                          "id": "e4ff093a-3e64-42d5-a106-953a7086201d",
+                          "createdAt": "2026-10-21T20:37:17.000Z",
+                          "updatedAt": "2026-10-21T20:37:17.000Z",
+                          "uid": "35240-e4ff093a-3e64-42d5-a106-953a7086201d"
+                        }
+                      ],
+                      "id": "baaa900c-29d9-41eb-8616-6fd779bca672",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-baaa900c-29d9-41eb-8616-6fd779bca672"
                     }
-                  ]
+                  ],
+                  "id": "0c9b0830-7ccf-4af7-b847-aec175de7b74",
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-0c9b0830-7ccf-4af7-b847-aec175de7b74"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                {
+                  "name": "Retrieves session day information",
+                  "id": "0ca90e31-e4dd-4c07-a383-8b836f5aa890",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"id\": \"5df48d8a-972d-dc12-b587-8bd1aa886011\",\n    \"title\": \"string\",\n    \"startTime\": \"string\",\n    \"duration\": 701,\n    \"dayIds\": [\n      \"eefbdbf9-a9b1-9e43-7051-c2d0fc337931\",\n      \"1ffbae4b-56d4-d8b1-2b12-82b68bb1cc1b\"\n    ],\n    \"instructor\": \"string\"\n  },\n  {\n    \"id\": \"448e256c-d3ed-03dc-3445-502ef4bba217\",\n    \"title\": \"string\",\n    \"startTime\": \"string\",\n    \"duration\": 6843,\n    \"dayIds\": [\n      \"222fdac6-e7a9-c3b8-d0fe-0a79b0d8e647\",\n      \"7b727308-1686-afb8-3c87-216b29c90585\"\n    ],\n    \"instructor\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "909989cf-4d88-4a64-9c43-4734d2f96bc1",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId",
-                    "sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/training/day/:dayId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        "day",
+                        ":dayId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a74d1394-9b0e-4a3f-a635-8880381b7b34",
+                          "key": "dayId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bee39393-de39-49ed-b323-362b2b4c0024",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId",
-                    "sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
+                      "id": "e8d8b36c-b5ee-4d1f-921a-3bc4ae484019",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"response\": {\n    \"dayId\": \"<uuid>\",\n    \"sessionId\": \"<uuid>\",\n    \"trainingId\": \"<uuid>\",\n    \"startTime\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"location\": \"<string>\",\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-e8d8b36c-b5ee-4d1f-921a-3bc4ae484019"
                     },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    {
+                      "id": "ad544cf6-2e6d-44e6-9903-553787f91582",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-ad544cf6-2e6d-44e6-9903-553787f91582"
+                    },
+                    {
+                      "id": "157b7c90-c329-48b2-9e3b-eb4a2d98b0e1",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-157b7c90-c329-48b2-9e3b-eb4a2d98b0e1"
+                    },
+                    {
+                      "id": "c1fab627-d79f-4d69-8c06-047970624b02",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-c1fab627-d79f-4d69-8c06-047970624b02"
+                    },
+                    {
+                      "id": "8fe92dca-e9ab-4f3d-89f2-6d02827071be",
+                      "name": "Day not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-8fe92dca-e9ab-4f3d-89f2-6d02827071be"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-0ca90e31-e4dd-4c07-a383-8b836f5aa890"
+                },
+                {
+                  "name": "Update day url",
+                  "id": "d6c6f72e-9cf8-4d45-a31a-10a3787c9b32",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7484dc6b-0184-4699-a018-619ad4de327c",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId",
-                    "sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    "url": {
+                      "raw": "{{baseUrl}}/training/day/:dayId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "training",
+                        "day",
+                        ":dayId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0fca8a37-42d1-462e-acc3-2a890da14ad7",
+                          "key": "dayId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fe929aed-c817-436c-aa21-06d50244e067",
-              "name": "Session not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    ":trainingId",
-                    "sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "trainingId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
+                      "id": "2207faf7-cb11-4f64-bc41-fb1bfa41d925",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-2207faf7-cb11-4f64-bc41-fb1bfa41d925"
                     },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                    {
+                      "id": "8fe07874-0fed-40c2-8df3-95f147bbbf94",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-8fe07874-0fed-40c2-8df3-95f147bbbf94"
+                    },
+                    {
+                      "id": "e33bbf54-8a55-44ee-9b2f-966e1247e1f0",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-e33bbf54-8a55-44ee-9b2f-966e1247e1f0"
+                    },
+                    {
+                      "id": "dba1cc93-b533-433e-8341-8587a86eac4a",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-dba1cc93-b533-433e-8341-8587a86eac4a"
+                    },
+                    {
+                      "id": "1ad557f3-b980-4164-ac47-c18e46add90c",
+                      "name": "Day not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/training/day/:dayId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "training",
+                            "day",
+                            ":dayId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dayId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:37:17.000Z",
+                      "updatedAt": "2026-10-21T20:37:17.000Z",
+                      "uid": "35240-1ad557f3-b980-4164-ac47-c18e46add90c"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:37:17.000Z",
+                  "updatedAt": "2026-10-21T20:37:17.000Z",
+                  "uid": "35240-d6c6f72e-9cf8-4d45-a31a-10a3787c9b32"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "aae1e58e-fafb-4efb-9ab3-d1d40b2ed34a",
+              "createdAt": "2026-10-21T20:37:17.000Z",
+              "updatedAt": "2026-10-21T20:37:17.000Z",
+              "uid": "35240-aae1e58e-fafb-4efb-9ab3-d1d40b2ed34a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fec625fd-67e5-43ba-a7fe-6beb9fd9d3e8",
-          "name": "Retrieves session day information",
-          "request": {
-            "name": "Retrieves session day information",
-            "description": {},
-            "url": {
-              "path": [
-                "training",
-                "day",
-                ":dayId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "dayId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "20fc5ea2-aa84-4eb1-8366-12c3829fc69e",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"response\": {\n    \"dayId\": \"8033521c-d10b-d84b-19df-f143b7deb4cd\",\n    \"sessionId\": \"c6033770-6a04-43ef-ef54-50e52fa483b7\",\n    \"trainingId\": \"7b5dbb88-b3d2-fde5-93c8-2d8222f1411b\",\n    \"startTime\": \"string\",\n    \"duration\": 2395,\n    \"location\": \"string\",\n    \"url\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "56056154-c941-4ec3-bbee-e7ff411e11f4",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5570f31c-d20c-4c35-8058-6d53e158c93d",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "205b69f7-1878-4cb1-a813-cd8c3c4f4186",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "11fe52c0-852f-497c-9a1e-89411d29526c",
-              "name": "Day not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "Day not found",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "882598ee-6677-4137-ac4e-52991171f209",
-          "name": "Update day url",
-          "request": {
-            "name": "Update day url",
-            "description": {},
-            "url": {
-              "path": [
-                "training",
-                "day",
-                ":dayId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "dayId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"url\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "4c8f7223-3115-46d3-a0c5-4ca699634d6b",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "964f6f73-d4dc-4559-825f-44b399e3b62a",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "10299b97-7df8-4ea6-bdd6-233a52ac02b4",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0d0c1d37-4e63-46a2-87e6-7aaecceec28c",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0b8526a3-d8e0-4623-ba2b-eabe5caa4d23",
-              "name": "Day not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"url\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "73cfe0b5-da10-4422-b408-d03a15807bd8",
-          "name": "Retrieves information about participants by session id",
-          "request": {
-            "name": "Retrieves information about participants by session id",
-            "description": {},
-            "url": {
-              "path": [
-                "training",
-                "session",
-                "participants",
-                ":sessionId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "pageToken",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "sessionId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "90a005d6-c954-4ed2-b3d1-b6392e4c82f0",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    "participants",
-                    ":sessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "sessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  \"2939bb3a-6774-a67b-4424-1cf7cc60acaa\",\n  \"935337f7-96bb-3458-dc25-dd36728f06ad\"\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1bc4ad42-d080-4db2-86de-4925a1d584a9",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    "participants",
-                    ":sessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "sessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "62e66cf3-3382-44b9-81f5-413a4e4de77f",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    "participants",
-                    ":sessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "sessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4b194cdb-6a54-4024-99f8-977c156a8624",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    "participants",
-                    ":sessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "sessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b6835af6-54e2-4dbf-b10e-ab25f9241f5a",
-              "name": "Session not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "session",
-                    "participants",
-                    ":sessionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "sessionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e5dd8cf1-9410-42c9-b19f-9dd350ef509a",
-          "name": "Updates participants attendance by day",
-          "request": {
-            "name": "Updates participants attendance by day",
-            "description": {},
-            "url": {
-              "path": [
-                "training",
-                "day",
-                ":dayId",
-                "participants",
-                "attendance",
-                "update"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<uuid>",
-                  "key": "dayId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "3654bc21-c538-490a-8f91-7c6d16454d29",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId",
-                    "participants",
-                    "attendance",
-                    "update"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d0753450-a2e9-41df-8d8d-5b3cdabebb21",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId",
-                    "participants",
-                    "attendance",
-                    "update"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5c0e07da-1bbe-48dd-b69a-36d682cf70bd",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId",
-                    "participants",
-                    "attendance",
-                    "update"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4273e7fd-d0ce-47df-a2e0-f333225586b5",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId",
-                    "participants",
-                    "attendance",
-                    "update"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4330,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bfd54c05-dfa2-405d-8840-7545935a610e",
-              "name": "Day not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "training",
-                    "day",
-                    ":dayId",
-                    "participants",
-                    "attendance",
-                    "update"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<uuid>",
-                      "key": "dayId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"participantsAttendance\": [\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"participantId\": \"<uuid>\",\n      \"isAttended\": \"<boolean>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "174a54a9-5665-40ec-b67a-141f65660b9b",
+          "createdAt": "2026-10-21T20:37:17.000Z",
+          "updatedAt": "2026-10-21T20:37:17.000Z",
+          "uid": "35240-174a54a9-5665-40ec-b67a-141f65660b9b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "f6b28695-d005-46e7-923e-14ffdf95258a",
+      "createdAt": "2026-10-21T20:37:17.000Z",
+      "updatedAt": "2026-10-21T20:37:17.000Z",
+      "uid": "35240-f6b28695-d005-46e7-923e-14ffdf95258a"
     }
   ],
   "auth": {
@@ -2278,17 +2263,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "01a0795c-e36b-4ec9-8ae9-014335da93fd",
-    "name": "Learn Rest Api assignments training API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

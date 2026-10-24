@@ -1,152 +1,43 @@
 {
+  "info": {
+    "_postman_id": "357dcc03-b56b-45a3-b5aa-f5a627ec136b",
+    "name": "Learn Rest Results API",
+    "description": "User result data operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:36:33.000Z",
+    "updatedAt": "2026-10-21T20:36:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-357dcc03-b56b-45a3-b5aa-f5a627ec136b"
+  },
   "item": [
     {
-      "id": "04d29195-e5fd-4ab7-8a12-e86eba1733d9",
-      "name": "results",
-      "description": {
-        "content": "User result data operations",
-        "type": "text/plain"
-      },
+      "name": "learners",
       "item": [
         {
-          "id": "f258bcd4-0956-4319-8e64-419037d432e2",
-          "name": "Retrieves a paginated list of results for specific learners in specific courses",
-          "request": {
-            "name": "Retrieves a paginated list of results for specific learners in specific courses",
-            "description": {},
-            "url": {
-              "path": [
-                "learners",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageToken",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "courseIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "courseIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "departmentIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "departmentIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "enrollmentIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "enrollmentIds",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionStatuses",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionStatuses",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionDate[endDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "accessDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "accessDate[endDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "dueDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "dueDate[endDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userStatuses",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userStatuses",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "results",
+          "item": [
             {
-              "id": "16538e85-1a00-45d3-aae3-863c9ab1c3c0",
-              "name": "Success Response",
-              "originalRequest": {
+              "name": "Retrieves a paginated list of results for specific learners in specific courses",
+              "id": "85c86965-8675-4612-b4ec-44647b1b9979",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/learners/results?pageSize=<integer>&pageToken=<string>&userIds=<string>&userIds=<string>&courseIds=<string>&courseIds=<string>&departmentIds=<string>&departmentIds=<string>&enrollmentIds=<string>&enrollmentIds=<string>&completionStatuses=complete&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=3&userStatuses=3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "learners",
                     "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -191,1169 +82,1052 @@
                     },
                     {
                       "key": "completionStatuses",
-                      "value": "<string>"
+                      "value": "complete"
                     },
                     {
                       "key": "completionStatuses",
-                      "value": "<string>"
+                      "value": "complete"
                     },
                     {
                       "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
                     },
                     {
                       "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
                     },
                     {
                       "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
                     },
                     {
                       "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
                     },
                     {
                       "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
                     },
                     {
                       "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
+                      "value": "<string>"
                     },
                     {
                       "key": "userStatuses",
-                      "value": "<integer>"
+                      "value": "3"
                     },
                     {
                       "key": "userStatuses",
-                      "value": "<integer>"
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "af99c985-144c-4d03-b947-5fa49673752e",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learners/results?pageSize=<integer>&pageToken=<string>&userIds=<string>&courseIds=<string>&departmentIds=<string>&enrollmentIds=<string>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=3",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learners",
+                        "results"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "courseIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionStatuses",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "completionDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userStatuses",
+                          "value": "3"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"results\": [\n    {\n      \"userId\": \"<uuid>\",\n      \"courseId\": \"<uuid>\",\n      \"courseTitle\": \"<string>\",\n      \"accessDate\": \"<string>\",\n      \"completionStatus\": \"complete\",\n      \"isOverdue\": \"<boolean>\",\n      \"enrollmentId\": \"<uuid>\",\n      \"dueDate\": \"<string>\",\n      \"expirationDate\": \"<string>\",\n      \"completionDate\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"timeSpent\": \"<integer>\",\n      \"awardedScore\": \"<float>\",\n      \"passingScore\": \"<float>\",\n      \"progress\": \"<float>\",\n      \"viewsCount\": \"<integer>\"\n    },\n    {\n      \"userId\": \"<uuid>\",\n      \"courseId\": \"<uuid>\",\n      \"courseTitle\": \"<string>\",\n      \"accessDate\": \"<string>\",\n      \"completionStatus\": \"failed\",\n      \"isOverdue\": \"<boolean>\",\n      \"enrollmentId\": \"<uuid>\",\n      \"dueDate\": \"<string>\",\n      \"expirationDate\": \"<string>\",\n      \"completionDate\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"timeSpent\": \"<integer>\",\n      \"awardedScore\": \"<float>\",\n      \"passingScore\": \"<float>\",\n      \"progress\": \"<float>\",\n      \"viewsCount\": \"<integer>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:34.000Z",
+                  "updatedAt": "2026-10-21T20:36:34.000Z",
+                  "uid": "35240-af99c985-144c-4d03-b947-5fa49673752e"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"results\": [\n    {\n      \"userId\": \"bf00b732-48ee-f811-8a84-741a06de965b\",\n      \"courseId\": \"63ed29b1-2631-963f-cb6a-ad3d48319f86\",\n      \"courseTitle\": \"string\",\n      \"accessDate\": \"string\",\n      \"completionStatus\": \"<string>\",\n      \"isOverdue\": true,\n      \"enrollmentId\": \"4badef6a-8507-8dea-33f1-8eb5b9195bd2\",\n      \"dueDate\": \"string\",\n      \"expirationDate\": \"string\",\n      \"completionDate\": \"string\",\n      \"duration\": 5873,\n      \"timeSpent\": 4231,\n      \"awardedScore\": 472.95321967841033,\n      \"passingScore\": 9306.070898561824,\n      \"progress\": 7421.937289869186,\n      \"viewsCount\": 6770\n    },\n    {\n      \"userId\": \"65f4a50d-bf68-9f13-6953-a7dcffee0cc3\",\n      \"courseId\": \"9ccbf68d-e607-a96d-5907-5cc266047c9a\",\n      \"courseTitle\": \"string\",\n      \"accessDate\": \"string\",\n      \"completionStatus\": \"<string>\",\n      \"isOverdue\": false,\n      \"enrollmentId\": \"48f2aca9-ef1d-979e-40ea-f11561900282\",\n      \"dueDate\": \"string\",\n      \"expirationDate\": \"string\",\n      \"completionDate\": \"string\",\n      \"duration\": 6771,\n      \"timeSpent\": 0,\n      \"awardedScore\": 8797.420554708235,\n      \"passingScore\": 7168.761708600407,\n      \"progress\": 4579.713905769346,\n      \"viewsCount\": 1998\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "694a1333-0668-4d55-9b53-2796cc374b8f",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learners",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "b8fcac30-73a8-400d-a539-356460ae7e98",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learners/results?pageSize=<integer>&pageToken=<string>&userIds=<string>&courseIds=<string>&departmentIds=<string>&enrollmentIds=<string>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=3",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learners",
+                        "results"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "courseIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionStatuses",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "completionDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userStatuses",
+                          "value": "3"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:34.000Z",
+                  "updatedAt": "2026-10-21T20:36:34.000Z",
+                  "uid": "35240-b8fcac30-73a8-400d-a539-356460ae7e98"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8122,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f18cd73f-9a2c-43e8-ad1b-9f57a0fa0e9d",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learners",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "fc066035-0b6c-4e2d-8d37-207918bc45ad",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learners/results?pageSize=<integer>&pageToken=<string>&userIds=<string>&courseIds=<string>&departmentIds=<string>&enrollmentIds=<string>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=3",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learners",
+                        "results"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "courseIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionStatuses",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "completionDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userStatuses",
+                          "value": "3"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:34.000Z",
+                  "updatedAt": "2026-10-21T20:36:34.000Z",
+                  "uid": "35240-fc066035-0b6c-4e2d-8d37-207918bc45ad"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8122,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3b08c3a9-8010-41fe-942b-36d0a0af69d9",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learners",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "551345d3-90e2-4ca2-b8d5-4b940a19a5a0",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learners/results?pageSize=<integer>&pageToken=<string>&userIds=<string>&courseIds=<string>&departmentIds=<string>&enrollmentIds=<string>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=3",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learners",
+                        "results"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "courseIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionStatuses",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "completionDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userStatuses",
+                          "value": "3"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:36:34.000Z",
+                  "updatedAt": "2026-10-21T20:36:34.000Z",
+                  "uid": "35240-551345d3-90e2-4ca2-b8d5-4b940a19a5a0"
                 }
               ],
-              "body": "{\n  \"code\": 8122,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:36:34.000Z",
+              "updatedAt": "2026-10-21T20:36:34.000Z",
+              "uid": "35240-85c86965-8675-4612-b4ec-44647b1b9979"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0c1c552c-fea7-4520-b9a1-0cd8846b757e",
+          "createdAt": "2026-10-21T20:36:34.000Z",
+          "updatedAt": "2026-10-21T20:36:34.000Z",
+          "uid": "35240-0c1c552c-fea7-4520-b9a1-0cd8846b757e"
         },
         {
-          "id": "9314acc3-18a3-4cbd-9ec7-03df2e9bc53b",
-          "name": "Retrieves a paginated list of results for specific learners in specific modules",
-          "request": {
-            "name": "Retrieves a paginated list of results for specific learners in specific modules",
-            "description": {},
-            "url": {
-              "path": [
-                "learners",
-                "modules",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageToken",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "courseIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "courseIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "moduleIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "moduleIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "courseItemIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "courseItemIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "enrollmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "enrollmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "departmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "departmentIds",
-                  "value": "<uuid>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionStatuses",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionStatuses",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "completionDate[endDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "accessDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "accessDate[endDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "dueDate[startDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "dueDate[endDate]",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "userStatuses",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "modules",
+          "item": [
             {
-              "id": "78fb7a92-948f-48e5-ae44-be9f6a732305",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learners",
-                    "modules",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "results",
+              "item": [
+                {
+                  "name": "Retrieves a paginated list of results for specific learners in specific modules",
+                  "id": "2c22455a-9adf-4b77-b55a-79cbc62f6af5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/learners/modules/results?pageSize=<integer>&pageToken=<string>&userIds=<uuid>&userIds=<uuid>&courseIds=<uuid>&courseIds=<uuid>&moduleIds=<uuid>&moduleIds=<uuid>&courseItemIds=<uuid>&courseItemIds=<uuid>&enrollmentIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&departmentIds=<uuid>&completionStatuses=complete&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=5",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "learners",
+                        "modules",
+                        "results"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "userIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "courseIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "courseIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "moduleIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "moduleIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "courseItemIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "courseItemIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "enrollmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "departmentIds",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "key": "completionStatuses",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "completionStatuses",
+                          "value": "complete"
+                        },
+                        {
+                          "key": "completionDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "completionDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "accessDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[startDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "dueDate[endDate]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "userStatuses",
+                          "value": "5"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "pageSize",
-                      "value": "<integer>"
+                      "id": "ef1ce627-bcd6-4648-81b0-8bd69f9f06fe",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/learners/modules/results?pageSize=<integer>&pageToken=<string>&userIds=<uuid>&courseIds=<uuid>&moduleIds=<uuid>&courseItemIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=5",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "learners",
+                            "modules",
+                            "results"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "moduleIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseItemIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "enrollmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "departmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "completionStatuses",
+                              "value": "complete"
+                            },
+                            {
+                              "key": "completionDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "completionDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userStatuses",
+                              "value": "5"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"userId\": \"<uuid>\",\n      \"courseId\": \"<uuid>\",\n      \"moduleId\": \"<uuid>\",\n      \"moduleTitle\": \"<string>\",\n      \"courseItemId\": \"<uuid>\",\n      \"accessDate\": \"<string>\",\n      \"completionStatus\": \"incomplete\",\n      \"isOverdue\": \"<boolean>\",\n      \"enrollmentId\": \"<uuid>\",\n      \"dueDate\": \"<string>\",\n      \"expirationDate\": \"<string>\",\n      \"completionDate\": \"<string>\",\n      \"timeSpent\": \"<integer>\",\n      \"awardedScore\": \"<float>\",\n      \"passingScore\": \"<float>\",\n      \"progress\": \"<float>\",\n      \"viewsCount\": \"<integer>\"\n    },\n    {\n      \"userId\": \"<uuid>\",\n      \"courseId\": \"<uuid>\",\n      \"moduleId\": \"<uuid>\",\n      \"moduleTitle\": \"<string>\",\n      \"courseItemId\": \"<uuid>\",\n      \"accessDate\": \"<string>\",\n      \"completionStatus\": \"declined\",\n      \"isOverdue\": \"<boolean>\",\n      \"enrollmentId\": \"<uuid>\",\n      \"dueDate\": \"<string>\",\n      \"expirationDate\": \"<string>\",\n      \"completionDate\": \"<string>\",\n      \"timeSpent\": \"<integer>\",\n      \"awardedScore\": \"<float>\",\n      \"passingScore\": \"<float>\",\n      \"progress\": \"<float>\",\n      \"viewsCount\": \"<integer>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:36:34.000Z",
+                      "updatedAt": "2026-10-21T20:36:34.000Z",
+                      "uid": "35240-ef1ce627-bcd6-4648-81b0-8bd69f9f06fe"
                     },
                     {
-                      "key": "pageToken",
-                      "value": "<string>"
+                      "id": "5fbd7ecd-01d7-4785-a1a2-61e06680515e",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/learners/modules/results?pageSize=<integer>&pageToken=<string>&userIds=<uuid>&courseIds=<uuid>&moduleIds=<uuid>&courseItemIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=5",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "learners",
+                            "modules",
+                            "results"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "moduleIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseItemIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "enrollmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "departmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "completionStatuses",
+                              "value": "complete"
+                            },
+                            {
+                              "key": "completionDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "completionDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userStatuses",
+                              "value": "5"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:36:34.000Z",
+                      "updatedAt": "2026-10-21T20:36:34.000Z",
+                      "uid": "35240-5fbd7ecd-01d7-4785-a1a2-61e06680515e"
                     },
                     {
-                      "key": "userIds",
-                      "value": "<uuid>"
+                      "id": "de1f1adb-18fd-43ff-a7b1-8e0f18df0641",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/learners/modules/results?pageSize=<integer>&pageToken=<string>&userIds=<uuid>&courseIds=<uuid>&moduleIds=<uuid>&courseItemIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=5",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "learners",
+                            "modules",
+                            "results"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "moduleIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseItemIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "enrollmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "departmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "completionStatuses",
+                              "value": "complete"
+                            },
+                            {
+                              "key": "completionDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "completionDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userStatuses",
+                              "value": "5"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:36:34.000Z",
+                      "updatedAt": "2026-10-21T20:36:34.000Z",
+                      "uid": "35240-de1f1adb-18fd-43ff-a7b1-8e0f18df0641"
                     },
                     {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
+                      "id": "9718f0db-aebd-4734-95f2-bc026c19de39",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/learners/modules/results?pageSize=<integer>&pageToken=<string>&userIds=<uuid>&courseIds=<uuid>&moduleIds=<uuid>&courseItemIds=<uuid>&enrollmentIds=<uuid>&departmentIds=<uuid>&completionStatuses=complete&completionDate[startDate]=<string>&completionDate[endDate]=<string>&accessDate[startDate]=<string>&accessDate[endDate]=<string>&dueDate[startDate]=<string>&dueDate[endDate]=<string>&userStatuses=5",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "learners",
+                            "modules",
+                            "results"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "moduleIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "courseItemIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "enrollmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "departmentIds",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "key": "completionStatuses",
+                              "value": "complete"
+                            },
+                            {
+                              "key": "completionDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "completionDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accessDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[startDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dueDate[endDate]",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "userStatuses",
+                              "value": "5"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:36:34.000Z",
+                      "updatedAt": "2026-10-21T20:36:34.000Z",
+                      "uid": "35240-9718f0db-aebd-4734-95f2-bc026c19de39"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-21T20:36:34.000Z",
+                  "updatedAt": "2026-10-21T20:36:34.000Z",
+                  "uid": "35240-2c22455a-9adf-4b77-b55a-79cbc62f6af5"
                 }
               ],
-              "body": "{\n  \"results\": [\n    {\n      \"userId\": \"87700847-5333-cede-b008-2f03c46a6695\",\n      \"courseId\": \"386cdc6e-708f-b822-f47e-db7ac064af82\",\n      \"moduleId\": \"938950a1-910e-e773-4f19-026a03961639\",\n      \"moduleTitle\": \"string\",\n      \"courseItemId\": \"ee83d696-62c0-6294-bbd1-e7827af1b978\",\n      \"accessDate\": \"string\",\n      \"completionStatus\": \"<string>\",\n      \"isOverdue\": true,\n      \"enrollmentId\": \"6364aa11-9b50-87ca-180b-e8be706e7b0a\",\n      \"dueDate\": \"string\",\n      \"expirationDate\": \"string\",\n      \"completionDate\": \"string\",\n      \"timeSpent\": 4144,\n      \"awardedScore\": 6816.949049484356,\n      \"passingScore\": 8898.739281594128,\n      \"progress\": 1639.3369675983172,\n      \"viewsCount\": 3785\n    },\n    {\n      \"userId\": \"a50b45f8-6488-7a13-e488-1a7bf392f18d\",\n      \"courseId\": \"5ae1dc2b-0841-f5e8-8621-037bb7ecde3a\",\n      \"moduleId\": \"7996b67d-a46d-ec52-34eb-3ad4b327e1a0\",\n      \"moduleTitle\": \"string\",\n      \"courseItemId\": \"a9240100-1961-55a4-486c-c037c5c73182\",\n      \"accessDate\": \"string\",\n      \"completionStatus\": \"<string>\",\n      \"isOverdue\": false,\n      \"enrollmentId\": \"9ba40cca-84ff-af43-c436-7ef036f0221f\",\n      \"dueDate\": \"string\",\n      \"expirationDate\": \"string\",\n      \"completionDate\": \"string\",\n      \"timeSpent\": 7329,\n      \"awardedScore\": 5232.424774363095,\n      \"passingScore\": 3964.081913066082,\n      \"progress\": 662.2288976505608,\n      \"viewsCount\": 7437\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "151673fd-f33f-42dd-b70a-cb740e7f620b",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learners",
-                    "modules",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8122,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "79289970-4339-4a6c-8ed4-63fe091eec82",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learners",
-                    "modules",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8122,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c5304ea5-0626-47cc-b719-288a02864106",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "learners",
-                    "modules",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "pageToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "userIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "moduleIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "courseItemIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "enrollmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "departmentIds",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionStatuses",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "completionDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "completionDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "accessDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[startDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "dueDate[endDate]",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "userStatuses",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8122,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "f9f66fe1-b39c-4e28-917a-6c965e2fdfbb",
+              "createdAt": "2026-10-21T20:36:34.000Z",
+              "updatedAt": "2026-10-21T20:36:34.000Z",
+              "uid": "35240-f9f66fe1-b39c-4e28-917a-6c965e2fdfbb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4afe2298-468e-486d-85e5-8fc9d56e9a9b",
+          "createdAt": "2026-10-21T20:36:34.000Z",
+          "updatedAt": "2026-10-21T20:36:34.000Z",
+          "uid": "35240-4afe2298-468e-486d-85e5-8fc9d56e9a9b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "76140618-4cc6-4a9d-a635-7a2413a3a728",
+      "createdAt": "2026-10-21T20:36:34.000Z",
+      "updatedAt": "2026-10-21T20:36:34.000Z",
+      "uid": "35240-76140618-4cc6-4a9d-a635-7a2413a3a728"
     }
   ],
   "auth": {
@@ -1361,17 +1135,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "7c93b641-1741-41e9-8f43-5d3d9606b177",
-    "name": "Learn Rest Api assignments results API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

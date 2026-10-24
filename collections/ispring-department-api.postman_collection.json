@@ -1,283 +1,2107 @@
 {
+  "info": {
+    "_postman_id": "5d929bf6-e523-4c8e-8bd4-70346415e22e",
+    "name": "Learn Rest Department API",
+    "description": "Department operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:35:38.000Z",
+    "updatedAt": "2026-10-21T20:35:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5d929bf6-e523-4c8e-8bd4-70346415e22e"
+  },
   "item": [
     {
-      "id": "e81798cc-b4c9-40a3-a6ef-7bb7d2c86fa4",
       "name": "department",
-      "description": {
-        "content": "Department operations",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "cb8bec3e-39ff-47d0-a29f-8c68ae3fc706",
-          "name": "Get department list",
-          "request": {
-            "name": "Get department list",
-            "description": {},
-            "url": {
-              "path": [
-                "department"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{departmentId}",
+          "item": [
+            {
+              "name": "subordination",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "code",
-                  "value": "<string>"
+                  "name": "Change department subordination",
+                  "id": "b6693c1c-a720-402c-b526-3c83a9f1bd44",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"no_supervisor\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"manual\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId/subordination",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId",
+                        "subordination"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fd316dc7-0288-4a66-b738-f1390440c08e",
+                          "key": "departmentId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0470934f-9066-46d7-89ea-190b440ec843",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"no_supervisor\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"manual\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/department/:departmentId/subordination",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "department",
+                            ":departmentId",
+                            "subordination"
+                          ],
+                          "variable": [
+                            {
+                              "key": "departmentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:35:39.000Z",
+                      "updatedAt": "2026-10-21T20:35:39.000Z",
+                      "uid": "35240-0470934f-9066-46d7-89ea-190b440ec843"
+                    },
+                    {
+                      "id": "b1dbc462-1e58-419e-b46e-84a36550336a",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"no_supervisor\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"manual\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/department/:departmentId/subordination",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "department",
+                            ":departmentId",
+                            "subordination"
+                          ],
+                          "variable": [
+                            {
+                              "key": "departmentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:39.000Z",
+                      "updatedAt": "2026-10-21T20:35:39.000Z",
+                      "uid": "35240-b1dbc462-1e58-419e-b46e-84a36550336a"
+                    },
+                    {
+                      "id": "22651720-eb73-4ec8-9b89-9a19887fa445",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"no_supervisor\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"manual\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/department/:departmentId/subordination",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "department",
+                            ":departmentId",
+                            "subordination"
+                          ],
+                          "variable": [
+                            {
+                              "key": "departmentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:39.000Z",
+                      "updatedAt": "2026-10-21T20:35:39.000Z",
+                      "uid": "35240-22651720-eb73-4ec8-9b89-9a19887fa445"
+                    },
+                    {
+                      "id": "f7904b6a-764f-4232-80ab-e00841cb6d4c",
+                      "name": "Permission Denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"no_supervisor\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"manual\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/department/:departmentId/subordination",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "department",
+                            ":departmentId",
+                            "subordination"
+                          ],
+                          "variable": [
+                            {
+                              "key": "departmentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:35:39.000Z",
+                      "updatedAt": "2026-10-21T20:35:39.000Z",
+                      "uid": "35240-f7904b6a-764f-4232-80ab-e00841cb6d4c"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-b6693c1c-a720-402c-b526-3c83a9f1bd44"
                 }
               ],
-              "variable": []
+              "id": "73a3f767-e959-46cd-a0dc-3c9ff102208a",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-73a3f767-e959-46cd-a0dc-3c9ff102208a"
             },
+            {
+              "name": "user",
+              "item": [
+                {
+                  "name": "move",
+                  "item": [
+                    {
+                      "name": "Move users to department",
+                      "id": "f33a8ca8-8156-44c9-b1ba-4ec91c4e7300",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/department/:departmentId/user/move",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "department",
+                            ":departmentId",
+                            "user",
+                            "move"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c4c46f93-d0c3-4cd3-be07-d4042d13c979",
+                              "key": "departmentId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "855272fe-e331-4eac-bbe5-272bbeee5f44",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:departmentId/user/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":departmentId",
+                                "user",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "departmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-855272fe-e331-4eac-bbe5-272bbeee5f44"
+                        },
+                        {
+                          "id": "88199931-083c-400e-b6b8-52568d4d3b1a",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:departmentId/user/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":departmentId",
+                                "user",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "departmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-88199931-083c-400e-b6b8-52568d4d3b1a"
+                        },
+                        {
+                          "id": "dce8b51f-3ce0-4144-b6eb-4043e07e69fc",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:departmentId/user/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":departmentId",
+                                "user",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "departmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-dce8b51f-3ce0-4144-b6eb-4043e07e69fc"
+                        },
+                        {
+                          "id": "fc910abd-24a5-4423-ba1c-da1258f830c5",
+                          "name": "Permission Denied",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:departmentId/user/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":departmentId",
+                                "user",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "departmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-fc910abd-24a5-4423-ba1c-da1258f830c5"
+                        },
+                        {
+                          "id": "7ac3505b-588b-4887-a8d5-2384d1b63c33",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:departmentId/user/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":departmentId",
+                                "user",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "departmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-7ac3505b-588b-4887-a8d5-2384d1b63c33"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:35:39.000Z",
+                      "updatedAt": "2026-10-21T20:35:39.000Z",
+                      "uid": "35240-f33a8ca8-8156-44c9-b1ba-4ec91c4e7300"
+                    }
+                  ],
+                  "id": "6fb46ffd-96be-4895-8867-0c62d46a35fa",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-6fb46ffd-96be-4895-8867-0c62d46a35fa"
+                }
+              ],
+              "id": "d02e605c-d497-43a5-ac5e-7ce402dee07e",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-d02e605c-d497-43a5-ac5e-7ce402dee07e"
+            },
+            {
+              "name": "Get department info",
+              "id": "eacc241b-da50-449c-8cb6-cf10bee21eec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/department/:departmentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department",
+                    ":departmentId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e6b48f29-9636-4b81-bf58-6c2c89650f7b",
+                      "key": "departmentId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c109b87e-f2c0-479a-9b4e-a7ee216795ba",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"response\": {\n    \"departmentId\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"subordination\": {\n      \"subordinationType\": \"no_supervisor\",\n      \"supervisorId\": \"<string>\"\n    },\n    \"coSubordination\": {\n      \"subordinationType\": \"inherit\",\n      \"supervisorId\": \"<string>\"\n    },\n    \"parentDepartmentId\": \"<uuid>\",\n    \"code\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-c109b87e-f2c0-479a-9b4e-a7ee216795ba"
+                },
+                {
+                  "id": "4a656129-202e-49e8-9b72-11b44c42300a",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-4a656129-202e-49e8-9b72-11b44c42300a"
+                },
+                {
+                  "id": "643f4443-f12a-4d30-9239-213326ad2b43",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-643f4443-f12a-4d30-9239-213326ad2b43"
+                },
+                {
+                  "id": "76707f07-ab7e-4f71-9e61-393724a4eaeb",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-76707f07-ab7e-4f71-9e61-393724a4eaeb"
+                }
+              ],
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-eacc241b-da50-449c-8cb6-cf10bee21eec"
+            },
+            {
+              "name": "Update department",
+              "id": "475c5349-4a38-4525-888f-23b14671bf83",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department/:departmentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department",
+                    ":departmentId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5ce688cd-a8b9-4af0-8a0e-e7d2e9183c79",
+                      "key": "departmentId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6c208b3f-d077-4bbf-8eaf-10894d06e1ff",
+                  "name": "No Content",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-6c208b3f-d077-4bbf-8eaf-10894d06e1ff"
+                },
+                {
+                  "id": "263e687d-b877-4bdc-b10d-273d546357c0",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-263e687d-b877-4bdc-b10d-273d546357c0"
+                },
+                {
+                  "id": "49756337-5dd0-4987-9e64-4d843f16875b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-49756337-5dd0-4987-9e64-4d843f16875b"
+                },
+                {
+                  "id": "da2405d7-74e6-431a-960e-c2b7ff3dd144",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-da2405d7-74e6-431a-960e-c2b7ff3dd144"
+                }
+              ],
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-475c5349-4a38-4525-888f-23b14671bf83"
+            },
+            {
+              "name": "Delete department",
+              "id": "0e17f12b-8426-4109-ab60-f0c52e270c87",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/department/:departmentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department",
+                    ":departmentId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "fbba7728-91f5-436d-835b-11bbd7a6ed1f",
+                      "key": "departmentId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b0d7f3bd-7f25-41e7-8dff-b41ebd9ff429",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-b0d7f3bd-7f25-41e7-8dff-b41ebd9ff429"
+                },
+                {
+                  "id": "b9a29c00-9646-4523-bc32-1f53ba6312c3",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-b9a29c00-9646-4523-bc32-1f53ba6312c3"
+                },
+                {
+                  "id": "a3f89442-629b-492f-aefa-9c3d0a83686e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-a3f89442-629b-492f-aefa-9c3d0a83686e"
+                },
+                {
+                  "id": "0a79ff3a-8943-4cf9-9152-28165bf1a78b",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/department/:departmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "department",
+                        ":departmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "departmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-0a79ff3a-8943-4cf9-9152-28165bf1a78b"
+                }
+              ],
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-0e17f12b-8426-4109-ab60-f0c52e270c87"
+            }
+          ],
+          "id": "d2614c73-a156-4e34-bfae-1777ac3da8ee",
+          "createdAt": "2026-10-21T20:35:39.000Z",
+          "updatedAt": "2026-10-21T20:35:39.000Z",
+          "uid": "35240-d2614c73-a156-4e34-bfae-1777ac3da8ee"
+        },
+        {
+          "name": "{parentId}",
+          "item": [
+            {
+              "name": "department",
+              "item": [
+                {
+                  "name": "move",
+                  "item": [
+                    {
+                      "name": "Move departments to parent department",
+                      "id": "04b53729-776b-465b-af51-5a99f6c28c53",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/department/:parentId/department/move",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "department",
+                            ":parentId",
+                            "department",
+                            "move"
+                          ],
+                          "variable": [
+                            {
+                              "id": "853643bb-5691-4d50-9594-a9cc01a2257c",
+                              "key": "parentId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7d5edc70-3544-43e0-aaeb-44f38734ed23",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:parentId/department/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":parentId",
+                                "department",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "parentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-7d5edc70-3544-43e0-aaeb-44f38734ed23"
+                        },
+                        {
+                          "id": "32904b6a-2ea1-418e-a447-62465036cc26",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:parentId/department/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":parentId",
+                                "department",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "parentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-32904b6a-2ea1-418e-a447-62465036cc26"
+                        },
+                        {
+                          "id": "07c72879-449e-481b-a403-37f88ab90798",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:parentId/department/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":parentId",
+                                "department",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "parentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-07c72879-449e-481b-a403-37f88ab90798"
+                        },
+                        {
+                          "id": "2f3be2ed-ae07-46df-8a36-dd185b411c2e",
+                          "name": "Permission Denied",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:parentId/department/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":parentId",
+                                "department",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "parentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-2f3be2ed-ae07-46df-8a36-dd185b411c2e"
+                        },
+                        {
+                          "id": "1bb5c55d-ca02-454a-8e2d-fe66a8293f30",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/department/:parentId/department/move",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "department",
+                                ":parentId",
+                                "department",
+                                "move"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "parentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:35:39.000Z",
+                          "updatedAt": "2026-10-21T20:35:39.000Z",
+                          "uid": "35240-1bb5c55d-ca02-454a-8e2d-fe66a8293f30"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:35:39.000Z",
+                      "updatedAt": "2026-10-21T20:35:39.000Z",
+                      "uid": "35240-04b53729-776b-465b-af51-5a99f6c28c53"
+                    }
+                  ],
+                  "id": "4a82d792-19c6-40f7-9bcc-3daa18fe18e0",
+                  "createdAt": "2026-10-21T20:35:39.000Z",
+                  "updatedAt": "2026-10-21T20:35:39.000Z",
+                  "uid": "35240-4a82d792-19c6-40f7-9bcc-3daa18fe18e0"
+                }
+              ],
+              "id": "07118a92-e881-43de-a6ee-9573ebecaddb",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-07118a92-e881-43de-a6ee-9573ebecaddb"
+            }
+          ],
+          "id": "71e5738e-f9a4-4712-93bb-ae81afec513f",
+          "createdAt": "2026-10-21T20:35:39.000Z",
+          "updatedAt": "2026-10-21T20:35:39.000Z",
+          "uid": "35240-71e5738e-f9a4-4712-93bb-ae81afec513f"
+        },
+        {
+          "name": "Get department list",
+          "id": "a76458b5-e8e3-43af-9b88-440c6d85452e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "59f99d5c-a0a5-4fed-8f69-b4c4fd769f72",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "code",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"departments\": [\n    {\n      \"departmentId\": \"60aa76fe-0958-e01e-f942-a77f7ff83c48\",\n      \"name\": \"string\",\n      \"subordination\": {\n        \"subordinationType\": \"no_supervisor\",\n        \"supervisorId\": \"string\"\n      },\n      \"coSubordination\": {\n        \"subordinationType\": \"inherit\",\n        \"supervisorId\": \"string\"\n      },\n      \"parentDepartmentId\": \"89f56797-d54e-2b44-8b9f-9c7dd9fa5ff6\",\n      \"code\": \"string\"\n    },\n    {\n      \"departmentId\": \"ce2b1ce7-bfa2-f147-eaed-60cdbb6546de\",\n      \"name\": \"string\",\n      \"subordination\": {\n        \"subordinationType\": \"inherit\",\n        \"supervisorId\": \"string\"\n      },\n      \"coSubordination\": {\n        \"subordinationType\": \"no_supervisor\",\n        \"supervisorId\": \"string\"\n      },\n      \"parentDepartmentId\": \"5cb174cb-9298-8b7c-d55d-b68246831739\",\n      \"code\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0bcbe209-3ead-4b13-818e-c5a66b8c6a32",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "code",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6d607067-78a9-4a4c-9c28-7ac4dca54e77",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "code",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4b0b21a8-e1a4-4c92-be7e-51b968e54d58",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "code",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0f072ac0-7ebf-40bc-9d5a-af38c68ad445",
-          "name": "Add a new department",
-          "request": {
-            "name": "Add a new department",
-            "description": {},
             "url": {
-              "path": [
-                "department"
-              ],
+              "raw": "{{baseUrl}}/department?code=<string>",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": []
+              "path": [
+                "department"
+              ],
+              "query": [
+                {
+                  "key": "code",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c445dd5e-814c-488b-be2c-143d667fa21f",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/department?code=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"departments\": [\n    {\n      \"departmentId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"subordination\": {\n        \"subordinationType\": \"inherit\",\n        \"supervisorId\": \"<string>\"\n      },\n      \"coSubordination\": {\n        \"subordinationType\": \"inherit\",\n        \"supervisorId\": \"<string>\"\n      },\n      \"parentDepartmentId\": \"<uuid>\",\n      \"code\": \"<string>\"\n    },\n    {\n      \"departmentId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"subordination\": {\n        \"subordinationType\": \"manual\",\n        \"supervisorId\": \"<string>\"\n      },\n      \"coSubordination\": {\n        \"subordinationType\": \"inherit\",\n        \"supervisorId\": \"<string>\"\n      },\n      \"parentDepartmentId\": \"<uuid>\",\n      \"code\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-c445dd5e-814c-488b-be2c-143d667fa21f"
             },
+            {
+              "id": "bdcde67a-5545-4e0e-9a9a-3860e24d6a1f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/department?code=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-bdcde67a-5545-4e0e-9a9a-3860e24d6a1f"
+            },
+            {
+              "id": "eec7aa3f-3335-4409-bbaf-a5dd0ca525fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/department?code=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-eec7aa3f-3335-4409-bbaf-a5dd0ca525fb"
+            },
+            {
+              "id": "a4690287-796b-47af-88fb-92ba62563ab8",
+              "name": "Permission Denied",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/department?code=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-a4690287-796b-47af-88fb-92ba62563ab8"
+            }
+          ],
+          "createdAt": "2026-10-21T20:35:39.000Z",
+          "updatedAt": "2026-10-21T20:35:39.000Z",
+          "uid": "35240-a76458b5-e8e3-43af-9b88-440c6d85452e"
+        },
+        {
+          "name": "Add a new department",
+          "id": "191cba55-8410-4cf4-b319-715f507d2eeb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
               {
-                "disabled": false,
                 "key": "X-Return-Object",
-                "value": "<boolean>",
-                "description": ""
+                "value": "<boolean>"
               },
               {
-                "disabled": false,
                 "key": "X-Name",
-                "value": "<string>",
-                "description": ""
+                "value": "<string>"
               },
               {
-                "disabled": false,
                 "key": "X-Parent-Department-Id",
-                "value": "<uuid>",
-                "description": ""
+                "value": "<uuid>"
               },
               {
-                "disabled": false,
                 "key": "X-Code",
-                "value": "<string>",
-                "description": ""
+                "value": "<string>"
               },
               {
                 "key": "Content-Type",
@@ -288,2138 +2112,325 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department"
+              ]
             }
           },
           "response": [
             {
-              "id": "3df20a36-4fb0-4f06-860d-c3c88510a765",
+              "id": "e2ceb400-aa6c-4a9a-88ee-3a30b8c94843",
               "name": "Created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "disabled": false,
                     "key": "X-Return-Object",
-                    "value": "<boolean>",
-                    "description": ""
+                    "value": "<boolean>"
                   },
                   {
-                    "disabled": false,
                     "key": "X-Name",
-                    "value": "<string>",
-                    "description": ""
+                    "value": "<string>"
                   },
                   {
-                    "disabled": false,
                     "key": "X-Parent-Department-Id",
-                    "value": "<uuid>",
-                    "description": ""
+                    "value": "<uuid>"
                   },
                   {
-                    "disabled": false,
                     "key": "X-Code",
-                    "value": "<string>",
-                    "description": ""
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "\"be1ee874-eed7-7933-56d1-a6270afecfae\"",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "<uuid>",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-e2ceb400-aa6c-4a9a-88ee-3a30b8c94843"
             },
             {
-              "id": "992bc1b9-03b3-4cad-9b6b-ebf320c42e96",
+              "id": "b1d68592-b7e2-473d-b0ff-e68eb6733800",
               "name": "Bad Request",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Return-Object",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "key": "X-Name",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Parent-Department-Id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "X-Code",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/department",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Return-Object",
-                    "value": "<boolean>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Name",
-                    "value": "<string>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Parent-Department-Id",
-                    "value": "<uuid>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Code",
-                    "value": "<string>",
-                    "description": ""
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
+                  ]
                 }
               },
               "status": "Bad Request",
               "code": 400,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-b1d68592-b7e2-473d-b0ff-e68eb6733800"
             },
             {
-              "id": "96b3a628-696f-45d6-9ca8-3bfe9d0b228d",
+              "id": "d0464467-12f4-4a37-84c6-4339da15d6a8",
               "name": "Unauthorized",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Return-Object",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "key": "X-Name",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Parent-Department-Id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "X-Code",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/department",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Return-Object",
-                    "value": "<boolean>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Name",
-                    "value": "<string>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Parent-Department-Id",
-                    "value": "<uuid>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Code",
-                    "value": "<string>",
-                    "description": ""
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
+                  ]
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-d0464467-12f4-4a37-84c6-4339da15d6a8"
             },
             {
-              "id": "6de30c2c-9e7f-402b-b8e4-b3a7c1aa7975",
+              "id": "4404a4d2-6979-4bcb-919c-dd4227b66142",
               "name": "Permission Denied",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Return-Object",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "key": "X-Name",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Parent-Department-Id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "X-Code",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/department",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "department"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Return-Object",
-                    "value": "<boolean>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Name",
-                    "value": "<string>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Parent-Department-Id",
-                    "value": "<uuid>",
-                    "description": ""
-                  },
-                  {
-                    "disabled": false,
-                    "key": "X-Code",
-                    "value": "<string>",
-                    "description": ""
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
+                  ]
                 }
               },
               "status": "Forbidden",
               "code": 403,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:35:39.000Z",
+              "updatedAt": "2026-10-21T20:35:39.000Z",
+              "uid": "35240-4404a4d2-6979-4bcb-919c-dd4227b66142"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ce085a3a-1d2a-4d4d-b890-8346eb768c14",
-          "name": "Get department info",
-          "request": {
-            "name": "Get department info",
-            "description": {},
-            "url": {
-              "path": [
-                "department",
-                ":departmentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "departmentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fb1e8820-2f7a-44a7-9909-8caf286f4f32",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"response\": {\n    \"departmentId\": \"c4ac4a6f-e1fc-0339-8551-a6483c4dd878\",\n    \"name\": \"string\",\n    \"subordination\": {\n      \"subordinationType\": \"manual\",\n      \"supervisorId\": \"string\"\n    },\n    \"coSubordination\": {\n      \"subordinationType\": \"inherit\",\n      \"supervisorId\": \"string\"\n    },\n    \"parentDepartmentId\": \"2a940a92-b63a-a28c-2af6-1f64563e7be0\",\n    \"code\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "27ff5005-eab4-4826-b134-d9b5da5643b8",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5c92a6ed-a5d2-4405-82f5-07257c5b932f",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4ebe1389-15b8-4089-b636-9652a4e9dddf",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7eec8d60-1e85-409e-ae26-806c479defce",
-          "name": "Update department",
-          "request": {
-            "name": "Update department",
-            "description": {},
-            "url": {
-              "path": [
-                "department",
-                ":departmentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "departmentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "bdd18df6-693f-4e75-8533-96f649691233",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c8b72579-1a67-466a-9be0-305efe05d1af",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0a8fedc6-2ab3-4536-9e74-1b45c43df5b3",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d7067abf-dd9d-49ac-91a0-73592a47930a",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"parentDepartmentId\": \"<uuid>\",\n  \"code\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "057d0a46-2c85-4754-bb3a-0cdc94a156ef",
-          "name": "Delete department",
-          "request": {
-            "name": "Delete department",
-            "description": {},
-            "url": {
-              "path": [
-                "department",
-                ":departmentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "departmentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "537ecaf8-4635-42a6-b298-6c98f92ee32f",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "b3c67970-e0e0-483d-aa86-979828435b9f",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e19c6fab-6ada-4157-a69c-a389ca3a1837",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0f227176-3aed-461d-aae4-9baea2dc13db",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4d66ea92-f73d-4b7e-a690-26cf11afbfc6",
-          "name": "Change department subordination",
-          "request": {
-            "name": "Change department subordination",
-            "description": {},
-            "url": {
-              "path": [
-                "department",
-                ":departmentId",
-                "subordination"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "departmentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "8428bfa2-2a69-4d3c-aeb2-043f58836fa3",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "subordination"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e3cd1aef-c524-4d94-9ca3-aea79a74ddf4",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "subordination"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1c6a62a8-96d1-49fe-8183-ac0c36cfbcd6",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "subordination"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "063e1d56-55f1-47f0-bf36-96d85b6363ef",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "subordination"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"subordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  },\n  \"coSubordination\": {\n    \"subordinationType\": \"<string>\",\n    \"supervisorId\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fc570bd8-1105-494d-8805-766342ac6749",
-          "name": "Move users to department",
-          "request": {
-            "name": "Move users to department",
-            "description": {},
-            "url": {
-              "path": [
-                "department",
-                ":departmentId",
-                "user",
-                "move"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "departmentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b4c3c7a4-eb8e-49b8-be02-be6a85f628db",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "user",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "8b3e0c50-70cd-49df-82ab-0868ad3321e1",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "user",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8087d917-a7b4-41c4-ba06-7b4d098eaba2",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "user",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ca3e70f0-6e0b-4cb3-a2a1-ed818c3f1751",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "user",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c0bf116b-e129-4a61-9362-d01d825c97b7",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":departmentId",
-                    "user",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "departmentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"userIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "864fb8fb-c37e-4af9-a716-a84db32bfa03",
-          "name": "Move departments to parent department",
-          "request": {
-            "name": "Move departments to parent department",
-            "description": {},
-            "url": {
-              "path": [
-                "department",
-                ":parentId",
-                "department",
-                "move"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "parentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "c8930ad8-fbb7-4d84-a1ad-cdb98c8e7991",
-              "name": "Successful operation",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":parentId",
-                    "department",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "parentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "71d7f109-e4f8-4166-97f2-66d831dbd036",
-              "name": "Bad Request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":parentId",
-                    "department",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "parentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "867b44df-460b-41cb-8c9d-80072a8fab89",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":parentId",
-                    "department",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "parentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c7fadfc3-ce36-4906-b316-cb4f4279cc56",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":parentId",
-                    "department",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "parentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "afb9c5b7-c402-4ef7-90b1-89c83fe8020f",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "department",
-                    ":parentId",
-                    "department",
-                    "move"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "parentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"departmentIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7650,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T20:35:39.000Z",
+          "updatedAt": "2026-10-21T20:35:39.000Z",
+          "uid": "35240-191cba55-8410-4cf4-b319-715f507d2eeb"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "7c45d16c-c5a8-4f9a-a9df-bc8790403097",
+      "createdAt": "2026-10-21T20:35:39.000Z",
+      "updatedAt": "2026-10-21T20:35:39.000Z",
+      "uid": "35240-7c45d16c-c5a8-4f9a-a9df-bc8790403097"
     }
   ],
   "auth": {
@@ -2427,17 +2438,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "14b5078f-1646-46f7-8210-ccba9ad4afc0",
-    "name": "Learn Rest Api assignments department API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }

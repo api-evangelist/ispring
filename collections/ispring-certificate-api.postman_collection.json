@@ -1,324 +1,311 @@
 {
+  "info": {
+    "_postman_id": "59fbad88-ff35-4594-8776-ea59171bfe75",
+    "name": "Learn Rest Certificate API",
+    "description": "Certificate operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:35:27.000Z",
+    "updatedAt": "2026-10-21T20:35:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-59fbad88-ff35-4594-8776-ea59171bfe75"
+  },
   "item": [
     {
-      "id": "45d13452-667f-494a-83bf-870a4c224fa0",
       "name": "certificate",
-      "description": {
-        "content": "Certificate operations",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "fdcb04ad-9b1b-4ca3-a4d4-054d3ef09d82",
-          "name": "Retrieves issued certificate information",
-          "request": {
-            "name": "Retrieves issued certificate information",
-            "description": {},
-            "url": {
-              "path": [
-                "certificate",
-                ":issuedCertificateId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "issuedCertificateId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{issuedCertificateId}",
+          "item": [
             {
-              "id": "d6941e74-6a95-4a26-8484-166593bd9f2e",
-              "name": "Success Response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "certificate",
-                    ":issuedCertificateId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "issuedCertificateId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
+              "name": "Retrieves issued certificate information",
+              "id": "14e01570-d451-45f0-bc51-edf18913cb11",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d439e0cb-546d-42d1-8b22-d6bff7a4a90e",
-              "name": "Bad Request",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/certificate/:issuedCertificateId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "certificate",
                     ":issuedCertificateId"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
+                      "id": "e3dea0ac-7b34-49c1-a750-4fa115814cc7",
                       "key": "issuedCertificateId",
+                      "value": "<string>",
                       "description": "(Required) "
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
                 }
-              ],
-              "body": "{\n  \"code\": 2794,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e8197a4b-35c5-4051-962d-f5e45a4a2239",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "certificate",
-                    ":issuedCertificateId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "issuedCertificateId",
-                      "description": "(Required) "
+              },
+              "response": [
+                {
+                  "id": "be971ffd-0299-4766-836f-ad1bf42eebe7",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificate/:issuedCertificateId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificate",
+                        ":issuedCertificateId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "issuedCertificateId"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2794,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6c3dedae-87be-4535-a2a4-83440a0e8488",
-              "name": "Permission Denied",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "certificate",
-                    ":issuedCertificateId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "issuedCertificateId",
-                      "description": "(Required) "
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"url\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:28.000Z",
+                  "updatedAt": "2026-10-21T20:35:28.000Z",
+                  "uid": "35240-be971ffd-0299-4766-836f-ad1bf42eebe7"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2794,\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d15cab14-bcb7-41fb-b4ad-1e842f719cff",
-              "name": "Not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "certificate",
-                    ":issuedCertificateId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "id": "65403ced-6f7a-4b0e-9d0c-fb07404a6cd6",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificate/:issuedCertificateId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificate",
+                        ":issuedCertificateId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "issuedCertificateId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "issuedCertificateId",
-                      "description": "(Required) "
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:28.000Z",
+                  "updatedAt": "2026-10-21T20:35:28.000Z",
+                  "uid": "35240-65403ced-6f7a-4b0e-9d0c-fb07404a6cd6"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "858c7001-0ed1-48d0-8197-a229a775a02b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificate/:issuedCertificateId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificate",
+                        ":issuedCertificateId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "issuedCertificateId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:28.000Z",
+                  "updatedAt": "2026-10-21T20:35:28.000Z",
+                  "uid": "35240-858c7001-0ed1-48d0-8197-a229a775a02b"
+                },
+                {
+                  "id": "2971f9e3-7e1c-4e99-a2a6-c4e99416a942",
+                  "name": "Permission Denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificate/:issuedCertificateId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificate",
+                        ":issuedCertificateId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "issuedCertificateId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:35:28.000Z",
+                  "updatedAt": "2026-10-21T20:35:28.000Z",
+                  "uid": "35240-2971f9e3-7e1c-4e99-a2a6-c4e99416a942"
+                },
+                {
+                  "id": "72eb86b9-6449-4a18-82a8-625d57f11cff",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificate/:issuedCertificateId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificate",
+                        ":issuedCertificateId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "issuedCertificateId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-21T20:35:28.000Z",
+                  "updatedAt": "2026-10-21T20:35:28.000Z",
+                  "uid": "35240-72eb86b9-6449-4a18-82a8-625d57f11cff"
                 }
               ],
-              "body": "Issued certificate not found",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:35:28.000Z",
+              "updatedAt": "2026-10-21T20:35:28.000Z",
+              "uid": "35240-14e01570-d451-45f0-bc51-edf18913cb11"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "e86d25db-f41a-4468-b5f0-bd27a36cb248",
+          "createdAt": "2026-10-21T20:35:28.000Z",
+          "updatedAt": "2026-10-21T20:35:28.000Z",
+          "uid": "35240-e86d25db-f41a-4468-b5f0-bd27a36cb248"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-learn.ispring.com",
-      "key": "baseUrl"
+      "id": "16b5f795-61d9-4b05-bff1-2644dd21e399",
+      "createdAt": "2026-10-21T20:35:28.000Z",
+      "updatedAt": "2026-10-21T20:35:28.000Z",
+      "uid": "35240-16b5f795-61d9-4b05-bff1-2644dd21e399"
     }
   ],
   "auth": {
@@ -326,17 +313,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "3eb84220-23bc-46af-9449-9d43573fa89c",
-    "name": "Learn Rest Api assignments certificate API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Assignment operations",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-learn.ispring.com"
     }
-  }
+  ]
 }
