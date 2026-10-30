@@ -64,42 +64,196 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-iSpring Learn is a cloud-based eLearning platform and Learning Management System (LMS) that provides a REST API for managing courses, users, groups, departments, enrollments, learning paths, and accessing detailed learner progress reports. The API supports content management, assignment grading, 360-degree performance reviews, on-the-job training, and event-driven webhooks.
+iSpring Learn is an eLearning platform and LMS that provides a REST API for managing courses, users, groups, departments, enrollments, learning paths, and accessing detailed learner progress reports. The API supports content management, assignment grading, 360-degree performance reviews, on-the-job training, and event-driven webhooks. API access requires a Business subscription.
 
-## API Access
+**Areas:** E-Learning · LMS · Training · Courses · Enrollment · User · Group · Reporting · Webhook · SCORM · Corporate Training
 
-REST API access is available exclusively on the **Business subscription** tier ($3.14/user/month, billed annually). The platform also provides a SOAP API and webhook support on the Business plan.
+## iSpring Learn on APIs.io
 
-**API Hosts:**
-- Global (US): `https://api-learn.ispringlearn.com`
-- EU Region: `https://api-learn.ispringlearn.eu`
+Everything profiled for iSpring Learn is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ispring/](https://apis.io/providers/ispring/)** — or go straight to one of the APIs or properties below.
 
-**Authentication:** OAuth 2.0 Client Credentials Grant (POST `/api/v3/token` with `client_id` and `client_secret`)
+### APIs (20)
 
-**API Specification:** OpenAPI 3.0.0 — https://api-learn.ispringlearn.com/docs/rest-api
+- [iSpring Learn Assignments API](https://apis.io/apis/ispring/ispring-assignments-api/) — Assignment operations
+- [iSpring Learn Certificate API](https://apis.io/apis/ispring/ispring-certificate-api/) — Certificate operations
+- [iSpring Learn Content API](https://apis.io/apis/ispring/ispring-content-api/) — Content operations
+- [iSpring Learn Department API](https://apis.io/apis/ispring/ispring-department-api/) — Department operations
+- [iSpring Learn Departments API](https://apis.io/apis/ispring/ispring-departments-api/) — The departments API from iSpring Learn — 1 operation(s) for departments.
+- [iSpring Learn Enrollment API](https://apis.io/apis/ispring/ispring-enrollment-api/) — Enrollment operations
+- [iSpring Learn Gamification API](https://apis.io/apis/ispring/ispring-gamification-api/) — Gamification operations
+- [iSpring Learn Group API](https://apis.io/apis/ispring/ispring-group-api/) — Group operations
+- [iSpring Learn Jobtraining API](https://apis.io/apis/ispring/ispring-jobtraining-api/) — The jobtraining API from iSpring Learn — 4 operation(s) for jobtraining.
+- [iSpring Learn Learning Track API](https://apis.io/apis/ispring/ispring-learning-track-api/) — Learning track operations
+- [iSpring Learn Performance Management API](https://apis.io/apis/ispring/ispring-performance-management-api/) — The performance-management API from iSpring Learn — 37 operation(s) for performance-management.
+- [iSpring Learn Quizzes API](https://apis.io/apis/ispring/ispring-quizzes-api/) — The quizzes API from iSpring Learn — 2 operation(s) for quizzes.
+- [iSpring Learn Report API](https://apis.io/apis/ispring/ispring-report-api/) — The report API from iSpring Learn — 2 operation(s) for report.
+- [iSpring Learn Results API](https://apis.io/apis/ispring/ispring-results-api/) — User result data operations
+- [iSpring Learn Statistics API](https://apis.io/apis/ispring/ispring-statistics-api/) — The statistics API from iSpring Learn — 2 operation(s) for statistics.
+- [iSpring Learn Task API](https://apis.io/apis/ispring/ispring-task-api/) — Async method operations
+- [iSpring Learn Token API](https://apis.io/apis/ispring/ispring-token-api/) — Retrieve access tokens
+- [iSpring Learn Training API](https://apis.io/apis/ispring/ispring-training-api/) — Training operations
+- [iSpring Learn User API](https://apis.io/apis/ispring/ispring-user-api/) — User operations
+- [iSpring Learn Webhook API](https://apis.io/apis/ispring/ispring-webhook-api/) — The webhook API from iSpring Learn — 11 operation(s) for webhook.
 
-## Key Capabilities
+### Published properties
 
-- User, group, and department management
-- Course and content management (SCORM, HTML5)
-- Enrollment creation and tracking
-- Learner progress statistics and analytics reporting
-- Assignment grading and ungraded submission retrieval
-- 360-degree performance reviews and appraisal sessions
-- On-the-job training management
-- Webhook event notifications (SHA-256 signed via X-Hub-Signature header)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Links
+#### Agentic access (1)
 
-- **Documentation:** https://ispringhelpdocs.com/ispring-learn/api-documentation-10685383.html
-- **REST API Docs:** https://ispringhelpdocs.com/ispring-learn/rest-api-10684924.html
-- **Webhook Docs:** https://ispringhelpdocs.com/ispring-learn/webhook-62863671.html
-- **Integration Guide:** https://www.ispringsolutions.com/articles/integration-of-ispring-learn-with-your-system
-- **Pricing:** https://www.ispring.com/pricing
-- **Changelog:** https://www.ispring.com/whats-new
-- **Support:** https://www.ispringsolutions.com/support
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Contact
+- [Ispring Agentic Access](https://apis.io/agentic-access/ispring/ispring-agentic-access/)
 
-- **Support Phone:** +1 800 640 0868
-- **Sales Phone:** +1 844 347 7764
+#### JSON Schema (194)
+
+The data models the API reads and writes.
+
+- [ActiveUsersByPeriod](https://apis.io/schemas/ispring/ActiveUsersByPeriod/)
+- [AddAppraisalQuestionRequest](https://apis.io/schemas/ispring/AddAppraisalQuestionRequest/)
+- [AddAppraisalSessionEmployeeCardsRequest](https://apis.io/schemas/ispring/AddAppraisalSessionEmployeeCardsRequest/)
+- [AddAppraisalSessionPermissionsRequest](https://apis.io/schemas/ispring/AddAppraisalSessionPermissionsRequest/)
+- [AndSmartGroupRuleNode](https://apis.io/schemas/ispring/AndSmartGroupRuleNode/)
+- [AnswerBreakdownResult](https://apis.io/schemas/ispring/AnswerBreakdownResult/)
+- [AnswerBreakdownResultsPage](https://apis.io/schemas/ispring/AnswerBreakdownResultsPage/)
+- [AppraisalQuestion](https://apis.io/schemas/ispring/AppraisalQuestion/)
+- [AppraisalSession](https://apis.io/schemas/ispring/AppraisalSession/)
+- [AppraisalSessionContentCommentsRequirementLevel](https://apis.io/schemas/ispring/AppraisalSessionContentCommentsRequirementLevel/)
+- [AppraisalSessionContentCompetencies](https://apis.io/schemas/ispring/AppraisalSessionContentCompetencies/)
+- [AppraisalSessionContentCompetency](https://apis.io/schemas/ispring/AppraisalSessionContentCompetency/)
+- [AppraisalSessionContentCompetencyReviewMethod](https://apis.io/schemas/ispring/AppraisalSessionContentCompetencyReviewMethod/)
+- [AppraisalSessionContentIndicatorData](https://apis.io/schemas/ispring/AppraisalSessionContentIndicatorData/)
+- [AppraisalSessionContentRequiredLevelData](https://apis.io/schemas/ispring/AppraisalSessionContentRequiredLevelData/)
+- [AppraisalSessionContentScale](https://apis.io/schemas/ispring/AppraisalSessionContentScale/)
+- [AppraisalSessionContentScaleLevelData](https://apis.io/schemas/ispring/AppraisalSessionContentScaleLevelData/)
+- [AppraisalSessionEmployeeCard](https://apis.io/schemas/ispring/AppraisalSessionEmployeeCard/)
+- [AppraisalSessionEmployeeCompetencyResults](https://apis.io/schemas/ispring/AppraisalSessionEmployeeCompetencyResults/)
+- [AppraisalSessionEmployeeDetailedCard](https://apis.io/schemas/ispring/AppraisalSessionEmployeeDetailedCard/)
+- [AppraisalSessionEmployeeIndicatorResults](https://apis.io/schemas/ispring/AppraisalSessionEmployeeIndicatorResults/)
+- [AppraisalSessionEmployeeResults](https://apis.io/schemas/ispring/AppraisalSessionEmployeeResults/)
+- [AppraisalSessionInfo](https://apis.io/schemas/ispring/AppraisalSessionInfo/)
+- [AppraisalSessionNotificationSettings](https://apis.io/schemas/ispring/AppraisalSessionNotificationSettings/)
+- [AppraisalSessionReview](https://apis.io/schemas/ispring/AppraisalSessionReview/)
+- …and 169 more published on APIs.io
+
+#### Collections (20)
+
+Postman and Open Collection request collections.
+
+- [Learn Rest Api assignments API](https://apis.io/collections/ispring/open-ispring-assignments-api/)
+- [Learn Rest Api assignments certificate API](https://apis.io/collections/ispring/open-ispring-certificate-api/)
+- [Learn Rest Api assignments content API](https://apis.io/collections/ispring/open-ispring-content-api/)
+- [Learn Rest Api assignments department API](https://apis.io/collections/ispring/open-ispring-department-api/)
+- [Learn Rest Api assignments departments API](https://apis.io/collections/ispring/open-ispring-departments-api/)
+- [Learn Rest Api assignments enrollment API](https://apis.io/collections/ispring/open-ispring-enrollment-api/)
+- [Learn Rest Api assignments gamification API](https://apis.io/collections/ispring/open-ispring-gamification-api/)
+- [Learn Rest Api assignments group API](https://apis.io/collections/ispring/open-ispring-group-api/)
+- [Learn Rest Api assignments jobtraining API](https://apis.io/collections/ispring/open-ispring-jobtraining-api/)
+- [Learn Rest Api assignments learning_track API](https://apis.io/collections/ispring/open-ispring-learning-track-api/)
+- [Learn Rest Api assignments performance-management API](https://apis.io/collections/ispring/open-ispring-performance-management-api/)
+- [Learn Rest Api assignments quizzes API](https://apis.io/collections/ispring/open-ispring-quizzes-api/)
+- [Learn Rest Api assignments report API](https://apis.io/collections/ispring/open-ispring-report-api/)
+- [Learn Rest Api assignments results API](https://apis.io/collections/ispring/open-ispring-results-api/)
+- [Learn Rest Api assignments statistics API](https://apis.io/collections/ispring/open-ispring-statistics-api/)
+- [Learn Rest Api assignments task API](https://apis.io/collections/ispring/open-ispring-task-api/)
+- [Learn Rest Api assignments token API](https://apis.io/collections/ispring/open-ispring-token-api/)
+- [Learn Rest Api assignments training API](https://apis.io/collections/ispring/open-ispring-training-api/)
+- [Learn Rest Api assignments user API](https://apis.io/collections/ispring/open-ispring-user-api/)
+- [Learn Rest Api assignments webhook API](https://apis.io/collections/ispring/open-ispring-webhook-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [iSpring Learn — jsonschema rules](https://apis.io/rules/ispring/ispring-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ispring Authentication](https://apis.io/security/ispring/ispring-authentication/)
+- [Ispring Domain Security](https://apis.io/security/ispring/ispring-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ispring Plans Pricing](https://apis.io/plans/ispring/ispring-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ispring Rate Limits](https://apis.io/rate-limits/ispring/ispring-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ispring Finops](https://apis.io/finops/ispring/ispring-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://ispringhelpdocs.com)
+- [Documentation](https://ispringhelpdocs.com/ispring-learn/api-documentation-10685383.html)
+- [Getting started](https://www.ispringsolutions.com/articles/integration-of-ispring-learn-with-your-system)
+- [Support](https://www.ispringsolutions.com/support)
+- [Changelog](https://www.ispring.com/whats-new)
+- [Blog](https://www.ispringsolutions.com/blog/)
+- [Terms of service](https://www.ispringsolutions.com/services-subscription-agreement)
+- [Privacy policy](https://www.ispringsolutions.com/company/policy/privacy)
+
+## API Evangelist rating
+
+**Kin Score 38.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.6 |
+| Contract governance | 9.8 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 47.6 |
+| Access clarity | 28.9 |
+
+**Agent readiness 30.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | unknown |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.6** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ispring/](https://apis.io/providers/ispring/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for iSpring Learn: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ispring/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
